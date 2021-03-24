@@ -13,12 +13,16 @@ import com.sun.javadoc.LanguageVersion;
 import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.RootDoc;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+
 /**
  * Marklet entry point. This class declares the {@link #start(RootDoc)} method required by the
  * doclet API in order to be called by the javadoc tool.
  *
  * @author fv
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public final class Marklet {
 
   /** Command line options that have been parsed. * */
@@ -26,17 +30,6 @@ public final class Marklet {
 
   /** Documentation root provided by the doclet API. * */
   private final RootDoc root;
-
-  /**
-   * Default constructor.
-   *
-   * @param options Command line options that have been parsed.
-   * @param root Documentation root provided by the doclet API.
-   */
-  private Marklet(final MarkletOptions options, final RootDoc root) {
-    this.root = root;
-    this.options = options;
-  }
 
   /**
    * Builds and retrieves the path for the directory associated to the package with the given
@@ -57,7 +50,8 @@ public final class Marklet {
    * @param packageDoc Package to generate documentation for.
    * @throws IOException If any error occurs while creating file or directories.
    */
-  private void generatePackage(final PackageDoc packageDoc) throws IOException {
+  private void generatePackage(final PackageDoc packageDoc, final boolean createBadge)
+      throws IOException {
     final String name = packageDoc.name();
     root.printNotice("Generates package documentation for " + name);
     if (!name.isEmpty()) {
@@ -65,7 +59,7 @@ public final class Marklet {
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      PackagePageBuilder.build(packageDoc, directoryPath);
+      PackagePageBuilder.build(packageDoc, directoryPath, createBadge);
     }
   }
 
@@ -81,7 +75,7 @@ public final class Marklet {
       final PackageDoc packageDoc = classDoc.containingPackage();
       if (!packages.contains(packageDoc)) {
         packages.add(packageDoc);
-        generatePackage(packageDoc);
+        generatePackage(packageDoc, options.isBadgeNeeded());
       }
     }
   }
@@ -97,7 +91,7 @@ public final class Marklet {
       final String packageName = packageDoc.name();
       final Path packageDirectory = getPackageDirectory(packageName);
       root.printNotice("Generates documentation for " + classDoc.name());
-      ClassPageBuilder.build(classDoc, packageDirectory);
+      ClassPageBuilder.build(classDoc, packageDirectory, options.isBadgeNeeded());
     }
   }
 

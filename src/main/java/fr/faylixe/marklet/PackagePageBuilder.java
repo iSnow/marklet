@@ -98,12 +98,13 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    * @param directoryPath Path of the directory to write documentation in.
    * @throws IOException If any error occurs while writing package page.
    */
-  public static void build(final PackageDoc packageDoc, final Path directoryPath)
+  public static void build(
+      final PackageDoc packageDoc, final Path directoryPath, final boolean createBadge)
       throws IOException {
     final PackagePageBuilder packageBuilder = new PackagePageBuilder(packageDoc);
     packageBuilder.header();
     packageBuilder.indexes();
     final Path path = directoryPath.resolve(MarkletConstant.README_FILE);
-    packageBuilder.build(path);
+    packageBuilder.build(path, createBadge);
   }
 }

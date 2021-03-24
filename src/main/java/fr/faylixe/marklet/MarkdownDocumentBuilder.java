@@ -1,7 +1,10 @@
 package fr.faylixe.marklet;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 /**
- * This class aims to build Markdown document. It is built in a top of a {@link StringBuffer}
+ * This class aims to build Markdown document. It is built in a top of a {@link StringBuilder}
  * instance which will contains our document content.
  *
  * @author fv
@@ -107,7 +110,7 @@ public class MarkdownDocumentBuilder {
   }
 
   /**
-   * Apppends this given `text` to the current document with a code decoration.
+   * Appends this given `text` to the current document with a code decoration.
    *
    * @param text code snippet to add to the document
    */
@@ -152,10 +155,9 @@ public class MarkdownDocumentBuilder {
    * @param level Level of the header to start.
    */
   public final void header(final int level) {
-    for (int i = 0; i < level; i++) {
-      buffer.append('#');
-    }
-    buffer.append(' ');
+
+    buffer.append(
+        IntStream.range(0, level).mapToObj(i -> "#").collect(Collectors.joining("", "", " ")));
   }
 
   /**
@@ -209,12 +211,14 @@ public class MarkdownDocumentBuilder {
   public final void tableHeader(final String... headers) {
     tableRow(headers);
     startTableRow();
-    for (int i = 0; i < headers.length; i++) {
-      buffer.append(HR);
-      if (i < headers.length - 1) {
-        cell();
-      }
-    }
+    IntStream.range(0, headers.length)
+        .forEach(
+            i -> {
+              buffer.append(HR);
+              if (i < headers.length - 1) {
+                cell();
+              }
+            });
     endTableRow();
     newLine();
   }
@@ -226,12 +230,14 @@ public class MarkdownDocumentBuilder {
    */
   public final void tableRow(final String... cells) {
     startTableRow();
-    for (int i = 0; i < cells.length; i++) {
-      buffer.append(cells[i]);
-      if (i < cells.length - 1) {
-        cell();
-      }
-    }
+    IntStream.range(0, cells.length)
+        .forEach(
+            i -> {
+              buffer.append(cells[i]);
+              if (i < cells.length - 1) {
+                cell();
+              }
+            });
     endTableRow();
     newLine();
   }
