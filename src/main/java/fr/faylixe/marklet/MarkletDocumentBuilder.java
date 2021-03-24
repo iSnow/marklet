@@ -3,6 +3,7 @@ package fr.faylixe.marklet;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -430,11 +431,9 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
    */
   public void build(final Path path, boolean createBadge) throws IOException {
     newLine();
-    if (createBadge) {
-      text(MarkletConstant.BADGE);
-    }
+    if (createBadge) text(MarkletConstant.BADGE);
     final String content = super.build();
-    final InputStream stream = new ByteArrayInputStream(content.getBytes());
+    final InputStream stream = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
     Files.copy(stream, path, StandardCopyOption.REPLACE_EXISTING);
   }
 

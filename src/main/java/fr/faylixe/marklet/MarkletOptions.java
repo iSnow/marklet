@@ -1,5 +1,7 @@
 package fr.faylixe.marklet;
 
+import static java.lang.Boolean.parseBoolean;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -75,7 +77,7 @@ public final class MarkletOptions {
     this.outputDirectory = options.getOrDefault(OUTPUT_DIRECTORY_OPTION, DEFAULT_OUTPUT_DIRECTORY);
     this.fileEnding = options.getOrDefault(FILE_ENDING_OPTION, DEFAULT_FILE_ENDING);
     this.linkEnding = options.getOrDefault(LINK_ENDING_OPTION, DEFAULT_LINK_ENDING);
-    this.badgeNeeded = Boolean.parseBoolean(options.getOrDefault(CREATE_BADGE_OPTION, "false"));
+    this.badgeNeeded = parseBoolean(options.getOrDefault(CREATE_BADGE_OPTION, "false"));
   }
 
   /**
