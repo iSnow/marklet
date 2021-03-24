@@ -138,6 +138,7 @@ public final class MarkletOptions {
 		for (final String [] option : root.options()) {
 			options.put(option[0], option[1]);
 		}
+
 		return new MarkletOptions(options);
 	}
 

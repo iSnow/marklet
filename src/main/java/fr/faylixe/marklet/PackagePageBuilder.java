@@ -73,7 +73,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
     startTableRow();
     classLink(packageDoc, classDoc);
     cell();
-    text(classDoc.commentText().replaceAll("\\n", " ").replaceFirst("\\..*", "."));
+    text(classDoc.commentText().replace("\\\\n", " ").replaceFirst("\\..*", "."));
     endTableRow();
     newLine();
   }
