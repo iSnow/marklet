@@ -328,7 +328,7 @@ public final class ClassPageBuilder extends MarkletDocumentBuilder {
       final String extension)
       throws IOException {
 
-    final Path classPath = Paths.get(classDoc.simpleTypeName() + extension);
+    final Path classPath = Paths.get(classDoc.simpleTypeName() + "." + extension);
     final ClassPageBuilder builder = new ClassPageBuilder(classDoc);
     builder.header();
     builder.summary();

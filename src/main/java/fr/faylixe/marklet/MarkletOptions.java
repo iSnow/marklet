@@ -95,6 +95,9 @@ public final class MarkletOptions {
   @Getter private final boolean badgeNeeded;
 
   /** Process classes with specified annotation or use scopes from javadoc-plugin. * */
+  @Getter private final boolean annotationProcessingNeeded;
+
+  /** Which annotations * */
   @Getter private final String annotationToProcess;
 
   /** Default constructor. Sets options with their default parameters if available. */
@@ -105,6 +108,7 @@ public final class MarkletOptions {
     this.fileEnding = options.getOrDefault(FILE_ENDING_OPTION, DEFAULT_FILE_ENDING);
     this.linkEnding = options.getOrDefault(LINK_ENDING_OPTION, DEFAULT_LINK_ENDING);
     this.badgeNeeded = parseBoolean(options.getOrDefault(CREATE_BADGE_OPTION, "false"));
+    this.annotationProcessingNeeded = !options.get(ANNOTATED_CLASS_ONLY).isEmpty();
     this.annotationToProcess = options.getOrDefault(ANNOTATED_CLASS_ONLY, null);
   }
 

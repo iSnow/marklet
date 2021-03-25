@@ -5,6 +5,8 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.PackageDoc;
 
@@ -104,13 +106,21 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    * @throws IOException If any error occurs while writing package page.
    */
   public static void build(
-      final PackageDoc packageDoc, final Path directoryPath, final boolean createBadge)
+      final PackageDoc packageDoc,
+      final Path directoryPath,
+      final boolean createBadge,
+      final String readmeDirectory)
       throws IOException {
 
     final PackagePageBuilder packageBuilder = new PackagePageBuilder(packageDoc);
     packageBuilder.header();
     packageBuilder.indexes();
-    final Path path = directoryPath.resolve(MarkletConstant.README_FILE);
+
+    Path path =
+        StringUtils.isNotBlank(readmeDirectory)
+            ? directoryPath.resolve(readmeDirectory)
+            : directoryPath.resolve(MarkletConstant.README_FILE);
+
     packageBuilder.build(path, createBadge);
   }
 }

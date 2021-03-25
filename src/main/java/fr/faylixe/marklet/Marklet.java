@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -111,7 +112,8 @@ public final class Marklet {
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      PackagePageBuilder.build(packageDoc, directoryPath, createBadge);
+      PackagePageBuilder.build(
+          packageDoc, directoryPath, createBadge, options.getReadmeDirectory());
     }
   }
 
@@ -140,7 +142,14 @@ public final class Marklet {
    */
   private void buildClasses() throws IOException {
 
-    for (final ClassDoc classDoc : root.classes()) {
+    ClassDoc[] classesToProcess =
+        options.isAnnotationProcessingNeeded()
+            ? Arrays.stream(root.classes())
+                .filter(c -> c.tags(options.getAnnotationToProcess()).length > 0)
+                .toArray(ClassDoc[]::new)
+            : root.classes();
+
+    for (final ClassDoc classDoc : classesToProcess) {
       final PackageDoc packageDoc = classDoc.containingPackage();
       final String packageName = packageDoc.name();
       final Path packageDirectory = getPackageDirectory(packageName);
