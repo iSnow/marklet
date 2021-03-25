@@ -15,7 +15,7 @@ public class MarkdownDocumentBuilder {
   public static final String LINK_EXTENSION = ".html";
 
   /** Extension used for generated markdown file. * */
-  public static final String FILE_EXTENSION = ".html.md";
+  public static final String FILE_EXTENSION = ".md";
 
   /** Bold text decoration. * */
   private static final String BOLD = "**";
@@ -139,6 +139,7 @@ public class MarkdownDocumentBuilder {
 
   /** Appends a horizontal rule sequence to the current document. */
   public final void horizontalRule() {
+
     buffer.append(HR);
     newLine();
   }
@@ -168,6 +169,7 @@ public class MarkdownDocumentBuilder {
    * @param url Target URL of the built link.
    */
   public final void rawLink(final String label, final String url) {
+
     buffer
         .append(LINK_OPEN)
         .append('"')
@@ -185,6 +187,7 @@ public class MarkdownDocumentBuilder {
    * @param url Target URL of the built link.
    */
   public final void link(final String label, final String url) {
+
     buffer.append('[').append(label).append(']').append('(').append(url).append(')');
   }
 
@@ -209,6 +212,7 @@ public class MarkdownDocumentBuilder {
    * @param headers Headers to write.
    */
   public final void tableHeader(final String... headers) {
+
     tableRow(headers);
     startTableRow();
     IntStream.range(0, headers.length)
@@ -229,6 +233,7 @@ public class MarkdownDocumentBuilder {
    * @param cells Cell to write.
    */
   public final void tableRow(final String... cells) {
+
     startTableRow();
     IntStream.range(0, cells.length)
         .forEach(

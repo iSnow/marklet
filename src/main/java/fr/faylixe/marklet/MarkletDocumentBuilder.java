@@ -317,6 +317,7 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
    * @param fieldDoc Field documentation to append.
    */
   public void field(final FieldDoc fieldDoc) {
+
     header(2);
     text(fieldDoc.name());
     newLine();
@@ -340,6 +341,7 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
    * @param member Method documentation to append.
    */
   public void member(final ExecutableMemberDoc member) {
+
     headerSignature(member);
     newLine();
     description(member);
@@ -363,6 +365,7 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
    * @param parameters Parameter documentation to append.
    */
   private void parameters(final ParamTag[] parameters) {
+
     if (parameters.length > 0) {
       header(3);
       bold(MarkletConstant.PARAMETERS);
@@ -389,6 +392,7 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
    * @param tag Return type tag to use.
    */
   private void returnType(final Tag[] tag) {
+
     if (tag.length > 0) {
       header(3);
       bold(MarkletConstant.RETURNS);
@@ -406,6 +410,7 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
    * <p>* ``Type : Description``
    */
   private void exceptions(final ThrowsTag[] exceptions) {
+
     if (exceptions.length > 0) {
       header(3);
       bold(MarkletConstant.THROWS);
@@ -430,6 +435,7 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
    * @throws IOException If any error occurs while closing document.
    */
   public void build(final Path path, boolean createBadge) throws IOException {
+
     newLine();
     if (createBadge) text(MarkletConstant.BADGE);
     final String content = super.build();
@@ -448,13 +454,16 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
    * @return Built path.
    */
   public static String getPath(final String source, final String target) {
+
     if (source.equals(target)) {
       return "";
     }
+
     final StringBuilder pathBuilder = new StringBuilder();
     final String common = StringUtils.getCommonPrefix(source, target);
     final int start = common.length();
     final boolean endsWithDot = common.endsWith(".");
+
     if (!common.equals(source)) {
       if (endsWithDot) {
         pathBuilder.append(UP_DIRECTORY);
@@ -464,11 +473,13 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
         pathBuilder.append(UP_DIRECTORY);
       }
     }
+
     if (!common.equals(target)) {
       final String forward = target.substring(endsWithDot ? start : start + 1);
       pathBuilder.append(forward.replace('.', '/'));
       pathBuilder.append('/');
     }
+
     return pathBuilder.toString();
   }
 }

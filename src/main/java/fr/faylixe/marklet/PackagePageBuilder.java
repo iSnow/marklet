@@ -27,6 +27,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    * @param packageDoc Target package that page is built from.
    */
   private PackagePageBuilder(final PackageDoc packageDoc) {
+
     super(packageDoc);
     this.packageDoc = packageDoc;
   }
@@ -36,6 +37,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    * package text description.
    */
   private void header() {
+
     header(1);
     text(MarkletConstant.PACKAGE);
     character(' ');
@@ -53,6 +55,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    * @param classSupplier Type supplier.
    */
   private void classIndex(final String label, final Supplier<ClassDoc[]> classSupplier) {
+
     final ClassDoc[] classDocs = classSupplier.get();
     if (classDocs.length > 0) {
       header(2);
@@ -70,6 +73,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    * @param classDoc Class to append link from.
    */
   private void classRow(final ClassDoc classDoc) {
+
     startTableRow();
     classLink(packageDoc, classDoc);
     cell();
@@ -84,6 +88,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    * <p>* Classes * Interfaces * Enumerations * Annotations
    */
   private void indexes() {
+
     classIndex(MarkletConstant.ANNOTATIONS, packageDoc::annotationTypes);
     classIndex(MarkletConstant.ENUMERATIONS, packageDoc::enums);
     classIndex(MarkletConstant.INTERFACES, packageDoc::interfaces);
@@ -101,6 +106,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
   public static void build(
       final PackageDoc packageDoc, final Path directoryPath, final boolean createBadge)
       throws IOException {
+
     final PackagePageBuilder packageBuilder = new PackagePageBuilder(packageDoc);
     packageBuilder.header();
     packageBuilder.indexes();

@@ -47,7 +47,7 @@ public final class MarkletConstant {
   public static final String README_LINK = "README.html";
 
   /** Package index filename. * */
-  public static final String README_FILE = "README.html.md";
+  public static final String README_FILE = "README.md";
 
   /** Label for name. * */
   public static final String NAME = "Name";
