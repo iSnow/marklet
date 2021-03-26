@@ -1,4 +1,4 @@
-package fr.faylixe.marklet;
+package io.github.atlascommunity.marklet;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

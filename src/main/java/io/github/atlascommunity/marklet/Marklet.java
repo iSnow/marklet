@@ -1,4 +1,4 @@
-package fr.faylixe.marklet;
+package io.github.atlascommunity.marklet;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package fr.faylixe.marklet;
+package io.github.atlascommunity.marklet;
 
 /**
  * Enumerations of text constant used during documentation generation.

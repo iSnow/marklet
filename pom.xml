@@ -18,6 +18,18 @@
         </license>
     </licenses>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--Dependencies versions -->
+        <commons.version>3.12.0</commons.version>
+        <compiler.plugin.version>3.8.1</compiler.plugin.version>
+        <javadoc.plugin.version>3.2.0</javadoc.plugin.version>
+        <lombok.version>1.18.18</lombok.version>
+        <junit.version>5.7.0</junit.version>
+        <mockito.version>3.8.0</mockito.version>
+    </properties>
+
     <developers>
         <developer>
             <name>Felix Voituret</name>
@@ -45,6 +57,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.plugin.version}</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
@@ -55,83 +68,33 @@
 
     <profiles>
         <profile>
-            <id>release</id>
-            <properties>
-                <additionalparam>-Xdoclint:none</additionalparam>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.2.1</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.2.0</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <id>generate-markdown</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9</version>
+                        <version>${javadoc.plugin.version}</version>
                         <configuration>
-                            <doclet>fr.faylixe.marklet.Marklet</doclet>
+                            <doclet>io.github.atlascommunity.marklet.Marklet</doclet>
                             <docletArtifact>
-                                <groupId>fr.faylixe</groupId>
+                                <groupId>io.github.atlascommunity</groupId>
                                 <artifactId>marklet</artifactId>
-                                <version>1.0.5</version>
+                                <version>1.2.0</version>
                             </docletArtifact>
                             <reportOutputDirectory>./</reportOutputDirectory>
                             <destDir>./</destDir>
-                            <additionalparam>-d javadoc/</additionalparam>
+                            <additionalJOption>-d doc/</additionalJOption>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
-        <!-- TODO profile for CI -->
     </profiles>
 
     <dependencies>
+        <!-- TODO migrate to jdk.javadoc.doclet -->
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>tools</artifactId>
@@ -142,13 +105,38 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
+            <version>${commons.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.18</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- Testing dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

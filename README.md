@@ -11,22 +11,23 @@ In order to use it with Maven, adds the following configuration for the ``maven-
 in your project ``POM`` :
 
 ```xml
+
 <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-javadoc-plugin</artifactId>
-	<version>2.9</version>
-	<configuration>
-		<doclet>fr.faylixe.marklet.Marklet</doclet>
-		<docletArtifact>
-			<groupId>fr.faylixe</groupId>
-			<artifactId>marklet</artifactId>
-			<version>1.1.0</version>
-		</docletArtifact>
-		<reportOutputDirectory>./</reportOutputDirectory>
-		<destDir>./</destDir>
-		<additionalparam>-d javadoc/</additionalparam>
-		<useStandardDocletOptions>false</useStandardDocletOptions>
-	</configuration>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <version>2.9</version>
+    <configuration>
+        <doclet>io.github.atlascommunity.marklet.Marklet</doclet>
+        <docletArtifact>
+            <groupId>fr.faylixe</groupId>
+            <artifactId>marklet</artifactId>
+            <version>1.1.0</version>
+        </docletArtifact>
+        <reportOutputDirectory>./</reportOutputDirectory>
+        <destDir>./</destDir>
+        <additionalparam>-d javadoc/</additionalparam>
+        <useStandardDocletOptions>false</useStandardDocletOptions>
+    </configuration>
 </plugin>
 ```
 

@@ -1,4 +1,4 @@
-package fr.faylixe.marklet;
+package io.github.atlascommunity.marklet;
 
 import static java.lang.Boolean.parseBoolean;
 
@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import com.sun.javadoc.DocErrorReporter;
@@ -54,6 +55,12 @@ public final class MarkletOptions {
   /** List of valid options. * */
   private static final List<String> VALID_OPTIONS =
       Arrays.asList(
+          "-doclet",
+          "-docletpath",
+          "-classpath",
+          "-encoding",
+          "-protected",
+          "-sourcepath",
           OUTPUT_DIRECTORY_OPTION,
           README_DIRECTORY_OPTION,
           FILE_ENDING_OPTION,
@@ -122,10 +129,16 @@ public final class MarkletOptions {
    */
   public static boolean validOptions(final String[][] options, final DocErrorReporter reporter) {
 
-    boolean isValid = VALID_OPTIONS.containsAll(Arrays.asList(options[0]));
+    List<String> optionsList =
+        Arrays.stream(options)
+            .filter(Objects::nonNull)
+            .map(option -> option[0])
+            .collect(Collectors.toList());
+
+    boolean isValid = VALID_OPTIONS.containsAll(optionsList);
     if (!isValid) {
-      String validOptionsString = String.join(",", VALID_OPTIONS);
-      reporter.printError("Only this options allowed: " + validOptionsString);
+      reporter.printError("Current values: " + optionsList.toString());
+      reporter.printError("Only this options allowed: " + String.join(",", VALID_OPTIONS));
     }
 
     return isValid;
