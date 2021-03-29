@@ -53,9 +53,17 @@ public final class MarkletOptions {
   /** Number of token per option. * */
   private static final Map<String, Integer> OPTIONS_COUNT = new HashMap<>();
 
+  /** Javadoc standard options * */
   private static final List<String> OPTIONS_TO_EXCLUDE =
       Arrays.asList(
-          "-doclet", "-docletpath", "-classpath", "-encoding", "-protected", "-sourcepath");
+          "-doclet",
+          "-docletpath",
+          "-classpath",
+          "-encoding",
+          "-protected",
+          "-public",
+          "-private",
+          "-sourcepath");
 
   /** List of valid options. * */
   private static final List<String> VALID_OPTIONS =
@@ -88,9 +96,6 @@ public final class MarkletOptions {
   /** Output directory file are generated in. * */
   @Getter private final String outputDirectory;
 
-  /** Output directory for Readme file. * */
-  @Getter private final String readmeDirectory;
-
   /** Extension to use for generated file. * */
   @Getter private final String fileEnding;
 
@@ -110,7 +115,6 @@ public final class MarkletOptions {
   private MarkletOptions(final Map<String, String> options) {
 
     this.outputDirectory = options.getOrDefault(OUTPUT_DIRECTORY_OPTION, DEFAULT_OUTPUT_DIRECTORY);
-    this.readmeDirectory = options.getOrDefault(README_DIRECTORY_OPTION, DEFAULT_OUTPUT_DIRECTORY);
     this.fileEnding = options.getOrDefault(FILE_ENDING_OPTION, DEFAULT_FILE_ENDING);
     this.linkEnding = options.getOrDefault(LINK_ENDING_OPTION, DEFAULT_LINK_ENDING);
     this.badgeNeeded = parseBoolean(options.getOrDefault(CREATE_BADGE_OPTION, "false"));

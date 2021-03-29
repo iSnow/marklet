@@ -86,7 +86,7 @@
                             <destDir>./</destDir>
                             <additionalOptions>
                                 <additionalOption>-d</additionalOption>
-                                <additionalOption>doc</additionalOption>
+                                <additionalOption>doс</additionalOption>
                             </additionalOptions>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
                         </configuration>

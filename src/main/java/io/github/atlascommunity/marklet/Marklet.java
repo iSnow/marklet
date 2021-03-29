@@ -91,8 +91,8 @@ public final class Marklet {
   private Path getPackageDirectory(final String packageName) {
 
     final String directory = packageName.replace('.', '/');
-    final String path = options.getOutputDirectory() + directory;
-    return Paths.get(path);
+
+    return Paths.get(options.getOutputDirectory(), directory);
   }
 
   /**
@@ -111,8 +111,7 @@ public final class Marklet {
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      PackagePageBuilder.build(
-          packageDoc, directoryPath, createBadge, options.getReadmeDirectory());
+      PackagePageBuilder.build(packageDoc, directoryPath, createBadge);
     }
   }
 
@@ -123,8 +122,7 @@ public final class Marklet {
    */
   private void buildPackages() throws IOException {
 
-    // TODO : Consider method root.specifiedPackages();
-    final Set<PackageDoc> packages = new HashSet<>(); // TODO : Ensures
+    final Set<PackageDoc> packages = new HashSet<>();
     for (final ClassDoc classDoc : root.classes()) {
       final PackageDoc packageDoc = classDoc.containingPackage();
       if (!packages.contains(packageDoc)) {
@@ -163,10 +161,8 @@ public final class Marklet {
 
     try {
       final Path outputDirectory = Paths.get(options.getOutputDirectory());
-      final Path readmeDirectory = Paths.get(options.getReadmeDirectory());
       root.printNotice("Target output directory : " + outputDirectory.toAbsolutePath().toString());
       if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
-      if (outputDirectory != readmeDirectory) Files.createDirectories(readmeDirectory);
       buildPackages();
       buildClasses();
     } catch (final IOException e) {
