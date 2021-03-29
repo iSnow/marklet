@@ -1,17 +1,33 @@
 package io.github.atlascommunity.marklet;
 
+import static io.github.atlascommunity.marklet.MarkletOptions.parse;
 import static io.github.atlascommunity.marklet.MarkletOptions.validOptions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
 
 import com.sun.javadoc.DocErrorReporter;
+import com.sun.javadoc.RootDoc;
 
 class MarkletOptionsTest {
+
+  @Test
+  void testParse() {
+    RootDoc mockDoc = mock(RootDoc.class);
+    String[][] options = new String[][] {{"-d", "doc"}, {"-e", "md"}};
+    when(mockDoc.options()).thenReturn(options);
+    assertEquals("doc", parse(mockDoc).getOutputDirectory());
+
+    String[][] optionsWithJavadocArgs = new String[][] {{"-d", "doc"}, {"-protected", null}};
+    when(mockDoc.options()).thenReturn(optionsWithJavadocArgs);
+    assertEquals("doc", parse(mockDoc).getOutputDirectory());
+  }
 
   @Test
   void testOptionsValidation() {

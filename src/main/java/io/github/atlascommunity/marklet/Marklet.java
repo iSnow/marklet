@@ -38,7 +38,7 @@ public final class Marklet {
    * @param option To document.
    * @return To document.
    */
-  public static int optionLength(final String option) {
+  public static int optionLength(String option) {
 
     return MarkletOptions.optionLength(option);
   }
@@ -68,7 +68,6 @@ public final class Marklet {
    * @return ``true`` if the generation went well, ``false`` otherwise.
    */
   public static boolean start(final RootDoc root) {
-
     final MarkletOptions options = MarkletOptions.parse(root);
     final Marklet marklet = new Marklet(options, root);
     boolean result = false;

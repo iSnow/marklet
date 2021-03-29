@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.sun.javadoc.DocErrorReporter;
@@ -52,15 +53,13 @@ public final class MarkletOptions {
   /** Number of token per option. * */
   private static final Map<String, Integer> OPTIONS_COUNT = new HashMap<>();
 
+  private static final List<String> OPTIONS_TO_EXCLUDE =
+      Arrays.asList(
+          "-doclet", "-docletpath", "-classpath", "-encoding", "-protected", "-sourcepath");
+
   /** List of valid options. * */
   private static final List<String> VALID_OPTIONS =
       Arrays.asList(
-          "-doclet",
-          "-docletpath",
-          "-classpath",
-          "-encoding",
-          "-protected",
-          "-sourcepath",
           OUTPUT_DIRECTORY_OPTION,
           README_DIRECTORY_OPTION,
           FILE_ENDING_OPTION,
@@ -115,8 +114,8 @@ public final class MarkletOptions {
     this.fileEnding = options.getOrDefault(FILE_ENDING_OPTION, DEFAULT_FILE_ENDING);
     this.linkEnding = options.getOrDefault(LINK_ENDING_OPTION, DEFAULT_LINK_ENDING);
     this.badgeNeeded = parseBoolean(options.getOrDefault(CREATE_BADGE_OPTION, "false"));
-    this.annotationProcessingNeeded = !options.get(ANNOTATED_CLASS_ONLY).isEmpty();
     this.annotationToProcess = options.getOrDefault(ANNOTATED_CLASS_ONLY, null);
+    this.annotationProcessingNeeded = options.get(ANNOTATED_CLASS_ONLY) != null;
   }
 
   /**
@@ -132,6 +131,7 @@ public final class MarkletOptions {
     List<String> optionsList =
         Arrays.stream(options)
             .filter(Objects::nonNull)
+            .filter(docletOptionsOnly())
             .map(option -> option[0])
             .collect(Collectors.toList());
 
@@ -163,13 +163,17 @@ public final class MarkletOptions {
    * @return Built options instance.
    */
   public static MarkletOptions parse(final RootDoc root) {
-
     // NOTE :	Work since we only have 2D option.
     //			Consider redesign option parsing if this predicate change.
     final Map<String, String> options =
         Arrays.stream(root.options())
+            .filter(docletOptionsOnly())
             .collect(Collectors.toMap(option -> option[0], option -> option[1], (a, b) -> b));
 
     return new MarkletOptions(options);
+  }
+
+  private static Predicate<String[]> docletOptionsOnly() {
+    return o -> !OPTIONS_TO_EXCLUDE.contains(o[0]);
   }
 }

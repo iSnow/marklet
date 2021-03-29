@@ -84,7 +84,10 @@
                             </docletArtifact>
                             <reportOutputDirectory>./</reportOutputDirectory>
                             <destDir>./</destDir>
-                            <additionalJOption>-d doc/</additionalJOption>
+                            <additionalOptions>
+                                <additionalOption>-d</additionalOption>
+                                <additionalOption>doc</additionalOption>
+                            </additionalOptions>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
                         </configuration>
                     </plugin>
