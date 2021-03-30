@@ -1,7 +1,9 @@
 package io.github.atlascommunity.marklet;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
@@ -104,15 +106,23 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    * @throws IOException If any error occurs while writing package page.
    */
   public static void build(
-      final PackageDoc packageDoc,
-      final Path directoryPath,
-      final boolean createBadge)
+      final PackageDoc packageDoc, final Path directoryPath, final MarkletOptions options)
       throws IOException {
 
     final PackagePageBuilder packageBuilder = new PackagePageBuilder(packageDoc);
     packageBuilder.header();
     packageBuilder.indexes();
 
-    packageBuilder.build(directoryPath.resolve(MarkletConstant.README_FILE), createBadge);
+    // if we need to store Readme.md separate
+    Path readmePathFromOption = Paths.get(options.getReadmeDirectory());
+    Path readmePath;
+    if (readmePathFromOption.compareTo(directoryPath) == 0) {
+      readmePath = directoryPath.resolve(MarkletConstant.README_FILE);
+    } else {
+      Files.createDirectories(readmePathFromOption);
+      readmePath = readmePathFromOption.resolve(MarkletConstant.README_FILE);
+    }
+
+    packageBuilder.build(readmePath, options);
   }
 }

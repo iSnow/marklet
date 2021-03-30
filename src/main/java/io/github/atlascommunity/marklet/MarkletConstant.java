@@ -52,9 +52,6 @@ public final class MarkletConstant {
   /** Label for name. * */
   public static final String NAME = "Name";
 
-  /** Label for description. * */
-  public static final String DESCRIPTION = "Description";
-
   /** Label for throws. * */
   public static final String THROWS = "Throws";
 
@@ -68,20 +65,19 @@ public final class MarkletConstant {
   public static final String SUMMARY = "Summary";
 
   /** Header labels for methods summary. * */
-  public static final String[] METHODS_SUMMARY_HEADERS = {"Type and modifiers", "Method signature"};
+  protected static final String[] METHODS_SUMMARY_HEADERS = {
+    "Type and modifiers", "Method signature"
+  };
 
   /** Header labels for fields summary. * */
-  public static final String[] FIELDS_SUMMARY_HEADERS = {"Type and modifiers", "Field name"};
+  protected static final String[] FIELDS_SUMMARY_HEADERS = {"Type and modifiers", "Field name"};
 
   /** Header labels for constructors summary. * */
-  public static final String[] CONSTRUCTOR_SUMMARY_HEADERS = {"Visibility", "Signature"};
+  protected static final String[] CONSTRUCTOR_SUMMARY_HEADERS = {"Visibility", "Signature"};
 
   /** Marklet link using dynamic badge. * */
   public static final String BADGE =
       "[![Marklet](https://img.shields.io/badge/Generated%20by-Marklet-green.svg)](https://github.com/Faylixe/marklet)";
-
-  /** Markdown sequence for cell separator. * */
-  public static final String TABLE_SEPARATOR = " | ";
 
   /** Header label for the interface hierachy. * */
   public static final String INTERFACE_HIEARCHY_HEADER = "All implemented interfaces :";

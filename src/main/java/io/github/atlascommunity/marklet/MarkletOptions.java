@@ -35,6 +35,9 @@ public final class MarkletOptions {
   /** Option name for the target output directory. * */
   private static final String OUTPUT_DIRECTORY_OPTION = "-d";
 
+  /** Option name for readme file directory. * */
+  private static final String README_DIRECTORY_OPTION = "-r";
+
   /** Option name for the file ending (`-e`) * */
   private static final String FILE_ENDING_OPTION = "-e";
 
@@ -62,10 +65,16 @@ public final class MarkletOptions {
   /** List of valid options. * */
   private static final List<String> VALID_OPTIONS =
       Arrays.asList(
-          OUTPUT_DIRECTORY_OPTION, FILE_ENDING_OPTION, LINK_ENDING_OPTION, CREATE_BADGE_OPTION);
+          OUTPUT_DIRECTORY_OPTION,
+          README_DIRECTORY_OPTION,
+          FILE_ENDING_OPTION,
+          LINK_ENDING_OPTION,
+          CREATE_BADGE_OPTION);
 
+  /* Number of tokens per option **/
   static {
     OPTIONS_COUNT.put(OUTPUT_DIRECTORY_OPTION, 2);
+    OPTIONS_COUNT.put(README_DIRECTORY_OPTION, 2);
     OPTIONS_COUNT.put(FILE_ENDING_OPTION, 2);
     OPTIONS_COUNT.put(LINK_ENDING_OPTION, 2);
     OPTIONS_COUNT.put(CREATE_BADGE_OPTION, 2);
@@ -83,6 +92,9 @@ public final class MarkletOptions {
   /** Output directory file are generated in. * */
   @Getter private final String outputDirectory;
 
+  /** Output directory for readme file. * */
+  @Getter private final String readmeDirectory;
+
   /** Extension to use for generated file. * */
   @Getter private final String fileEnding;
 
@@ -96,6 +108,7 @@ public final class MarkletOptions {
   private MarkletOptions(final Map<String, String> options) {
 
     this.outputDirectory = options.getOrDefault(OUTPUT_DIRECTORY_OPTION, DEFAULT_OUTPUT_DIRECTORY);
+    this.readmeDirectory = options.getOrDefault(README_DIRECTORY_OPTION, DEFAULT_OUTPUT_DIRECTORY);
     this.fileEnding = options.getOrDefault(FILE_ENDING_OPTION, DEFAULT_FILE_ENDING);
     this.linkEnding = options.getOrDefault(LINK_ENDING_OPTION, DEFAULT_LINK_ENDING);
     this.badgeNeeded = parseBoolean(options.getOrDefault(CREATE_BADGE_OPTION, "false"));

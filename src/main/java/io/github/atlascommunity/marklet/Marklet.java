@@ -100,8 +100,7 @@ public final class Marklet {
    * @param packageDoc Package to generate documentation for.
    * @throws IOException If any error occurs while creating file or directories.
    */
-  private void generatePackage(final PackageDoc packageDoc, final boolean createBadge)
-      throws IOException {
+  private void generatePackage(final PackageDoc packageDoc) throws IOException {
 
     final String name = packageDoc.name();
     root.printNotice("Generates package documentation for " + name);
@@ -110,7 +109,7 @@ public final class Marklet {
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      PackagePageBuilder.build(packageDoc, directoryPath, createBadge);
+      PackagePageBuilder.build(packageDoc, directoryPath, options);
     }
   }
 
@@ -126,7 +125,7 @@ public final class Marklet {
       final PackageDoc packageDoc = classDoc.containingPackage();
       if (!packages.contains(packageDoc)) {
         packages.add(packageDoc);
-        generatePackage(packageDoc, options.isBadgeNeeded());
+        generatePackage(packageDoc);
       }
     }
   }
@@ -144,7 +143,7 @@ public final class Marklet {
       final Path packageDirectory = getPackageDirectory(packageName);
       root.printNotice("Generates documentation for " + classDoc.name());
       ClassPageBuilder.build(
-          classDoc, packageDirectory, options.isBadgeNeeded(), options.getFileEnding());
+          classDoc, packageDirectory, options);
     }
   }
 
