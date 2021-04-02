@@ -11,12 +11,6 @@ import java.util.stream.IntStream;
  */
 public class MarkdownDocumentBuilder {
 
-  /** Extension used for linked file. * */
-  public static final String LINK_EXTENSION = ".html";
-
-  /** Extension used for generated markdown file. * */
-  public static final String FILE_EXTENSION = ".md";
-
   /** Bold text decoration. * */
   private static final String BOLD = "**";
 

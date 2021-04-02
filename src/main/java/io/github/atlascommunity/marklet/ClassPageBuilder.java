@@ -40,9 +40,9 @@ public final class ClassPageBuilder extends MarkletDocumentBuilder {
    *
    * @param classDoc Target class that page is built from.
    */
-  private ClassPageBuilder(final ClassDoc classDoc) {
+  private ClassPageBuilder(final ClassDoc classDoc, final MarkletOptions options) {
 
-    super(classDoc.containingPackage());
+    super(classDoc.containingPackage(), options);
     this.classDoc = classDoc;
   }
 
@@ -325,7 +325,7 @@ public final class ClassPageBuilder extends MarkletDocumentBuilder {
       throws IOException {
 
     final Path classPath = Paths.get(classDoc.simpleTypeName() + "." + options.getFileEnding());
-    final ClassPageBuilder builder = new ClassPageBuilder(classDoc);
+    final ClassPageBuilder builder = new ClassPageBuilder(classDoc, options);
     builder.header();
     builder.summary();
     builder.constructors();

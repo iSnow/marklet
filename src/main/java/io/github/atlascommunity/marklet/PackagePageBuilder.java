@@ -28,9 +28,9 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    *
    * @param packageDoc Target package that page is built from.
    */
-  private PackagePageBuilder(final PackageDoc packageDoc) {
+  private PackagePageBuilder(final PackageDoc packageDoc, final MarkletOptions options) {
 
-    super(packageDoc);
+    super(packageDoc, options);
     this.packageDoc = packageDoc;
   }
 
@@ -109,7 +109,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
       final PackageDoc packageDoc, final Path directoryPath, final MarkletOptions options)
       throws IOException {
 
-    final PackagePageBuilder packageBuilder = new PackagePageBuilder(packageDoc);
+    final PackagePageBuilder packageBuilder = new PackagePageBuilder(packageDoc, options);
     packageBuilder.header();
     packageBuilder.indexes();
 

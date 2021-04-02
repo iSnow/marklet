@@ -28,12 +28,15 @@ import com.sun.javadoc.Type;
 import com.sun.javadoc.TypeVariable;
 import com.sun.javadoc.WildcardType;
 
+import lombok.RequiredArgsConstructor;
+
 /**
  * Custom {@link MarkdownDocumentBuilder} implementation that aims to be used for building Marklet
  * generated document. Such document are defined by a source package from which link are built.
  *
  * @author fv
  */
+@RequiredArgsConstructor
 public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
 
   /** Identifier of the return tag. * */
@@ -48,14 +51,7 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
   /** Target source package from which document will be written. * */
   private final PackageDoc source;
 
-  /**
-   * Default constructor.
-   *
-   * @param source Target source package from which document will be written.
-   */
-  public MarkletDocumentBuilder(final PackageDoc source) {
-    this.source = source;
-  }
+  private final MarkletOptions options;
 
   /**
    * Source getter.
@@ -77,12 +73,8 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
   public void classLink(final PackageDoc source, final ClassDoc target) {
     if (target.isIncluded()) {
       final String path = getPath(source.name(), target.containingPackage().name());
-      String urlBuilder = path + target.simpleTypeName() + MarkdownDocumentBuilder.LINK_EXTENSION;
+      String urlBuilder = path + target.simpleTypeName() + options.getFileEnding();
       link(target.simpleTypeName(), urlBuilder);
-    } else {
-      // TODO : Process external link here.
-      // TODO : Use marklet-directory project when done.
-      italic(target.qualifiedName());
     }
   }
 
