@@ -72,7 +72,7 @@ public final class PackagePage extends MarkletDocument {
       header(2);
       text(label);
       newLine();
-      tableHeader(MarkletConstant.NAME, "Description");
+      tableHeader(MarkletConstant.NAME);
       Arrays.stream(classDocs).forEach(this::classRow);
       newLine();
     }
@@ -87,8 +87,6 @@ public final class PackagePage extends MarkletDocument {
 
     startTableRow();
     classLink(packageDoc, classDoc);
-    cell();
-    text(classDoc.commentText().replace("\\\\n", " ").replaceFirst("\\..*", "."));
     endTableRow();
     newLine();
   }
@@ -112,6 +110,7 @@ public final class PackagePage extends MarkletDocument {
    *
    * @param packageDoc Package to generated documentation for.
    * @param directoryPath Path of the directory to write documentation in.
+   * @param options Doclet options.
    * @throws IOException If any error occurs while writing package page.
    */
   public static void build(
