@@ -1,5 +1,6 @@
 package io.github.atlascommunity.marklet.builders;
 
+import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
 import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
 
 import java.io.FileOutputStream;
@@ -33,14 +34,14 @@ public class ReadmePage {
 
     Table.Builder table =
         new Table.Builder()
-            .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
-            .withRowLimit(packages.size())
+            .withAlignments(Table.ALIGN_LEFT)
+            .withRowLimit(packages.size() + 1)
             .addRow("Package");
 
     packages.forEach(
         p -> {
           String linkName = p.name();
-          String linkUrl = linkName.replace(".", "/");
+          String linkUrl = linkName.replace(".", "/") + "/" + PACKAGE_INDEX_FILE;
           table.addRow(new Link(linkName, linkUrl));
         });
     readme.append(table.build());
