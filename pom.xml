@@ -80,7 +80,7 @@
                             <docletArtifact>
                                 <groupId>io.github.atlascommunity</groupId>
                                 <artifactId>marklet</artifactId>
-                                <version>1.2.0</version>
+                                <version>1.2.1</version>
                             </docletArtifact>
                             <reportOutputDirectory>./</reportOutputDirectory>
                             <destDir>./</destDir>

@@ -65,15 +65,13 @@ public final class MarkletConstant {
   public static final String SUMMARY = "Summary";
 
   /** Header labels for methods summary. * */
-  protected static final String[] METHODS_SUMMARY_HEADERS = {
-    "Type and modifiers", "Method signature"
-  };
+  public static final String[] METHODS_SUMMARY_HEADERS = {"Type and modifiers", "Method signature"};
 
   /** Header labels for fields summary. * */
-  protected static final String[] FIELDS_SUMMARY_HEADERS = {"Type and modifiers", "Field name"};
+  public static final String[] FIELDS_SUMMARY_HEADERS = {"Type and modifiers", "Field name"};
 
   /** Header labels for constructors summary. * */
-  protected static final String[] CONSTRUCTOR_SUMMARY_HEADERS = {"Visibility", "Signature"};
+  public static final String[] CONSTRUCTOR_SUMMARY_HEADERS = {"Visibility", "Signature"};
 
   /** Marklet link using dynamic badge. * */
   public static final String BADGE =

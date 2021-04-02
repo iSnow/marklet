@@ -1,4 +1,6 @@
-package io.github.atlascommunity.marklet;
+package io.github.atlascommunity.marklet.builders;
+
+import static io.github.atlascommunity.marklet.MarkletConstant.METHODS_SUMMARY_HEADERS;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -20,6 +22,9 @@ import com.sun.javadoc.MethodDoc;
 import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.Type;
 
+import io.github.atlascommunity.marklet.MarkletConstant;
+import io.github.atlascommunity.marklet.MarkletOptions;
+
 /**
  * Builder that aims to create documentation page for a given ``class``. As for a standard class
  * javadoc generation, it will contains a class summary, followed by details about class field,
@@ -27,7 +32,7 @@ import com.sun.javadoc.Type;
  *
  * @author fv
  */
-public final class ClassPageBuilder extends MarkletDocumentBuilder {
+public final class ClassPage extends MarkletDocument {
 
   /** Separator used in the class hierarchy.* */
   private static final String HIERARCHY_SEPARATOR = " > ";
@@ -40,7 +45,7 @@ public final class ClassPageBuilder extends MarkletDocumentBuilder {
    *
    * @param classDoc Target class that page is built from.
    */
-  private ClassPageBuilder(final ClassDoc classDoc, final MarkletOptions options) {
+  private ClassPage(final ClassDoc classDoc, final MarkletOptions options) {
 
     super(classDoc.containingPackage(), options);
     this.classDoc = classDoc;
@@ -202,7 +207,7 @@ public final class ClassPageBuilder extends MarkletDocumentBuilder {
       header(4);
       text(MarkletConstant.METHODS);
       newLine();
-      tableHeader(MarkletConstant.METHODS_SUMMARY_HEADERS);
+      tableHeader(METHODS_SUMMARY_HEADERS);
       getOrderedElements(classDoc::methods)
           .filter(this::isNotInherited)
           .forEach(this::rowSignature);
@@ -325,7 +330,7 @@ public final class ClassPageBuilder extends MarkletDocumentBuilder {
       throws IOException {
 
     final Path classPath = Paths.get(classDoc.simpleTypeName() + "." + options.getFileEnding());
-    final ClassPageBuilder builder = new ClassPageBuilder(classDoc, options);
+    final ClassPage builder = new ClassPage(classDoc, options);
     builder.header();
     builder.summary();
     builder.constructors();

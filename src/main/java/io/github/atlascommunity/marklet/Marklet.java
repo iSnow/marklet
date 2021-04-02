@@ -13,6 +13,8 @@ import com.sun.javadoc.LanguageVersion;
 import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.RootDoc;
 
+import io.github.atlascommunity.marklet.builders.ClassPage;
+import io.github.atlascommunity.marklet.builders.PackagePage;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
@@ -109,7 +111,7 @@ public final class Marklet {
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      PackagePageBuilder.build(packageDoc, directoryPath, options);
+      PackagePage.build(packageDoc, directoryPath, options);
     }
   }
 
@@ -142,7 +144,7 @@ public final class Marklet {
       final String packageName = packageDoc.name();
       final Path packageDirectory = getPackageDirectory(packageName);
       root.printNotice("Generates documentation for " + classDoc.name());
-      ClassPageBuilder.build(
+      ClassPage.build(
           classDoc, packageDirectory, options);
     }
   }

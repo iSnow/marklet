@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet;
+package io.github.atlascommunity.marklet.builders;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -28,16 +28,18 @@ import com.sun.javadoc.Type;
 import com.sun.javadoc.TypeVariable;
 import com.sun.javadoc.WildcardType;
 
+import io.github.atlascommunity.marklet.MarkletConstant;
+import io.github.atlascommunity.marklet.MarkletOptions;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Custom {@link MarkdownDocumentBuilder} implementation that aims to be used for building Marklet
+ * Custom {@link MarkdownDocument} implementation that aims to be used for building Marklet
  * generated document. Such document are defined by a source package from which link are built.
  *
  * @author fv
  */
 @RequiredArgsConstructor
-public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
+public class MarkletDocument extends MarkdownDocument {
 
   /** Identifier of the return tag. * */
   private static final String RETURN_TAG = "return";
@@ -429,7 +431,7 @@ public class MarkletDocumentBuilder extends MarkdownDocumentBuilder {
   public void build(final Path path, MarkletOptions options) throws IOException {
 
     newLine();
-    if (options.isBadgeNeeded()) text(MarkletConstant.BADGE);
+    if (options.isHasBadge()) text(MarkletConstant.BADGE);
     final String content = super.build();
     final InputStream stream = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
     Files.copy(stream, path, StandardCopyOption.REPLACE_EXISTING);

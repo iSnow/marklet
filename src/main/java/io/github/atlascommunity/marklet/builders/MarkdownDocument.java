@@ -1,7 +1,9 @@
-package io.github.atlascommunity.marklet;
+package io.github.atlascommunity.marklet.builders;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import lombok.RequiredArgsConstructor;
 
 /**
  * This class aims to build Markdown document. It is built in a top of a {@link StringBuilder}
@@ -9,7 +11,8 @@ import java.util.stream.IntStream;
  *
  * @author fv
  */
-public class MarkdownDocumentBuilder {
+@RequiredArgsConstructor
+public class MarkdownDocument {
 
   /** Bold text decoration. * */
   private static final String BOLD = "**";
@@ -54,12 +57,7 @@ public class MarkdownDocumentBuilder {
   private static final String PARAGRAPH_CLOSE = "</p>";
 
   /** Buffer in which markdown document is stored. * */
-  private final StringBuilder buffer;
-
-  /** Default constructor. Initializes internal buffer. */
-  public MarkdownDocumentBuilder() {
-    this.buffer = new StringBuilder();
-  }
+  private final StringBuilder buffer = new StringBuilder();
 
   /**
    * Filters and returns the given ``text`` freed from HTML paragraph.

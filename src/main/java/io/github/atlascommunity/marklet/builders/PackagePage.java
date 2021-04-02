@@ -1,7 +1,13 @@
-package io.github.atlascommunity.marklet;
+package io.github.atlascommunity.marklet.builders;
 
+import static io.github.atlascommunity.marklet.MarkletConstant.ANNOTATIONS;
+import static io.github.atlascommunity.marklet.MarkletConstant.CLASSES;
+import static io.github.atlascommunity.marklet.MarkletConstant.ENUMERATIONS;
+import static io.github.atlascommunity.marklet.MarkletConstant.INTERFACES;
+import static io.github.atlascommunity.marklet.MarkletConstant.README_FILE;
+
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -9,6 +15,9 @@ import java.util.function.Supplier;
 
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.PackageDoc;
+
+import io.github.atlascommunity.marklet.MarkletConstant;
+import io.github.atlascommunity.marklet.MarkletOptions;
 
 /**
  * Builder that aims to create documentation page for a given ``package``. Such documentation
@@ -18,7 +27,7 @@ import com.sun.javadoc.PackageDoc;
  *
  * @author fv
  */
-public final class PackagePageBuilder extends MarkletDocumentBuilder {
+public final class PackagePage extends MarkletDocument {
 
   /** Target package that page is built from. * */
   private final PackageDoc packageDoc;
@@ -28,7 +37,7 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    *
    * @param packageDoc Target package that page is built from.
    */
-  private PackagePageBuilder(final PackageDoc packageDoc, final MarkletOptions options) {
+  private PackagePage(final PackageDoc packageDoc, final MarkletOptions options) {
 
     super(packageDoc, options);
     this.packageDoc = packageDoc;
@@ -91,10 +100,10 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
    */
   private void indexes() {
 
-    classIndex(MarkletConstant.ANNOTATIONS, packageDoc::annotationTypes);
-    classIndex(MarkletConstant.ENUMERATIONS, packageDoc::enums);
-    classIndex(MarkletConstant.INTERFACES, packageDoc::interfaces);
-    classIndex(MarkletConstant.CLASSES, packageDoc::allClasses);
+    classIndex(ANNOTATIONS, packageDoc::annotationTypes);
+    classIndex(ENUMERATIONS, packageDoc::enums);
+    classIndex(INTERFACES, packageDoc::interfaces);
+    classIndex(CLASSES, packageDoc::allClasses);
   }
 
   /**
@@ -109,20 +118,15 @@ public final class PackagePageBuilder extends MarkletDocumentBuilder {
       final PackageDoc packageDoc, final Path directoryPath, final MarkletOptions options)
       throws IOException {
 
-    final PackagePageBuilder packageBuilder = new PackagePageBuilder(packageDoc, options);
+    final PackagePage packageBuilder = new PackagePage(packageDoc, options);
     packageBuilder.header();
     packageBuilder.indexes();
 
-    // if we need to store Readme.md separate
-    Path readmePathFromOption = Paths.get(options.getReadmeDirectory());
-    Path readmePath;
-    if (readmePathFromOption.compareTo(directoryPath) == 0) {
-      readmePath = directoryPath.resolve(MarkletConstant.README_FILE);
-    } else {
-      Files.createDirectories(readmePathFromOption);
-      readmePath = readmePathFromOption.resolve(MarkletConstant.README_FILE);
-    }
+    Path path =
+        (options.isShouldOverwriteReadme())
+            ? Paths.get(new File("").getAbsolutePath(), README_FILE)
+            : directoryPath.resolve(README_FILE);
 
-    packageBuilder.build(readmePath, options);
+    packageBuilder.build(path, options);
   }
 }
