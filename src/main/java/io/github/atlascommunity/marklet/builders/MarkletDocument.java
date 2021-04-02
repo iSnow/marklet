@@ -1,5 +1,10 @@
 package io.github.atlascommunity.marklet.builders;
 
+import static io.github.atlascommunity.marklet.constants.Labels.PARAMETERS;
+import static io.github.atlascommunity.marklet.constants.Labels.RETURNS;
+import static io.github.atlascommunity.marklet.constants.Labels.THROWS;
+import static io.github.atlascommunity.marklet.constants.Links.BADGE;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,7 +33,6 @@ import com.sun.javadoc.Type;
 import com.sun.javadoc.TypeVariable;
 import com.sun.javadoc.WildcardType;
 
-import io.github.atlascommunity.marklet.MarkletConstant;
 import io.github.atlascommunity.marklet.MarkletOptions;
 import lombok.RequiredArgsConstructor;
 
@@ -362,7 +366,7 @@ public class MarkletDocument extends MarkdownDocument {
 
     if (parameters.length > 0) {
       header(3);
-      bold(MarkletConstant.PARAMETERS);
+      bold(PARAMETERS);
       newLine();
       for (final ParamTag parameter : parameters) {
         item();
@@ -389,7 +393,7 @@ public class MarkletDocument extends MarkdownDocument {
 
     if (tag.length > 0) {
       header(3);
-      bold(MarkletConstant.RETURNS);
+      bold(RETURNS);
       newLine();
       description(tag[0].inlineTags());
       newLine();
@@ -407,7 +411,7 @@ public class MarkletDocument extends MarkdownDocument {
 
     if (exceptions.length > 0) {
       header(3);
-      bold(MarkletConstant.THROWS);
+      bold(THROWS);
       newLine();
       for (final ThrowsTag exception : exceptions) {
         item();
@@ -431,7 +435,7 @@ public class MarkletDocument extends MarkdownDocument {
   public void build(final Path path, MarkletOptions options) throws IOException {
 
     newLine();
-    if (options.isHasBadge()) text(MarkletConstant.BADGE);
+    if (options.isHasBadge()) text(BADGE);
     final String content = super.build();
     final InputStream stream = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
     Files.copy(stream, path, StandardCopyOption.REPLACE_EXISTING);

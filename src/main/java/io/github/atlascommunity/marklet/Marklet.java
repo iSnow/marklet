@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.DocErrorReporter;
@@ -122,7 +122,7 @@ public final class Marklet {
    */
   private void buildPackages() throws IOException {
 
-    final Set<PackageDoc> packages = new HashSet<>();
+    final List<PackageDoc> packages = new ArrayList<>();
     for (final ClassDoc classDoc : root.classes()) {
       final PackageDoc packageDoc = classDoc.containingPackage();
       if (!packages.contains(packageDoc)) {
@@ -130,6 +130,7 @@ public final class Marklet {
         generatePackage(packageDoc);
       }
     }
+
   }
 
   /**
@@ -144,8 +145,7 @@ public final class Marklet {
       final String packageName = packageDoc.name();
       final Path packageDirectory = getPackageDirectory(packageName);
       root.printNotice("Generates documentation for " + classDoc.name());
-      ClassPage.build(
-          classDoc, packageDirectory, options);
+      ClassPage.build(classDoc, packageDirectory, options);
     }
   }
 

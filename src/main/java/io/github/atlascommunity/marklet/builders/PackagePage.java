@@ -1,10 +1,12 @@
 package io.github.atlascommunity.marklet.builders;
 
-import static io.github.atlascommunity.marklet.MarkletConstant.ANNOTATIONS;
-import static io.github.atlascommunity.marklet.MarkletConstant.CLASSES;
-import static io.github.atlascommunity.marklet.MarkletConstant.ENUMERATIONS;
-import static io.github.atlascommunity.marklet.MarkletConstant.INTERFACES;
-import static io.github.atlascommunity.marklet.MarkletConstant.README_FILE;
+import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
+import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATIONS;
+import static io.github.atlascommunity.marklet.constants.Labels.CLASSES;
+import static io.github.atlascommunity.marklet.constants.Labels.ENUMERATIONS;
+import static io.github.atlascommunity.marklet.constants.Labels.INTERFACES;
+import static io.github.atlascommunity.marklet.constants.Labels.NAME;
+import static io.github.atlascommunity.marklet.constants.Labels.PACKAGE;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +18,6 @@ import java.util.function.Supplier;
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.PackageDoc;
 
-import io.github.atlascommunity.marklet.MarkletConstant;
 import io.github.atlascommunity.marklet.MarkletOptions;
 
 /**
@@ -50,7 +51,7 @@ public final class PackagePage extends MarkletDocument {
   private void header() {
 
     header(1);
-    text(MarkletConstant.PACKAGE);
+    text(PACKAGE);
     character(' ');
     text(packageDoc.name());
     newLine();
@@ -72,7 +73,7 @@ public final class PackagePage extends MarkletDocument {
       header(2);
       text(label);
       newLine();
-      tableHeader(MarkletConstant.NAME);
+      tableHeader(NAME);
       Arrays.stream(classDocs).forEach(this::classRow);
       newLine();
     }

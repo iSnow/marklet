@@ -1,6 +1,17 @@
 package io.github.atlascommunity.marklet.builders;
 
-import static io.github.atlascommunity.marklet.MarkletConstant.METHODS_SUMMARY_HEADERS;
+import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATION;
+import static io.github.atlascommunity.marklet.constants.Labels.CLASS;
+import static io.github.atlascommunity.marklet.constants.Labels.CONSTRUCTORS;
+import static io.github.atlascommunity.marklet.constants.Labels.CONSTRUCTOR_SUMMARY_HEADERS;
+import static io.github.atlascommunity.marklet.constants.Labels.ENUMERATION;
+import static io.github.atlascommunity.marklet.constants.Labels.FIELDS;
+import static io.github.atlascommunity.marklet.constants.Labels.FIELDS_SUMMARY_HEADERS;
+import static io.github.atlascommunity.marklet.constants.Labels.INTERFACE;
+import static io.github.atlascommunity.marklet.constants.Labels.INTERFACE_HIERARCHY_HEADER;
+import static io.github.atlascommunity.marklet.constants.Labels.METHODS_SUMMARY_HEADERS;
+import static io.github.atlascommunity.marklet.constants.Labels.PACKAGE;
+import static io.github.atlascommunity.marklet.constants.Labels.SUMMARY;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -22,8 +33,9 @@ import com.sun.javadoc.MethodDoc;
 import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.Type;
 
-import io.github.atlascommunity.marklet.MarkletConstant;
 import io.github.atlascommunity.marklet.MarkletOptions;
+import io.github.atlascommunity.marklet.constants.Filenames;
+import io.github.atlascommunity.marklet.constants.Labels;
 
 /**
  * Builder that aims to create documentation page for a given ``class``. As for a standard class
@@ -123,7 +135,7 @@ public final class ClassPage extends MarkletDocument {
     }
 
     if (!implementedInterfaces.isEmpty()) {
-      text(MarkletConstant.INTERFACE_HIEARCHY_HEADER);
+      text(INTERFACE_HIERARCHY_HEADER);
       newLine();
       item();
       final int limit = implementedInterfaces.size() - 1;
@@ -149,13 +161,13 @@ public final class ClassPage extends MarkletDocument {
     header(1);
     final StringBuilder builder = new StringBuilder();
     if (classDoc.isInterface()) {
-      builder.append(MarkletConstant.INTERFACE);
+      builder.append(INTERFACE);
     } else if (classDoc.isEnum()) {
-      builder.append(MarkletConstant.ENUMERATION);
+      builder.append(ENUMERATION);
     } else if (classDoc.isAnnotationType()) {
-      builder.append(MarkletConstant.ANNOTATION);
+      builder.append(ANNOTATION);
     } else {
-      builder.append(MarkletConstant.CLASS);
+      builder.append(CLASS);
     }
     builder.append(' ').append(classDoc.name());
     text(builder.toString());
@@ -174,9 +186,9 @@ public final class ClassPage extends MarkletDocument {
     final PackageDoc packageDoc = classDoc.containingPackage();
     final String packageName = packageDoc.name();
     item();
-    text(MarkletConstant.PACKAGE);
+    text(PACKAGE);
     character(' ');
-    link(packageName, MarkletConstant.README_LINK);
+    link(packageName, Filenames.README_LINK);
     newLine();
     item();
     classHierarchy();
@@ -205,7 +217,7 @@ public final class ClassPage extends MarkletDocument {
 
     if (hasMethod()) {
       header(4);
-      text(MarkletConstant.METHODS);
+      text(Labels.METHODS);
       newLine();
       tableHeader(METHODS_SUMMARY_HEADERS);
       getOrderedElements(classDoc::methods)
@@ -237,9 +249,9 @@ public final class ClassPage extends MarkletDocument {
 
     if (hasField()) {
       header(4);
-      text(MarkletConstant.FIELDS);
+      text(FIELDS);
       newLine();
-      tableHeader(MarkletConstant.FIELDS_SUMMARY_HEADERS);
+      tableHeader(FIELDS_SUMMARY_HEADERS);
       getOrderedElements(classDoc::fields).filter(FieldDoc::isStatic).forEach(this::rowSignature);
       getOrderedElements(classDoc::fields)
           .filter(field -> !field.isStatic())
@@ -253,9 +265,9 @@ public final class ClassPage extends MarkletDocument {
 
     if (hasConstructor()) {
       header(4);
-      text(MarkletConstant.CONSTRUCTORS);
+      text(CONSTRUCTORS);
       newLine();
-      tableHeader(MarkletConstant.CONSTRUCTOR_SUMMARY_HEADERS);
+      tableHeader(CONSTRUCTOR_SUMMARY_HEADERS);
       getOrderedElements(classDoc::constructors).forEach(this::rowSignature);
       newLine();
     }
@@ -270,7 +282,7 @@ public final class ClassPage extends MarkletDocument {
     if (hasField() || hasMethod() || hasConstructor()) {
       newLine();
       header(2);
-      text(MarkletConstant.SUMMARY);
+      text(SUMMARY);
       newLine();
       fieldsSummary();
       constructorsSummary();
@@ -285,7 +297,7 @@ public final class ClassPage extends MarkletDocument {
     if (hasConstructor()) {
       newLine();
       header(1);
-      text(MarkletConstant.CONSTRUCTORS);
+      text(CONSTRUCTORS);
       newLine();
       getOrderedElements(classDoc::constructors).forEach(this::member);
     }
@@ -297,7 +309,7 @@ public final class ClassPage extends MarkletDocument {
     if (hasField()) {
       newLine();
       header(1);
-      text(MarkletConstant.FIELDS);
+      text(FIELDS);
       newLine();
       getOrderedElements(classDoc::fields).filter(field -> !field.isStatic()).forEach(this::field);
       getOrderedElements(classDoc::fields).filter(FieldDoc::isStatic).forEach(this::field);
@@ -310,7 +322,7 @@ public final class ClassPage extends MarkletDocument {
     if (hasMethod()) {
       newLine();
       header(1);
-      text(MarkletConstant.METHODS);
+      text(Labels.METHODS);
       newLine();
       getOrderedElements(classDoc::methods).filter(this::isNotInherited).forEach(this::member);
     }
