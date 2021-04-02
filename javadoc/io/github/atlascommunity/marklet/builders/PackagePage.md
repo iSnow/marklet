@@ -1,7 +1,7 @@
 # Class PackagePage
 
 * Package [io.github.atlascommunity.marklet.builders](Index.md)
-*  > [MarkdownDocument](MarkdownDocumentmd) > [MarkletDocument](MarkletDocumentmd) > [PackagePage](PackagePagemd)
+*  > [MarkdownDocument](MarkdownDocument.md) > [MarkletDocument](MarkletDocument.md) > [PackagePage](PackagePage.md)
 
 Builder that aims to create documentation page for a given ``package``. Such documentation
  consists in a package description followed by type listing over following categories :
@@ -13,7 +13,7 @@ Builder that aims to create documentation page for a given ``package``. Such doc
 #### Methods
 | Type and modifiers | Method signature |
 | --- | --- |
-| `public static` `void` | [build](#buildpackagedoc-path-markletoptions)( packageDoc,  directoryPath, [MarkletOptions](../MarkletOptionsmd) options) |
+| `public static` `void` | [build](#buildpackagedoc-path-markletoptions)( packageDoc,  directoryPath, [MarkletOptions](../MarkletOptions.md) options) |
 
 
 

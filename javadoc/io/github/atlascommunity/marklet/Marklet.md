@@ -1,9 +1,9 @@
 # Class Marklet
 
 * Package [io.github.atlascommunity.marklet](Index.md)
-*  > [Marklet](Markletmd)
+*  > [Marklet](Marklet.md)
 
-Marklet entry point. This class declares the [Marklet](Markletmd) method required by the
+Marklet entry point. This class declares the [Marklet](Marklet.md) method required by the
  doclet API in order to be called by the javadoc tool.
 
 

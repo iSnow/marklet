@@ -16,6 +16,7 @@ import com.sun.javadoc.PackageDoc;
 import io.github.atlascommunity.marklet.MarkletOptions;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 @RequiredArgsConstructor
@@ -26,12 +27,18 @@ public class ReadmePage {
   private final MarkletOptions options;
 
   public void build() throws IOException {
+
     StringBuilder readme =
         new StringBuilder().append(new Heading("Project packages list", 1)).append("\n");
-    packages.forEach(p -> readme.append(new Link(p.name())).append("\n"));
+    Table.Builder table =
+        new Table.Builder()
+            .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
+            .withRowLimit(packages.size())
+            .addRow("Package");
+    packages.forEach(p -> table.addRow(new Link(p.name())));
+    readme.append(table.build());
 
     Path readmeFilePath = Paths.get(options.getOutputDirectory(), README_FILE);
-
     try (Writer fileToDisk =
         new OutputStreamWriter(
             new FileOutputStream(readmeFilePath.toString()), StandardCharsets.UTF_8)) {

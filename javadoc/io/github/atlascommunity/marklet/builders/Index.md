@@ -3,10 +3,10 @@
 ## Classes
 | Name |
 | --- |
-| [ReadmePage](ReadmePagemd) |
-| [PackagePage](PackagePagemd) |
-| [MarkletDocument](MarkletDocumentmd) |
-| [MarkdownDocument](MarkdownDocumentmd) |
-| [ClassPage](ClassPagemd) |
+| [ReadmePage](ReadmePage.md) |
+| [PackagePage](PackagePage.md) |
+| [MarkletDocument](MarkletDocument.md) |
+| [MarkdownDocument](MarkdownDocument.md) |
+| [ClassPage](ClassPage.md) |
 
 

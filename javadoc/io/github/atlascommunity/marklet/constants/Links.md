@@ -1,7 +1,7 @@
 # Class Links
 
 * Package [io.github.atlascommunity.marklet.constants](Index.md)
-*  > [Links](Linksmd)
+*  > [Links](Links.md)
 
 
 

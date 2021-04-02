@@ -1,7 +1,7 @@
 # Class MarkdownDocument
 
 * Package [io.github.atlascommunity.marklet.builders](Index.md)
-*  > [MarkdownDocument](MarkdownDocumentmd)
+*  > [MarkdownDocument](MarkdownDocument.md)
 
 This class aims to build Markdown document. It is built in a top of a 
  instance which will contains our document content.

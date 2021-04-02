@@ -1,7 +1,7 @@
 # Class MarkletOptions
 
 * Package [io.github.atlascommunity.marklet](Index.md)
-*  > [MarkletOptions](MarkletOptionsmd)
+*  > [MarkletOptions](MarkletOptions.md)
 
 Class that reads and stores provided options for javadoc execution. Options that we care about
  are :
@@ -20,7 +20,7 @@ Class that reads and stores provided options for javadoc execution. Options that
 | Type and modifiers | Method signature |
 | --- | --- |
 | `public static` `int` | [optionLength](#optionlengthstring)( option) |
-| `public static` [MarkletOptions](MarkletOptionsmd) | [parse](#parserootdoc)( root) |
+| `public static` [MarkletOptions](MarkletOptions.md) | [parse](#parserootdoc)( root) |
 | `public static` `boolean` | [validOptions](#validoptionsstring-docerrorreporter)( options,  reporter) |
 
 

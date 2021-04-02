@@ -1,7 +1,7 @@
 # Class Labels
 
 * Package [io.github.atlascommunity.marklet.constants](Index.md)
-*  > [Labels](Labelsmd)
+*  > [Labels](Labels.md)
 
 Enumerations of text constant used during documentation generation.
 

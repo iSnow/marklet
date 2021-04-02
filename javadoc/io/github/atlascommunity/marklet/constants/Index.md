@@ -3,8 +3,8 @@
 ## Classes
 | Name |
 | --- |
-| [Links](Linksmd) |
-| [Labels](Labelsmd) |
-| [Filenames](Filenamesmd) |
+| [Links](Links.md) |
+| [Labels](Labels.md) |
+| [Filenames](Filenames.md) |
 
 

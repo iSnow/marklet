@@ -79,7 +79,7 @@ public class MarkletDocument extends MarkdownDocument {
   public void classLink(final PackageDoc source, final ClassDoc target) {
     if (target.isIncluded()) {
       final String path = getPath(source.name(), target.containingPackage().name());
-      String urlBuilder = path + target.simpleTypeName() + options.getFileEnding();
+      String urlBuilder = path + target.simpleTypeName() + "." + options.getFileEnding();
       link(target.simpleTypeName(), urlBuilder);
     }
   }

@@ -1,9 +1,9 @@
 # Class MarkletDocument
 
 * Package [io.github.atlascommunity.marklet.builders](Index.md)
-*  > [MarkdownDocument](MarkdownDocumentmd) > [MarkletDocument](MarkletDocumentmd)
+*  > [MarkdownDocument](MarkdownDocument.md) > [MarkletDocument](MarkletDocument.md)
 
-Custom [MarkdownDocument](MarkdownDocumentmd) implementation that aims to be used for building Marklet
+Custom [MarkdownDocument](MarkdownDocument.md) implementation that aims to be used for building Marklet
  generated document. Such document are defined by a source package from which link are built.
 
 
@@ -16,7 +16,7 @@ Custom [MarkdownDocument](MarkdownDocumentmd) implementation that aims to be use
 #### Methods
 | Type and modifiers | Method signature |
 | --- | --- |
-| `public` `void` | [build](#buildpath-markletoptions)( path, [MarkletOptions](../MarkletOptionsmd) options) |
+| `public` `void` | [build](#buildpath-markletoptions)( path, [MarkletOptions](../MarkletOptions.md) options) |
 | `public` `void` | [classLink](#classlinkpackagedoc-classdoc)( source,  target) |
 | `public` `void` | [description](#descriptiondoc)( doc) |
 | `public` `void` | [description](#descriptiontag)( inlineTags) |
@@ -56,7 +56,7 @@ Finalizes document building by adding a horizontal rule, the **marklet** generat
 
 ## classLink(PackageDoc, ClassDoc)
 Appends to the current document a valid markdown link that aims to be the shortest one, by
- using the [MarkletDocument](MarkletDocumentmd) method. The built URL will start from the given
+ using the [MarkletDocument](MarkletDocument.md) method. The built URL will start from the given
  ``source`` package to the given ``target`` class.
 
 ### **Parameters**
@@ -176,7 +176,7 @@ Appends to the current document the signature of the given ``member`` as a table
 ## typeLink(PackageDoc, Type)
 Appends to the current document a valid markdown link for the given ``type``. If this ``type``
  is a primitive one, then only a bold label is produced. Otherwise it return a link created by
- the [MarkletDocument](MarkletDocumentmd) method.
+ the [MarkletDocument](MarkletDocument.md) method.
 
 ### **Parameters**
 * `source`: Source package to start URL from.

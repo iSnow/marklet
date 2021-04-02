@@ -1,7 +1,7 @@
 # Class ReadmePage
 
 * Package [io.github.atlascommunity.marklet.builders](Index.md)
-*  > [ReadmePage](ReadmePagemd)
+*  > [ReadmePage](ReadmePage.md)
 
 
 

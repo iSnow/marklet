@@ -4,7 +4,7 @@
 ## Classes
 | Name |
 | --- |
-| [MarkletOptions](MarkletOptionsmd) |
-| [Marklet](Markletmd) |
+| [MarkletOptions](MarkletOptions.md) |
+| [Marklet](Marklet.md) |
 
 
