@@ -1,5 +1,6 @@
 package io.github.atlascommunity.marklet.builders;
 
+import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
 import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATION;
 import static io.github.atlascommunity.marklet.constants.Labels.CLASS;
 import static io.github.atlascommunity.marklet.constants.Labels.CONSTRUCTORS;
@@ -34,7 +35,6 @@ import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.Type;
 
 import io.github.atlascommunity.marklet.MarkletOptions;
-import io.github.atlascommunity.marklet.constants.Filenames;
 import io.github.atlascommunity.marklet.constants.Labels;
 
 /**
@@ -188,7 +188,7 @@ public final class ClassPage extends MarkletDocument {
     item();
     text(PACKAGE);
     character(' ');
-    link(packageName, Filenames.README_LINK);
+    link(packageName, PACKAGE_INDEX_FILE);
     newLine();
     item();
     classHierarchy();

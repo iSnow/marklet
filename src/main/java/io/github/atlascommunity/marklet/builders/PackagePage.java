@@ -1,6 +1,6 @@
 package io.github.atlascommunity.marklet.builders;
 
-import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
+import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
 import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATIONS;
 import static io.github.atlascommunity.marklet.constants.Labels.CLASSES;
 import static io.github.atlascommunity.marklet.constants.Labels.ENUMERATIONS;
@@ -8,10 +8,8 @@ import static io.github.atlascommunity.marklet.constants.Labels.INTERFACES;
 import static io.github.atlascommunity.marklet.constants.Labels.NAME;
 import static io.github.atlascommunity.marklet.constants.Labels.PACKAGE;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
@@ -122,11 +120,6 @@ public final class PackagePage extends MarkletDocument {
     packageBuilder.header();
     packageBuilder.indexes();
 
-    Path path =
-        (options.isShouldOverwriteReadme())
-            ? Paths.get(new File("").getAbsolutePath(), README_FILE)
-            : directoryPath.resolve(README_FILE);
-
-    packageBuilder.build(path, options);
+    packageBuilder.build(directoryPath.resolve(PACKAGE_INDEX_FILE), options);
   }
 }

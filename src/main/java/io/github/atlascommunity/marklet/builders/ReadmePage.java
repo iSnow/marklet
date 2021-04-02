@@ -1,0 +1,42 @@
+package io.github.atlascommunity.marklet.builders;
+
+import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+import com.sun.javadoc.PackageDoc;
+
+import io.github.atlascommunity.marklet.MarkletOptions;
+import lombok.RequiredArgsConstructor;
+import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.text.heading.Heading;
+
+@RequiredArgsConstructor
+public class ReadmePage {
+
+  private final List<PackageDoc> packages;
+
+  private final MarkletOptions options;
+
+  public void build() throws IOException {
+    StringBuilder readme =
+        new StringBuilder().append(new Heading("Project packages list", 1)).append("\n");
+    packages.forEach(p -> readme.append(new Link(p.name())).append("\n"));
+
+    Path readmeFilePath = Paths.get(options.getOutputDirectory(), README_FILE);
+
+    try (Writer fileToDisk =
+        new OutputStreamWriter(
+            new FileOutputStream(readmeFilePath.toString()), StandardCharsets.UTF_8)) {
+
+      fileToDisk.write(readme.toString());
+    }
+  }
+}

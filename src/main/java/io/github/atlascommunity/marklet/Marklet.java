@@ -15,6 +15,7 @@ import com.sun.javadoc.RootDoc;
 
 import io.github.atlascommunity.marklet.builders.ClassPage;
 import io.github.atlascommunity.marklet.builders.PackagePage;
+import io.github.atlascommunity.marklet.builders.ReadmePage;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
@@ -130,7 +131,12 @@ public final class Marklet {
         generatePackage(packageDoc);
       }
     }
+    generateReadme(packages);
+  }
 
+  private void generateReadme(List<PackageDoc> packages) throws IOException {
+
+    new ReadmePage(packages, options).build();
   }
 
   /**
