@@ -30,12 +30,19 @@ public class ReadmePage {
 
     StringBuilder readme =
         new StringBuilder().append(new Heading("Project packages list", 1)).append("\n");
+
     Table.Builder table =
         new Table.Builder()
             .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
             .withRowLimit(packages.size())
             .addRow("Package");
-    packages.forEach(p -> table.addRow(new Link(p.name())));
+
+    packages.forEach(
+        p -> {
+          String linkName = p.name();
+          String linkUrl = linkName.replace(".", "/");
+          table.addRow(new Link(linkName, linkUrl));
+        });
     readme.append(table.build());
 
     Path readmeFilePath = Paths.get(options.getOutputDirectory(), README_FILE);
