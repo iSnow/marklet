@@ -120,8 +120,9 @@ public final class Marklet {
    * Generates documentation file for each package.
    *
    * @throws IOException If any error occurs during generation process.
+   * @return list of packages documents
    */
-  private void buildPackages() throws IOException {
+  private List<PackageDoc> buildPackages() throws IOException {
 
     final List<PackageDoc> packages = new ArrayList<>();
     for (final ClassDoc classDoc : root.classes()) {
@@ -131,7 +132,8 @@ public final class Marklet {
         generatePackage(packageDoc);
       }
     }
-    generateReadme(packages);
+
+    return packages;
   }
 
   private void generateReadme(List<PackageDoc> packages) throws IOException {
@@ -162,7 +164,8 @@ public final class Marklet {
       final Path outputDirectory = Paths.get(options.getOutputDirectory());
       root.printNotice("Target output directory : " + outputDirectory.toAbsolutePath().toString());
       if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
-      buildPackages();
+      List<PackageDoc> packages = buildPackages();
+      generateReadme(packages);
       buildClasses();
     } catch (final IOException e) {
       root.printError(e.getMessage());

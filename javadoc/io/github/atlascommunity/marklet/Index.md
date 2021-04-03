@@ -6,5 +6,3 @@
 | --- |
 | [MarkletOptions](MarkletOptions.md) |
 | [Marklet](Marklet.md) |
-
-
