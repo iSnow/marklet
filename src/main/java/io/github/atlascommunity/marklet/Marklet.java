@@ -13,7 +13,7 @@ import com.sun.javadoc.LanguageVersion;
 import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.RootDoc;
 
-import io.github.atlascommunity.marklet.builders.ClassPage;
+import io.github.atlascommunity.marklet.builders.OldClassPage;
 import io.github.atlascommunity.marklet.builders.PackagePage;
 import io.github.atlascommunity.marklet.builders.ReadmePage;
 import lombok.AccessLevel;
@@ -153,7 +153,7 @@ public final class Marklet {
       final String packageName = packageDoc.name();
       final Path packageDirectory = getPackageDirectory(packageName);
       root.printNotice("Generates documentation for " + classDoc.name());
-      ClassPage.build(classDoc, packageDirectory, options);
+      OldClassPage.build(classDoc, packageDirectory, options);
     }
   }
 
