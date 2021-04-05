@@ -1,29 +1,16 @@
-# Class ReadmePage
+# Interface DocumentPage
 
 * Package [io.github.atlascommunity.marklet.builders](Index.md)
-*  > [ReadmePage](ReadmePage.md)All implemented interfaces :
 * [DocumentPage](DocumentPage.md)
 
 
 
 
 ## Summary
-#### Constructors
-| Visibility | Signature |
-| --- | --- |
-| `public` | [ReadmePage](#readmepage)() |
-
 #### Methods
 | Type and modifiers | Method signature |
 | --- | --- |
 | `public` `void` | [build](#build)() |
-
-
-
-# Constructors
-## ReadmePage()
-
-
 
 
 

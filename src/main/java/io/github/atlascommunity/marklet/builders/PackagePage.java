@@ -26,6 +26,7 @@ import com.sun.javadoc.Tag;
 import io.github.atlascommunity.marklet.MarkletOptions;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
@@ -43,7 +44,12 @@ public class PackagePage implements DocumentPage {
     String packageHeader = String.format("%s %s", PACKAGE, packageDoc.name());
     StringBuilder packagePage = new StringBuilder().append(new Heading(packageHeader)).append("\n");
     Arrays.stream(packageDoc.inlineTags())
-        .forEach(tag -> packagePage.append(processTag(tag)).append("\n"));
+        .forEach(
+            tag -> {
+              String formattedTag = processTag(tag);
+              packagePage.append(formattedTag);
+              packagePage.append("\n").append(new HorizontalRule()).append("\n");
+            });
     createPackageIndexes(packagePage);
     writeFile(packagePage);
   }
@@ -90,11 +96,12 @@ public class PackagePage implements DocumentPage {
 
   private void generateTable(String tableLabel, ClassDoc[] docs, StringBuilder packagePage) {
 
+    packagePage.append(new Heading(tableLabel, 1)).append("\n");
     Table.Builder table =
         new Table.Builder()
             .withAlignments(Table.ALIGN_LEFT)
-            .withRowLimit(docs.length)
-            .addRow(tableLabel);
+            .withRowLimit(docs.length + 1)
+            .addRow("Name");
 
     Arrays.stream(docs)
         .forEach(
@@ -104,7 +111,7 @@ public class PackagePage implements DocumentPage {
               table.addRow(new Link(linkName, linkUrl));
             });
 
-    packagePage.append(table.build());
+    packagePage.append(table.build()).append("\n");
   }
 
   private void writeFile(StringBuilder pageContent) throws IOException {
