@@ -14,7 +14,7 @@ import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.RootDoc;
 
 import io.github.atlascommunity.marklet.builders.ClassPage;
-import io.github.atlascommunity.marklet.builders.PackagePage;
+import io.github.atlascommunity.marklet.builders.OldPackagePage;
 import io.github.atlascommunity.marklet.builders.ReadmePage;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -112,7 +112,7 @@ public final class Marklet {
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      PackagePage.build(packageDoc, directoryPath, options);
+      OldPackagePage.build(packageDoc, directoryPath, options);
     }
   }
 

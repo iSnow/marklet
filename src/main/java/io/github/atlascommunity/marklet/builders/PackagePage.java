@@ -5,121 +5,114 @@ import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATIONS;
 import static io.github.atlascommunity.marklet.constants.Labels.CLASSES;
 import static io.github.atlascommunity.marklet.constants.Labels.ENUMERATIONS;
 import static io.github.atlascommunity.marklet.constants.Labels.INTERFACES;
-import static io.github.atlascommunity.marklet.constants.Labels.NAME;
 import static io.github.atlascommunity.marklet.constants.Labels.PACKAGE;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.function.Supplier;
 
+import org.apache.commons.lang3.ArrayUtils;
+
+import com.sun.javadoc.AnnotationTypeDoc;
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.PackageDoc;
+import com.sun.javadoc.SeeTag;
+import com.sun.javadoc.Tag;
 
 import io.github.atlascommunity.marklet.MarkletOptions;
+import lombok.RequiredArgsConstructor;
+import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.table.Table;
+import net.steppschuh.markdowngenerator.text.heading.Heading;
 
-/**
- * Builder that aims to create documentation page for a given ``package``. Such documentation
- * consists in a package description followed by type listing over following categories :
- *
- * <p>* Classes * Interfaces * Enumerations * Annotations
- *
- * @author fv
- */
-public final class PackagePage extends MarkletDocument {
-
-  /** Target package that page is built from. * */
+@RequiredArgsConstructor
+public class PackagePage implements DocumentPage {
   private final PackageDoc packageDoc;
 
-  /**
-   * Default constructor.
-   *
-   * @param packageDoc Target package that page is built from.
-   */
-  private PackagePage(final PackageDoc packageDoc, final MarkletOptions options) {
+  private final Path packageDirectory;
 
-    super(packageDoc, options);
-    this.packageDoc = packageDoc;
+  private final MarkletOptions options;
+
+  @Override
+  public void build() throws IOException {
+
+    String packageHeader = String.format("%s %s", PACKAGE, packageDoc.name());
+    StringBuilder packagePage = new StringBuilder().append(new Heading(packageHeader)).append("\n");
+    Arrays.stream(packageDoc.inlineTags())
+        .forEach(tag -> packagePage.append(processTag(tag)).append("\n"));
+    createPackageIndexes(packagePage);
+    writeFile(packagePage);
   }
 
-  /**
-   * Appends package header to the current document . Which consists in the package name, and the
-   * package text description.
-   */
-  private void header() {
+  private String processTag(Tag tag) {
 
-    header(1);
-    text(PACKAGE);
-    character(' ');
-    text(packageDoc.name());
-    newLine();
-    description(packageDoc);
-    newLine();
+    if (("@link").equals(tag.name())) {
+      SeeTag seeTag = (SeeTag) tag;
+      ClassDoc referencedClassDoc = seeTag.referencedClass();
+      if (referencedClassDoc != null) {
+        String linkName = referencedClassDoc.name();
+        String linkUrl =
+            linkName.replace(".", "/") + "/" + linkName + "." + options.getFileEnding();
+
+        return new Link(linkName, linkUrl).toString();
+      }
+    }
+
+    return tag.text().replace("<p>", "").replace("</p>", "");
   }
 
-  /**
-   * Appends a class based index to the current document, namely list each type in a markdown table.
-   * Such type could be either class, interface, or enumeration.
-   *
-   * @param label Label of the type categories.
-   * @param classSupplier Type supplier.
-   */
-  private void classIndex(final String label, final Supplier<ClassDoc[]> classSupplier) {
+  private void createPackageIndexes(StringBuilder packagePage) {
 
-    final ClassDoc[] classDocs = classSupplier.get();
-    if (classDocs.length > 0) {
-      header(2);
-      text(label);
-      newLine();
-      tableHeader(NAME);
-      Arrays.stream(classDocs).forEach(this::classRow);
-      newLine();
+    AnnotationTypeDoc[] packageAnnotations = packageDoc.annotationTypes();
+    if (ArrayUtils.isNotEmpty(packageAnnotations)) {
+      generateTable(ANNOTATIONS, packageAnnotations, packagePage);
+    }
+
+    ClassDoc[] packageEnums = packageDoc.enums();
+    if (ArrayUtils.isNotEmpty(packageEnums)) {
+      generateTable(ENUMERATIONS, packageEnums, packagePage);
+    }
+
+    ClassDoc[] packageInterfaces = packageDoc.interfaces();
+    if (ArrayUtils.isNotEmpty(packageInterfaces)) {
+      generateTable(INTERFACES, packageInterfaces, packagePage);
+    }
+
+    ClassDoc[] packageClasses = packageDoc.allClasses();
+    if (ArrayUtils.isNotEmpty(packageClasses)) {
+      generateTable(CLASSES, packageClasses, packagePage);
     }
   }
 
-  /**
-   * Appends a class link row to the current index built in the current document.
-   *
-   * @param classDoc Class to append link from.
-   */
-  private void classRow(final ClassDoc classDoc) {
+  private void generateTable(String tableLabel, ClassDoc[] docs, StringBuilder packagePage) {
 
-    startTableRow();
-    classLink(packageDoc, classDoc);
-    endTableRow();
-    newLine();
+    Table.Builder table =
+        new Table.Builder()
+            .withAlignments(Table.ALIGN_LEFT)
+            .withRowLimit(docs.length)
+            .addRow(tableLabel);
+
+    Arrays.stream(docs)
+        .forEach(
+            d -> {
+              String linkName = d.simpleTypeName();
+              String linkUrl = d.name().replace(".", "/") + "." + options.getFileEnding();
+              table.addRow(new Link(linkName, linkUrl));
+            });
+
+    packagePage.append(table.build());
   }
 
-  /**
-   * Main package building process, build listing for the following type category :
-   *
-   * <p>* Classes * Interfaces * Enumerations * Annotations
-   */
-  private void indexes() {
+  private void writeFile(StringBuilder pageContent) throws IOException {
+    FileOutputStream savePath =
+        new FileOutputStream(packageDirectory.resolve(PACKAGE_INDEX_FILE).toString());
 
-    classIndex(ANNOTATIONS, packageDoc::annotationTypes);
-    classIndex(ENUMERATIONS, packageDoc::enums);
-    classIndex(INTERFACES, packageDoc::interfaces);
-    classIndex(CLASSES, packageDoc::allClasses);
-  }
-
-  /**
-   * Builds and writes the documentation file associated to the given ``packageDoc`` into the
-   * directory denoted by the given ``directoryPath``.
-   *
-   * @param packageDoc Package to generated documentation for.
-   * @param directoryPath Path of the directory to write documentation in.
-   * @param options Doclet options.
-   * @throws IOException If any error occurs while writing package page.
-   */
-  public static void build(
-      final PackageDoc packageDoc, final Path directoryPath, final MarkletOptions options)
-      throws IOException {
-
-    final PackagePage packageBuilder = new PackagePage(packageDoc, options);
-    packageBuilder.header();
-    packageBuilder.indexes();
-
-    packageBuilder.build(directoryPath.resolve(PACKAGE_INDEX_FILE), options);
+    try (Writer readmeFile = new OutputStreamWriter(savePath, StandardCharsets.UTF_8)) {
+      readmeFile.write(pageContent.toString());
+    }
   }
 }
