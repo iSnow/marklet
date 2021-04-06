@@ -38,7 +38,7 @@ public class ClassSummary implements ClassPageElement {
               .addRow("Visibility", "Signature");
 
       Arrays.stream(classDoc.constructors())
-          .forEach(f -> tableEntries.addRow(new BoldText(f.modifiers()), f.name()));
+          .forEach(c -> tableEntries.addRow(new BoldText(c.modifiers()), c.name()));
       constructorsTable.append(tableEntries.build());
       summary.append(constructorsTable);
     }
@@ -72,7 +72,8 @@ public class ClassSummary implements ClassPageElement {
               .addRow(TYPE_AND_MODIFIERS_COLUMN, "Method signature");
 
       Arrays.stream(classDoc.methods())
-          .forEach(f -> tableEntries.addRow(new BoldText(f.modifiers()), f.name()));
+          .filter(m -> m.overriddenMethod() == null)
+          .forEach(m -> tableEntries.addRow(new BoldText(m.modifiers()), m.name()));
       methodsTable.append(tableEntries.build());
       summary.append(methodsTable);
     }

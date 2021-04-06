@@ -25,7 +25,7 @@ public class ClassPage implements DocumentPage {
 
     pageTitle.append(new ClassSummary(classDoc).generate());
 
-    String constructorsInfo = new ClassConstructorInfo(classDoc, options).generate();
+    String constructorsInfo = new ClassConstructorsInfo(classDoc, options).generate();
     if (!constructorsInfo.isEmpty()) pageTitle.append(constructorsInfo);
 
     String fieldsInfo = new ClassFieldsInfo(classDoc).generate();

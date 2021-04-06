@@ -18,7 +18,7 @@ import net.steppschuh.markdowngenerator.list.UnorderedList;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 @RequiredArgsConstructor
-public class ClassConstructorInfo implements ClassPageElement {
+public class ClassConstructorsInfo implements ClassPageElement {
 
   private final ClassDoc classDoc;
 
@@ -30,7 +30,6 @@ public class ClassConstructorInfo implements ClassPageElement {
     if (classDoc.constructors().length > 0) {
       Heading sectionHeading = new Heading(CONSTRUCTORS, 1);
       StringBuilder constructorsInfo = new StringBuilder().append(sectionHeading).append("\n");
-
       Arrays.stream(classDoc.constructors())
           .forEach(c -> constructorsInfo.append(constructorDescription(c)).append("\n"));
 
