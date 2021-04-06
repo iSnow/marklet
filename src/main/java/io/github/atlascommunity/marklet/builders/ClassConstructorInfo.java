@@ -19,6 +19,7 @@ import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 @RequiredArgsConstructor
 public class ClassConstructorInfo implements ClassPageElement {
+
   private final ClassDoc classDoc;
 
   private final MarkletOptions options;
@@ -28,12 +29,12 @@ public class ClassConstructorInfo implements ClassPageElement {
 
     if (classDoc.constructors().length > 0) {
       Heading sectionHeading = new Heading(CONSTRUCTORS, 1);
-      StringBuilder constructorInfo = new StringBuilder().append(sectionHeading).append("\n");
+      StringBuilder constructorsInfo = new StringBuilder().append(sectionHeading).append("\n");
 
       Arrays.stream(classDoc.constructors())
-          .forEach(doc -> constructorInfo.append(constructorDescription(doc)).append("\n"));
+          .forEach(c -> constructorsInfo.append(constructorDescription(c)).append("\n"));
 
-      return constructorInfo.toString();
+      return constructorsInfo.toString();
     }
 
     return "";
