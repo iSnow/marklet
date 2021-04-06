@@ -10,16 +10,21 @@ import static io.github.atlascommunity.marklet.constants.Labels.METHODS;
 import static io.github.atlascommunity.marklet.constants.Labels.SUMMARY;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.sun.javadoc.ClassDoc;
 
 import lombok.RequiredArgsConstructor;
+import net.steppschuh.markdowngenerator.table.Table;
+import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 @RequiredArgsConstructor
 public class ClassPage implements DocumentPage {
 
   private final ClassDoc classDoc;
+
+  private static final String TYPE_AND_MODIFIERS_COLUMN = "Type and modifiers";
 
   @Override
   public void build() throws IOException {
@@ -32,20 +37,58 @@ public class ClassPage implements DocumentPage {
   }
 
   private String generateSummary() {
+
     StringBuilder summary = new StringBuilder().append(new Heading(SUMMARY, 2)).append("\n");
-    if (classDoc.fields().length > 0) {
-      summary.append(new Heading(FIELDS, 4)).append("\n");
-      // TODO table
+
+    int numberOfFields = classDoc.fields().length;
+    if (numberOfFields > 0) {
+
+      Heading tableHeading = new Heading(FIELDS, 4);
+      StringBuilder fieldsTable = new StringBuilder().append(tableHeading).append("\n");
+      Table.Builder tableEntries =
+          new Table.Builder()
+              .withAlignments(Table.ALIGN_LEFT)
+              .withRowLimit(numberOfFields + 1)
+              .addRow(TYPE_AND_MODIFIERS_COLUMN, "Field name");
+
+      Arrays.stream(classDoc.fields())
+          .forEach(f -> tableEntries.addRow(new BoldText(f.modifiers()), f.name()));
+      fieldsTable.append(tableEntries.build());
+      summary.append(fieldsTable);
     }
 
-    if (classDoc.methods().length > 0) {
-      summary.append(new Heading(METHODS, 4)).append("\n");
-      // TODO table
+    int numberOfConstructors = classDoc.constructors().length;
+    if (numberOfConstructors > 0) {
+
+      Heading tableHeading = new Heading(CONSTRUCTORS, 4);
+      StringBuilder constructorsTable = new StringBuilder().append(tableHeading).append("\n");
+      Table.Builder tableEntries =
+          new Table.Builder()
+              .withAlignments(Table.ALIGN_LEFT)
+              .withRowLimit(numberOfConstructors + 1)
+              .addRow("Visibility", "Signature");
+
+      Arrays.stream(classDoc.constructors())
+          .forEach(f -> tableEntries.addRow(new BoldText(f.modifiers()), f.name()));
+      constructorsTable.append(tableEntries.build());
+      summary.append(constructorsTable);
     }
 
-    if (classDoc.constructors().length > 0) {
-      summary.append(new Heading(CONSTRUCTORS, 4)).append("\n");
-      // TODO table
+    int numberOfMethods = classDoc.methods().length;
+    if (numberOfMethods > 0) {
+
+      Heading tableHeading = new Heading(METHODS, 4);
+      StringBuilder methodsTable = new StringBuilder().append(tableHeading).append("\n");
+      Table.Builder tableEntries =
+          new Table.Builder()
+              .withAlignments(Table.ALIGN_LEFT)
+              .withRowLimit(numberOfMethods + 1)
+              .addRow(TYPE_AND_MODIFIERS_COLUMN, "Method signature");
+
+      Arrays.stream(classDoc.methods())
+          .forEach(f -> tableEntries.addRow(new BoldText(f.modifiers()), f.name()));
+      methodsTable.append(tableEntries.build());
+      summary.append(methodsTable);
     }
 
     return summary.toString();
