@@ -20,8 +20,6 @@ import org.apache.commons.lang3.ArrayUtils;
 import com.sun.javadoc.AnnotationTypeDoc;
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.PackageDoc;
-import com.sun.javadoc.SeeTag;
-import com.sun.javadoc.Tag;
 
 import io.github.atlascommunity.marklet.MarkletOptions;
 import lombok.RequiredArgsConstructor;
@@ -46,29 +44,12 @@ public class PackagePage implements DocumentPage {
     Arrays.stream(packageDoc.inlineTags())
         .forEach(
             tag -> {
-              String formattedTag = processTag(tag);
+              String formattedTag = new MarkdownTag(tag, options.getFileEnding()).create();
               packagePage.append(formattedTag);
               packagePage.append("\n").append(new HorizontalRule()).append("\n");
             });
     createPackageIndexes(packagePage);
     writeFile(packagePage);
-  }
-
-  private String processTag(Tag tag) {
-
-    if (("@link").equals(tag.name())) {
-      SeeTag seeTag = (SeeTag) tag;
-      ClassDoc referencedClassDoc = seeTag.referencedClass();
-      if (referencedClassDoc != null) {
-        String linkName = referencedClassDoc.name();
-        String linkUrl =
-            linkName.replace(".", "/") + "/" + linkName + "." + options.getFileEnding();
-
-        return new Link(linkName, linkUrl).toString();
-      }
-    }
-
-    return tag.text().replace("<p>", "").replace("</p>", "");
   }
 
   private void createPackageIndexes(StringBuilder packagePage) {
