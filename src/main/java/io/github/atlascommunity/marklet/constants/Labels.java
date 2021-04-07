@@ -46,9 +46,6 @@ public final class Labels {
   /** Label for fields. * */
   public static final String FIELDS = "Fields";
 
-  /** Label for name. * */
-  public static final String NAME = "Name";
-
   /** Label for throws. * */
   public static final String THROWS = "Throws";
 
@@ -60,16 +57,4 @@ public final class Labels {
 
   /** Label for summary. * */
   public static final String SUMMARY = "Summary";
-
-  /** Header labels for methods summary. * */
-  public static final String[] METHODS_SUMMARY_HEADERS = {"Type and modifiers", "Method signature"};
-
-  /** Header labels for fields summary. * */
-  public static final String[] FIELDS_SUMMARY_HEADERS = {"Type and modifiers", "Field name"};
-
-  /** Header labels for constructors summary. * */
-  public static final String[] CONSTRUCTOR_SUMMARY_HEADERS = {"Visibility", "Signature"};
-
-  /** Header label for the interface hierachy. * */
-  public static final String INTERFACE_HIERARCHY_HEADER = "All implemented interfaces :";
 }

@@ -36,7 +36,7 @@ public class ClassMethodsInfo implements ClassPageElement {
       return methodsInfo.toString();
     }
 
-    return null;
+    return "";
   }
 
   private String methodDescription(MethodDoc methodDoc) {
@@ -63,12 +63,12 @@ public class ClassMethodsInfo implements ClassPageElement {
       description.append(parametersInfo);
     }
 
-    Tag methodReturns = methodDoc.tags("return")[0];
-    if (methodReturns != null) {
+    Tag[] returnTags = methodDoc.tags("return");
+    if (returnTags.length > 0) {
       String returnInfo =
           new Heading(RETURNS, 3)
               + "\n"
-              + String.format(DESCRIPTION_PATTERN, methodReturns.name(), methodReturns.text());
+              + String.format(DESCRIPTION_PATTERN, returnTags[0].name(), returnTags[0].text());
       description.append(returnInfo);
     }
 
