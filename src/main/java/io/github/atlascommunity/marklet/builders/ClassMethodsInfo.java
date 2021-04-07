@@ -3,6 +3,7 @@ package io.github.atlascommunity.marklet.builders;
 import static io.github.atlascommunity.marklet.constants.Labels.METHODS;
 import static io.github.atlascommunity.marklet.constants.Labels.PARAMETERS;
 import static io.github.atlascommunity.marklet.constants.Labels.RETURNS;
+import static io.github.atlascommunity.marklet.constants.Labels.THROWS;
 
 import java.util.Arrays;
 
@@ -10,6 +11,7 @@ import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.MethodDoc;
 import com.sun.javadoc.ParamTag;
 import com.sun.javadoc.Tag;
+import com.sun.javadoc.ThrowsTag;
 
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
@@ -18,6 +20,8 @@ import net.steppschuh.markdowngenerator.text.heading.Heading;
 public class ClassMethodsInfo implements ClassPageElement {
 
   private final ClassDoc classDoc;
+
+  private static final String DESCRIPTION_PATTERN = "%s : %s";
 
   @Override
   public String generate() {
@@ -52,22 +56,33 @@ public class ClassMethodsInfo implements ClassPageElement {
       Arrays.stream(paramTags)
           .forEach(
               p -> {
-                String about = String.format("%s : %s", p.parameterName(), p.parameterComment());
-                parametersInfo.append(about);
+                String paramDesc =
+                    String.format(DESCRIPTION_PATTERN, p.parameterName(), p.parameterComment());
+                parametersInfo.append(paramDesc);
               });
       description.append(parametersInfo);
     }
 
-    StringBuilder returnInfo = new StringBuilder().append(new Heading(RETURNS, 3)).append("\n");
     Tag methodReturns = methodDoc.tags("return")[0];
     if (methodReturns != null) {
-      returnInfo.append(String.format("%s : %s", methodReturns.name(), methodReturns.text()));
-    } else {
-      returnInfo.append("No description provided").append("\n");
+      String returnInfo =
+          new Heading(RETURNS, 3)
+              + "\n"
+              + String.format(DESCRIPTION_PATTERN, methodReturns.name(), methodReturns.text());
+      description.append(returnInfo);
     }
-    description.append(returnInfo);
 
-    // TODO throws description and test
+    ThrowsTag[] throwsTags = methodDoc.throwsTags();
+    if (throwsTags.length > 0) {
+      Heading exceptionsHeading = new Heading(THROWS, 3);
+      StringBuilder exceptionsInfo = new StringBuilder().append(exceptionsHeading).append("\n");
+      Arrays.stream(throwsTags)
+          .forEach(
+              t ->
+                  exceptionsInfo.append(
+                      String.format(DESCRIPTION_PATTERN, t.exception(), t.exceptionComment())));
+      description.append(exceptionsInfo);
+    }
 
     return description.toString();
   }
