@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet.builders;
+package io.github.atlascommunity.marklet.pages;
 
 import static io.github.atlascommunity.marklet.constants.Labels.CONSTRUCTORS;
 import static io.github.atlascommunity.marklet.constants.Labels.FIELDS;
@@ -14,13 +14,17 @@ import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+/** Brief class description */
 @RequiredArgsConstructor
 public class ClassSummary implements ClassPageElement {
 
+  /** Class information */
   private final ClassDoc classDoc;
 
+  /** Table column name */
   private static final String TYPE_AND_MODIFIERS_COLUMN = "Type and modifiers";
 
+  /** @return markdown string representation of document part */
   @Override
   public String generate() {
 
@@ -74,7 +78,8 @@ public class ClassSummary implements ClassPageElement {
 
       Arrays.stream(classDoc.methods())
           .filter(m -> m.overriddenMethod() == null)
-          .forEach(m -> tableEntries.addRow(new BoldText(m.modifiers()), m.name()));
+          .forEach(
+              m -> tableEntries.addRow(new BoldText(m.modifiers()), m.name() + m.flatSignature()));
       methodsTable.append(tableEntries.build());
       summary.append(methodsTable).append("\n");
     }

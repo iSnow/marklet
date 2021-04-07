@@ -1,5 +1,5 @@
-Package io.github.atlascommunity.marklet.builders
-=================================================
+Package io.github.atlascommunity.marklet.pages
+==============================================
 Interfaces
 ==========
 | Name                                    |

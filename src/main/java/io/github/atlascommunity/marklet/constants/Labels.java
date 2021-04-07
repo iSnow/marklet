@@ -2,11 +2,7 @@ package io.github.atlascommunity.marklet.constants;
 
 import lombok.experimental.UtilityClass;
 
-/**
- * Enumerations of text constant used during documentation generation.
- *
- * @author fv
- */
+/** Enumerations of text constant used during documentation generation. */
 @UtilityClass
 public final class Labels {
 
@@ -16,7 +12,7 @@ public final class Labels {
   /** Label for interface. * */
   public static final String INTERFACE = "Interface";
 
-  /** Label for classe. * */
+  /** Label for class. * */
   public static final String CLASS = "Class";
 
   /** Label for annotation. * */

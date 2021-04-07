@@ -9,7 +9,7 @@ Summary
 #### Methods
 | Type and modifiers | Method signature |
 | ------------------ | ---------------- |
-| **public**         | build            |
+| **public**         | build()          |
 
 Constructors
 ============
@@ -21,6 +21,6 @@ Methods
 =======
 build ()
 --------
-
+Creates markdown text file
 
 

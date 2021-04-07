@@ -5,7 +5,7 @@ Package io.github.atlascommunity.marklet
 ---
 Classes
 =======
-| Name                                |
-| ----------------------------------- |
-| [MarkletOptions](MarkletOptions.md) |
-| [Marklet](Marklet.md)               |
+| Name                  |
+| --------------------- |
+| [Options](Options.md) |
+| [Marklet](Marklet.md) |

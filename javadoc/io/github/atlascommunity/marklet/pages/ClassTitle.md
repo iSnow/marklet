@@ -9,7 +9,7 @@ Summary
 #### Methods
 | Type and modifiers | Method signature |
 | ------------------ | ---------------- |
-| **public**         | generate         |
+| **public**         | generate()       |
 
 Constructors
 ============
@@ -22,5 +22,7 @@ Methods
 generate ()
 -----------
 
+### Returns
+markdown string representation of document part
 
 

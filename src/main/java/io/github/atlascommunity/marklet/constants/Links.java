@@ -2,6 +2,9 @@ package io.github.atlascommunity.marklet.constants;
 
 import lombok.experimental.UtilityClass;
 
+/***
+ *  Enumerations of constants used for badge operations
+ */
 @UtilityClass
 public class Links {
   /** Marklet link using dynamic badge. * */

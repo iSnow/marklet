@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet.builders;
+package io.github.atlascommunity.marklet.pages;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,17 +10,21 @@ import java.nio.file.Paths;
 
 import com.sun.javadoc.ClassDoc;
 
-import io.github.atlascommunity.marklet.MarkletOptions;
+import io.github.atlascommunity.marklet.Options;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+/** Markdown text file with class information */
 @RequiredArgsConstructor
 public class ClassPage implements DocumentPage {
 
+  /** Class information */
   private final ClassDoc classDoc;
 
-  private final MarkletOptions options;
+  /** Doclet options */
+  private final Options options;
 
+  /** Creates markdown text file */
   @Override
   public void build() throws IOException {
 
@@ -43,6 +47,12 @@ public class ClassPage implements DocumentPage {
     writeFile(classPage);
   }
 
+  /**
+   * Writes file to disk
+   *
+   * @param classPage markdown string with class information
+   * @throws IOException If any error occurs during write process.
+   */
   private void writeFile(StringBuilder classPage) throws IOException {
 
     String outputDirectory = options.getOutputDirectory();

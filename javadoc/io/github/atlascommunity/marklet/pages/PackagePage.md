@@ -1,26 +1,28 @@
-Class MarkdownTag
+Class PackagePage
 =================
 Summary
 -------
 #### Constructors
 | Visibility | Signature     |
 | ---------- | ------------- |
-| **public** | MarkdownTag() |
+| **public** | PackagePage() |
 #### Methods
 | Type and modifiers | Method signature |
 | ------------------ | ---------------- |
-| **public**         | create           |
+| **public**         | build()          |
 
 Constructors
 ============
-MarkdownTag ()
+PackagePage ()
 --------------
 
 
 Methods
 =======
-create ()
----------
-
+build ()
+--------
+Build document and write it to the selected folder
+### Throws
+java.io.IOException: something went wrong during write operation
 
 

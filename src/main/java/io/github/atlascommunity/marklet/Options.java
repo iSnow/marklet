@@ -27,16 +27,11 @@ import lombok.Getter;
  * <p>> The default options are ideal if you want to serve the documentation using GitHub's >
  * built-in README rendering. If you are using a tool like Slate, change the options as follows: ```
  * $ javadoc -doclet fr.faylixe.marklet.Marklet -e html.md -l html … ```
- *
- * @author fv
  */
-public final class MarkletOptions {
+public final class Options {
 
   /** Option name for the target output directory. (`-d`) * */
   private static final String OUTPUT_DIRECTORY_OPTION = "-d";
-
-  /** Option name for project readme overwrite. (`-o`) * */
-  private static final String OVERWRITE_PROJECT_README = "-o";
 
   /** Option name for the file ending (`-e`) * */
   private static final String FILE_ENDING_OPTION = "-e";
@@ -61,16 +56,11 @@ public final class MarkletOptions {
 
   /** List of valid options. * */
   private static final List<String> VALID_OPTIONS =
-      Arrays.asList(
-          OUTPUT_DIRECTORY_OPTION,
-          OVERWRITE_PROJECT_README,
-          FILE_ENDING_OPTION,
-          CREATE_BADGE_OPTION);
+      Arrays.asList(OUTPUT_DIRECTORY_OPTION, FILE_ENDING_OPTION, CREATE_BADGE_OPTION);
 
   /* Number of tokens per option **/
   static {
     OPTIONS_COUNT.put(OUTPUT_DIRECTORY_OPTION, 2);
-    OPTIONS_COUNT.put(OVERWRITE_PROJECT_README, 2);
     OPTIONS_COUNT.put(FILE_ENDING_OPTION, 2);
     OPTIONS_COUNT.put(CREATE_BADGE_OPTION, 2);
   }
@@ -84,9 +74,6 @@ public final class MarkletOptions {
   /** Output directory file are generated in. * */
   @Getter private final String outputDirectory;
 
-  /** Output directory for readme file. * */
-  @Getter private final boolean shouldOverwriteReadme;
-
   /** Extension to use for generated file. * */
   @Getter private final String fileEnding;
 
@@ -94,11 +81,9 @@ public final class MarkletOptions {
   @Getter private final boolean hasBadge;
 
   /** Default constructor. Sets options with their default parameters if available. */
-  private MarkletOptions(final Map<String, String> options) {
+  private Options(final Map<String, String> options) {
 
     this.outputDirectory = options.getOrDefault(OUTPUT_DIRECTORY_OPTION, DEFAULT_OUTPUT_DIRECTORY);
-    this.shouldOverwriteReadme =
-        parseBoolean(options.getOrDefault(OVERWRITE_PROJECT_README, "false"));
     this.fileEnding = options.getOrDefault(FILE_ENDING_OPTION, DEFAULT_FILE_ENDING);
     this.hasBadge = parseBoolean(options.getOrDefault(CREATE_BADGE_OPTION, "false"));
   }
@@ -147,7 +132,7 @@ public final class MarkletOptions {
    * @param root program structure information root
    * @return Built options instance.
    */
-  public static MarkletOptions parse(final RootDoc root) {
+  public static Options parse(final RootDoc root) {
     // NOTE :	Work since we only have 2D option.
     //			Consider redesign option parsing if this predicate change.
     final Map<String, String> options =
@@ -155,9 +140,14 @@ public final class MarkletOptions {
             .filter(docletOptionsOnly())
             .collect(Collectors.toMap(option -> option[0], option -> option[1], (a, b) -> b));
 
-    return new MarkletOptions(options);
+    return new Options(options);
   }
 
+  /**
+   * Predicate to filter current doclet options only and exclude javadoc options
+   *
+   * @return filter function
+   */
   private static Predicate<String[]> docletOptionsOnly() {
     return o -> !OPTIONS_TO_EXCLUDE.contains(o[0]);
   }

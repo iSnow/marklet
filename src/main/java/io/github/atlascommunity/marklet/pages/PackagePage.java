@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet.builders;
+package io.github.atlascommunity.marklet.pages;
 
 import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
 import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATIONS;
@@ -21,21 +21,31 @@ import com.sun.javadoc.AnnotationTypeDoc;
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.PackageDoc;
 
-import io.github.atlascommunity.marklet.MarkletOptions;
+import io.github.atlascommunity.marklet.Options;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+/** Index of package elements */
 @RequiredArgsConstructor
 public class PackagePage implements DocumentPage {
+
+  /** Package information */
   private final PackageDoc packageDoc;
 
+  /** Package path */
   private final Path packageDirectory;
 
-  private final MarkletOptions options;
+  /** Doclet options */
+  private final Options options;
 
+  /**
+   * Build document and write it to the selected folder
+   *
+   * @throws IOException something went wrong during write operation
+   */
   @Override
   public void build() throws IOException {
 
@@ -52,6 +62,11 @@ public class PackagePage implements DocumentPage {
     writeFile(packagePage);
   }
 
+  /**
+   * Generate index tables for package annotations, enums, interfaces and classes
+   *
+   * @param packagePage string representation of package page content
+   */
   private void createPackageIndexes(StringBuilder packagePage) {
 
     AnnotationTypeDoc[] packageAnnotations = packageDoc.annotationTypes();
@@ -75,6 +90,13 @@ public class PackagePage implements DocumentPage {
     }
   }
 
+  /**
+   * Generate index table
+   *
+   * @param tableLabel table name
+   * @param docs elements to work with
+   * @param packagePage string representation of package page content
+   */
   private void generateTable(String tableLabel, ClassDoc[] docs, StringBuilder packagePage) {
 
     packagePage.append(new Heading(tableLabel, 1)).append("\n");
@@ -95,6 +117,12 @@ public class PackagePage implements DocumentPage {
     packagePage.append(table.build()).append("\n");
   }
 
+  /**
+   * Write file to the selected folder
+   *
+   * @param pageContent file content
+   * @throws IOException something went wrong during write operation
+   */
   private void writeFile(StringBuilder pageContent) throws IOException {
     FileOutputStream savePath =
         new FileOutputStream(packageDirectory.resolve(PACKAGE_INDEX_FILE).toString());

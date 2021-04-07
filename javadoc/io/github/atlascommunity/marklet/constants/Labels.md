@@ -42,7 +42,7 @@ INTERFACE, java.lang.String
 Label for interface. *
 CLASS, java.lang.String
 -----------------------
-Label for classe. *
+Label for class. *
 ANNOTATION, java.lang.String
 ----------------------------
 Label for annotation. *

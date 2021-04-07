@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet.builders;
+package io.github.atlascommunity.marklet.pages;
 
 import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
 import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
@@ -13,21 +13,30 @@ import java.util.List;
 
 import com.sun.javadoc.PackageDoc;
 
-import io.github.atlascommunity.marklet.MarkletOptions;
+import io.github.atlascommunity.marklet.Options;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+/** Index of project packages */
 @RequiredArgsConstructor
 public class ReadmePage implements DocumentPage {
 
+  /** List of project packages */
   private final List<PackageDoc> packages;
 
-  private final MarkletOptions options;
+  /** Doclet options */
+  private final Options options;
 
+  /** Table header */
   private static final String TABLE_PACKAGE_HEADER = "Package";
 
+  /**
+   * Build document and write it to the selected folder
+   *
+   * @throws IOException something went wrong during write operation
+   */
   @Override
   public void build() throws IOException {
 

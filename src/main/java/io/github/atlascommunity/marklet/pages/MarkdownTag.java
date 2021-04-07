@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet.builders;
+package io.github.atlascommunity.marklet.pages;
 
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.SeeTag;
@@ -7,12 +7,17 @@ import com.sun.javadoc.Tag;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.link.Link;
 
+/** Javadoc tag processor */
 @RequiredArgsConstructor
 public class MarkdownTag {
+
+  /** Tag information */
   private final Tag tag;
 
+  /** File ending from doclet options */
   private final String fileEnding;
 
+  /** Create markdown string from tag */
   public String create() {
 
     if (("@link").equals(tag.name())) {

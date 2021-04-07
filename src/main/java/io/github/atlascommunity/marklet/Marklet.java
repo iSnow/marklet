@@ -13,9 +13,9 @@ import com.sun.javadoc.LanguageVersion;
 import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.RootDoc;
 
-import io.github.atlascommunity.marklet.builders.ClassPage;
-import io.github.atlascommunity.marklet.builders.PackagePage;
-import io.github.atlascommunity.marklet.builders.ReadmePage;
+import io.github.atlascommunity.marklet.pages.ClassPage;
+import io.github.atlascommunity.marklet.pages.PackagePage;
+import io.github.atlascommunity.marklet.pages.ReadmePage;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
@@ -29,7 +29,7 @@ import lombok.AllArgsConstructor;
 public final class Marklet {
 
   /** Command line options that have been parsed. * */
-  private final MarkletOptions options;
+  private final Options options;
 
   /** Documentation root provided by the doclet API. * */
   private final RootDoc root;
@@ -42,7 +42,7 @@ public final class Marklet {
    */
   public static int optionLength(String option) {
 
-    return MarkletOptions.optionLength(option);
+    return Options.optionLength(option);
   }
 
   /**
@@ -54,7 +54,7 @@ public final class Marklet {
    */
   public static boolean validOptions(final String[][] options, final DocErrorReporter reporter) {
 
-    return MarkletOptions.validOptions(options, reporter);
+    return Options.validOptions(options, reporter);
   }
 
   /** @return LanguageVersion supported. */
@@ -70,7 +70,7 @@ public final class Marklet {
    * @return ``true`` if the generation went well, ``false`` otherwise.
    */
   public static boolean start(final RootDoc root) {
-    final MarkletOptions options = MarkletOptions.parse(root);
+    final Options options = Options.parse(root);
     final Marklet marklet = new Marklet(options, root);
     boolean result = false;
     try {
@@ -136,6 +136,12 @@ public final class Marklet {
     return packages;
   }
 
+  /**
+   * Generates Readme file
+   *
+   * @param packages project packages list
+   * @throws IOException If any error occurs during generation process.
+   */
   private void generateReadme(List<PackageDoc> packages) throws IOException {
 
     new ReadmePage(packages, options).build();

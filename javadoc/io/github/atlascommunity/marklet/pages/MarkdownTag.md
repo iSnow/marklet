@@ -1,26 +1,26 @@
-Class PackagePage
+Class MarkdownTag
 =================
 Summary
 -------
 #### Constructors
 | Visibility | Signature     |
 | ---------- | ------------- |
-| **public** | PackagePage() |
+| **public** | MarkdownTag() |
 #### Methods
 | Type and modifiers | Method signature |
 | ------------------ | ---------------- |
-| **public**         | build            |
+| **public**         | create()         |
 
 Constructors
 ============
-PackagePage ()
+MarkdownTag ()
 --------------
 
 
 Methods
 =======
-build ()
---------
-
+create ()
+---------
+Create markdown string from tag
 
 

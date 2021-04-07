@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet.builders;
+package io.github.atlascommunity.marklet.pages;
 
 import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATION;
 import static io.github.atlascommunity.marklet.constants.Labels.CLASS;
@@ -9,11 +9,14 @@ import com.sun.javadoc.ClassDoc;
 
 import lombok.RequiredArgsConstructor;
 
+/** Class document title */
 @RequiredArgsConstructor
 public class ClassTitle implements ClassPageElement {
 
+  /** Class information */
   private final ClassDoc classDoc;
 
+  /** @return markdown string representation of document part */
   @Override
   public String generate() {
 

@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet.builders;
+package io.github.atlascommunity.marklet.pages;
 
 import static io.github.atlascommunity.marklet.constants.Labels.CONSTRUCTORS;
 import static io.github.atlascommunity.marklet.constants.Labels.PARAMETERS;
@@ -12,18 +12,22 @@ import com.sun.javadoc.ExecutableMemberDoc;
 import com.sun.javadoc.ParamTag;
 import com.sun.javadoc.Tag;
 
-import io.github.atlascommunity.marklet.MarkletOptions;
+import io.github.atlascommunity.marklet.Options;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.list.UnorderedList;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+/** Class constructors description */
 @RequiredArgsConstructor
 public class ClassConstructorsInfo implements ClassPageElement {
 
+  /** Class information */
   private final ClassDoc classDoc;
 
-  private final MarkletOptions options;
+  /** Doclet options */
+  private final Options options;
 
+  /** @return markdown string representation of document part */
   @Override
   public String generate() {
 
@@ -39,7 +43,12 @@ public class ClassConstructorsInfo implements ClassPageElement {
     return "";
   }
 
+  /**
+   * @param doc constructor representation
+   * @return markdown string
+   */
   private String constructorDescription(ExecutableMemberDoc doc) {
+
     String signatureHeader = String.format("%s %s", doc.name(), doc.flatSignature());
     Heading heading = new Heading(signatureHeader, 2);
     StringBuilder description = new StringBuilder().append(heading).append("\n");
@@ -62,8 +71,12 @@ public class ClassConstructorsInfo implements ClassPageElement {
       Arrays.stream(parameters)
           .forEach(
               p -> {
+                String parameterComment = p.parameterComment();
                 String parameterEntity =
-                    String.format("%s: %s", p.parameterName(), p.parameterComment());
+                    String.format(
+                        "%s: %s",
+                        p.parameterName(),
+                        parameterComment.isEmpty() ? "No description provided" : parameterComment);
                 entities.add(parameterEntity);
               });
       parametersInfo.append(new UnorderedList<>(entities));
