@@ -5,13 +5,15 @@ Summary
 #### Constructors
 | Visibility | Signature |
 | ---------- | --------- |
-| **public** | Marklet   |#### Methods
+| **public** | Marklet() |
+#### Methods
 | Type and modifiers | Method signature |
 | ------------------ | ---------------- |
 | **public static**  | optionLength     |
 | **public static**  | validOptions     |
 | **public static**  | languageVersion  |
 | **public static**  | start            |
+
 Constructors
 ============
 Marklet ()

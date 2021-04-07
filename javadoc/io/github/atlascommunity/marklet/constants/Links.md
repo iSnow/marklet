@@ -5,10 +5,12 @@ Summary
 #### Constructors
 | Visibility | Signature |
 | ---------- | --------- |
-| **public** | Links     |#### Fields
+| **public** | Links()   |
+#### Fields
 | Type and modifiers      | Field name |
 | ----------------------- | ---------- |
 | **public static final** | BADGE      |
+
 Constructors
 ============
 Links ()

@@ -6,6 +6,7 @@ Summary
 | Type and modifiers | Method signature |
 | ------------------ | ---------------- |
 | **public**         | build            |
+
 Methods
 =======
 build ()

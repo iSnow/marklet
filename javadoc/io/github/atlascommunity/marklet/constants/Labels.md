@@ -5,7 +5,8 @@ Summary
 #### Constructors
 | Visibility | Signature |
 | ---------- | --------- |
-| **public** | Labels    |#### Fields
+| **public** | Labels()  |
+#### Fields
 | Type and modifiers      | Field name   |
 | ----------------------- | ------------ |
 | **public static final** | PACKAGE      |
@@ -24,6 +25,7 @@ Summary
 | **public static final** | RETURNS      |
 | **public static final** | PARAMETERS   |
 | **public static final** | SUMMARY      |
+
 Constructors
 ============
 Labels ()

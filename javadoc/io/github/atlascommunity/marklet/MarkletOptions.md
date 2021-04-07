@@ -8,6 +8,7 @@ Summary
 | **public static**  | validOptions     |
 | **public static**  | optionLength     |
 | **public static**  | parse            |
+
 Methods
 =======
 validOptions (String[][], DocErrorReporter)

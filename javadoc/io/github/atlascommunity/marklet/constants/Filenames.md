@@ -3,13 +3,15 @@ Class Filenames
 Summary
 -------
 #### Constructors
-| Visibility | Signature |
-| ---------- | --------- |
-| **public** | Filenames |#### Fields
+| Visibility | Signature   |
+| ---------- | ----------- |
+| **public** | Filenames() |
+#### Fields
 | Type and modifiers      | Field name         |
 | ----------------------- | ------------------ |
 | **public static final** | PACKAGE_INDEX_FILE |
 | **public static final** | README_FILE        |
+
 Constructors
 ============
 Filenames ()

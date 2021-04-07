@@ -38,9 +38,10 @@ public class ClassSummary implements ClassPageElement {
               .addRow("Visibility", "Signature");
 
       Arrays.stream(classDoc.constructors())
-          .forEach(c -> tableEntries.addRow(new BoldText(c.modifiers()), c.name()));
+          .forEach(
+              c -> tableEntries.addRow(new BoldText(c.modifiers()), c.name() + c.flatSignature()));
       constructorsTable.append(tableEntries.build());
-      summary.append(constructorsTable);
+      summary.append(constructorsTable).append("\n");
     }
 
     int numberOfFields = classDoc.fields().length;
@@ -57,7 +58,7 @@ public class ClassSummary implements ClassPageElement {
       Arrays.stream(classDoc.fields())
           .forEach(f -> tableEntries.addRow(new BoldText(f.modifiers()), f.name()));
       fieldsTable.append(tableEntries.build());
-      summary.append(fieldsTable);
+      summary.append(fieldsTable).append("\n");
     }
 
     int numberOfMethods = classDoc.methods().length;
@@ -75,7 +76,7 @@ public class ClassSummary implements ClassPageElement {
           .filter(m -> m.overriddenMethod() == null)
           .forEach(m -> tableEntries.addRow(new BoldText(m.modifiers()), m.name()));
       methodsTable.append(tableEntries.build());
-      summary.append(methodsTable);
+      summary.append(methodsTable).append("\n");
     }
 
     return summary.toString();
