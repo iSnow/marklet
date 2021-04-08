@@ -24,7 +24,7 @@ import lombok.Getter;
  * for files to be created (default `md`) * `-l` specifies the file ending used in internal links
  * (default `md`)
  *
- * <p>> The default options are ideal if you want to serve the documentation using GitHub's >
+ * <p> The default options are ideal if you want to serve the documentation using GitHub's
  * built-in README rendering. If you are using a tool like Slate, change the options as follows: ```
  * $ javadoc -doclet fr.faylixe.marklet.Marklet -e html.md -l html … ```
  */
@@ -93,7 +93,7 @@ public final class Options {
    *
    * @param options Options from command line.
    * @param reporter Reporter instance to use in case of error.
-   * @return <tt>true</tt> if given set of options are valid, <tt>false</tt> otherwise.
+   * @return true if given set of options are valid, false otherwise.
    * @see Doclet#validOptions(String[][], DocErrorReporter)
    */
   public static boolean validOptions(final String[][] options, final DocErrorReporter reporter) {
