@@ -1,7 +1,7 @@
 package io.github.atlascommunity.marklet;
 
-import static io.github.atlascommunity.marklet.MarkletOptions.parse;
-import static io.github.atlascommunity.marklet.MarkletOptions.validOptions;
+import static io.github.atlascommunity.marklet.Options.parse;
+import static io.github.atlascommunity.marklet.Options.validOptions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import com.sun.javadoc.DocErrorReporter;
 import com.sun.javadoc.RootDoc;
 
-class MarkletOptionsTest {
+class OptionsTest {
 
   @Test
   void testParse() {

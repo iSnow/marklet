@@ -6,7 +6,7 @@
 
     <groupId>io.github.atlascommunity</groupId>
     <artifactId>marklet</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <name>Marklet</name>
     <description>Fork of Faylixe/marklet in purpose for a great good and more customization</description>
     <url>https://github.com/atlascommunity/marklet</url>
@@ -26,6 +26,7 @@
         <compiler.plugin.version>3.8.1</compiler.plugin.version>
         <javadoc.plugin.version>3.2.0</javadoc.plugin.version>
         <lombok.version>1.18.18</lombok.version>
+        <markdowngenerator.version>1.3.1.1</markdowngenerator.version>
         <junit.version>5.7.0</junit.version>
         <mockito.version>3.8.0</mockito.version>
     </properties>
@@ -80,15 +81,12 @@
                             <docletArtifact>
                                 <groupId>io.github.atlascommunity</groupId>
                                 <artifactId>marklet</artifactId>
-                                <version>1.2.0</version>
+                                <version>1.2.1</version>
                             </docletArtifact>
                             <reportOutputDirectory>./</reportOutputDirectory>
                             <destDir>./</destDir>
-                            <additionalOptions>
-                                <additionalOption>-d</additionalOption>
-                                <additionalOption>doc</additionalOption>
-                            </additionalOptions>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
+                            <show>private</show>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -115,6 +113,11 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.steppschuh.markdowngenerator</groupId>
+            <artifactId>markdowngenerator</artifactId>
+            <version>${markdowngenerator.version}</version>
         </dependency>
         <!-- Testing dependencies -->
         <dependency>

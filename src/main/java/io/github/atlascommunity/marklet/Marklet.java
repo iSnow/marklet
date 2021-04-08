@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.DocErrorReporter;
@@ -13,6 +13,9 @@ import com.sun.javadoc.LanguageVersion;
 import com.sun.javadoc.PackageDoc;
 import com.sun.javadoc.RootDoc;
 
+import io.github.atlascommunity.marklet.pages.ClassPage;
+import io.github.atlascommunity.marklet.pages.PackagePage;
+import io.github.atlascommunity.marklet.pages.ReadmePage;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
@@ -26,7 +29,7 @@ import lombok.AllArgsConstructor;
 public final class Marklet {
 
   /** Command line options that have been parsed. * */
-  private final MarkletOptions options;
+  private final Options options;
 
   /** Documentation root provided by the doclet API. * */
   private final RootDoc root;
@@ -39,7 +42,7 @@ public final class Marklet {
    */
   public static int optionLength(String option) {
 
-    return MarkletOptions.optionLength(option);
+    return Options.optionLength(option);
   }
 
   /**
@@ -51,7 +54,7 @@ public final class Marklet {
    */
   public static boolean validOptions(final String[][] options, final DocErrorReporter reporter) {
 
-    return MarkletOptions.validOptions(options, reporter);
+    return Options.validOptions(options, reporter);
   }
 
   /** @return LanguageVersion supported. */
@@ -67,7 +70,7 @@ public final class Marklet {
    * @return ``true`` if the generation went well, ``false`` otherwise.
    */
   public static boolean start(final RootDoc root) {
-    final MarkletOptions options = MarkletOptions.parse(root);
+    final Options options = Options.parse(root);
     final Marklet marklet = new Marklet(options, root);
     boolean result = false;
     try {
@@ -109,7 +112,7 @@ public final class Marklet {
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      PackagePageBuilder.build(packageDoc, directoryPath, options);
+      new PackagePage(packageDoc, directoryPath, options).build();
     }
   }
 
@@ -117,10 +120,11 @@ public final class Marklet {
    * Generates documentation file for each package.
    *
    * @throws IOException If any error occurs during generation process.
+   * @return list of packages documents
    */
-  private void buildPackages() throws IOException {
+  private List<PackageDoc> buildPackages() throws IOException {
 
-    final Set<PackageDoc> packages = new HashSet<>();
+    final List<PackageDoc> packages = new ArrayList<>();
     for (final ClassDoc classDoc : root.classes()) {
       final PackageDoc packageDoc = classDoc.containingPackage();
       if (!packages.contains(packageDoc)) {
@@ -128,6 +132,19 @@ public final class Marklet {
         generatePackage(packageDoc);
       }
     }
+
+    return packages;
+  }
+
+  /**
+   * Generates Readme file
+   *
+   * @param packages project packages list
+   * @throws IOException If any error occurs during generation process.
+   */
+  private void generateReadme(List<PackageDoc> packages) throws IOException {
+
+    new ReadmePage(packages, options).build();
   }
 
   /**
@@ -138,23 +155,20 @@ public final class Marklet {
   private void buildClasses() throws IOException {
 
     for (final ClassDoc classDoc : root.classes()) {
-      final PackageDoc packageDoc = classDoc.containingPackage();
-      final String packageName = packageDoc.name();
-      final Path packageDirectory = getPackageDirectory(packageName);
       root.printNotice("Generates documentation for " + classDoc.name());
-      ClassPageBuilder.build(
-          classDoc, packageDirectory, options);
+      new ClassPage(classDoc, options).build();
     }
   }
 
-  /** @return <tt>true</tt> if generation was successfull, <tt>false</tt> otherwise. */
+  /** @return <tt>true</tt> if generation was successful, <tt>false</tt> otherwise. */
   private boolean start() {
 
     try {
       final Path outputDirectory = Paths.get(options.getOutputDirectory());
       root.printNotice("Target output directory : " + outputDirectory.toAbsolutePath().toString());
       if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
-      buildPackages();
+      List<PackageDoc> packages = buildPackages();
+      generateReadme(packages);
       buildClasses();
     } catch (final IOException e) {
       root.printError(e.getMessage());
