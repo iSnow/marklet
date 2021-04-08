@@ -37,7 +37,7 @@ in your project ``POM`` :
 </plugin>
 ```
 
-This will generate the javadoc report into the project directory under project subfolder ``doc/``.
+This will generate the javadoc report into the project directory under project subfolder ``doc``.
 
 ## Java 8 doclint issues.
 
