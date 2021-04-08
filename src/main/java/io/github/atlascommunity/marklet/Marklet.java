@@ -50,7 +50,7 @@ public final class Marklet {
    *
    * @param options Options from command line.
    * @param reporter Reporter instance to use in case of error.
-   * @return <tt>true</tt> if given set of options are valid, <tt>false</tt> otherwise.
+   * @return true if given set of options are valid, false otherwise.
    */
   public static boolean validOptions(final String[][] options, final DocErrorReporter reporter) {
 
