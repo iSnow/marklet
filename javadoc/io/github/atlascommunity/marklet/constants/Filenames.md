@@ -22,8 +22,10 @@ Fields
 ======
 PACKAGE_INDEX_FILE, java.lang.String
 ------------------------------------
-Package index filename. *
+Package index filename.
+
 README_FILE, java.lang.String
 -----------------------------
-Project readme file with all indexes. *
+Project readme file with all indexes.
+
 

@@ -27,10 +27,12 @@ public class ClassFieldsInfo implements ClassPageElement {
           .forEach(
               f -> {
                 String headingText = String.format("%s, %s", f.name(), f.type());
-                Heading fieldHeading = new Heading(headingText, 2);
+                StringBuilder fieldDescription =
+                    new StringBuilder().append(new Heading(headingText, 2)).append("\n");
                 String fieldComment =
                     f.commentText().isEmpty() ? "No description provided" : f.commentText();
-                fieldsInfo.append(fieldHeading).append("\n").append(fieldComment).append("\n");
+                fieldDescription.append(fieldComment).append("\n");
+                fieldsInfo.append(fieldDescription).append("\n");
               });
 
       return fieldsInfo.toString();
