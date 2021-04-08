@@ -86,6 +86,7 @@
                             <reportOutputDirectory>./</reportOutputDirectory>
                             <destDir>./</destDir>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
+                            <show>private</show>
                         </configuration>
                     </plugin>
                 </plugins>

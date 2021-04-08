@@ -14,6 +14,7 @@ import com.sun.javadoc.Tag;
 import com.sun.javadoc.ThrowsTag;
 
 import lombok.RequiredArgsConstructor;
+import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 /** Class methods description */
@@ -26,6 +27,8 @@ public class ClassMethodsInfo implements ClassPageElement {
   /** Pattern for colon separated description */
   private static final String DESCRIPTION_PATTERN = "%s: %s";
 
+  private static final String OVERRIDE_MARK = "(Override)";
+
   /** @return markdown string representation of document part */
   @Override
   public String generate() {
@@ -34,7 +37,6 @@ public class ClassMethodsInfo implements ClassPageElement {
       Heading sectionHeading = new Heading(METHODS, 1);
       StringBuilder methodsInfo = new StringBuilder().append(sectionHeading).append("\n");
       Arrays.stream(classDoc.methods())
-          .filter(m -> m.overriddenMethod() == null)
           .forEach(m -> methodsInfo.append(methodDescription(m)).append("\n"));
 
       return methodsInfo.toString();
@@ -48,11 +50,20 @@ public class ClassMethodsInfo implements ClassPageElement {
    * @return markdown string
    */
   private String methodDescription(MethodDoc doc) {
+    String methodHeader;
+    String name = doc.name();
+    String signature = doc.flatSignature();
+    if (doc.overriddenMethod() != null) {
+      methodHeader = String.format("%s %s %s", name, signature, new BoldText(OVERRIDE_MARK));
+    } else {
+      methodHeader = String.format("%s %s", name, signature);
+    }
 
-    String methodHeader = String.format("%s %s", doc.name(), doc.flatSignature());
     Heading heading = new Heading(methodHeader, 2);
+    String methodComment =
+        doc.commentText().isEmpty() ? "No method description provided" : doc.commentText();
     StringBuilder description =
-        new StringBuilder().append(heading).append("\n").append(doc.commentText()).append("\n");
+        new StringBuilder().append(heading).append("\n").append(methodComment).append("\n");
 
     ParamTag[] paramTags = doc.paramTags();
     if (paramTags.length > 0) {
@@ -61,8 +72,12 @@ public class ClassMethodsInfo implements ClassPageElement {
       Arrays.stream(paramTags)
           .forEach(
               p -> {
+                String parameterComment =
+                    p.parameterComment().isEmpty()
+                        ? "No parameter description provided"
+                        : p.parameterComment();
                 String paramDesc =
-                    String.format(DESCRIPTION_PATTERN, p.parameterName(), p.parameterComment());
+                    String.format(DESCRIPTION_PATTERN, p.parameterName(), parameterComment);
                 parametersInfo.append(paramDesc).append("\n");
               });
       description.append(parametersInfo).append("\n");
