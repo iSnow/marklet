@@ -1,5 +1,7 @@
 Class PackagePage
 =================
+---
+io.github.atlascommunity.marklet.pages.PackagePage
 Summary
 -------
 #### Constructors

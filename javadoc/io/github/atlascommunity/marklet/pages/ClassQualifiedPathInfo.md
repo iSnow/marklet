@@ -1,13 +1,13 @@
-Class ClassFieldsInfo
-=====================
+Class ClassQualifiedPathInfo
+============================
 ---
-io.github.atlascommunity.marklet.pages.ClassFieldsInfo
+io.github.atlascommunity.marklet.pages.ClassQualifiedPathInfo
 Summary
 -------
 #### Constructors
-| Visibility | Signature         |
-| ---------- | ----------------- |
-| **public** | ClassFieldsInfo() |
+| Visibility | Signature                |
+| ---------- | ------------------------ |
+| **public** | ClassQualifiedPathInfo() |
 #### Fields
 | Type and modifiers | Field name |
 | ------------------ | ---------- |
@@ -19,8 +19,8 @@ Summary
 
 Constructors
 ============
-ClassFieldsInfo ()
-------------------
+ClassQualifiedPathInfo ()
+-------------------------
 
 
 Fields

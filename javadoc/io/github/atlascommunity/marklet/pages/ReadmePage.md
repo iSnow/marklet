@@ -1,5 +1,7 @@
 Class ReadmePage
 ================
+---
+io.github.atlascommunity.marklet.pages.ReadmePage
 Summary
 -------
 #### Constructors

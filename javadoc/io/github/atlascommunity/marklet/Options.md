@@ -1,5 +1,7 @@
 Class Options
 =============
+---
+io.github.atlascommunity.marklet.Options
 Summary
 -------
 #### Constructors

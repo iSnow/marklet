@@ -1,5 +1,7 @@
 Class ClassTitle
 ================
+---
+io.github.atlascommunity.marklet.pages.ClassTitle
 Summary
 -------
 #### Constructors

@@ -1,5 +1,7 @@
 Interface DocumentPage
 ======================
+---
+io.github.atlascommunity.marklet.pages.DocumentPage
 Summary
 -------
 #### Methods

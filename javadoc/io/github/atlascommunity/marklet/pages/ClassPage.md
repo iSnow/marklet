@@ -1,5 +1,7 @@
 Class ClassPage
 ===============
+---
+io.github.atlascommunity.marklet.pages.ClassPage
 Summary
 -------
 #### Constructors

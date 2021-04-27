@@ -1,5 +1,7 @@
 Class ClassMethodsInfo
 ======================
+---
+io.github.atlascommunity.marklet.pages.ClassMethodsInfo
 Summary
 -------
 #### Constructors

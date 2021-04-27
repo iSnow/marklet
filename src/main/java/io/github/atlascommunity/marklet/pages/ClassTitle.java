@@ -31,6 +31,8 @@ public class ClassTitle implements ClassPageElement {
       builder.append(CLASS);
     }
 
-    return builder.append(' ').append(classDoc.name()).toString();
+    StringBuilder title = builder.append(' ').append(classDoc.name());
+
+    return title.toString();
   }
 }

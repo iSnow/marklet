@@ -1,5 +1,7 @@
 Class Links
 ===========
+---
+io.github.atlascommunity.marklet.constants.Links
 Summary
 -------
 #### Constructors

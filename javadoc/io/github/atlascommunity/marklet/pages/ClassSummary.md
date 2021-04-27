@@ -1,5 +1,7 @@
 Class ClassSummary
 ==================
+---
+io.github.atlascommunity.marklet.pages.ClassSummary
 Summary
 -------
 #### Constructors

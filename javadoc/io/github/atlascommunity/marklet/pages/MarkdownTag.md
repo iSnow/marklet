@@ -1,5 +1,7 @@
 Class MarkdownTag
 =================
+---
+io.github.atlascommunity.marklet.pages.MarkdownTag
 Summary
 -------
 #### Constructors

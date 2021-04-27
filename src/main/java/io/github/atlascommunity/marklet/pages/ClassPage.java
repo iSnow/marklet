@@ -12,6 +12,7 @@ import com.sun.javadoc.ClassDoc;
 
 import io.github.atlascommunity.marklet.Options;
 import lombok.RequiredArgsConstructor;
+import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 /** Markdown text file with class information */
@@ -33,6 +34,11 @@ public class ClassPage implements DocumentPage {
             .append(new Heading(new ClassTitle(classDoc).generate(), 1))
             .append("\n");
 
+    classPage
+        .append(new HorizontalRule())
+        .append("\n")
+        .append(new ClassQualifiedPathInfo(classDoc).generate())
+        .append("\n");
     classPage.append(new ClassSummary(classDoc).generate()).append("\n");
 
     String constructorsInfo = new ClassConstructorsInfo(classDoc, options).generate();

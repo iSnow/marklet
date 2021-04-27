@@ -1,5 +1,7 @@
 Interface ClassPageElement
 ==========================
+---
+io.github.atlascommunity.marklet.pages.ClassPageElement
 Summary
 -------
 #### Methods
