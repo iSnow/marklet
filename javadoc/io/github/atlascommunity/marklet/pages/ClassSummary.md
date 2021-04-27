@@ -1,6 +1,5 @@
 Class ClassSummary
 ==================
----
 io.github.atlascommunity.marklet.pages.ClassSummary
 Summary
 -------
@@ -14,9 +13,9 @@ Summary
 | **private final**        | classDoc                  |
 | **private static final** | TYPE_AND_MODIFIERS_COLUMN |
 #### Methods
-| Type and modifiers | Method signature |
-| ------------------ | ---------------- |
-| **public**         | generate()       |
+| Type and modifiers | Method signature | Return type      |
+| ------------------ | ---------------- | ---------------- |
+| **public**         | generate()       | java.lang.String |
 
 Constructors
 ============

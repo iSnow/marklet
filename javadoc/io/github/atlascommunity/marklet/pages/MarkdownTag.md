@@ -1,6 +1,5 @@
 Class MarkdownTag
 =================
----
 io.github.atlascommunity.marklet.pages.MarkdownTag
 Summary
 -------
@@ -14,9 +13,9 @@ Summary
 | **private final**  | tag        |
 | **private final**  | fileEnding |
 #### Methods
-| Type and modifiers | Method signature |
-| ------------------ | ---------------- |
-| **public**         | create()         |
+| Type and modifiers | Method signature | Return type      |
+| ------------------ | ---------------- | ---------------- |
+| **public**         | create()         | java.lang.String |
 
 Constructors
 ============

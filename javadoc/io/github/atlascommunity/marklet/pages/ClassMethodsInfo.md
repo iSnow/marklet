@@ -1,6 +1,5 @@
 Class ClassMethodsInfo
 ======================
----
 io.github.atlascommunity.marklet.pages.ClassMethodsInfo
 Summary
 -------
@@ -15,10 +14,10 @@ Summary
 | **private static final** | DESCRIPTION_PATTERN |
 | **private static final** | OVERRIDE_MARK       |
 #### Methods
-| Type and modifiers | Method signature             |
-| ------------------ | ---------------------------- |
-| **public**         | generate()                   |
-| **private**        | methodDescription(MethodDoc) |
+| Type and modifiers | Method signature                             | Return type      |
+| ------------------ | -------------------------------------------- | ---------------- |
+| **public**         | generate()                                   | java.lang.String |
+| **private**        | methodDescription(com.sun.javadoc.MethodDoc) | java.lang.String |
 
 Constructors
 ============

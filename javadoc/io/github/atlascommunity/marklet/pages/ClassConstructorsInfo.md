@@ -1,6 +1,5 @@
 Class ClassConstructorsInfo
 ===========================
----
 io.github.atlascommunity.marklet.pages.ClassConstructorsInfo
 Summary
 -------
@@ -14,10 +13,10 @@ Summary
 | **private final**  | classDoc   |
 | **private final**  | options    |
 #### Methods
-| Type and modifiers | Method signature                            |
-| ------------------ | ------------------------------------------- |
-| **public**         | generate()                                  |
-| **private**        | constructorDescription(ExecutableMemberDoc) |
+| Type and modifiers | Method signature                                            | Return type      |
+| ------------------ | ----------------------------------------------------------- | ---------------- |
+| **public**         | generate()                                                  | java.lang.String |
+| **private**        | constructorDescription(com.sun.javadoc.ExecutableMemberDoc) | java.lang.String |
 
 Constructors
 ============

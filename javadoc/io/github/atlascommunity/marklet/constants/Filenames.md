@@ -1,6 +1,5 @@
 Class Filenames
 ===============
----
 io.github.atlascommunity.marklet.constants.Filenames
 Summary
 -------

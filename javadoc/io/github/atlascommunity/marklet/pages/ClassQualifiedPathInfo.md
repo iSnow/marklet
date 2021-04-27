@@ -1,6 +1,5 @@
 Class ClassQualifiedPathInfo
 ============================
----
 io.github.atlascommunity.marklet.pages.ClassQualifiedPathInfo
 Summary
 -------
@@ -13,9 +12,9 @@ Summary
 | ------------------ | ---------- |
 | **private final**  | classDoc   |
 #### Methods
-| Type and modifiers | Method signature |
-| ------------------ | ---------------- |
-| **public**         | generate()       |
+| Type and modifiers | Method signature | Return type      |
+| ------------------ | ---------------- | ---------------- |
+| **public**         | generate()       | java.lang.String |
 
 Constructors
 ============

@@ -1,6 +1,5 @@
 Class ReadmePage
 ================
----
 io.github.atlascommunity.marklet.pages.ReadmePage
 Summary
 -------
@@ -15,9 +14,9 @@ Summary
 | **private final**        | options              |
 | **private static final** | TABLE_PACKAGE_HEADER |
 #### Methods
-| Type and modifiers | Method signature |
-| ------------------ | ---------------- |
-| **public**         | build()          |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | build()          | void        |
 
 Constructors
 ============

@@ -1,6 +1,5 @@
 Class ClassPage
 ===============
----
 io.github.atlascommunity.marklet.pages.ClassPage
 Summary
 -------
@@ -14,10 +13,10 @@ Summary
 | **private final**  | classDoc   |
 | **private final**  | options    |
 #### Methods
-| Type and modifiers | Method signature         |
-| ------------------ | ------------------------ |
-| **public**         | build()                  |
-| **private**        | writeFile(StringBuilder) |
+| Type and modifiers | Method signature                   | Return type |
+| ------------------ | ---------------------------------- | ----------- |
+| **public**         | build()                            | void        |
+| **private**        | writeFile(java.lang.StringBuilder) | void        |
 
 Constructors
 ============

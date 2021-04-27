@@ -1,6 +1,5 @@
 Class Options
 =============
----
 io.github.atlascommunity.marklet.Options
 Summary
 -------
@@ -23,12 +22,12 @@ Summary
 | **private final**        | fileEnding               |
 | **private final**        | hasBadge                 |
 #### Methods
-| Type and modifiers | Method signature                           |
-| ------------------ | ------------------------------------------ |
-| **public static**  | validOptions(String[][], DocErrorReporter) |
-| **public static**  | optionLength(String)                       |
-| **public static**  | parse(RootDoc)                             |
-| **private static** | docletOptionsOnly()                        |
+| Type and modifiers | Method signature                                                     | Return type                                      |
+| ------------------ | -------------------------------------------------------------------- | ------------------------------------------------ |
+| **public static**  | validOptions(java.lang.String[][], com.sun.javadoc.DocErrorReporter) | boolean                                          |
+| **public static**  | optionLength(java.lang.String)                                       | int                                              |
+| **public static**  | parse(com.sun.javadoc.RootDoc)                                       | io.github.atlascommunity.marklet.Options         |
+| **private static** | docletOptionsOnly()                                                  | java.util.function.Predicate<java.lang.String[]> |
 
 Constructors
 ============

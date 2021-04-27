@@ -74,12 +74,14 @@ public class ClassSummary implements ClassPageElement {
           new Table.Builder()
               .withAlignments(Table.ALIGN_LEFT)
               .withRowLimit(numberOfMethods + 1)
-              .addRow(TYPE_AND_MODIFIERS_COLUMN, "Method signature");
+              .addRow(TYPE_AND_MODIFIERS_COLUMN, "Method signature", "Return type");
 
       Arrays.stream(classDoc.methods())
           .filter(m -> m.overriddenMethod() == null)
           .forEach(
-              m -> tableEntries.addRow(new BoldText(m.modifiers()), m.name() + m.flatSignature()));
+              m ->
+                  tableEntries.addRow(
+                      new BoldText(m.modifiers()), m.name() + m.flatSignature(), m.returnType()));
       methodsTable.append(tableEntries.build());
       summary.append(methodsTable).append("\n");
     }

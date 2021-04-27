@@ -1,6 +1,5 @@
 Class PackagePage
 =================
----
 io.github.atlascommunity.marklet.pages.PackagePage
 Summary
 -------
@@ -15,12 +14,12 @@ Summary
 | **private final**  | packageDirectory |
 | **private final**  | options          |
 #### Methods
-| Type and modifiers | Method signature                                 |
-| ------------------ | ------------------------------------------------ |
-| **public**         | build()                                          |
-| **private**        | createPackageIndexes(StringBuilder)              |
-| **private**        | generateTable(String, ClassDoc[], StringBuilder) |
-| **private**        | writeFile(StringBuilder)                         |
+| Type and modifiers | Method signature                                                                     | Return type |
+| ------------------ | ------------------------------------------------------------------------------------ | ----------- |
+| **public**         | build()                                                                              | void        |
+| **private**        | createPackageIndexes(java.lang.StringBuilder)                                        | void        |
+| **private**        | generateTable(java.lang.String, com.sun.javadoc.ClassDoc[], java.lang.StringBuilder) | void        |
+| **private**        | writeFile(java.lang.StringBuilder)                                                   | void        |
 
 Constructors
 ============

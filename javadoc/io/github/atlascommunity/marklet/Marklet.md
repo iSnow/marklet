@@ -1,6 +1,5 @@
 Class Marklet
 =============
----
 io.github.atlascommunity.marklet.Marklet
 Summary
 -------
@@ -14,18 +13,18 @@ Summary
 | **private final**  | options    |
 | **private final**  | root       |
 #### Methods
-| Type and modifiers | Method signature                           |
-| ------------------ | ------------------------------------------ |
-| **public static**  | optionLength(String)                       |
-| **public static**  | validOptions(String[][], DocErrorReporter) |
-| **public static**  | languageVersion()                          |
-| **public static**  | start(RootDoc)                             |
-| **private**        | getPackageDirectory(String)                |
-| **private**        | generatePackage(PackageDoc)                |
-| **private**        | buildPackages()                            |
-| **private**        | generateReadme(List<PackageDoc>)           |
-| **private**        | buildClasses()                             |
-| **private**        | start()                                    |
+| Type and modifiers | Method signature                                                     | Return type                                |
+| ------------------ | -------------------------------------------------------------------- | ------------------------------------------ |
+| **public static**  | optionLength(java.lang.String)                                       | int                                        |
+| **public static**  | validOptions(java.lang.String[][], com.sun.javadoc.DocErrorReporter) | boolean                                    |
+| **public static**  | languageVersion()                                                    | com.sun.javadoc.LanguageVersion            |
+| **public static**  | start(com.sun.javadoc.RootDoc)                                       | boolean                                    |
+| **private**        | getPackageDirectory(java.lang.String)                                | java.nio.file.Path                         |
+| **private**        | generatePackage(com.sun.javadoc.PackageDoc)                          | void                                       |
+| **private**        | buildPackages()                                                      | java.util.List<com.sun.javadoc.PackageDoc> |
+| **private**        | generateReadme(java.util.List<com.sun.javadoc.PackageDoc>)           | void                                       |
+| **private**        | buildClasses()                                                       | void                                       |
+| **private**        | start()                                                              | boolean                                    |
 
 Constructors
 ============

@@ -1,6 +1,5 @@
 Class Labels
 ============
----
 io.github.atlascommunity.marklet.constants.Labels
 Summary
 -------
