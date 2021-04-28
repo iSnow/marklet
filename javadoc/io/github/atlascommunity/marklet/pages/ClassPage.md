@@ -13,10 +13,10 @@ Summary
 | **private final**  | classDoc   |
 | **private final**  | options    |
 #### Methods
-| Type and modifiers | Method signature                   | Return type |
-| ------------------ | ---------------------------------- | ----------- |
-| **public**         | build()                            | void        |
-| **private**        | writeFile(java.lang.StringBuilder) | void        |
+| Type and modifiers | Method signature         | Return type |
+| ------------------ | ------------------------ | ----------- |
+| **public**         | build()                  | void        |
+| **private**        | writeFile(StringBuilder) | void        |
 
 Constructors
 ============
@@ -45,8 +45,7 @@ writeFile (StringBuilder)
 -------------------------
 Writes file to disk
 ### Parameters
-classPage: markdown string with class information
-
+- classPage: markdown string with class information
 ### Throws
 java.io.IOException: If any error occurs during write process.
 

@@ -14,10 +14,10 @@ Summary
 | **private static final** | DESCRIPTION_PATTERN |
 | **private static final** | OVERRIDE_MARK       |
 #### Methods
-| Type and modifiers | Method signature                             | Return type      |
-| ------------------ | -------------------------------------------- | ---------------- |
-| **public**         | generate()                                   | java.lang.String |
-| **private**        | methodDescription(com.sun.javadoc.MethodDoc) | java.lang.String |
+| Type and modifiers | Method signature             | Return type      |
+| ------------------ | ---------------------------- | ---------------- |
+| **public**         | generate()                   | java.lang.String |
+| **private**        | methodDescription(MethodDoc) | java.lang.String |
 
 Constructors
 ============
@@ -52,8 +52,7 @@ methodDescription (MethodDoc)
 -----------------------------
 No method description provided
 ### Parameters
-doc: method representation
-
+- doc: method representation
 ### Returns
 markdown string
 

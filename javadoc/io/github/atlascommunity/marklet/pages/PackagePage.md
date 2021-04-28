@@ -14,12 +14,12 @@ Summary
 | **private final**  | packageDirectory |
 | **private final**  | options          |
 #### Methods
-| Type and modifiers | Method signature                                                                     | Return type |
-| ------------------ | ------------------------------------------------------------------------------------ | ----------- |
-| **public**         | build()                                                                              | void        |
-| **private**        | createPackageIndexes(java.lang.StringBuilder)                                        | void        |
-| **private**        | generateTable(java.lang.String, com.sun.javadoc.ClassDoc[], java.lang.StringBuilder) | void        |
-| **private**        | writeFile(java.lang.StringBuilder)                                                   | void        |
+| Type and modifiers | Method signature                                 | Return type |
+| ------------------ | ------------------------------------------------ | ----------- |
+| **public**         | build()                                          | void        |
+| **private**        | createPackageIndexes(StringBuilder)              | void        |
+| **private**        | generateTable(String, ClassDoc[], StringBuilder) | void        |
+| **private**        | writeFile(StringBuilder)                         | void        |
 
 Constructors
 ============
@@ -54,24 +54,21 @@ createPackageIndexes (StringBuilder)
 ------------------------------------
 Generate index tables for package annotations, enums, interfaces and classes
 ### Parameters
-packagePage: string representation of package page content
-
+- packagePage: string representation of package page content
 
 generateTable (String, ClassDoc[], StringBuilder)
 -------------------------------------------------
 Generate index table
 ### Parameters
-tableLabel: table name
-docs: elements to work with
-packagePage: string representation of package page content
-
+- tableLabel: table name
+- docs: elements to work with
+- packagePage: string representation of package page content
 
 writeFile (StringBuilder)
 -------------------------
 Write file to the selected folder
 ### Parameters
-pageContent: file content
-
+- pageContent: file content
 ### Throws
 java.io.IOException: something went wrong during write operation
 

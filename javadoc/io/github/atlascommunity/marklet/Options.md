@@ -22,12 +22,12 @@ Summary
 | **private final**        | fileEnding               |
 | **private final**        | hasBadge                 |
 #### Methods
-| Type and modifiers | Method signature                                                     | Return type                                      |
-| ------------------ | -------------------------------------------------------------------- | ------------------------------------------------ |
-| **public static**  | validOptions(java.lang.String[][], com.sun.javadoc.DocErrorReporter) | boolean                                          |
-| **public static**  | optionLength(java.lang.String)                                       | int                                              |
-| **public static**  | parse(com.sun.javadoc.RootDoc)                                       | io.github.atlascommunity.marklet.Options         |
-| **private static** | docletOptionsOnly()                                                  | java.util.function.Predicate<java.lang.String[]> |
+| Type and modifiers | Method signature                           | Return type                                      |
+| ------------------ | ------------------------------------------ | ------------------------------------------------ |
+| **public static**  | validOptions(String[][], DocErrorReporter) | boolean                                          |
+| **public static**  | optionLength(String)                       | int                                              |
+| **public static**  | parse(RootDoc)                             | io.github.atlascommunity.marklet.Options         |
+| **private static** | docletOptionsOnly()                        | java.util.function.Predicate<java.lang.String[]> |
 
 Constructors
 ============
@@ -89,9 +89,8 @@ validOptions (String[][], DocErrorReporter)
 -------------------------------------------
 Options validation method.
 ### Parameters
-options: Options from command line.
-reporter: Reporter instance to use in case of error.
-
+- options: Options from command line.
+- reporter: Reporter instance to use in case of error.
 ### Returns
 <tt>true</tt> if given set of options are valid, <tt>false</tt> otherwise.
 
@@ -99,8 +98,7 @@ optionLength (String)
 ---------------------
 Computes number of arguments (as token) for the given option.
 ### Parameters
-option: Target option to get token number for.
-
+- option: Target option to get token number for.
 ### Returns
 Number of token expected for the given option.
 
@@ -108,8 +106,7 @@ parse (RootDoc)
 ---------------
 Static factory.
 ### Parameters
-root: program structure information root
-
+- root: program structure information root
 ### Returns
 Built options instance.
 

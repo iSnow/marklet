@@ -13,18 +13,18 @@ Summary
 | **private final**  | options    |
 | **private final**  | root       |
 #### Methods
-| Type and modifiers | Method signature                                                     | Return type                                |
-| ------------------ | -------------------------------------------------------------------- | ------------------------------------------ |
-| **public static**  | optionLength(java.lang.String)                                       | int                                        |
-| **public static**  | validOptions(java.lang.String[][], com.sun.javadoc.DocErrorReporter) | boolean                                    |
-| **public static**  | languageVersion()                                                    | com.sun.javadoc.LanguageVersion            |
-| **public static**  | start(com.sun.javadoc.RootDoc)                                       | boolean                                    |
-| **private**        | getPackageDirectory(java.lang.String)                                | java.nio.file.Path                         |
-| **private**        | generatePackage(com.sun.javadoc.PackageDoc)                          | void                                       |
-| **private**        | buildPackages()                                                      | java.util.List<com.sun.javadoc.PackageDoc> |
-| **private**        | generateReadme(java.util.List<com.sun.javadoc.PackageDoc>)           | void                                       |
-| **private**        | buildClasses()                                                       | void                                       |
-| **private**        | start()                                                              | boolean                                    |
+| Type and modifiers | Method signature                           | Return type                                |
+| ------------------ | ------------------------------------------ | ------------------------------------------ |
+| **public static**  | optionLength(String)                       | int                                        |
+| **public static**  | validOptions(String[][], DocErrorReporter) | boolean                                    |
+| **public static**  | languageVersion()                          | com.sun.javadoc.LanguageVersion            |
+| **public static**  | start(RootDoc)                             | boolean                                    |
+| **private**        | getPackageDirectory(String)                | java.nio.file.Path                         |
+| **private**        | generatePackage(PackageDoc)                | void                                       |
+| **private**        | buildPackages()                            | java.util.List<com.sun.javadoc.PackageDoc> |
+| **private**        | generateReadme(List<PackageDoc>)           | void                                       |
+| **private**        | buildClasses()                             | void                                       |
+| **private**        | start()                                    | boolean                                    |
 
 Constructors
 ============
@@ -49,8 +49,7 @@ optionLength (String)
 ---------------------
 To document.
 ### Parameters
-option: To document.
-
+- option: To document.
 ### Returns
 To document.
 
@@ -58,9 +57,8 @@ validOptions (String[][], DocErrorReporter)
 -------------------------------------------
 To document.
 ### Parameters
-options: Options from command line.
-reporter: Reporter instance to use in case of error.
-
+- options: Options from command line.
+- reporter: Reporter instance to use in case of error.
 ### Returns
 <tt>true</tt> if given set of options are valid, <tt>false</tt> otherwise.
 
@@ -74,8 +72,7 @@ start (RootDoc)
 ---------------
 **Doclet** entry point. Parses user provided options and starts a **Marklet** execution.
 ### Parameters
-root: Doclet API root.
-
+- root: Doclet API root.
 ### Returns
 ``true`` if the generation went well, ``false`` otherwise.
 
@@ -84,8 +81,7 @@ getPackageDirectory (String)
 Builds and retrieves the path for the directory associated to the package with the given
  <tt>name</tt>.
 ### Parameters
-packageName: Name of the package to get directory for.
-
+- packageName: Name of the package to get directory for.
 ### Returns
 Built path.
 
@@ -93,8 +89,7 @@ generatePackage (PackageDoc)
 ----------------------------
 Generates package documentation for the given ``packageDoc``.
 ### Parameters
-packageDoc: Package to generate documentation for.
-
+- packageDoc: Package to generate documentation for.
 ### Throws
 java.io.IOException: If any error occurs while creating file or directories.
 
@@ -110,8 +105,7 @@ generateReadme (List<PackageDoc>)
 ---------------------------------
 Generates Readme file
 ### Parameters
-packages: project packages list
-
+- packages: project packages list
 ### Throws
 java.io.IOException: If any error occurs during generation process.
 

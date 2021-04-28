@@ -5,7 +5,9 @@ import static io.github.atlascommunity.marklet.constants.Labels.PARAMETERS;
 import static io.github.atlascommunity.marklet.constants.Labels.RETURNS;
 import static io.github.atlascommunity.marklet.constants.Labels.THROWS;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.MethodDoc;
@@ -14,6 +16,7 @@ import com.sun.javadoc.Tag;
 import com.sun.javadoc.ThrowsTag;
 
 import lombok.RequiredArgsConstructor;
+import net.steppschuh.markdowngenerator.list.UnorderedList;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
@@ -69,6 +72,7 @@ public class ClassMethodsInfo implements ClassPageElement {
     if (paramTags.length > 0) {
       Heading parametersHeading = new Heading(PARAMETERS, 3);
       StringBuilder parametersInfo = new StringBuilder().append(parametersHeading).append("\n");
+      List<String> entities = new ArrayList<>();
       Arrays.stream(paramTags)
           .forEach(
               p -> {
@@ -78,9 +82,10 @@ public class ClassMethodsInfo implements ClassPageElement {
                         : p.parameterComment();
                 String paramDesc =
                     String.format(DESCRIPTION_PATTERN, p.parameterName(), parameterComment);
-                parametersInfo.append(paramDesc).append("\n");
+                entities.add(paramDesc);
               });
-      description.append(parametersInfo).append("\n");
+      parametersInfo.append(new UnorderedList<>(entities)).append("\n");
+      description.append(parametersInfo);
     }
 
     Tag[] returnTags = doc.tags("return");

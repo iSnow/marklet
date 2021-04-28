@@ -81,6 +81,7 @@ public class ClassConstructorsInfo implements ClassPageElement {
               });
 
       parametersInfo.append(new UnorderedList<>(entities));
+      description.append(parametersInfo);
     }
 
     return description.toString();

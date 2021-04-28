@@ -13,10 +13,10 @@ Summary
 | **private final**  | classDoc   |
 | **private final**  | options    |
 #### Methods
-| Type and modifiers | Method signature                                            | Return type      |
-| ------------------ | ----------------------------------------------------------- | ---------------- |
-| **public**         | generate()                                                  | java.lang.String |
-| **private**        | constructorDescription(com.sun.javadoc.ExecutableMemberDoc) | java.lang.String |
+| Type and modifiers | Method signature                            | Return type      |
+| ------------------ | ------------------------------------------- | ---------------- |
+| **public**         | generate()                                  | java.lang.String |
+| **private**        | constructorDescription(ExecutableMemberDoc) | java.lang.String |
 
 Constructors
 ============
@@ -47,8 +47,7 @@ constructorDescription (ExecutableMemberDoc)
 --------------------------------------------
 No method description provided
 ### Parameters
-doc: constructor representation
-
+- doc: constructor representation
 ### Returns
 markdown string
 
