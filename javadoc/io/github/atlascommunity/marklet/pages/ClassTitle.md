@@ -8,9 +8,9 @@ Summary
 | ---------- | ------------ |
 | **public** | ClassTitle() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | classDoc   |
+| Type and modifiers                         | Field name |
+| ------------------------------------------ | ---------- |
+| **private final com.sun.javadoc.ClassDoc** | classDoc   |
 #### Methods
 | Type and modifiers | Method signature | Return type |
 | ------------------ | ---------------- | ----------- |
@@ -24,7 +24,7 @@ ClassTitle ()
 
 Fields
 ======
-classDoc, com.sun.javadoc.ClassDoc
+com.sun.javadoc.ClassDoc, classDoc
 ----------------------------------
 Class information
 

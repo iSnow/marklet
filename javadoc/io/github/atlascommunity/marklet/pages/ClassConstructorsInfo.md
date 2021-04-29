@@ -8,10 +8,10 @@ Summary
 | ---------- | ----------------------- |
 | **public** | ClassConstructorsInfo() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | classDoc   |
-| **private final**  | options    |
+| Type and modifiers                                         | Field name |
+| ---------------------------------------------------------- | ---------- |
+| **private final com.sun.javadoc.ClassDoc**                 | classDoc   |
+| **private final io.github.atlascommunity.marklet.Options** | options    |
 #### Methods
 | Type and modifiers | Method signature                                | Return type |
 | ------------------ | ----------------------------------------------- | ----------- |
@@ -26,11 +26,11 @@ ClassConstructorsInfo ()
 
 Fields
 ======
-classDoc, com.sun.javadoc.ClassDoc
+com.sun.javadoc.ClassDoc, classDoc
 ----------------------------------
 Class information
 
-options, io.github.atlascommunity.marklet.Options
+io.github.atlascommunity.marklet.Options, options
 -------------------------------------------------
 Doclet options
 

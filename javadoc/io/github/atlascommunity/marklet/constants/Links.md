@@ -8,9 +8,9 @@ Summary
 | ---------- | --------- |
 | **public** | Links()   |
 #### Fields
-| Type and modifiers      | Field name |
-| ----------------------- | ---------- |
-| **public static final** | BADGE      |
+| Type and modifiers                       | Field name |
+| ---------------------------------------- | ---------- |
+| **public static final java.lang.String** | BADGE      |
 
 Constructors
 ============
@@ -20,7 +20,7 @@ Links ()
 
 Fields
 ======
-BADGE, java.lang.String
+java.lang.String, BADGE
 -----------------------
 Marklet link using dynamic badge. *
 

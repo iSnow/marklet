@@ -60,7 +60,11 @@ public class ClassSummary implements ClassPageElement {
               .addRow(TYPE_AND_MODIFIERS_COLUMN, "Field name");
 
       Arrays.stream(classDoc.fields())
-          .forEach(f -> tableEntries.addRow(new BoldText(f.modifiers()), f.name()));
+          .forEach(
+              f -> {
+                String modifiersAndType = String.format("%s %s", f.modifiers(), f.type());
+                tableEntries.addRow(new BoldText(modifiersAndType), f.name());
+              });
       fieldsTable.append(tableEntries.build());
       summary.append(fieldsTable).append("\n");
     }

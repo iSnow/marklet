@@ -8,9 +8,9 @@ Summary
 | ---------- | ----------------- |
 | **public** | MethodSignature() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | methodInfo |
+| Type and modifiers                          | Field name |
+| ------------------------------------------- | ---------- |
+| **private final com.sun.javadoc.MethodDoc** | methodInfo |
 #### Methods
 | Type and modifiers | Method signature                                     | Return type |
 | ------------------ | ---------------------------------------------------- | ----------- |
@@ -25,7 +25,7 @@ MethodSignature ()
 
 Fields
 ======
-methodInfo, com.sun.javadoc.MethodDoc
+com.sun.javadoc.MethodDoc, methodInfo
 -------------------------------------
 Method information
 

@@ -26,7 +26,7 @@ public class ClassFieldsInfo implements ClassPageElement {
       Arrays.stream(classDoc.fields())
           .forEach(
               f -> {
-                String headingText = String.format("%s, %s", f.name(), f.type());
+                String headingText = String.format("%s, %s", f.type(), f.name());
                 StringBuilder fieldDescription =
                     new StringBuilder().append(new Heading(headingText, 2)).append("\n");
                 String fieldComment =

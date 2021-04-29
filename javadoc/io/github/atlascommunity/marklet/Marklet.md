@@ -8,10 +8,10 @@ Summary
 | ---------- | --------- |
 | **public** | Marklet() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | options    |
-| **private final**  | root       |
+| Type and modifiers                                         | Field name |
+| ---------------------------------------------------------- | ---------- |
+| **private final io.github.atlascommunity.marklet.Options** | options    |
+| **private final com.sun.javadoc.RootDoc**                  | root       |
 #### Methods
 | Type and modifiers | Method signature                                                     | Return type     |
 | ------------------ | -------------------------------------------------------------------- | --------------- |
@@ -34,11 +34,11 @@ Marklet ()
 
 Fields
 ======
-options, io.github.atlascommunity.marklet.Options
+io.github.atlascommunity.marklet.Options, options
 -------------------------------------------------
 Command line options that have been parsed. *
 
-root, com.sun.javadoc.RootDoc
+com.sun.javadoc.RootDoc, root
 -----------------------------
 Documentation root provided by the doclet API. *
 

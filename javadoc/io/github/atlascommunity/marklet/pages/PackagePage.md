@@ -8,11 +8,11 @@ Summary
 | ---------- | ------------- |
 | **public** | PackagePage() |
 #### Fields
-| Type and modifiers | Field name       |
-| ------------------ | ---------------- |
-| **private final**  | packageDoc       |
-| **private final**  | packageDirectory |
-| **private final**  | options          |
+| Type and modifiers                                         | Field name       |
+| ---------------------------------------------------------- | ---------------- |
+| **private final com.sun.javadoc.PackageDoc**               | packageDoc       |
+| **private final java.nio.file.Path**                       | packageDirectory |
+| **private final io.github.atlascommunity.marklet.Options** | options          |
 #### Methods
 | Type and modifiers | Method signature                                                                           | Return type |
 | ------------------ | ------------------------------------------------------------------------------------------ | ----------- |
@@ -29,15 +29,15 @@ PackagePage ()
 
 Fields
 ======
-packageDoc, com.sun.javadoc.PackageDoc
+com.sun.javadoc.PackageDoc, packageDoc
 --------------------------------------
 Package information
 
-packageDirectory, java.nio.file.Path
+java.nio.file.Path, packageDirectory
 ------------------------------------
 Package path
 
-options, io.github.atlascommunity.marklet.Options
+io.github.atlascommunity.marklet.Options, options
 -------------------------------------------------
 Doclet options
 

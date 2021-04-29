@@ -8,11 +8,11 @@ Summary
 | ---------- | ------------ |
 | **public** | ReadmePage() |
 #### Fields
-| Type and modifiers       | Field name           |
-| ------------------------ | -------------------- |
-| **private final**        | packages             |
-| **private final**        | options              |
-| **private static final** | TABLE_PACKAGE_HEADER |
+| Type and modifiers                                           | Field name           |
+| ------------------------------------------------------------ | -------------------- |
+| **private final java.util.List<com.sun.javadoc.PackageDoc>** | packages             |
+| **private final io.github.atlascommunity.marklet.Options**   | options              |
+| **private static final java.lang.String**                    | TABLE_PACKAGE_HEADER |
 #### Methods
 | Type and modifiers | Method signature | Return type |
 | ------------------ | ---------------- | ----------- |
@@ -26,15 +26,15 @@ ReadmePage ()
 
 Fields
 ======
-packages, java.util.List<com.sun.javadoc.PackageDoc>
+java.util.List<com.sun.javadoc.PackageDoc>, packages
 ----------------------------------------------------
 List of project packages
 
-options, io.github.atlascommunity.marklet.Options
+io.github.atlascommunity.marklet.Options, options
 -------------------------------------------------
 Doclet options
 
-TABLE_PACKAGE_HEADER, java.lang.String
+java.lang.String, TABLE_PACKAGE_HEADER
 --------------------------------------
 Table header
 

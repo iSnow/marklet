@@ -8,10 +8,10 @@ Summary
 | ---------- | -------------- |
 | **public** | ClassSummary() |
 #### Fields
-| Type and modifiers       | Field name                |
-| ------------------------ | ------------------------- |
-| **private final**        | classDoc                  |
-| **private static final** | TYPE_AND_MODIFIERS_COLUMN |
+| Type and modifiers                         | Field name                |
+| ------------------------------------------ | ------------------------- |
+| **private final com.sun.javadoc.ClassDoc** | classDoc                  |
+| **private static final java.lang.String**  | TYPE_AND_MODIFIERS_COLUMN |
 #### Methods
 | Type and modifiers | Method signature | Return type |
 | ------------------ | ---------------- | ----------- |
@@ -25,11 +25,11 @@ ClassSummary ()
 
 Fields
 ======
-classDoc, com.sun.javadoc.ClassDoc
+com.sun.javadoc.ClassDoc, classDoc
 ----------------------------------
 Class information
 
-TYPE_AND_MODIFIERS_COLUMN, java.lang.String
+java.lang.String, TYPE_AND_MODIFIERS_COLUMN
 -------------------------------------------
 Table column name
 

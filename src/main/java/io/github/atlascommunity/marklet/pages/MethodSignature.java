@@ -40,6 +40,6 @@ public class MethodSignature {
     List<String> parametersFormed = new ArrayList<>();
     Arrays.stream(parameters).forEach(p -> parametersFormed.add(p.typeName() + " " + p.name()));
 
-    return "(" + String.join(",", parametersFormed) + ")";
+    return String.format("(%s)", String.join(",", parametersFormed));
   }
 }
