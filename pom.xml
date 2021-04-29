@@ -6,7 +6,7 @@
 
     <groupId>io.github.atlascommunity</groupId>
     <artifactId>marklet</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <name>Marklet</name>
     <description>Fork of Faylixe/marklet in purpose for a great good and more customization</description>
     <url>https://github.com/atlascommunity/marklet</url>

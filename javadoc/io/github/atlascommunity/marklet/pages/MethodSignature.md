@@ -27,17 +27,23 @@ Fields
 ======
 methodInfo, com.sun.javadoc.MethodDoc
 -------------------------------------
-No description provided
+Method information
 
 
 Methods
 =======
 form ()
 -------
-No method description provided
+Form description from method information
+### Returns
+method signature string
 
 methodParams (Parameter[])
 --------------------------
-No method description provided
+Form doubled bracket params description
+### Parameters
+- parameters: method params information
+### Returns
+formed string
 
 

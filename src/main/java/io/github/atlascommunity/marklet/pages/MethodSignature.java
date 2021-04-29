@@ -13,8 +13,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MethodSignature {
 
+  /** Method information */
   private final MethodDoc methodInfo;
 
+  /**
+   * Form description from method information
+   *
+   * @return method signature string
+   */
   public String form() {
 
     String methodName = methodInfo.name();
@@ -23,6 +29,12 @@ public class MethodSignature {
     return methodName + methodParams(methodParameters);
   }
 
+  /**
+   * Form doubled bracket params description
+   *
+   * @param parameters method params information
+   * @return formed string
+   */
   private String methodParams(Parameter[] parameters) {
 
     List<String> parametersFormed = new ArrayList<>();
