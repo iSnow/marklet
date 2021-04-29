@@ -6,6 +6,7 @@ Interfaces
 | --------------------------------------- |
 | [DocumentPage](DocumentPage.md)         |
 | [ClassPageElement](ClassPageElement.md) |
+
 Classes
 =======
 | Name                                                |
@@ -22,3 +23,4 @@ Classes
 | [ClassMethodsInfo](ClassMethodsInfo.md)             |
 | [ClassFieldsInfo](ClassFieldsInfo.md)               |
 | [ClassConstructorsInfo](ClassConstructorsInfo.md)   |
+
