@@ -22,12 +22,12 @@ Summary
 | **private final**        | fileEnding               |
 | **private final**        | hasBadge                 |
 #### Methods
-| Type and modifiers | Method signature                           | Return type                                      |
-| ------------------ | ------------------------------------------ | ------------------------------------------------ |
-| **public static**  | validOptions(String[][], DocErrorReporter) | boolean                                          |
-| **public static**  | optionLength(String)                       | int                                              |
-| **public static**  | parse(RootDoc)                             | io.github.atlascommunity.marklet.Options         |
-| **private static** | docletOptionsOnly()                        | java.util.function.Predicate<java.lang.String[]> |
+| Type and modifiers | Method signature                                                     | Return type |
+| ------------------ | -------------------------------------------------------------------- | ----------- |
+| **public static**  | validOptions(java.lang.String[][] options,DocErrorReporter reporter) | boolean     |
+| **public static**  | optionLength(String option)                                          | int         |
+| **public static**  | parse(RootDoc root)                                                  | Options     |
+| **private static** | docletOptionsOnly()                                                  | Predicate   |
 
 Constructors
 ============

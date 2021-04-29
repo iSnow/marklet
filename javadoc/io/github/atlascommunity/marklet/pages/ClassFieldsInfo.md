@@ -12,9 +12,9 @@ Summary
 | ------------------ | ---------- |
 | **private final**  | classDoc   |
 #### Methods
-| Type and modifiers | Method signature | Return type      |
-| ------------------ | ---------------- | ---------------- |
-| **public**         | generate()       | java.lang.String |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | generate()       | String      |
 
 Constructors
 ============

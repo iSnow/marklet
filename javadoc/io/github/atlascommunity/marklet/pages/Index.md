@@ -13,6 +13,7 @@ Classes
 | --------------------------------------------------- |
 | [ReadmePage](ReadmePage.md)                         |
 | [PackagePage](PackagePage.md)                       |
+| [MethodSignature](MethodSignature.md)               |
 | [MarkdownTag](MarkdownTag.md)                       |
 | [DocumentPage](DocumentPage.md)                     |
 | [ClassTitle](ClassTitle.md)                         |

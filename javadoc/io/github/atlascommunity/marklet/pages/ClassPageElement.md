@@ -4,9 +4,9 @@ io.github.atlascommunity.marklet.pages.ClassPageElement
 Summary
 -------
 #### Methods
-| Type and modifiers | Method signature | Return type      |
-| ------------------ | ---------------- | ---------------- |
-| **public**         | generate()       | java.lang.String |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | generate()       | String      |
 
 Methods
 =======

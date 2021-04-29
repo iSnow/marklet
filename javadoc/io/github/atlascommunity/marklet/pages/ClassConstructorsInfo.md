@@ -13,10 +13,10 @@ Summary
 | **private final**  | classDoc   |
 | **private final**  | options    |
 #### Methods
-| Type and modifiers | Method signature                            | Return type      |
-| ------------------ | ------------------------------------------- | ---------------- |
-| **public**         | generate()                                  | java.lang.String |
-| **private**        | constructorDescription(ExecutableMemberDoc) | java.lang.String |
+| Type and modifiers | Method signature                                | Return type |
+| ------------------ | ----------------------------------------------- | ----------- |
+| **public**         | generate()                                      | String      |
+| **private**        | constructorDescription(ExecutableMemberDoc doc) | String      |
 
 Constructors
 ============

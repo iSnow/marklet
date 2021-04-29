@@ -13,18 +13,18 @@ Summary
 | **private final**  | options    |
 | **private final**  | root       |
 #### Methods
-| Type and modifiers | Method signature                           | Return type                                |
-| ------------------ | ------------------------------------------ | ------------------------------------------ |
-| **public static**  | optionLength(String)                       | int                                        |
-| **public static**  | validOptions(String[][], DocErrorReporter) | boolean                                    |
-| **public static**  | languageVersion()                          | com.sun.javadoc.LanguageVersion            |
-| **public static**  | start(RootDoc)                             | boolean                                    |
-| **private**        | getPackageDirectory(String)                | java.nio.file.Path                         |
-| **private**        | generatePackage(PackageDoc)                | void                                       |
-| **private**        | buildPackages()                            | java.util.List<com.sun.javadoc.PackageDoc> |
-| **private**        | generateReadme(List<PackageDoc>)           | void                                       |
-| **private**        | buildClasses()                             | void                                       |
-| **private**        | start()                                    | boolean                                    |
+| Type and modifiers | Method signature                                                     | Return type     |
+| ------------------ | -------------------------------------------------------------------- | --------------- |
+| **public static**  | optionLength(String option)                                          | int             |
+| **public static**  | validOptions(java.lang.String[][] options,DocErrorReporter reporter) | boolean         |
+| **public static**  | languageVersion()                                                    | LanguageVersion |
+| **public static**  | start(RootDoc root)                                                  | boolean         |
+| **private**        | getPackageDirectory(String packageName)                              | Path            |
+| **private**        | generatePackage(PackageDoc packageDoc)                               | void            |
+| **private**        | buildPackages()                                                      | List            |
+| **private**        | generateReadme(java.util.List<com.sun.javadoc.PackageDoc> packages)  | void            |
+| **private**        | buildClasses()                                                       | void            |
+| **private**        | start()                                                              | boolean         |
 
 Constructors
 ============

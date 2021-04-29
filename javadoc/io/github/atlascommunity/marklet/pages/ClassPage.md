@@ -13,10 +13,10 @@ Summary
 | **private final**  | classDoc   |
 | **private final**  | options    |
 #### Methods
-| Type and modifiers | Method signature         | Return type |
-| ------------------ | ------------------------ | ----------- |
-| **public**         | build()                  | void        |
-| **private**        | writeFile(StringBuilder) | void        |
+| Type and modifiers | Method signature                   | Return type |
+| ------------------ | ---------------------------------- | ----------- |
+| **public**         | build()                            | void        |
+| **private**        | writeFile(StringBuilder classPage) | void        |
 
 Constructors
 ============

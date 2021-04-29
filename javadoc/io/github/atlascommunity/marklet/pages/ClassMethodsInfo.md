@@ -14,10 +14,10 @@ Summary
 | **private static final** | DESCRIPTION_PATTERN |
 | **private static final** | OVERRIDE_MARK       |
 #### Methods
-| Type and modifiers | Method signature             | Return type      |
-| ------------------ | ---------------------------- | ---------------- |
-| **public**         | generate()                   | java.lang.String |
-| **private**        | methodDescription(MethodDoc) | java.lang.String |
+| Type and modifiers | Method signature                 | Return type |
+| ------------------ | -------------------------------- | ----------- |
+| **public**         | generate()                       | String      |
+| **private**        | methodDescription(MethodDoc doc) | String      |
 
 Constructors
 ============

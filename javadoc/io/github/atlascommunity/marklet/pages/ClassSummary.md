@@ -13,9 +13,9 @@ Summary
 | **private final**        | classDoc                  |
 | **private static final** | TYPE_AND_MODIFIERS_COLUMN |
 #### Methods
-| Type and modifiers | Method signature | Return type      |
-| ------------------ | ---------------- | ---------------- |
-| **public**         | generate()       | java.lang.String |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | generate()       | String      |
 
 Constructors
 ============

@@ -14,12 +14,12 @@ Summary
 | **private final**  | packageDirectory |
 | **private final**  | options          |
 #### Methods
-| Type and modifiers | Method signature                                 | Return type |
-| ------------------ | ------------------------------------------------ | ----------- |
-| **public**         | build()                                          | void        |
-| **private**        | createPackageIndexes(StringBuilder)              | void        |
-| **private**        | generateTable(String, ClassDoc[], StringBuilder) | void        |
-| **private**        | writeFile(StringBuilder)                         | void        |
+| Type and modifiers | Method signature                                                                           | Return type |
+| ------------------ | ------------------------------------------------------------------------------------------ | ----------- |
+| **public**         | build()                                                                                    | void        |
+| **private**        | createPackageIndexes(StringBuilder packagePage)                                            | void        |
+| **private**        | generateTable(String tableLabel,com.sun.javadoc.ClassDoc[] docs,StringBuilder packagePage) | void        |
+| **private**        | writeFile(StringBuilder pageContent)                                                       | void        |
 
 Constructors
 ============

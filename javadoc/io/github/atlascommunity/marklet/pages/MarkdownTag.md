@@ -13,9 +13,9 @@ Summary
 | **private final**  | tag        |
 | **private final**  | fileEnding |
 #### Methods
-| Type and modifiers | Method signature | Return type      |
-| ------------------ | ---------------- | ---------------- |
-| **public**         | create()         | java.lang.String |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | create()         | String      |
 
 Constructors
 ============

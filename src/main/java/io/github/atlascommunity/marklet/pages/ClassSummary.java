@@ -81,7 +81,9 @@ public class ClassSummary implements ClassPageElement {
           .forEach(
               m ->
                   tableEntries.addRow(
-                      new BoldText(m.modifiers()), m.name() + m.flatSignature(), m.returnType()));
+                      new BoldText(m.modifiers()),
+                      new MethodSignature(m).form(),
+                      m.returnType().typeName()));
       methodsTable.append(tableEntries.build());
       summary.append(methodsTable).append("\n");
     }
