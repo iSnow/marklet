@@ -1,5 +1,6 @@
 Class MarkdownTag
 =================
+io.github.atlascommunity.marklet.pages.MarkdownTag
 Summary
 -------
 #### Constructors
@@ -7,14 +8,14 @@ Summary
 | ---------- | ------------- |
 | **public** | MarkdownTag() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | tag        |
-| **private final**  | fileEnding |
+| Type and modifiers                    | Field name |
+| ------------------------------------- | ---------- |
+| **private final com.sun.javadoc.Tag** | tag        |
+| **private final java.lang.String**    | fileEnding |
 #### Methods
-| Type and modifiers | Method signature |
-| ------------------ | ---------------- |
-| **public**         | create()         |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | create()         | String      |
 
 Constructors
 ============
@@ -24,11 +25,11 @@ MarkdownTag ()
 
 Fields
 ======
-tag, com.sun.javadoc.Tag
+com.sun.javadoc.Tag, tag
 ------------------------
 Tag information
 
-fileEnding, java.lang.String
+java.lang.String, fileEnding
 ----------------------------
 File ending from doclet options
 

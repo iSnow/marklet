@@ -33,6 +33,7 @@ public class ClassPage implements DocumentPage {
             .append(new Heading(new ClassTitle(classDoc).generate(), 1))
             .append("\n");
 
+    classPage.append(new ClassQualifiedPathInfo(classDoc).generate()).append("\n");
     classPage.append(new ClassSummary(classDoc).generate()).append("\n");
 
     String constructorsInfo = new ClassConstructorsInfo(classDoc, options).generate();

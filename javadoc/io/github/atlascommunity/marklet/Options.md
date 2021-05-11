@@ -1,5 +1,6 @@
 Class Options
 =============
+io.github.atlascommunity.marklet.Options
 Summary
 -------
 #### Constructors
@@ -7,26 +8,26 @@ Summary
 | ----------- | ---------------------------- |
 | **private** | Options(Map<String, String>) |
 #### Fields
-| Type and modifiers       | Field name               |
-| ------------------------ | ------------------------ |
-| **private static final** | OUTPUT_DIRECTORY_OPTION  |
-| **private static final** | FILE_ENDING_OPTION       |
-| **private static final** | CREATE_BADGE_OPTION      |
-| **private static final** | OPTIONS_COUNT            |
-| **private static final** | OPTIONS_TO_EXCLUDE       |
-| **private static final** | VALID_OPTIONS            |
-| **private static final** | DEFAULT_OUTPUT_DIRECTORY |
-| **private static final** | DEFAULT_FILE_ENDING      |
-| **private final**        | outputDirectory          |
-| **private final**        | fileEnding               |
-| **private final**        | hasBadge                 |
+| Type and modifiers                                                          | Field name               |
+| --------------------------------------------------------------------------- | ------------------------ |
+| **private static final java.lang.String**                                   | OUTPUT_DIRECTORY_OPTION  |
+| **private static final java.lang.String**                                   | FILE_ENDING_OPTION       |
+| **private static final java.lang.String**                                   | CREATE_BADGE_OPTION      |
+| **private static final java.util.Map<java.lang.String, java.lang.Integer>** | OPTIONS_COUNT            |
+| **private static final java.util.List<java.lang.String>**                   | OPTIONS_TO_EXCLUDE       |
+| **private static final java.util.List<java.lang.String>**                   | VALID_OPTIONS            |
+| **private static final java.lang.String**                                   | DEFAULT_OUTPUT_DIRECTORY |
+| **private static final java.lang.String**                                   | DEFAULT_FILE_ENDING      |
+| **private final java.lang.String**                                          | outputDirectory          |
+| **private final java.lang.String**                                          | fileEnding               |
+| **private final boolean**                                                   | hasBadge                 |
 #### Methods
-| Type and modifiers | Method signature                           |
-| ------------------ | ------------------------------------------ |
-| **public static**  | validOptions(String[][], DocErrorReporter) |
-| **public static**  | optionLength(String)                       |
-| **public static**  | parse(RootDoc)                             |
-| **private static** | docletOptionsOnly()                        |
+| Type and modifiers | Method signature                                                     | Return type |
+| ------------------ | -------------------------------------------------------------------- | ----------- |
+| **public static**  | validOptions(java.lang.String[][] options,DocErrorReporter reporter) | boolean     |
+| **public static**  | optionLength(String option)                                          | int         |
+| **public static**  | parse(RootDoc root)                                                  | Options     |
+| **private static** | docletOptionsOnly()                                                  | Predicate   |
 
 Constructors
 ============
@@ -37,47 +38,47 @@ Default constructor. Sets options with their default parameters if available.
 
 Fields
 ======
-OUTPUT_DIRECTORY_OPTION, java.lang.String
+java.lang.String, OUTPUT_DIRECTORY_OPTION
 -----------------------------------------
 Option name for the target output directory. (`-d`) *
 
-FILE_ENDING_OPTION, java.lang.String
+java.lang.String, FILE_ENDING_OPTION
 ------------------------------------
 Option name for the file ending (`-e`) *
 
-CREATE_BADGE_OPTION, java.lang.String
+java.lang.String, CREATE_BADGE_OPTION
 -------------------------------------
 Option name for create badge flag (`-b`) *
 
-OPTIONS_COUNT, java.util.Map<java.lang.String, java.lang.Integer>
+java.util.Map<java.lang.String, java.lang.Integer>, OPTIONS_COUNT
 -----------------------------------------------------------------
 Number of token per option. *
 
-OPTIONS_TO_EXCLUDE, java.util.List<java.lang.String>
+java.util.List<java.lang.String>, OPTIONS_TO_EXCLUDE
 ----------------------------------------------------
 Javadoc standard options *
 
-VALID_OPTIONS, java.util.List<java.lang.String>
+java.util.List<java.lang.String>, VALID_OPTIONS
 -----------------------------------------------
 List of valid options. *
 
-DEFAULT_OUTPUT_DIRECTORY, java.lang.String
+java.lang.String, DEFAULT_OUTPUT_DIRECTORY
 ------------------------------------------
 Default output directory to use. *
 
-DEFAULT_FILE_ENDING, java.lang.String
+java.lang.String, DEFAULT_FILE_ENDING
 -------------------------------------
 Default output file ending (`md`) *
 
-outputDirectory, java.lang.String
+java.lang.String, outputDirectory
 ---------------------------------
 Output directory file are generated in. *
 
-fileEnding, java.lang.String
+java.lang.String, fileEnding
 ----------------------------
 Extension to use for generated file. *
 
-hasBadge, boolean
+boolean, hasBadge
 -----------------
 Add "generated by" badge to generated doc or not. *
 
@@ -88,9 +89,8 @@ validOptions (String[][], DocErrorReporter)
 -------------------------------------------
 Options validation method.
 ### Parameters
-options: Options from command line.
-reporter: Reporter instance to use in case of error.
-
+- options: Options from command line.
+- reporter: Reporter instance to use in case of error.
 ### Returns
 <tt>true</tt> if given set of options are valid, <tt>false</tt> otherwise.
 
@@ -98,8 +98,7 @@ optionLength (String)
 ---------------------
 Computes number of arguments (as token) for the given option.
 ### Parameters
-option: Target option to get token number for.
-
+- option: Target option to get token number for.
 ### Returns
 Number of token expected for the given option.
 
@@ -107,8 +106,7 @@ parse (RootDoc)
 ---------------
 Static factory.
 ### Parameters
-root: program structure information root
-
+- root: program structure information root
 ### Returns
 Built options instance.
 

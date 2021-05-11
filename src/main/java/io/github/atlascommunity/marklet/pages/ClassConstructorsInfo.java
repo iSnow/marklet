@@ -79,7 +79,9 @@ public class ClassConstructorsInfo implements ClassPageElement {
                         parameterComment.isEmpty() ? "No description provided" : parameterComment);
                 entities.add(parameterEntity);
               });
+
       parametersInfo.append(new UnorderedList<>(entities));
+      description.append(parametersInfo);
     }
 
     return description.toString();

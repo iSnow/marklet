@@ -1,11 +1,12 @@
 Interface DocumentPage
 ======================
+io.github.atlascommunity.marklet.pages.DocumentPage
 Summary
 -------
 #### Methods
-| Type and modifiers | Method signature |
-| ------------------ | ---------------- |
-| **public**         | build()          |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | build()          | void        |
 
 Methods
 =======

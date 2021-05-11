@@ -1,11 +1,12 @@
 Interface ClassPageElement
 ==========================
+io.github.atlascommunity.marklet.pages.ClassPageElement
 Summary
 -------
 #### Methods
-| Type and modifiers | Method signature |
-| ------------------ | ---------------- |
-| **public**         | generate()       |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | generate()       | String      |
 
 Methods
 =======

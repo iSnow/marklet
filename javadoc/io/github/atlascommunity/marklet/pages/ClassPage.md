@@ -1,5 +1,6 @@
 Class ClassPage
 ===============
+io.github.atlascommunity.marklet.pages.ClassPage
 Summary
 -------
 #### Constructors
@@ -7,15 +8,15 @@ Summary
 | ---------- | ----------- |
 | **public** | ClassPage() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | classDoc   |
-| **private final**  | options    |
+| Type and modifiers                                         | Field name |
+| ---------------------------------------------------------- | ---------- |
+| **private final com.sun.javadoc.ClassDoc**                 | classDoc   |
+| **private final io.github.atlascommunity.marklet.Options** | options    |
 #### Methods
-| Type and modifiers | Method signature         |
-| ------------------ | ------------------------ |
-| **public**         | build()                  |
-| **private**        | writeFile(StringBuilder) |
+| Type and modifiers | Method signature                   | Return type |
+| ------------------ | ---------------------------------- | ----------- |
+| **public**         | build()                            | void        |
+| **private**        | writeFile(StringBuilder classPage) | void        |
 
 Constructors
 ============
@@ -25,11 +26,11 @@ ClassPage ()
 
 Fields
 ======
-classDoc, com.sun.javadoc.ClassDoc
+com.sun.javadoc.ClassDoc, classDoc
 ----------------------------------
 Class information
 
-options, io.github.atlascommunity.marklet.Options
+io.github.atlascommunity.marklet.Options, options
 -------------------------------------------------
 Doclet options
 
@@ -44,8 +45,7 @@ writeFile (StringBuilder)
 -------------------------
 Writes file to disk
 ### Parameters
-classPage: markdown string with class information
-
+- classPage: markdown string with class information
 ### Throws
 java.io.IOException: If any error occurs during write process.
 

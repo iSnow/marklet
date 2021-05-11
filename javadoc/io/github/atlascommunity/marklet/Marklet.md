@@ -1,5 +1,6 @@
 Class Marklet
 =============
+io.github.atlascommunity.marklet.Marklet
 Summary
 -------
 #### Constructors
@@ -7,23 +8,23 @@ Summary
 | ---------- | --------- |
 | **public** | Marklet() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | options    |
-| **private final**  | root       |
+| Type and modifiers                                         | Field name |
+| ---------------------------------------------------------- | ---------- |
+| **private final io.github.atlascommunity.marklet.Options** | options    |
+| **private final com.sun.javadoc.RootDoc**                  | root       |
 #### Methods
-| Type and modifiers | Method signature                           |
-| ------------------ | ------------------------------------------ |
-| **public static**  | optionLength(String)                       |
-| **public static**  | validOptions(String[][], DocErrorReporter) |
-| **public static**  | languageVersion()                          |
-| **public static**  | start(RootDoc)                             |
-| **private**        | getPackageDirectory(String)                |
-| **private**        | generatePackage(PackageDoc)                |
-| **private**        | buildPackages()                            |
-| **private**        | generateReadme(List<PackageDoc>)           |
-| **private**        | buildClasses()                             |
-| **private**        | start()                                    |
+| Type and modifiers | Method signature                                                     | Return type     |
+| ------------------ | -------------------------------------------------------------------- | --------------- |
+| **public static**  | optionLength(String option)                                          | int             |
+| **public static**  | validOptions(java.lang.String[][] options,DocErrorReporter reporter) | boolean         |
+| **public static**  | languageVersion()                                                    | LanguageVersion |
+| **public static**  | start(RootDoc root)                                                  | boolean         |
+| **private**        | getPackageDirectory(String packageName)                              | Path            |
+| **private**        | generatePackage(PackageDoc packageDoc)                               | void            |
+| **private**        | buildPackages()                                                      | List            |
+| **private**        | generateReadme(java.util.List<com.sun.javadoc.PackageDoc> packages)  | void            |
+| **private**        | buildClasses()                                                       | void            |
+| **private**        | start()                                                              | boolean         |
 
 Constructors
 ============
@@ -33,11 +34,11 @@ Marklet ()
 
 Fields
 ======
-options, io.github.atlascommunity.marklet.Options
+io.github.atlascommunity.marklet.Options, options
 -------------------------------------------------
 Command line options that have been parsed. *
 
-root, com.sun.javadoc.RootDoc
+com.sun.javadoc.RootDoc, root
 -----------------------------
 Documentation root provided by the doclet API. *
 
@@ -48,8 +49,7 @@ optionLength (String)
 ---------------------
 To document.
 ### Parameters
-option: To document.
-
+- option: To document.
 ### Returns
 To document.
 
@@ -57,9 +57,8 @@ validOptions (String[][], DocErrorReporter)
 -------------------------------------------
 To document.
 ### Parameters
-options: Options from command line.
-reporter: Reporter instance to use in case of error.
-
+- options: Options from command line.
+- reporter: Reporter instance to use in case of error.
 ### Returns
 <tt>true</tt> if given set of options are valid, <tt>false</tt> otherwise.
 
@@ -73,8 +72,7 @@ start (RootDoc)
 ---------------
 **Doclet** entry point. Parses user provided options and starts a **Marklet** execution.
 ### Parameters
-root: Doclet API root.
-
+- root: Doclet API root.
 ### Returns
 ``true`` if the generation went well, ``false`` otherwise.
 
@@ -83,8 +81,7 @@ getPackageDirectory (String)
 Builds and retrieves the path for the directory associated to the package with the given
  <tt>name</tt>.
 ### Parameters
-packageName: Name of the package to get directory for.
-
+- packageName: Name of the package to get directory for.
 ### Returns
 Built path.
 
@@ -92,8 +89,7 @@ generatePackage (PackageDoc)
 ----------------------------
 Generates package documentation for the given ``packageDoc``.
 ### Parameters
-packageDoc: Package to generate documentation for.
-
+- packageDoc: Package to generate documentation for.
 ### Throws
 java.io.IOException: If any error occurs while creating file or directories.
 
@@ -109,8 +105,7 @@ generateReadme (List<PackageDoc>)
 ---------------------------------
 Generates Readme file
 ### Parameters
-packages: project packages list
-
+- packages: project packages list
 ### Throws
 java.io.IOException: If any error occurs during generation process.
 

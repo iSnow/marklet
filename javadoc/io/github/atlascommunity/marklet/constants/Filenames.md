@@ -1,5 +1,6 @@
 Class Filenames
 ===============
+io.github.atlascommunity.marklet.constants.Filenames
 Summary
 -------
 #### Constructors
@@ -7,10 +8,10 @@ Summary
 | ---------- | ----------- |
 | **public** | Filenames() |
 #### Fields
-| Type and modifiers      | Field name         |
-| ----------------------- | ------------------ |
-| **public static final** | PACKAGE_INDEX_FILE |
-| **public static final** | README_FILE        |
+| Type and modifiers                       | Field name         |
+| ---------------------------------------- | ------------------ |
+| **public static final java.lang.String** | PACKAGE_INDEX_FILE |
+| **public static final java.lang.String** | README_FILE        |
 
 Constructors
 ============
@@ -20,11 +21,11 @@ Filenames ()
 
 Fields
 ======
-PACKAGE_INDEX_FILE, java.lang.String
+java.lang.String, PACKAGE_INDEX_FILE
 ------------------------------------
 Package index filename.
 
-README_FILE, java.lang.String
+java.lang.String, README_FILE
 -----------------------------
 Project readme file with all indexes.
 

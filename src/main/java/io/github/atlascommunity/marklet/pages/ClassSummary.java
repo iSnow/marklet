@@ -60,7 +60,11 @@ public class ClassSummary implements ClassPageElement {
               .addRow(TYPE_AND_MODIFIERS_COLUMN, "Field name");
 
       Arrays.stream(classDoc.fields())
-          .forEach(f -> tableEntries.addRow(new BoldText(f.modifiers()), f.name()));
+          .forEach(
+              f -> {
+                String modifiersAndType = String.format("%s %s", f.modifiers(), f.type());
+                tableEntries.addRow(new BoldText(modifiersAndType), f.name());
+              });
       fieldsTable.append(tableEntries.build());
       summary.append(fieldsTable).append("\n");
     }
@@ -74,12 +78,16 @@ public class ClassSummary implements ClassPageElement {
           new Table.Builder()
               .withAlignments(Table.ALIGN_LEFT)
               .withRowLimit(numberOfMethods + 1)
-              .addRow(TYPE_AND_MODIFIERS_COLUMN, "Method signature");
+              .addRow(TYPE_AND_MODIFIERS_COLUMN, "Method signature", "Return type");
 
       Arrays.stream(classDoc.methods())
           .filter(m -> m.overriddenMethod() == null)
           .forEach(
-              m -> tableEntries.addRow(new BoldText(m.modifiers()), m.name() + m.flatSignature()));
+              m ->
+                  tableEntries.addRow(
+                      new BoldText(m.modifiers()),
+                      new MethodSignature(m).form(),
+                      m.returnType().typeName()));
       methodsTable.append(tableEntries.build());
       summary.append(methodsTable).append("\n");
     }

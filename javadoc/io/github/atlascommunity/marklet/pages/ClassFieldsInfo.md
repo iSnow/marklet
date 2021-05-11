@@ -1,5 +1,6 @@
 Class ClassFieldsInfo
 =====================
+io.github.atlascommunity.marklet.pages.ClassFieldsInfo
 Summary
 -------
 #### Constructors
@@ -7,13 +8,13 @@ Summary
 | ---------- | ----------------- |
 | **public** | ClassFieldsInfo() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | classDoc   |
+| Type and modifiers                         | Field name |
+| ------------------------------------------ | ---------- |
+| **private final com.sun.javadoc.ClassDoc** | classDoc   |
 #### Methods
-| Type and modifiers | Method signature |
-| ------------------ | ---------------- |
-| **public**         | generate()       |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | generate()       | String      |
 
 Constructors
 ============
@@ -23,7 +24,7 @@ ClassFieldsInfo ()
 
 Fields
 ======
-classDoc, com.sun.javadoc.ClassDoc
+com.sun.javadoc.ClassDoc, classDoc
 ----------------------------------
 Class information
 

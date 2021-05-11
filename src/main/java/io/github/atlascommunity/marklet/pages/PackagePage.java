@@ -77,16 +77,19 @@ public class PackagePage implements DocumentPage {
     ClassDoc[] packageEnums = packageDoc.enums();
     if (ArrayUtils.isNotEmpty(packageEnums)) {
       generateTable(ENUMERATIONS, packageEnums, packagePage);
+      packagePage.append("\n");
     }
 
     ClassDoc[] packageInterfaces = packageDoc.interfaces();
     if (ArrayUtils.isNotEmpty(packageInterfaces)) {
       generateTable(INTERFACES, packageInterfaces, packagePage);
+      packagePage.append("\n");
     }
 
     ClassDoc[] packageClasses = packageDoc.allClasses();
     if (ArrayUtils.isNotEmpty(packageClasses)) {
       generateTable(CLASSES, packageClasses, packagePage);
+      packagePage.append("\n");
     }
   }
 

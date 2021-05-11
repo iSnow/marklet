@@ -1,5 +1,6 @@
 Class ClassConstructorsInfo
 ===========================
+io.github.atlascommunity.marklet.pages.ClassConstructorsInfo
 Summary
 -------
 #### Constructors
@@ -7,15 +8,15 @@ Summary
 | ---------- | ----------------------- |
 | **public** | ClassConstructorsInfo() |
 #### Fields
-| Type and modifiers | Field name |
-| ------------------ | ---------- |
-| **private final**  | classDoc   |
-| **private final**  | options    |
+| Type and modifiers                                         | Field name |
+| ---------------------------------------------------------- | ---------- |
+| **private final com.sun.javadoc.ClassDoc**                 | classDoc   |
+| **private final io.github.atlascommunity.marklet.Options** | options    |
 #### Methods
-| Type and modifiers | Method signature                            |
-| ------------------ | ------------------------------------------- |
-| **public**         | generate()                                  |
-| **private**        | constructorDescription(ExecutableMemberDoc) |
+| Type and modifiers | Method signature                                | Return type |
+| ------------------ | ----------------------------------------------- | ----------- |
+| **public**         | generate()                                      | String      |
+| **private**        | constructorDescription(ExecutableMemberDoc doc) | String      |
 
 Constructors
 ============
@@ -25,11 +26,11 @@ ClassConstructorsInfo ()
 
 Fields
 ======
-classDoc, com.sun.javadoc.ClassDoc
+com.sun.javadoc.ClassDoc, classDoc
 ----------------------------------
 Class information
 
-options, io.github.atlascommunity.marklet.Options
+io.github.atlascommunity.marklet.Options, options
 -------------------------------------------------
 Doclet options
 
@@ -46,8 +47,7 @@ constructorDescription (ExecutableMemberDoc)
 --------------------------------------------
 No method description provided
 ### Parameters
-doc: constructor representation
-
+- doc: constructor representation
 ### Returns
 markdown string
 

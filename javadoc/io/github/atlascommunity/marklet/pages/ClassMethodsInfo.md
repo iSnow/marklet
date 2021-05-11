@@ -1,5 +1,6 @@
 Class ClassMethodsInfo
 ======================
+io.github.atlascommunity.marklet.pages.ClassMethodsInfo
 Summary
 -------
 #### Constructors
@@ -7,16 +8,16 @@ Summary
 | ---------- | ------------------ |
 | **public** | ClassMethodsInfo() |
 #### Fields
-| Type and modifiers       | Field name          |
-| ------------------------ | ------------------- |
-| **private final**        | classDoc            |
-| **private static final** | DESCRIPTION_PATTERN |
-| **private static final** | OVERRIDE_MARK       |
+| Type and modifiers                         | Field name          |
+| ------------------------------------------ | ------------------- |
+| **private final com.sun.javadoc.ClassDoc** | classDoc            |
+| **private static final java.lang.String**  | DESCRIPTION_PATTERN |
+| **private static final java.lang.String**  | OVERRIDE_MARK       |
 #### Methods
-| Type and modifiers | Method signature             |
-| ------------------ | ---------------------------- |
-| **public**         | generate()                   |
-| **private**        | methodDescription(MethodDoc) |
+| Type and modifiers | Method signature                 | Return type |
+| ------------------ | -------------------------------- | ----------- |
+| **public**         | generate()                       | String      |
+| **private**        | methodDescription(MethodDoc doc) | String      |
 
 Constructors
 ============
@@ -26,15 +27,15 @@ ClassMethodsInfo ()
 
 Fields
 ======
-classDoc, com.sun.javadoc.ClassDoc
+com.sun.javadoc.ClassDoc, classDoc
 ----------------------------------
 Class information
 
-DESCRIPTION_PATTERN, java.lang.String
+java.lang.String, DESCRIPTION_PATTERN
 -------------------------------------
 Pattern for colon separated description
 
-OVERRIDE_MARK, java.lang.String
+java.lang.String, OVERRIDE_MARK
 -------------------------------
 No description provided
 
@@ -51,8 +52,7 @@ methodDescription (MethodDoc)
 -----------------------------
 No method description provided
 ### Parameters
-doc: method representation
-
+- doc: method representation
 ### Returns
 markdown string
 
