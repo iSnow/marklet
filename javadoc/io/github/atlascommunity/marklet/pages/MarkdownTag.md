@@ -11,8 +11,8 @@ io.github.atlascommunity.marklet.pages.MarkdownTag Summary
 #### Fields
 | Type and modifiers                               | Field name |
 | ------------------------------------------------ | ---------- |
-| **private final com.sun.source.doctree.DocTree** | tag        |
 | **private final java.lang.String**               | fileEnding |
+| **private final com.sun.source.doctree.DocTree** | tag        |
 #### Methods
 | Type and modifiers | Method signature | Return type      |
 | ------------------ | ---------------- | ---------------- |

@@ -11,11 +11,11 @@ io.github.atlascommunity.marklet.pages.PackagePage Summary
 #### Fields
 | Type and modifiers                                         | Field name       |
 | ---------------------------------------------------------- | ---------------- |
-| **private final javax.lang.model.element.PackageElement**  | packageElement   |
 | **private final java.nio.file.Path**                       | packageDirectory |
 | **private final io.github.atlascommunity.marklet.Options** | options          |
 | **private final com.sun.source.util.DocTrees**             | comments         |
 | **private final jdk.javadoc.doclet.DocletEnvironment**     | root             |
+| **private final javax.lang.model.element.PackageElement**  | packageElement   |
 #### Methods
 | Type and modifiers | Method signature                                                                                         | Return type                                    |
 | ------------------ | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |

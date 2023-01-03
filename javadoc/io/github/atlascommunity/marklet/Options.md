@@ -20,16 +20,16 @@ io.github.atlascommunity.marklet.Options Summary
 #### Fields
 | Type and modifiers                                                                                      | Field name               |
 | ------------------------------------------------------------------------------------------------------- | ------------------------ |
-| **public static final java.lang.String**                                                                | SOURCE_DIRECTORY_OPTION  |
-| **public static final java.lang.String**                                                                | OUTPUT_DIRECTORY_OPTION  |
 | **public static final java.lang.String**                                                                | FILE_ENDING_OPTION       |
-| **public static final java.lang.String**                                                                | CREATE_BADGE_OPTION      |
 | **private static final java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption>** | OPTIONS                  |
-| **private static final java.lang.String**                                                               | DEFAULT_OUTPUT_DIRECTORY |
 | **private static final java.lang.String**                                                               | DEFAULT_FILE_ENDING      |
 | **private final java.lang.String**                                                                      | outputDirectory          |
-| **private final java.lang.String**                                                                      | fileEnding               |
+| **public static final java.lang.String**                                                                | SOURCE_DIRECTORY_OPTION  |
+| **private static final java.lang.String**                                                               | DEFAULT_OUTPUT_DIRECTORY |
 | **private final boolean**                                                                               | hasBadge                 |
+| **public static final java.lang.String**                                                                | CREATE_BADGE_OPTION      |
+| **public static final java.lang.String**                                                                | OUTPUT_DIRECTORY_OPTION  |
+| **private final java.lang.String**                                                                      | fileEnding               |
 #### Methods
 | Type and modifiers | Method signature      | Return type                                     |
 | ------------------ | --------------------- | ----------------------------------------------- |

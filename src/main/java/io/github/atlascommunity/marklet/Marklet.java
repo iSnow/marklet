@@ -99,10 +99,8 @@ public final class Marklet implements Doclet {
     for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
       packages.add(t);
       //log.trace(t.getKind() + ":" + t);
-      for (Element e : t.getEnclosedElements()) {
-        if (e.getKind() == ElementKind.CLASS) {
-          classPackageMapping.put(((TypeElement)e).getQualifiedName().toString(), t.getQualifiedName().toString());
-        }
+      for (TypeElement e : TypeUtils.findPackageClasses(t)) {
+          classPackageMapping.put(e.getQualifiedName().toString(), t.getQualifiedName().toString());
       }
       buildPackages(t);
     }

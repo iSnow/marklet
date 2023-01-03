@@ -11,8 +11,8 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 #### Fields
 | Type and modifiers                                                        | Field name           |
 | ------------------------------------------------------------------------- | -------------------- |
-| **private final java.util.List<javax.lang.model.element.PackageElement>** | packages             |
 | **private final io.github.atlascommunity.marklet.Options**                | options              |
+| **private final java.util.List<javax.lang.model.element.PackageElement>** | packages             |
 | **private static final java.lang.String**                                 | TABLE_PACKAGE_HEADER |
 #### Methods
 | Type and modifiers | Method signature         | Return type |

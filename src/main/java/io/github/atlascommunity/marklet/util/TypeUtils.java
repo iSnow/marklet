@@ -18,11 +18,7 @@ public class TypeUtils {
     public static Set<TypeElement> findPackageClasses(DocletEnvironment root) {
         Set<TypeElement> packageClasses = new LinkedHashSet<>();
         for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
-            for (Element e : t.getEnclosedElements()) {
-                if (e.getKind() == ElementKind.CLASS) {
-                    packageClasses.add((TypeElement) e);
-                }
-            }
+            packageClasses.addAll(findPackageClasses(t));
         }
         return packageClasses;
     }
@@ -35,7 +31,8 @@ public class TypeUtils {
     public static Set<TypeElement> findPackageClasses(PackageElement t) {
         Set<TypeElement> packageClasses = new LinkedHashSet<>();
         for (Element e : t.getEnclosedElements()) {
-            if (e.getKind() == ElementKind.CLASS) {
+            if ((e.getKind().equals (ElementKind.CLASS))
+                    || (e.getKind().equals (ElementKind.INTERFACE))){
                 packageClasses.add((TypeElement) e);
             }
         }
@@ -48,13 +45,7 @@ public class TypeUtils {
      * @param classElement the class to scan
      */
     public static Set<Element> findClassConstructors(TypeElement classElement) {
-        Set<Element> constructors = new LinkedHashSet<>();
-        for (Element e : classElement.getEnclosedElements()) {
-            if (e.getKind().equals(ElementKind.CONSTRUCTOR)) {
-                constructors.add(e);
-            }
-        }
-        return constructors;
+        return findInClass(ElementKind.CONSTRUCTOR, classElement);
     }
 
     /**
@@ -63,13 +54,10 @@ public class TypeUtils {
      * @param classElement the class to scan
      */
     public static Set<VariableElement> findClassFields(TypeElement classElement) {
-        Set<VariableElement> fields = new LinkedHashSet<>();
-        for (Element e : classElement.getEnclosedElements()) {
-            if (e.getKind().equals(ElementKind.FIELD)) {
-                fields.add((VariableElement)e);
-            }
-        }
-        return fields;
+        return findInClass(ElementKind.FIELD, classElement)
+                .stream()
+                .map((e) -> (VariableElement)e)
+                .collect(Collectors.toSet());
     }
 
     /**

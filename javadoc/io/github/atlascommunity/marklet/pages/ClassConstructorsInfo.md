@@ -11,8 +11,8 @@ io.github.atlascommunity.marklet.pages.ClassConstructorsInfo Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final javax.lang.model.element.TypeElement**     | classElement |
 | **private final io.github.atlascommunity.marklet.Options** | options      |
+| **private final javax.lang.model.element.TypeElement**     | classElement |
 #### Methods
 | Type and modifiers | Method signature                              | Return type      |
 | ------------------ | --------------------------------------------- | ---------------- |

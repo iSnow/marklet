@@ -11,12 +11,12 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 #### Fields
 | Type and modifiers                                      | Field name    |
 | ------------------------------------------------------- | ------------- |
-| **private final java.util.List<java.lang.String>**      | names         |
-| **private final jdk.javadoc.doclet.Doclet.Option.Kind** | kind          |
-| **private final java.lang.String**                      | parameters    |
-| **private final int**                                   | argumentCount |
-| **private final java.lang.String**                      | description   |
 | **private java.lang.String**                            | value         |
+| **private final java.lang.String**                      | parameters    |
+| **private final java.util.List<java.lang.String>**      | names         |
+| **private final java.lang.String**                      | description   |
+| **private final jdk.javadoc.doclet.Doclet.Option.Kind** | kind          |
+| **private final int**                                   | argumentCount |
 #### Methods
 | Type and modifiers | Method signature                                                   | Return type                           |
 | ------------------ | ------------------------------------------------------------------ | ------------------------------------- |

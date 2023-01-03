@@ -77,9 +77,7 @@ public class ClassPage implements DocumentPage {
     Path filename = Paths.get(classElement.getSimpleName() + "." + options.getFileEnding());
     Path resolvedFilePath = resolvedOutputDir.resolve(filename);
 
-    FileOutputStream outputStream =
-        new FileOutputStream(
-            resolvedFilePath.toString());
+    FileOutputStream outputStream = new FileOutputStream(resolvedFilePath.toString());
 
     try (Writer readmeFile = new OutputStreamWriter(outputStream, StandardCharsets.UTF_8)) {
       readmeFile.write(classPage.toString());

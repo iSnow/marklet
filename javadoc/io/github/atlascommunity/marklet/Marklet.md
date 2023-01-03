@@ -12,11 +12,11 @@ io.github.atlascommunity.marklet.Marklet Summary
 #### Fields
 | Type and modifiers                                                 | Field name          |
 | ------------------------------------------------------------------ | ------------------- |
+| **private final java.util.Map<java.lang.String,java.lang.String>** | classPackageMapping |
+| **private java.util.Locale**                                       | locale              |
+| **private jdk.javadoc.doclet.DocletEnvironment**                   | root                |
 | **jdk.javadoc.doclet.Reporter**                                    | reporter            |
 | **private final io.github.atlascommunity.marklet.Options**         | options             |
-| **private jdk.javadoc.doclet.DocletEnvironment**                   | root                |
-| **private java.util.Locale**                                       | locale              |
-| **private final java.util.Map<java.lang.String,java.lang.String>** | classPackageMapping |
 #### Methods
 | Type and modifiers | Method signature                                                                 | Return type                                               |
 | ------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------- |
