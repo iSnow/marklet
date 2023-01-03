@@ -19,3 +19,9 @@ Links()
 -------
 
 
+Fields
+======
+java.lang.String BADGE
+----------------------
+
+

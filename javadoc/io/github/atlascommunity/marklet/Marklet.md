@@ -42,3 +42,69 @@ Marklet()
 ---------
 
 
+Fields
+======
+java.util.Map<java.lang.String,java.lang.String> classPackageMapping
+--------------------------------------------------------------------
+
+java.util.Locale locale
+-----------------------
+
+jdk.javadoc.doclet.DocletEnvironment root
+-----------------------------------------
+
+jdk.javadoc.doclet.Reporter reporter
+------------------------------------
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+
+
+Methods
+=======
+generateReadme(java.util.List<javax.lang.model.element.PackageElement> packages)
+--------------------------------------------------------------------------------
+
+test1(java.util.Map<java.lang.String,java.lang.Integer> arg1)
+-------------------------------------------------------------
+
+generatePackage(PackageElement packageElement)
+----------------------------------------------
+
+start()
+-------
+
+init(Locale locale, Reporter reporter)
+--------------------------------------
+
+getSupportedSourceVersion()
+---------------------------
+
+getName()
+---------
+
+getPackageDirectory(String packageName)
+---------------------------------------
+
+main(java.lang.String[] args)
+-----------------------------
+
+run(DocletEnvironment environment)
+----------------------------------
+
+buildPackages(PackageElement elem)
+----------------------------------
+
+buildPackages()
+---------------
+
+getSupportedOptions()
+---------------------
+
+test1(boolean test1Var1, int test1Var2)
+---------------------------------------
+
+buildClasses()
+--------------
+
+

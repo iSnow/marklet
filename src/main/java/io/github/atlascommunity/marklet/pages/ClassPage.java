@@ -52,13 +52,13 @@ public class ClassPage implements DocumentPage {
 
     String constructorsInfo = new ClassConstructorsInfo(classElement, options).generate();
     if (!constructorsInfo.isEmpty()) classPage.append(constructorsInfo).append("\n");
-/*
+
     String fieldsInfo = new ClassFieldsInfo(classElement).generate();
     if (!fieldsInfo.isEmpty()) classPage.append(fieldsInfo).append("\n");
 
     String methodsInfo = new ClassMethodsInfo(classElement).generate();
     if (!methodsInfo.isEmpty()) classPage.append(methodsInfo).append("\n");
-*/
+
     writeFile(classPage);
   }
 

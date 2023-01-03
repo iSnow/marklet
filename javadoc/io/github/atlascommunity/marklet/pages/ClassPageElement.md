@@ -9,3 +9,9 @@ io.github.atlascommunity.marklet.pages.ClassPageElement Summary
 | ------------------- | ---------------- | ---------------- |
 | **public abstract** | generate()       | java.lang.String |
 
+Methods
+=======
+generate()
+----------
+
+

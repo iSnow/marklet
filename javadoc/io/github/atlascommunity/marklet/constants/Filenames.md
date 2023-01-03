@@ -20,3 +20,12 @@ Filenames()
 -----------
 
 
+Fields
+======
+java.lang.String PACKAGE_INDEX_FILE
+-----------------------------------
+
+java.lang.String README_FILE
+----------------------------
+
+

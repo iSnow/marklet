@@ -42,3 +42,45 @@ Options(java.util.Map<java.lang.String,java.lang.String>)
 ---------------------------------------------------------
 
 
+Fields
+======
+java.lang.String FILE_ENDING_OPTION
+-----------------------------------
+
+java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption> OPTIONS
+--------------------------------------------------------------------------------------
+
+java.lang.String DEFAULT_FILE_ENDING
+------------------------------------
+
+java.lang.String outputDirectory
+--------------------------------
+
+java.lang.String SOURCE_DIRECTORY_OPTION
+----------------------------------------
+
+java.lang.String DEFAULT_OUTPUT_DIRECTORY
+-----------------------------------------
+
+boolean hasBadge
+----------------
+
+java.lang.String CREATE_BADGE_OPTION
+------------------------------------
+
+java.lang.String OUTPUT_DIRECTORY_OPTION
+----------------------------------------
+
+java.lang.String fileEnding
+---------------------------
+
+
+Methods
+=======
+getSupportedOptions()
+---------------------
+
+getOption(String key)
+---------------------
+
+

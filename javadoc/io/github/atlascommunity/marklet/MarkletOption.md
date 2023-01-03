@@ -35,3 +35,51 @@ MarkletOption()
 ---------------
 
 
+Fields
+======
+java.lang.String value
+----------------------
+
+java.lang.String parameters
+---------------------------
+
+java.util.List<java.lang.String> names
+--------------------------------------
+
+java.lang.String description
+----------------------------
+
+jdk.javadoc.doclet.Doclet.Option.Kind kind
+------------------------------------------
+
+int argumentCount
+-----------------
+
+
+Methods
+=======
+getValue()
+----------
+
+getNames()
+----------
+
+getDescription()
+----------------
+
+toString()
+----------
+
+getArgumentCount()
+------------------
+
+process(String option, java.util.List<java.lang.String> arguments)
+------------------------------------------------------------------
+
+getKind()
+---------
+
+getParameters()
+---------------
+
+

@@ -24,3 +24,24 @@ TypeUtils()
 -----------
 
 
+Methods
+=======
+findInClass(ElementKind kind, TypeElement classElement)
+-------------------------------------------------------
+
+findClassMethods(TypeElement classElement)
+------------------------------------------
+
+findPackageClasses(PackageElement t)
+------------------------------------
+
+findClassFields(TypeElement classElement)
+-----------------------------------------
+
+findClassConstructors(TypeElement classElement)
+-----------------------------------------------
+
+findPackageClasses(DocletEnvironment root)
+------------------------------------------
+
+

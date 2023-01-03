@@ -27,3 +27,27 @@ ClassSummary()
 --------------
 
 
+Fields
+======
+java.lang.String TYPE_AND_MODIFIERS_COLUMN
+------------------------------------------
+
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
+
+
+Methods
+=======
+generate()
+----------
+
+generateConstructorSummary(TypeElement classElement)
+----------------------------------------------------
+
+generateMethodSummary(TypeElement classElement)
+-----------------------------------------------
+
+generateFieldSummary(TypeElement classElement)
+----------------------------------------------
+
+

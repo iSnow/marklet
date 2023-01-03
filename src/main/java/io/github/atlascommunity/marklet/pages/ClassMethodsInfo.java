@@ -1,5 +1,6 @@
 package io.github.atlascommunity.marklet.pages;
 
+import io.github.atlascommunity.marklet.util.TypeUtils;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.list.UnorderedList;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
@@ -10,6 +11,7 @@ import javax.lang.model.element.TypeElement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import static io.github.atlascommunity.marklet.constants.Labels.*;
 
@@ -28,6 +30,19 @@ public class ClassMethodsInfo implements ClassPageElement {
   /** @return markdown string representation of document part */
   @Override
   public String generate() {
+    StringBuilder summary = new StringBuilder();
+    Set<ExecutableElement> methods = TypeUtils.findClassMethods(classElement);
+
+    int numberOfMethods = methods.size();
+    if (numberOfMethods > 0) {
+      Heading sectionHeading = new Heading(METHODS, 1);
+      StringBuilder methodsInfo = new StringBuilder().append(sectionHeading).append("\n");
+      methods.forEach(m -> methodsInfo.append(methodDescription(m)).append("\n"));
+      return methodsInfo.toString();
+    }
+    return "";
+  }
+
 /*
     if (classElement.methods().length > 0) {
       Heading sectionHeading = new Heading(METHODS, 1);
@@ -38,14 +53,17 @@ public class ClassMethodsInfo implements ClassPageElement {
       return methodsInfo.toString();
     }
 */
-    return "";
-  }
 
   /**
    * @param doc method representation
    * @return markdown string
    */
   private String methodDescription(ExecutableElement doc) {
+    String methodHeader = new MethodSignature(doc).form();
+    Heading heading = new Heading(methodHeader, 2);
+    StringBuilder description =
+            new StringBuilder().append(heading).append("\n");
+
     /*
     String methodHeader;
     String name = doc.name();
@@ -106,6 +124,6 @@ public class ClassMethodsInfo implements ClassPageElement {
     }
     return description.toString();
 */
-    return "";
+    return description.toString();
   }
 }

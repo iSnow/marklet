@@ -25,3 +25,21 @@ ClassConstructorsInfo()
 -----------------------
 
 
+Fields
+======
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
+
+
+Methods
+=======
+constructorDescription(ExecutableElement doc)
+---------------------------------------------
+
+generate()
+----------
+
+

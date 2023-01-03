@@ -9,3 +9,9 @@ io.github.atlascommunity.marklet.pages.ScannerResultHandler Summary
 | ------------------- | ----------------- | ----------- |
 | **public abstract** | handle(E element) | void        |
 
+Methods
+=======
+handle(E element)
+-----------------
+
+

@@ -24,3 +24,18 @@ MethodSignature()
 -----------------
 
 
+Fields
+======
+javax.lang.model.element.ExecutableElement methodInfo
+-----------------------------------------------------
+
+
+Methods
+=======
+methodParams(java.util.List<? extends javax.lang.model.element.VariableElement> parameters)
+-------------------------------------------------------------------------------------------
+
+form()
+------
+
+

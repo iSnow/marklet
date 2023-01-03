@@ -9,3 +9,9 @@ io.github.atlascommunity.marklet.pages.DocumentPage Summary
 | ------------------- | ------------------------ | ----------- |
 | **public abstract** | build(Reporter reporter) | void        |
 
+Methods
+=======
+build(Reporter reporter)
+------------------------
+
+

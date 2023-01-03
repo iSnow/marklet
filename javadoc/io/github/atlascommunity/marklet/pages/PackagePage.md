@@ -34,3 +34,48 @@ PackagePage()
 -------------
 
 
+Fields
+======
+java.nio.file.Path packageDirectory
+-----------------------------------
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+
+com.sun.source.util.DocTrees comments
+-------------------------------------
+
+jdk.javadoc.doclet.DocletEnvironment root
+-----------------------------------------
+
+javax.lang.model.element.PackageElement packageElement
+------------------------------------------------------
+
+
+Methods
+=======
+createPackageEnumIndex(StringBuilder packagePage)
+-------------------------------------------------
+
+createPackageIndexes(StringBuilder packagePage)
+-----------------------------------------------
+
+build(Reporter reporter)
+------------------------
+
+generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage)
+--------------------------------------------------------------------------------------------------------
+
+handle(Object element)
+----------------------
+
+createPackageClassIndex(StringBuilder packagePage)
+--------------------------------------------------
+
+writeFile(StringBuilder pageContent)
+------------------------------------
+
+getFullBody(PackageElement packageElement, DocTrees comments)
+-------------------------------------------------------------
+
+

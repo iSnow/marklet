@@ -23,3 +23,15 @@ ClassFieldsInfo()
 -----------------
 
 
+Fields
+======
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
+
+
+Methods
+=======
+generate()
+----------
+
+

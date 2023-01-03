@@ -26,3 +26,24 @@ ClassMethodsInfo()
 ------------------
 
 
+Fields
+======
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
+
+java.lang.String OVERRIDE_MARK
+------------------------------
+
+java.lang.String DESCRIPTION_PATTERN
+------------------------------------
+
+
+Methods
+=======
+methodDescription(ExecutableElement doc)
+----------------------------------------
+
+generate()
+----------
+
+
