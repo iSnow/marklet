@@ -1,37 +1,36 @@
 package io.github.atlascommunity.marklet.pages;
 
-import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATION;
-import static io.github.atlascommunity.marklet.constants.Labels.CLASS;
-import static io.github.atlascommunity.marklet.constants.Labels.ENUMERATION;
-import static io.github.atlascommunity.marklet.constants.Labels.INTERFACE;
-
-import com.sun.javadoc.ClassDoc;
-
 import lombok.RequiredArgsConstructor;
+
+import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.TypeElement;
+
+import static io.github.atlascommunity.marklet.constants.Labels.*;
 
 /** Class document title */
 @RequiredArgsConstructor
 public class ClassTitle implements ClassPageElement {
 
   /** Class information */
-  private final ClassDoc classDoc;
+  private final TypeElement classElement;
 
   /** @return markdown string representation of document part */
   @Override
   public String generate() {
 
     StringBuilder builder = new StringBuilder();
-    if (classDoc.isInterface()) {
-      builder.append(INTERFACE);
-    } else if (classDoc.isEnum()) {
-      builder.append(ENUMERATION);
-    } else if (classDoc.isAnnotationType()) {
+    ElementKind kind = classElement.getKind();
+    if (kind.equals(ElementKind.ANNOTATION_TYPE)) {
       builder.append(ANNOTATION);
-    } else {
+    } else if (kind.equals(ElementKind.INTERFACE)) {
+      builder.append(INTERFACE);
+    } else if (kind.equals(ElementKind.ENUM)) {
+      builder.append(ENUMERATION);
+    } else if (kind.isClass()) {
       builder.append(CLASS);
     }
 
-    StringBuilder title = builder.append(' ').append(classDoc.name());
+    StringBuilder title = builder.append(' ').append(classElement.getSimpleName());
 
     return title.toString();
   }

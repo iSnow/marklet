@@ -1,20 +1,25 @@
 package io.github.atlascommunity.marklet.pages;
 
+import lombok.RequiredArgsConstructor;
+
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.TypeParameterElement;
+import javax.lang.model.element.VariableElement;
+import javax.lang.model.type.DeclaredType;
+import javax.lang.model.type.ExecutableType;
+import javax.lang.model.type.TypeKind;
+import javax.lang.model.type.TypeMirror;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import com.sun.javadoc.MethodDoc;
-import com.sun.javadoc.Parameter;
-
-import lombok.RequiredArgsConstructor;
 
 /** Forms readable method signature */
 @RequiredArgsConstructor
 public class MethodSignature {
 
   /** Method information */
-  private final MethodDoc methodInfo;
+  private final ExecutableElement methodInfo;
 
   /**
    * Form description from method information
@@ -23,10 +28,9 @@ public class MethodSignature {
    */
   public String form() {
 
-    String methodName = methodInfo.name();
-    Parameter[] methodParameters = methodInfo.parameters();
-
-    return methodName + methodParams(methodParameters);
+    String methodName = methodInfo.getSimpleName().toString();
+    List<? extends VariableElement> parameters = methodInfo.getParameters();
+    return methodName + methodParams(parameters);
   }
 
   /**
@@ -35,11 +39,28 @@ public class MethodSignature {
    * @param parameters method params information
    * @return formed string
    */
-  private String methodParams(Parameter[] parameters) {
+  private String methodParams(List<? extends VariableElement> parameters) {
 
     List<String> parametersFormed = new ArrayList<>();
-    Arrays.stream(parameters).forEach(p -> parametersFormed.add(p.typeName() + " " + p.name()));
-
-    return String.format("(%s)", String.join(",", parametersFormed));
+    parameters.forEach(p -> {
+      TypeMirror mirror = p.asType();
+      String name = p.getSimpleName().toString();
+      TypeKind kind = mirror.getKind();
+      String typeName = "";
+      if (kind.equals(TypeKind.DECLARED)) {
+        Element element = ((DeclaredType) mirror).asElement();
+        if (((DeclaredType)mirror).getTypeArguments().size() > 0) {
+          typeName = mirror.toString();
+        } else {
+          typeName = element.getSimpleName().toString();
+        }
+      } else if (kind.equals(TypeKind.ARRAY)) {
+        typeName = mirror.toString();
+      } else {
+        typeName = mirror.toString();
+      }
+      parametersFormed.add(typeName + " " + name);
+    });
+    return String.format("(%s)", String.join(", ", parametersFormed));
   }
 }

@@ -1,87 +1,58 @@
 package io.github.atlascommunity.marklet;
 
+import com.sun.source.doctree.DocCommentTree;
+import com.sun.source.util.DocTrees;
+import io.github.atlascommunity.marklet.pages.ClassPage;
+import io.github.atlascommunity.marklet.pages.PackagePage;
+import io.github.atlascommunity.marklet.pages.ReadmePage;
+import io.github.atlascommunity.marklet.util.TypeUtils;
+import jdk.javadoc.doclet.Doclet;
+import jdk.javadoc.doclet.DocletEnvironment;
+import jdk.javadoc.doclet.Reporter;
+import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
+
+import javax.lang.model.SourceVersion;
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.PackageElement;
+import javax.lang.model.element.TypeElement;
+import javax.lang.model.util.ElementFilter;
+import javax.lang.model.util.Elements;
+import javax.tools.Diagnostic;
+import javax.tools.DocumentationTool;
+import javax.tools.ToolProvider;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import com.sun.javadoc.ClassDoc;
-import com.sun.javadoc.DocErrorReporter;
-import com.sun.javadoc.LanguageVersion;
-import com.sun.javadoc.PackageDoc;
-import com.sun.javadoc.RootDoc;
-
-import io.github.atlascommunity.marklet.pages.ClassPage;
-import io.github.atlascommunity.marklet.pages.PackagePage;
-import io.github.atlascommunity.marklet.pages.ReadmePage;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import static io.github.atlascommunity.marklet.Options.OUTPUT_DIRECTORY_OPTION;
 
 /**
- * Marklet entry point. This class declares the {@link #start(RootDoc)} method required by the
- * doclet API in order to be called by the javadoc tool.
+ * Marklet entry point. This class declares the {@link #init(Locale, Reporter)} and {@link #run(DocletEnvironment)}
+ * methods required by the doclet API in order to be called by the javadoc tool.
  *
  * @author fv
  */
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-public final class Marklet {
+//@Slf4j
+@NoArgsConstructor()
+public final class Marklet implements Doclet {
+  Reporter reporter;
 
   /** Command line options that have been parsed. * */
-  private final Options options;
+  private final Options options = new Options(new HashMap<>());
 
   /** Documentation root provided by the doclet API. * */
-  private final RootDoc root;
+  private DocletEnvironment root;
 
-  /**
-   * To document.
-   *
-   * @param option To document.
-   * @return To document.
-   */
-  public static int optionLength(String option) {
+  private Locale locale;
 
-    return Options.optionLength(option);
-  }
+  private final Map<String, String> classPackageMapping = new HashMap<>();
 
-  /**
-   * To document.
-   *
-   * @param options Options from command line.
-   * @param reporter Reporter instance to use in case of error.
-   * @return true if given set of options are valid, false otherwise.
-   */
-  public static boolean validOptions(final String[][] options, final DocErrorReporter reporter) {
-
-    return Options.validOptions(options, reporter);
-  }
-
-  /** @return LanguageVersion supported. */
-  public static LanguageVersion languageVersion() {
-
-    return LanguageVersion.JAVA_1_5;
-  }
-
-  /**
-   * **Doclet** entry point. Parses user provided options and starts a **Marklet** execution.
-   *
-   * @param root Doclet API root.
-   * @return ``true`` if the generation went well, ``false`` otherwise.
-   */
-  public static boolean start(final RootDoc root) {
-    final Options options = Options.parse(root);
-    final Marklet marklet = new Marklet(options, root);
-    boolean result = false;
-    try {
-      result = marklet.start();
-    } catch (final Exception e) {
-      root.printError("An exception has been caught during generation (see stack trace below).");
-      e.printStackTrace();
-    }
-
-    return result;
-  }
 
   /**
    * Builds and retrieves the path for the directory associated to the package with the given
@@ -98,21 +69,22 @@ public final class Marklet {
   }
 
   /**
-   * Generates package documentation for the given ``packageDoc``.
+   * Generates package documentation for the given ``packageElement``.
    *
-   * @param packageDoc Package to generate documentation for.
+   * @param packageElement Package to generate documentation for.
    * @throws IOException If any error occurs while creating file or directories.
    */
-  private void generatePackage(final PackageDoc packageDoc) throws IOException {
+  private void generatePackage(final PackageElement packageElement) throws IOException {
 
-    final String name = packageDoc.name();
-    root.printNotice("Generates package documentation for " + name);
+    final String name = packageElement.getQualifiedName().toString();
+    //log.info("Generates package documentation for " + name);
+    reporter.print(Diagnostic.Kind.NOTE, "Generates package documentation for " + name);
     if (!name.isEmpty()) {
       final Path directoryPath = getPackageDirectory(name);
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      new PackagePage(packageDoc, directoryPath, options).build();
+      new PackagePage(packageElement, directoryPath, options, root.getDocTrees(), root).build(reporter);
     }
   }
 
@@ -122,42 +94,121 @@ public final class Marklet {
    * @throws IOException If any error occurs during generation process.
    * @return list of packages documents
    */
-  private List<PackageDoc> buildPackages() throws IOException {
-
-    final List<PackageDoc> packages = new ArrayList<>();
-    for (final ClassDoc classDoc : root.classes()) {
-      final PackageDoc packageDoc = classDoc.containingPackage();
-      if (!packages.contains(packageDoc)) {
-        packages.add(packageDoc);
-        generatePackage(packageDoc);
+  private List<PackageElement> buildPackages() throws IOException {
+    final List<PackageElement> packages = new ArrayList<>();
+    for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
+      packages.add(t);
+      //log.trace(t.getKind() + ":" + t);
+      for (Element e : t.getEnclosedElements()) {
+        if (e.getKind() == ElementKind.CLASS) {
+          classPackageMapping.put(((TypeElement)e).getQualifiedName().toString(), t.getQualifiedName().toString());
+        }
       }
+      buildPackages(t);
     }
 
     return packages;
   }
 
-  /**
-   * Generates Readme file
-   *
-   * @param packages project packages list
-   * @throws IOException If any error occurs during generation process.
-   */
-  private void generateReadme(List<PackageDoc> packages) throws IOException {
+  private List<PackageElement> buildPackages(PackageElement elem) throws IOException {
+    final List<PackageElement> packages = new ArrayList<>();
+    for (Element e : elem.getEnclosedElements()) {
+      if (e.getKind() == ElementKind.PACKAGE) {
+        System.out.println(e);
+      }
+    }
+    return packages;
+  }
 
-    new ReadmePage(packages, options).build();
+      /**
+       * Generates Readme file
+       *
+       * @param packages project packages list
+       * @throws IOException If any error occurs during generation process.
+       */
+  private void generateReadme(List<PackageElement> packages) throws IOException {
+
+    new ReadmePage(packages, options).build(reporter);
   }
 
   /**
-   * Generates documentation file for each classes, enumerations, interfaces, or annotations.
+   * Generates documentation file for classes, enumerations, interfaces, or annotations.
    *
    * @throws IOException If any error occurs during generation process.
    */
   private void buildClasses() throws IOException {
-
-    for (final ClassDoc classDoc : root.classes()) {
-      root.printNotice("Generates documentation for " + classDoc.name());
-      new ClassPage(classDoc, options).build();
+    Set<TypeElement> packageClasses = TypeUtils.findPackageClasses(root);
+    DocTrees treeUtils = root.getDocTrees();
+    for (final TypeElement classElem : packageClasses) {
+      reporter.print(Diagnostic.Kind.NOTE, "Generate documentation for " + classElem.getQualifiedName());
+      String packageName = classPackageMapping.get(classElem.getQualifiedName().toString());
+      DocCommentTree comments = treeUtils.getDocCommentTree(classElem);
+      new ClassPage(classElem, comments, options, packageName).build(reporter);
     }
+  }
+
+  @Override
+  public void init(Locale locale, Reporter reporter) {
+    this.reporter = reporter;
+    try {
+      final Path outputDirectory = Paths.get(options.getOutputDirectory());
+      //log.info("Target output directory : " + outputDirectory.toAbsolutePath());
+      if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
+    } catch (final IOException e) {
+      //log.error(e.getMessage());
+    }
+  }
+
+  @Override
+  public String getName() {
+    return getClass().getSimpleName();
+  }
+
+  @Override
+  public Set<? extends Option> getSupportedOptions() {
+    return Options.getSupportedOptions();
+  }
+
+  /** @return LanguageVersion supported. */
+  @Override
+  public SourceVersion getSupportedSourceVersion() {
+    return SourceVersion.latest();
+  }
+
+
+  /**
+   * **Doclet** worker point. Parses user provided options and starts a **Marklet** execution.
+   *
+   * @param environment DocletEnvironment.
+   * @return ``true`` if the generation went well, ``false`` otherwise.
+   */
+  @Override
+  public boolean run(DocletEnvironment environment) {
+    this.root = environment;
+    reporter.print(Diagnostic.Kind.NOTE, "outputDirectory: " + Options.getOption(OUTPUT_DIRECTORY_OPTION));
+    //log.info("start up");
+    boolean result;
+    try {
+      result = start();
+    } catch (final Exception e) {
+      reporter.print(Diagnostic.Kind.ERROR, e.getMessage());
+      //log.error("An exception has been caught during generation (see stack trace below).");
+      e.printStackTrace();
+      result = false;
+    }
+    return result;
+  }
+
+  /**
+   * Test methods
+   */
+
+  public boolean test1(boolean test1Var1, int test1Var2) {
+    return false;
+  }
+
+  public boolean test1(Map<String, Integer> arg1) {
+    return false;
   }
 
   /** @return <tt>true</tt> if generation was successful, <tt>false</tt> otherwise. */
@@ -165,15 +216,41 @@ public final class Marklet {
 
     try {
       final Path outputDirectory = Paths.get(options.getOutputDirectory());
-      root.printNotice("Target output directory : " + outputDirectory.toAbsolutePath().toString());
+      //log.info("Target output directory : " + outputDirectory.toAbsolutePath());
+      reporter.print(Diagnostic.Kind.NOTE, "Target output directory : " + outputDirectory.toAbsolutePath());
       if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
-      List<PackageDoc> packages = buildPackages();
+
+      List<PackageElement> packages = buildPackages();
+      reporter.print(Diagnostic.Kind.NOTE, "packages: " + packages);
+
       generateReadme(packages);
+      for (PackageElement p : packages) {
+        generatePackage(p);
+      }
       buildClasses();
     } catch (final IOException e) {
-      root.printError(e.getMessage());
+      //log.error(e.getMessage());
       return false;
     }
     return true;
+  }
+
+  @SneakyThrows
+  public static void main(String[] args) {
+    String docletName = Marklet.class.getName();
+    String packageName = Marklet.class.getPackageName();
+    File f = new File ("modulepath.txt");
+    String modulePath = Files.readString(f.toPath());
+    String[] docletArgs = new String[]{
+            "-doclet", docletName,
+            "-docletpath", "target/classes/",
+            "-sourcepath", "src/main/java/",
+            //"-d", "javadoc",
+            "--module-path", modulePath,
+            "-subpackages", "io.github.atlascommunity",
+            packageName
+    };
+    DocumentationTool docTool = ToolProvider.getSystemDocumentationTool();
+    docTool.run(System.in, System.out, System.err, docletArgs);
   }
 }

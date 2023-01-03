@@ -1,10 +1,10 @@
-Package io.github.atlascommunity.marklet.constants
-==================================================
+Package constants
+=================
 Classes
 =======
 | Name                      |
 | ------------------------- |
-| [Links](Links.md)         |
-| [Labels](Labels.md)       |
 | [Filenames](Filenames.md) |
+| [Labels](Labels.md)       |
+| [Links](Links.md)         |
 

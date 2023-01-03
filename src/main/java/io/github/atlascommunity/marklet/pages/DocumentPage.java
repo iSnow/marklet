@@ -1,5 +1,7 @@
 package io.github.atlascommunity.marklet.pages;
 
+import jdk.javadoc.doclet.Reporter;
+
 import java.io.IOException;
 
 /** Common interface for all classes, representing markdown documents */
@@ -10,5 +12,5 @@ public interface DocumentPage {
    *
    * @throws IOException something went wrong during write operation
    */
-  void build() throws IOException;
+  void build(Reporter reporter) throws IOException;
 }

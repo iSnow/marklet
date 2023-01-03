@@ -1,12 +1,16 @@
 # Marklet
 
 This is custom fork of
-useful [Marklet doclet](https://github.com/Faylixe/marklet/tree/master/javadoc/fr/faylixe/marklet)
+useful [Marklet doclet](https://github.com/atlascommunity/marklet/tree/master/src/main/java/io/github/atlascommunity/marklet)
 which main purpose was to generate a Javadoc in a markdown format.
+
+Currently working on the migration from `com.sun.javadoc` to the newer `jdk.javadoc.doclet` 
+API because the  `com.sun.javadoc` classes are no longer supported on Java 9 and up. Still work in progress, so 
+you can't just use it in your projects.
 
 **Examples** :
 
-* [Marklet itself!](https://github.com/PandaTheGrim/marklet/tree/master/javadoc)
+* [Marklet itself!](https://github.com/iSnow/marklet/tree/master/javadoc)
 
 In order to use it with Maven, adds the following configuration for the ``maven-javadoc-plugin``
 in your project ``POM`` :
@@ -22,7 +26,7 @@ in your project ``POM`` :
         <docletArtifact>
             <groupId>io.github.atlascommunity</groupId>
             <artifactId>marklet</artifactId>
-            <version>1.2.1</version>
+            <version>2.0.0</version>
         </docletArtifact>
         <reportOutputDirectory>./</reportOutputDirectory>
         <destDir>./</destDir>

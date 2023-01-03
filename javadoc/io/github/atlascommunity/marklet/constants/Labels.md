@@ -1,7 +1,8 @@
 Class Labels
 ============
-io.github.atlascommunity.marklet.constants.Labels
-Summary
+Enumerations of text constant used during documentation generation.
+
+io.github.atlascommunity.marklet.constants.Labels Summary
 -------
 #### Constructors
 | Visibility | Signature |
@@ -29,74 +30,7 @@ Summary
 
 Constructors
 ============
-Labels ()
----------
-
-
-Fields
-======
-java.lang.String, PACKAGE
--------------------------
-Label for package. *
-
-java.lang.String, INTERFACE
----------------------------
-Label for interface. *
-
-java.lang.String, CLASS
------------------------
-Label for class. *
-
-java.lang.String, ANNOTATION
-----------------------------
-Label for annotation. *
-
-java.lang.String, ENUMERATION
------------------------------
-Label for enumeration. *
-
-java.lang.String, INTERFACES
-----------------------------
-Label for interfaces. *
-
-java.lang.String, CLASSES
--------------------------
-Label for classes. *
-
-java.lang.String, ANNOTATIONS
------------------------------
-Label for annotations. *
-
-java.lang.String, ENUMERATIONS
-------------------------------
-Label for enumerations. *
-
-java.lang.String, CONSTRUCTORS
-------------------------------
-Label for constructor. *
-
-java.lang.String, METHODS
--------------------------
-Label for methods. *
-
-java.lang.String, FIELDS
-------------------------
-Label for fields. *
-
-java.lang.String, THROWS
-------------------------
-Label for throws. *
-
-java.lang.String, RETURNS
--------------------------
-Label for returns. *
-
-java.lang.String, PARAMETERS
-----------------------------
-Label for parameters. *
-
-java.lang.String, SUMMARY
--------------------------
-Label for summary. *
+Labels()
+--------
 
 

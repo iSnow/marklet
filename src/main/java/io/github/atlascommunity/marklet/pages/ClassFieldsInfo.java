@@ -1,29 +1,28 @@
 package io.github.atlascommunity.marklet.pages;
 
-import static io.github.atlascommunity.marklet.constants.Labels.FIELDS;
-
-import java.util.Arrays;
-
-import com.sun.javadoc.ClassDoc;
-
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
+
+import javax.lang.model.element.TypeElement;
+import java.util.Arrays;
+
+import static io.github.atlascommunity.marklet.constants.Labels.FIELDS;
 
 /** Class fields description */
 @RequiredArgsConstructor
 public class ClassFieldsInfo implements ClassPageElement {
 
   /** Class information */
-  private final ClassDoc classDoc;
+  private final TypeElement classElement;
 
   /** @return markdown string representation of document part */
   @Override
   public String generate() {
-
-    if (classDoc.fields().length > 0) {
+/*
+    if (classElement.fields().length > 0) {
       Heading sectionHeading = new Heading(FIELDS, 1);
       StringBuilder fieldsInfo = new StringBuilder().append(sectionHeading).append("\n");
-      Arrays.stream(classDoc.fields())
+      Arrays.stream(classElement.fields())
           .forEach(
               f -> {
                 String headingText = String.format("%s, %s", f.type(), f.name());
@@ -37,7 +36,7 @@ public class ClassFieldsInfo implements ClassPageElement {
 
       return fieldsInfo.toString();
     }
-
+*/
     return "";
   }
 }

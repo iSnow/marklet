@@ -1,8 +1,14 @@
 package io.github.atlascommunity.marklet.pages;
 
-import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
-import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
 
+import io.github.atlascommunity.marklet.Options;
+import jdk.javadoc.doclet.Reporter;
+import lombok.RequiredArgsConstructor;
+import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.table.Table;
+import net.steppschuh.markdowngenerator.text.heading.Heading;
+
+import javax.lang.model.element.PackageElement;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -11,20 +17,15 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.List;
 
-import com.sun.javadoc.PackageDoc;
-
-import io.github.atlascommunity.marklet.Options;
-import lombok.RequiredArgsConstructor;
-import net.steppschuh.markdowngenerator.link.Link;
-import net.steppschuh.markdowngenerator.table.Table;
-import net.steppschuh.markdowngenerator.text.heading.Heading;
+import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
+import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
 
 /** Index of project packages */
 @RequiredArgsConstructor
 public class ReadmePage implements DocumentPage {
 
   /** List of project packages */
-  private final List<PackageDoc> packages;
+  private final List<PackageElement> packages;
 
   /** Doclet options */
   private final Options options;
@@ -38,7 +39,7 @@ public class ReadmePage implements DocumentPage {
    * @throws IOException something went wrong during write operation
    */
   @Override
-  public void build() throws IOException {
+  public void build(Reporter reporter) throws IOException {
 
     StringBuilder tableOfContents =
         new StringBuilder().append(new Heading("Project packages list", 1)).append("\n");
@@ -53,7 +54,7 @@ public class ReadmePage implements DocumentPage {
 
     packages.forEach(
         p -> {
-          String linkName = p.name();
+          String linkName = p.getQualifiedName().toString();
           String linkUrl = linkName.replace(".", "/") + "/" + PACKAGE_INDEX_FILE;
           tableEntries.addRow(new Link(linkName, linkUrl));
         });

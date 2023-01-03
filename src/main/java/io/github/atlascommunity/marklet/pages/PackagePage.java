@@ -1,39 +1,41 @@
 package io.github.atlascommunity.marklet.pages;
 
-import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
-import static io.github.atlascommunity.marklet.constants.Labels.ANNOTATIONS;
-import static io.github.atlascommunity.marklet.constants.Labels.CLASSES;
-import static io.github.atlascommunity.marklet.constants.Labels.ENUMERATIONS;
-import static io.github.atlascommunity.marklet.constants.Labels.INTERFACES;
-import static io.github.atlascommunity.marklet.constants.Labels.PACKAGE;
+import com.sun.source.doctree.DocCommentTree;
+import com.sun.source.doctree.DocTree;
+import com.sun.source.util.DocTrees;
+import com.sun.source.util.TreePath;
+import io.github.atlascommunity.marklet.Options;
+import io.github.atlascommunity.marklet.util.TypeUtils;
+import jdk.javadoc.doclet.DocletEnvironment;
+import jdk.javadoc.doclet.Reporter;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.rule.HorizontalRule;
+import net.steppschuh.markdowngenerator.table.Table;
+import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+import javax.lang.model.element.*;
+import javax.lang.model.util.ElementFilter;
+import javax.lang.model.util.ElementScanner14;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import java.util.Arrays;
+import java.util.*;
 
-import org.apache.commons.lang3.ArrayUtils;
-
-import com.sun.javadoc.AnnotationTypeDoc;
-import com.sun.javadoc.ClassDoc;
-import com.sun.javadoc.PackageDoc;
-
-import io.github.atlascommunity.marklet.Options;
-import lombok.RequiredArgsConstructor;
-import net.steppschuh.markdowngenerator.link.Link;
-import net.steppschuh.markdowngenerator.rule.HorizontalRule;
-import net.steppschuh.markdowngenerator.table.Table;
-import net.steppschuh.markdowngenerator.text.heading.Heading;
+import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
+import static io.github.atlascommunity.marklet.constants.Labels.*;
 
 /** Index of package elements */
+@Slf4j
 @RequiredArgsConstructor
-public class PackagePage implements DocumentPage {
+public class PackagePage implements DocumentPage, ScannerResultHandler {
 
   /** Package information */
-  private final PackageDoc packageDoc;
+  private final PackageElement packageElement;
 
   /** Package path */
   private final Path packageDirectory;
@@ -41,25 +43,51 @@ public class PackagePage implements DocumentPage {
   /** Doclet options */
   private final Options options;
 
+  /** This class provides methods to access TreePaths, DocCommentTrees and so on. */
+  private final DocTrees comments;
+
+  private final DocletEnvironment root;
   /**
    * Build document and write it to the selected folder
    *
    * @throws IOException something went wrong during write operation
    */
   @Override
-  public void build() throws IOException {
+  public void build(Reporter reporter) throws IOException {
 
-    String packageHeader = String.format("%s %s", PACKAGE, packageDoc.name());
+    String packageHeader = String.format("%s %s", PACKAGE, packageElement.getSimpleName().toString());
     StringBuilder packagePage = new StringBuilder().append(new Heading(packageHeader)).append("\n");
-    Arrays.stream(packageDoc.inlineTags())
+
+    List<DocTree> bodyList =  getFullBody(packageElement, comments);
+    if (null != bodyList) {
+      bodyList.forEach((tag) -> {
+        String formattedTag = new MarkdownTag(tag, options.getFileEnding()).create();
+        packagePage.append(formattedTag);
+        packagePage.append("\n").append(new HorizontalRule()).append("\n");
+      });
+    }
+    /*Arrays.stream(packageElement.inlineTags())
         .forEach(
             tag -> {
               String formattedTag = new MarkdownTag(tag, options.getFileEnding()).create();
               packagePage.append(formattedTag);
               packagePage.append("\n").append(new HorizontalRule()).append("\n");
-            });
+            });*/
     createPackageIndexes(packagePage);
     writeFile(packagePage);
+  }
+
+  private List<DocTree> getFullBody(PackageElement packageElement, DocTrees comments) {
+    TreePath path = comments.getPath(packageElement);
+    if (path == null) {
+      return null;
+    }
+    DocCommentTree docCommentTree = comments.getDocCommentTree(path);
+
+    List<DocTree> bodyList = new ArrayList<>();
+    bodyList.addAll(docCommentTree.getFirstSentence());
+    bodyList.addAll(docCommentTree.getBody());
+    return bodyList;
   }
 
   /**
@@ -68,31 +96,66 @@ public class PackagePage implements DocumentPage {
    * @param packagePage string representation of package page content
    */
   private void createPackageIndexes(StringBuilder packagePage) {
+    createPackageClassIndex(packagePage);
+    createPackageEnumIndex(packagePage);
 
-    AnnotationTypeDoc[] packageAnnotations = packageDoc.annotationTypes();
+/*
+    AnnotationTypeDoc[] packageAnnotations = packageElement.annotationTypes();
     if (ArrayUtils.isNotEmpty(packageAnnotations)) {
       generateTable(ANNOTATIONS, packageAnnotations, packagePage);
     }
 
-    ClassDoc[] packageEnums = packageDoc.enums();
+    ClassDoc[] packageEnums = packageElement.enums();
     if (ArrayUtils.isNotEmpty(packageEnums)) {
       generateTable(ENUMERATIONS, packageEnums, packagePage);
       packagePage.append("\n");
     }
 
-    ClassDoc[] packageInterfaces = packageDoc.interfaces();
+    ClassDoc[] packageInterfaces = packageElement.interfaces();
     if (ArrayUtils.isNotEmpty(packageInterfaces)) {
       generateTable(INTERFACES, packageInterfaces, packagePage);
       packagePage.append("\n");
     }
 
-    ClassDoc[] packageClasses = packageDoc.allClasses();
+    ClassDoc[] packageClasses = packageElement.allClasses();
     if (ArrayUtils.isNotEmpty(packageClasses)) {
       generateTable(CLASSES, packageClasses, packagePage);
+      packagePage.append("\n");
+    }*/
+  }
+
+  /**
+   * Generate index table for package classes
+   *
+   * @param packagePage string representation of package page content
+   */
+  private void createPackageEnumIndex(StringBuilder packagePage) {
+    Set<TypeElement> packageEnums = new LinkedHashSet<>();
+    for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
+      for (Element e : t.getEnclosedElements()) {
+        if (e.getKind() == ElementKind.ENUM) {
+          packageEnums.add((TypeElement) e);
+        }
+      }
+    }
+    if (!packageEnums.isEmpty()) {
+      generateTable(ENUMERATIONS, packageEnums.toArray(new TypeElement[]{}), packagePage);
       packagePage.append("\n");
     }
   }
 
+  /**
+   * Generate index table for package classes
+   *
+   * @param packagePage string representation of package page content
+   */
+  private void createPackageClassIndex(StringBuilder packagePage) {
+    Set<TypeElement> packageClasses = TypeUtils.findPackageClasses(packageElement);
+    if (!packageClasses.isEmpty()) {
+      generateTable(CLASSES, packageClasses.toArray(new TypeElement[]{}), packagePage);
+      packagePage.append("\n");
+    }
+  }
   /**
    * Generate index table
    *
@@ -100,22 +163,20 @@ public class PackagePage implements DocumentPage {
    * @param docs elements to work with
    * @param packagePage string representation of package page content
    */
-  private void generateTable(String tableLabel, ClassDoc[] docs, StringBuilder packagePage) {
-
+  private void generateTable(String tableLabel, TypeElement[] docs, StringBuilder packagePage) {
     packagePage.append(new Heading(tableLabel, 1)).append("\n");
     Table.Builder table =
-        new Table.Builder()
-            .withAlignments(Table.ALIGN_LEFT)
-            .withRowLimit(docs.length + 1)
-            .addRow("Name");
-
+            new Table.Builder()
+                    .withAlignments(Table.ALIGN_LEFT)
+                    .withRowLimit(docs.length + 1)
+                    .addRow("Name");
     Arrays.stream(docs)
-        .forEach(
-            d -> {
-              String linkName = d.simpleTypeName();
-              String linkUrl = d.name().replace(".", "/") + "." + options.getFileEnding();
-              table.addRow(new Link(linkName, linkUrl));
-            });
+            .forEach(
+                    d -> {
+                      String linkName = d.getSimpleName().toString();
+                      String linkUrl = d.getSimpleName().toString().replace(".", "/") + "." + options.getFileEnding();
+                      table.addRow(new Link(linkName, linkUrl));
+                    });
 
     packagePage.append(table.build()).append("\n");
   }
@@ -132,6 +193,69 @@ public class PackagePage implements DocumentPage {
 
     try (Writer readmeFile = new OutputStreamWriter(savePath, StandardCharsets.UTF_8)) {
       readmeFile.write(pageContent.toString());
+    }
+  }
+
+  @Override
+  public void handle(Object element) {
+    System.out.println(element);
+  }
+
+  class ClassScanner extends ElementScanner14<Void, Integer> {
+
+    private ScannerResultHandler resultHandler;
+
+    public ClassScanner(ScannerResultHandler resultHandler) {
+      this.resultHandler = resultHandler;
+    }
+
+    public void scan(Set<? extends Element> elements) {
+      scan(elements, 0);
+    }
+
+    @Override
+    public Void scan(Element e, Integer depth) {
+      TreePath path = comments.getPath(packageElement);
+      if (path == null) {
+        return null;
+      }
+      DocCommentTree docCommentTree = comments.getDocCommentTree(path);
+      if (docCommentTree != null) {
+        String indent = "  ".repeat(depth);
+        //out.println(indent + "| " + e.getKind() + " " + e);
+        Map<String, List<String>> tags = new TreeMap<>();
+        /*new TagScanner(tags).visit(dcTree, null);
+        tags.forEach((t,l) -> {
+          out.println(indent + "  @" + t);
+          l.forEach(c -> out.println(indent + "    " + c));
+        });*/
+      }
+      return super.scan(e, depth + 1);
+    }
+
+    @Override
+    public Void visitPackage(PackageElement e, Integer integer) {
+      return super.visitPackage(e, integer);
+    }
+
+    @Override
+    public Void visitExecutable(ExecutableElement e, Integer integer) {
+      return super.visitExecutable(e, integer);
+    }
+
+    @Override
+    public Void visitTypeParameter(TypeParameterElement e, Integer integer) {
+      return super.visitTypeParameter(e, integer);
+    }
+
+    @Override
+    public Void visitUnknown(Element e, Integer integer) {
+      return super.visitUnknown(e, integer);
+    }
+
+    @Override
+    public Void visitModule(ModuleElement e, Integer integer) {
+      return super.visitModule(e, integer);
     }
   }
 }

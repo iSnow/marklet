@@ -1,50 +1,64 @@
 package io.github.atlascommunity.marklet.pages;
 
+import com.sun.source.doctree.DocCommentTree;
+import com.sun.source.util.DocTrees;
+import io.github.atlascommunity.marklet.Options;
+import jdk.javadoc.doclet.Reporter;
+import lombok.RequiredArgsConstructor;
+import net.steppschuh.markdowngenerator.text.heading.Heading;
+
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.TypeElement;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import com.sun.javadoc.ClassDoc;
-
-import io.github.atlascommunity.marklet.Options;
-import lombok.RequiredArgsConstructor;
-import net.steppschuh.markdowngenerator.text.heading.Heading;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /** Markdown text file with class information */
 @RequiredArgsConstructor
 public class ClassPage implements DocumentPage {
 
   /** Class information */
-  private final ClassDoc classDoc;
+  private final TypeElement classElement;
+
+  private final DocCommentTree comments;
 
   /** Doclet options */
   private final Options options;
 
+  private final String packageName;
+
   /** Creates markdown text file */
   @Override
-  public void build() throws IOException {
+  public void build(Reporter reporter) throws IOException {
 
     StringBuilder classPage =
         new StringBuilder()
-            .append(new Heading(new ClassTitle(classDoc).generate(), 1))
+            .append(new Heading(new ClassTitle(classElement).generate(), 1))
             .append("\n");
 
-    classPage.append(new ClassQualifiedPathInfo(classDoc).generate()).append("\n");
-    classPage.append(new ClassSummary(classDoc).generate()).append("\n");
+    classPage.append(new ClassHeaderCommentInfo(comments).generate()).append("\n\n");
+    classPage.append(new ClassQualifiedPathInfo(classElement).generate()).append(" ");
+    classPage.append(new ClassSummary(classElement).generate()).append("\n");
 
-    String constructorsInfo = new ClassConstructorsInfo(classDoc, options).generate();
+
+    String constructorsInfo = new ClassConstructorsInfo(classElement, options).generate();
     if (!constructorsInfo.isEmpty()) classPage.append(constructorsInfo).append("\n");
-
-    String fieldsInfo = new ClassFieldsInfo(classDoc).generate();
+/*
+    String fieldsInfo = new ClassFieldsInfo(classElement).generate();
     if (!fieldsInfo.isEmpty()) classPage.append(fieldsInfo).append("\n");
 
-    String methodsInfo = new ClassMethodsInfo(classDoc).generate();
+    String methodsInfo = new ClassMethodsInfo(classElement).generate();
     if (!methodsInfo.isEmpty()) classPage.append(methodsInfo).append("\n");
-
+*/
     writeFile(classPage);
   }
 
@@ -56,13 +70,16 @@ public class ClassPage implements DocumentPage {
    */
   private void writeFile(StringBuilder classPage) throws IOException {
 
-    String outputDirectory = options.getOutputDirectory();
-    String packageLayout = classDoc.containingPackage().name().replace('.', '/');
-    Path filename = Paths.get(classDoc.simpleTypeName() + "." + options.getFileEnding());
+    String packageLayout = packageName.replace('.', '/');
+    Path resolvedOutputDir = Paths.get(options.getOutputDirectory(), packageLayout);
+    if (!Files.exists(resolvedOutputDir)) Files.createDirectories(resolvedOutputDir);
+
+    Path filename = Paths.get(classElement.getSimpleName() + "." + options.getFileEnding());
+    Path resolvedFilePath = resolvedOutputDir.resolve(filename);
 
     FileOutputStream outputStream =
         new FileOutputStream(
-            Paths.get(outputDirectory, packageLayout).resolve(filename).toString());
+            resolvedFilePath.toString());
 
     try (Writer readmeFile = new OutputStreamWriter(outputStream, StandardCharsets.UTF_8)) {
       readmeFile.write(classPage.toString());

@@ -1,31 +1,24 @@
 package io.github.atlascommunity.marklet.pages;
 
-import static io.github.atlascommunity.marklet.constants.Labels.METHODS;
-import static io.github.atlascommunity.marklet.constants.Labels.PARAMETERS;
-import static io.github.atlascommunity.marklet.constants.Labels.RETURNS;
-import static io.github.atlascommunity.marklet.constants.Labels.THROWS;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import com.sun.javadoc.ClassDoc;
-import com.sun.javadoc.MethodDoc;
-import com.sun.javadoc.ParamTag;
-import com.sun.javadoc.Tag;
-import com.sun.javadoc.ThrowsTag;
-
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.list.UnorderedList;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
+
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.TypeElement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static io.github.atlascommunity.marklet.constants.Labels.*;
 
 /** Class methods description */
 @RequiredArgsConstructor
 public class ClassMethodsInfo implements ClassPageElement {
 
   /** Class information */
-  private final ClassDoc classDoc;
+  private final TypeElement classElement;
 
   /** Pattern for colon separated description */
   private static final String DESCRIPTION_PATTERN = "%s: %s";
@@ -35,16 +28,16 @@ public class ClassMethodsInfo implements ClassPageElement {
   /** @return markdown string representation of document part */
   @Override
   public String generate() {
-
-    if (classDoc.methods().length > 0) {
+/*
+    if (classElement.methods().length > 0) {
       Heading sectionHeading = new Heading(METHODS, 1);
       StringBuilder methodsInfo = new StringBuilder().append(sectionHeading).append("\n");
-      Arrays.stream(classDoc.methods())
+      Arrays.stream(classElement.methods())
           .forEach(m -> methodsInfo.append(methodDescription(m)).append("\n"));
 
       return methodsInfo.toString();
     }
-
+*/
     return "";
   }
 
@@ -52,7 +45,8 @@ public class ClassMethodsInfo implements ClassPageElement {
    * @param doc method representation
    * @return markdown string
    */
-  private String methodDescription(MethodDoc doc) {
+  private String methodDescription(ExecutableElement doc) {
+    /*
     String methodHeader;
     String name = doc.name();
     String signature = doc.flatSignature();
@@ -110,7 +104,8 @@ public class ClassMethodsInfo implements ClassPageElement {
                               : t.exceptionComment())));
       description.append(exceptionsInfo).append("\n");
     }
-
     return description.toString();
+*/
+    return "";
   }
 }
