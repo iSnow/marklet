@@ -11,9 +11,9 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 #### Fields
 | Type and modifiers                                                        | Field name           |
 | ------------------------------------------------------------------------- | -------------------- |
-| **private final io.github.atlascommunity.marklet.Options**                | options              |
 | **private final java.util.List<javax.lang.model.element.PackageElement>** | packages             |
 | **private static final java.lang.String**                                 | TABLE_PACKAGE_HEADER |
+| **private final io.github.atlascommunity.marklet.Options**                | options              |
 #### Methods
 | Type and modifiers | Method signature         | Return type |
 | ------------------ | ------------------------ | ----------- |
@@ -27,19 +27,24 @@ ReadmePage()
 
 Fields
 ======
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-
 java.util.List<javax.lang.model.element.PackageElement> packages
 ----------------------------------------------------------------
 
 java.lang.String TABLE_PACKAGE_HEADER
 -------------------------------------
 
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+
 
 Methods
 =======
 build(Reporter reporter)
 ------------------------
+Build document and write it to the selected folder
+
+@throws IOException something went wrong during write operation
+
+
 
 

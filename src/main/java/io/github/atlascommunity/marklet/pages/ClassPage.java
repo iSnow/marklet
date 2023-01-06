@@ -29,6 +29,8 @@ public class ClassPage implements DocumentPage {
   /** Class information */
   private final TypeElement classElement;
 
+  private final DocTrees treeUtils;
+
   private final DocCommentTree comments;
 
   /** Doclet options */
@@ -56,7 +58,7 @@ public class ClassPage implements DocumentPage {
     String fieldsInfo = new ClassFieldsInfo(classElement).generate();
     if (!fieldsInfo.isEmpty()) classPage.append(fieldsInfo).append("\n");
 
-    String methodsInfo = new ClassMethodsInfo(classElement).generate();
+    String methodsInfo = new ClassMethodsInfo(classElement, treeUtils).generate();
     if (!methodsInfo.isEmpty()) classPage.append(methodsInfo).append("\n");
 
     writeFile(classPage);

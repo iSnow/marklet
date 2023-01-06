@@ -32,7 +32,7 @@ import static io.github.atlascommunity.marklet.constants.Labels.*;
 /** Index of package elements */
 @Slf4j
 @RequiredArgsConstructor
-public class PackagePage implements DocumentPage, ScannerResultHandler {
+public class PackagePage implements DocumentPage {
 
   /** Package information */
   private final PackageElement packageElement;
@@ -193,69 +193,6 @@ public class PackagePage implements DocumentPage, ScannerResultHandler {
 
     try (Writer readmeFile = new OutputStreamWriter(savePath, StandardCharsets.UTF_8)) {
       readmeFile.write(pageContent.toString());
-    }
-  }
-
-  @Override
-  public void handle(Object element) {
-    System.out.println(element);
-  }
-
-  class ClassScanner extends ElementScanner14<Void, Integer> {
-
-    private ScannerResultHandler resultHandler;
-
-    public ClassScanner(ScannerResultHandler resultHandler) {
-      this.resultHandler = resultHandler;
-    }
-
-    public void scan(Set<? extends Element> elements) {
-      scan(elements, 0);
-    }
-
-    @Override
-    public Void scan(Element e, Integer depth) {
-      TreePath path = comments.getPath(packageElement);
-      if (path == null) {
-        return null;
-      }
-      DocCommentTree docCommentTree = comments.getDocCommentTree(path);
-      if (docCommentTree != null) {
-        String indent = "  ".repeat(depth);
-        //out.println(indent + "| " + e.getKind() + " " + e);
-        Map<String, List<String>> tags = new TreeMap<>();
-        /*new TagScanner(tags).visit(dcTree, null);
-        tags.forEach((t,l) -> {
-          out.println(indent + "  @" + t);
-          l.forEach(c -> out.println(indent + "    " + c));
-        });*/
-      }
-      return super.scan(e, depth + 1);
-    }
-
-    @Override
-    public Void visitPackage(PackageElement e, Integer integer) {
-      return super.visitPackage(e, integer);
-    }
-
-    @Override
-    public Void visitExecutable(ExecutableElement e, Integer integer) {
-      return super.visitExecutable(e, integer);
-    }
-
-    @Override
-    public Void visitTypeParameter(TypeParameterElement e, Integer integer) {
-      return super.visitTypeParameter(e, integer);
-    }
-
-    @Override
-    public Void visitUnknown(Element e, Integer integer) {
-      return super.visitUnknown(e, integer);
-    }
-
-    @Override
-    public Void visitModule(ModuleElement e, Integer integer) {
-      return super.visitModule(e, integer);
     }
   }
 }

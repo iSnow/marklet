@@ -1,17 +1,15 @@
 package io.github.atlascommunity.marklet.pages;
 
+import com.sun.source.doctree.DocCommentTree;
+import com.sun.source.util.DocTrees;
 import io.github.atlascommunity.marklet.util.TypeUtils;
 import lombok.RequiredArgsConstructor;
-import net.steppschuh.markdowngenerator.list.UnorderedList;
-import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.constants.Labels.*;
 
@@ -21,6 +19,8 @@ public class ClassMethodsInfo implements ClassPageElement {
 
   /** Class information */
   private final TypeElement classElement;
+
+  private final DocTrees treeUtils;
 
   /** Pattern for colon separated description */
   private static final String DESCRIPTION_PATTERN = "%s: %s";
@@ -59,11 +59,19 @@ public class ClassMethodsInfo implements ClassPageElement {
    * @return markdown string
    */
   private String methodDescription(ExecutableElement doc) {
-    String methodHeader = new MethodSignature(doc).form();
+    String methodHeader = new MethodSignature(doc).generate();
     Heading heading = new Heading(methodHeader, 2);
     StringBuilder description =
             new StringBuilder().append(heading).append("\n");
+    DocCommentTree comments = treeUtils.getDocCommentTree(doc);
+    if (null == comments) {
+      description.append("*No method description provided*").append("\n").append("\n");
+    } else {
+      description.append(comments.getFullBody().stream().map(Object::toString).collect(Collectors.joining())).append("\n").append("\n");
+    }
+    ParameterBlock block = new ParameterBlock(comments);
 
+    description.append(block.generate()).append("\n");
     /*
     String methodHeader;
     String name = doc.name();

@@ -8,8 +8,6 @@ import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.*;
 import javax.lang.model.type.*;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -63,7 +61,7 @@ public class ClassSummary implements ClassPageElement {
                         TypeMirror mirror = m.getReturnType();
                         tableEntries.addRow(
                                 new BoldText(modifiers),
-                                new MethodSignature(m).form(),
+                                new MethodSignature(m).generate(),
                                 mirror.toString());
                       });
 

@@ -141,7 +141,7 @@ public final class Marklet implements Doclet {
       reporter.print(Diagnostic.Kind.NOTE, "Generate documentation for " + classElem.getQualifiedName());
       String packageName = classPackageMapping.get(classElem.getQualifiedName().toString());
       DocCommentTree comments = treeUtils.getDocCommentTree(classElem);
-      new ClassPage(classElem, comments, options, packageName).build(reporter);
+      new ClassPage(classElem, treeUtils, comments, options, packageName).build(reporter);
     }
   }
 

@@ -17,6 +17,6 @@ Classes
 | [MarkdownTag](MarkdownTag.md)                       |
 | [MethodSignature](MethodSignature.md)               |
 | [PackagePage](PackagePage.md)                       |
+| [ParameterBlock](ParameterBlock.md)                 |
 | [ReadmePage](ReadmePage.md)                         |
-| [ScannerResultHandler](ScannerResultHandler.md)     |
 

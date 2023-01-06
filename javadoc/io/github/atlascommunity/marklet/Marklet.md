@@ -64,47 +64,119 @@ Methods
 =======
 generateReadme(java.util.List<javax.lang.model.element.PackageElement> packages)
 --------------------------------------------------------------------------------
+Generates Readme file
+
+@throws IOException If any error occurs during generation process.
+
+@param packages project packages list
+
+
 
 test1(java.util.Map<java.lang.String,java.lang.Integer> arg1)
 -------------------------------------------------------------
+*No method description provided*
+
+
 
 generatePackage(PackageElement packageElement)
 ----------------------------------------------
+Generates package documentation for the given ``packageElement``.
+
+@throws IOException If any error occurs while creating file or directories.
+
+@param packageElement Package to generate documentation for.
+
+
 
 start()
 -------
 
+
+@return <tt>true</tt> if generation was successful, <tt>false</tt> otherwise.
+
+
+
 init(Locale locale, Reporter reporter)
 --------------------------------------
+*No method description provided*
+
+
 
 getSupportedSourceVersion()
 ---------------------------
 
+
+@return LanguageVersion supported.
+
+
+
 getName()
 ---------
+*No method description provided*
+
+
 
 getPackageDirectory(String packageName)
 ---------------------------------------
+Builds and retrieves the path for the directory associated to the package with the given
+ <tt>name</tt>.
+
+@param packageName Name of the package to get directory for.
+
+@return Built path.
+
+
 
 main(java.lang.String[] args)
 -----------------------------
+*No method description provided*
+
+
 
 run(DocletEnvironment environment)
 ----------------------------------
+**Doclet** worker point. Parses user provided options and starts a **Marklet** execution.
+
+@param environment DocletEnvironment.
+
+@return ``true`` if the generation went well, ``false`` otherwise.
+
+
 
 buildPackages(PackageElement elem)
 ----------------------------------
+*No method description provided*
+
+
 
 buildPackages()
 ---------------
+Generates documentation file for each package.
+
+@throws IOException If any error occurs during generation process.
+
+@return list of packages documents
+
+
 
 getSupportedOptions()
 ---------------------
+*No method description provided*
+
+
 
 test1(boolean test1Var1, int test1Var2)
 ---------------------------------------
+Test methods
+
+
 
 buildClasses()
 --------------
+Generates documentation file for classes, enumerations, interfaces, or annotations.
+
+@throws IOException If any error occurs during generation process.
+
+
 
 

@@ -11,12 +11,12 @@ io.github.atlascommunity.marklet.util.TypeUtils Summary
 #### Methods
 | Type and modifiers | Method signature                                        | Return type                                               |
 | ------------------ | ------------------------------------------------------- | --------------------------------------------------------- |
-| **public static**  | findInClass(ElementKind kind, TypeElement classElement) | java.util.Set<javax.lang.model.element.Element>           |
-| **public static**  | findClassMethods(TypeElement classElement)              | java.util.Set<javax.lang.model.element.ExecutableElement> |
-| **public static**  | findPackageClasses(PackageElement t)                    | java.util.Set<javax.lang.model.element.TypeElement>       |
-| **public static**  | findClassFields(TypeElement classElement)               | java.util.Set<javax.lang.model.element.VariableElement>   |
-| **public static**  | findClassConstructors(TypeElement classElement)         | java.util.Set<javax.lang.model.element.Element>           |
 | **public static**  | findPackageClasses(DocletEnvironment root)              | java.util.Set<javax.lang.model.element.TypeElement>       |
+| **public static**  | findClassConstructors(TypeElement classElement)         | java.util.Set<javax.lang.model.element.Element>           |
+| **public static**  | findPackageClasses(PackageElement t)                    | java.util.Set<javax.lang.model.element.TypeElement>       |
+| **public static**  | findClassMethods(TypeElement classElement)              | java.util.Set<javax.lang.model.element.ExecutableElement> |
+| **public static**  | findClassFields(TypeElement classElement)               | java.util.Set<javax.lang.model.element.VariableElement>   |
+| **public static**  | findInClass(ElementKind kind, TypeElement classElement) | java.util.Set<javax.lang.model.element.Element>           |
 
 Constructors
 ============
@@ -26,22 +26,50 @@ TypeUtils()
 
 Methods
 =======
-findInClass(ElementKind kind, TypeElement classElement)
--------------------------------------------------------
-
-findClassMethods(TypeElement classElement)
+findPackageClasses(DocletEnvironment root)
 ------------------------------------------
+Find all package classes
 
-findPackageClasses(PackageElement t)
-------------------------------------
+@param root the DocletEnvironment to scan
 
-findClassFields(TypeElement classElement)
------------------------------------------
+
 
 findClassConstructors(TypeElement classElement)
 -----------------------------------------------
+Find all class constructors
 
-findPackageClasses(DocletEnvironment root)
+@param classElement the class to scan
+
+
+
+findPackageClasses(PackageElement t)
+------------------------------------
+Find all package classes
+
+@param t the PackageElement to scan
+
+
+
+findClassMethods(TypeElement classElement)
 ------------------------------------------
+Find all class methods
+
+@param classElement the class to scan
+
+
+
+findClassFields(TypeElement classElement)
+-----------------------------------------
+Find all class fields
+
+@param classElement the class to scan
+
+
+
+findInClass(ElementKind kind, TypeElement classElement)
+-------------------------------------------------------
+*No method description provided*
+
+
 
 

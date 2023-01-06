@@ -4,19 +4,16 @@ import lombok.RequiredArgsConstructor;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.TypeParameterElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.ExecutableType;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /** Forms readable method signature */
 @RequiredArgsConstructor
-public class MethodSignature {
+public class MethodSignature implements ClassPageElement{
 
   /** Method information */
   private final ExecutableElement methodInfo;
@@ -26,7 +23,7 @@ public class MethodSignature {
    *
    * @return method signature string
    */
-  public String form() {
+  public String generate() {
 
     String methodName = methodInfo.getSimpleName().toString();
     List<? extends VariableElement> parameters = methodInfo.getParameters();

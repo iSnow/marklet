@@ -60,26 +60,50 @@ Methods
 =======
 getValue()
 ----------
+*No method description provided*
+
+
 
 getNames()
 ----------
+*No method description provided*
+
+
 
 getDescription()
 ----------------
+*No method description provided*
+
+
 
 toString()
 ----------
+*No method description provided*
+
+
 
 getArgumentCount()
 ------------------
+*No method description provided*
+
+
 
 process(String option, java.util.List<java.lang.String> arguments)
 ------------------------------------------------------------------
+*No method description provided*
+
+
 
 getKind()
 ---------
+*No method description provided*
+
+
 
 getParameters()
 ---------------
+*No method description provided*
+
+
 
 

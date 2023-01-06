@@ -16,7 +16,7 @@ io.github.atlascommunity.marklet.pages.MethodSignature Summary
 | Type and modifiers | Method signature                                                                            | Return type      |
 | ------------------ | ------------------------------------------------------------------------------------------- | ---------------- |
 | **private**        | methodParams(java.util.List<? extends javax.lang.model.element.VariableElement> parameters) | java.lang.String |
-| **public**         | form()                                                                                      | java.lang.String |
+| **public**         | generate()                                                                                  | java.lang.String |
 
 Constructors
 ============
@@ -34,8 +34,20 @@ Methods
 =======
 methodParams(java.util.List<? extends javax.lang.model.element.VariableElement> parameters)
 -------------------------------------------------------------------------------------------
+Form doubled bracket params description
 
-form()
-------
+@param parameters method params information
+
+@return formed string
+
+
+
+generate()
+----------
+Form description from method information
+
+@return method signature string
+
+
 
 

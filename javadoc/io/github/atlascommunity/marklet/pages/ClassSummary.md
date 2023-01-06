@@ -41,13 +41,33 @@ Methods
 generate()
 ----------
 
+
+@return markdown string representation of document part
+
+
+
 generateConstructorSummary(TypeElement classElement)
 ----------------------------------------------------
+
+
+@return markdown string representation of class constructors
+
+
 
 generateMethodSummary(TypeElement classElement)
 -----------------------------------------------
 
+
+@return markdown string representation of class methods
+
+
+
 generateFieldSummary(TypeElement classElement)
 ----------------------------------------------
+
+
+@return markdown string representation of class fields
+
+
 
 

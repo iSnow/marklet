@@ -15,3 +15,8 @@ generate()
 ----------
 
 
+@return markdown string representation of document part
+
+
+
+

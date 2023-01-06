@@ -37,5 +37,8 @@ Methods
 =======
 create()
 --------
+Create markdown string from tag
+
+
 
 

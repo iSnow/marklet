@@ -39,7 +39,19 @@ Methods
 constructorDescription(ExecutableElement doc)
 ---------------------------------------------
 
+
+@param doc constructor representation
+
+@return markdown string
+
+
+
 generate()
 ----------
+
+
+@return markdown string representation of document part
+
+
 
 

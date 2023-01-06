@@ -79,8 +79,14 @@ Methods
 =======
 getSupportedOptions()
 ---------------------
+*No method description provided*
+
+
 
 getOption(String key)
 ---------------------
+*No method description provided*
+
+
 
 
