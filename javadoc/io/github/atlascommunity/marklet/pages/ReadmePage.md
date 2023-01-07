@@ -9,11 +9,11 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 | ---------- | ------------ |
 | **public** | ReadmePage() |
 #### Fields
-| Type and modifiers                                                        | Field name           |
-| ------------------------------------------------------------------------- | -------------------- |
-| **private static final java.lang.String**                                 | TABLE_PACKAGE_HEADER |
-| **private final java.util.List<javax.lang.model.element.PackageElement>** | packages             |
-| **private final io.github.atlascommunity.marklet.Options**                | options              |
+| Type and modifiers                                              | Field name           |
+| --------------------------------------------------------------- | -------------------- |
+| **private static final String**                                 | TABLE_PACKAGE_HEADER |
+| **private final io.github.atlascommunity.marklet.Options**      | options              |
+| **private final List<javax.lang.model.element.PackageElement>** | packages             |
 #### Methods
 | Type and modifiers | Method signature         | Return type |
 | ------------------ | ------------------------ | ----------- |
@@ -32,11 +32,11 @@ Fields
 java.lang.String TABLE_PACKAGE_HEADER
 -------------------------------------
 
-java.util.List<javax.lang.model.element.PackageElement> packages
-----------------------------------------------------------------
-
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
+
+java.util.List<javax.lang.model.element.PackageElement> packages
+----------------------------------------------------------------
 
 
 Methods

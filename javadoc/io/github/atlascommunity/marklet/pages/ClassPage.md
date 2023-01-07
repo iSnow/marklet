@@ -11,11 +11,11 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final com.sun.source.util.DocTrees**             | treeUtils    |
-| **private final javax.lang.model.element.TypeElement**     | classElement |
 | **private final com.sun.source.doctree.DocCommentTree**    | comments     |
 | **private final io.github.atlascommunity.marklet.Options** | options      |
-| **private final java.lang.String**                         | packageName  |
+| **private final String**                                   | packageName  |
+| **private final javax.lang.model.element.TypeElement**     | classElement |
+| **private final com.sun.source.util.DocTrees**             | treeUtils    |
 #### Methods
 | Type and modifiers | Method signature                   | Return type |
 | ------------------ | ---------------------------------- | ----------- |
@@ -32,12 +32,6 @@ ClassPage()
 
 Fields
 ======
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
-
-javax.lang.model.element.TypeElement classElement
--------------------------------------------------
-
 com.sun.source.doctree.DocCommentTree comments
 ----------------------------------------------
 
@@ -46,6 +40,12 @@ io.github.atlascommunity.marklet.Options options
 
 java.lang.String packageName
 ----------------------------
+
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
+
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
 
 
 Methods

@@ -1,5 +1,6 @@
 package io.github.atlascommunity.marklet.pages;
 
+import io.github.atlascommunity.marklet.util.Sanitizers;
 import io.github.atlascommunity.marklet.util.TypeUtils;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.table.Table;
@@ -62,7 +63,7 @@ public class ClassSummary implements ClassPageElement {
                         tableEntries.addRow(
                                 new BoldText(modifiers),
                                 new MethodSignature(m).generate(),
-                                mirror.toString());
+                                Sanitizers.sanitizePackageNames(mirror.toString()));
                       });
 
       methodsTable.append(tableEntries.build());
@@ -90,9 +91,14 @@ public class ClassSummary implements ClassPageElement {
                       .addRow(TYPE_AND_MODIFIERS_COLUMN, "Field name");
 
       for (VariableElement f : fields) {
-        String modifiers = f.getModifiers().stream().map(Modifier::toString).collect(Collectors.joining(" "));
+        String modifiers = f
+                .getModifiers()
+                .stream()
+                .map(Modifier::toString)
+                .collect(Collectors.joining(" "));
         TypeMirror typeMirror = f.asType();
-        String modifiersAndType = String.format("%s %s", modifiers, typeMirror).trim();
+        String rawModifiersAndType = String.format("%s %s", modifiers, typeMirror).trim();
+        String modifiersAndType = Sanitizers.sanitizePackageNames(rawModifiersAndType);
         tableEntries.addRow(new BoldText(modifiersAndType), f.getSimpleName());
       }
       fieldsTable.append(tableEntries.build());

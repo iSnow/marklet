@@ -1,5 +1,6 @@
 package io.github.atlascommunity.marklet.pages;
 
+import io.github.atlascommunity.marklet.util.Sanitizers;
 import lombok.RequiredArgsConstructor;
 
 import javax.lang.model.element.Element;
@@ -39,6 +40,9 @@ public class MethodSignature implements ClassPageElement{
   private String methodParams(List<? extends VariableElement> parameters) {
 
     List<String> parametersFormed = new ArrayList<>();
+    if (parameters.isEmpty()) {
+      return "";
+    }
     parameters.forEach(p -> {
       TypeMirror mirror = p.asType();
       String name = p.getSimpleName().toString();
@@ -58,6 +62,7 @@ public class MethodSignature implements ClassPageElement{
       }
       parametersFormed.add(typeName + " " + name);
     });
-    return String.format("(%s)", String.join(", ", parametersFormed));
+    String rawSignature = String.format("(%s)", String.join(", ", parametersFormed));
+    return Sanitizers.sanitizePackageNames(rawSignature);
   }
 }

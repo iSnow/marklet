@@ -13,10 +13,10 @@ io.github.atlascommunity.marklet.pages.MethodSignature Summary
 | ------------------------------------------------------------ | ---------- |
 | **private final javax.lang.model.element.ExecutableElement** | methodInfo |
 #### Methods
-| Type and modifiers | Method signature                                                                            | Return type      |
-| ------------------ | ------------------------------------------------------------------------------------------- | ---------------- |
-| **public**         | generate()                                                                                  | java.lang.String |
-| **private**        | methodParams(java.util.List<? extends javax.lang.model.element.VariableElement> parameters) | java.lang.String |
+| Type and modifiers | Method signature                                                                  | Return type |
+| ------------------ | --------------------------------------------------------------------------------- | ----------- |
+| **private**        | methodParams(List<? extends javax.lang.model.element.VariableElement> parameters) | String      |
+| **public**         | generate                                                                          | String      |
 
 Constructors
 ============
@@ -34,17 +34,8 @@ javax.lang.model.element.ExecutableElement methodInfo
 
 Methods
 =======
-generate()
-----------
-Form description from method information
-
-### Returns
-
-method signature string
-
-
-methodParams(java.util.List<? extends javax.lang.model.element.VariableElement> parameters)
--------------------------------------------------------------------------------------------
+methodParams(List<? extends javax.lang.model.element.VariableElement> parameters)
+---------------------------------------------------------------------------------
 Form doubled bracket params description
 
 ### Parameters
@@ -54,6 +45,15 @@ parameters: method params information
 ### Returns
 
 formed string
+
+
+generate
+--------
+Form description from method information
+
+### Returns
+
+method signature string
 
 
 

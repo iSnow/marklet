@@ -11,15 +11,15 @@ io.github.atlascommunity.marklet.pages.ClassSummary Summary
 #### Fields
 | Type and modifiers                                     | Field name                |
 | ------------------------------------------------------ | ------------------------- |
+| **private static final String**                        | TYPE_AND_MODIFIERS_COLUMN |
 | **private final javax.lang.model.element.TypeElement** | classElement              |
-| **private static final java.lang.String**              | TYPE_AND_MODIFIERS_COLUMN |
 #### Methods
-| Type and modifiers | Method signature                                     | Return type      |
-| ------------------ | ---------------------------------------------------- | ---------------- |
-| **private static** | generateFieldSummary(TypeElement classElement)       | java.lang.String |
-| **public**         | generate()                                           | java.lang.String |
-| **private static** | generateMethodSummary(TypeElement classElement)      | java.lang.String |
-| **private static** | generateConstructorSummary(TypeElement classElement) | java.lang.String |
+| Type and modifiers | Method signature                                     | Return type |
+| ------------------ | ---------------------------------------------------- | ----------- |
+| **private static** | generateFieldSummary(TypeElement classElement)       | String      |
+| **private static** | generateMethodSummary(TypeElement classElement)      | String      |
+| **private static** | generateConstructorSummary(TypeElement classElement) | String      |
+| **public**         | generate                                             | String      |
 
 Constructors
 ============
@@ -31,11 +31,11 @@ ClassSummary()
 
 Fields
 ======
-javax.lang.model.element.TypeElement classElement
--------------------------------------------------
-
 java.lang.String TYPE_AND_MODIFIERS_COLUMN
 ------------------------------------------
+
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
 
 
 Methods
@@ -47,15 +47,6 @@ generateFieldSummary(TypeElement classElement)
 ### Returns
 
 markdown string representation of class fields
-
-
-generate()
-----------
-
-
-### Returns
-
-markdown string representation of document part
 
 
 generateMethodSummary(TypeElement classElement)
@@ -74,6 +65,15 @@ generateConstructorSummary(TypeElement classElement)
 ### Returns
 
 markdown string representation of class constructors
+
+
+generate
+--------
+
+
+### Returns
+
+markdown string representation of document part
 
 
 

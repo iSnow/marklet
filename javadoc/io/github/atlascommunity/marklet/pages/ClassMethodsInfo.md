@@ -11,19 +11,19 @@ io.github.atlascommunity.marklet.pages.ClassMethodsInfo Summary
 #### Fields
 | Type and modifiers                                 | Field name          |
 | -------------------------------------------------- | ------------------- |
-| **final com.sun.source.util.DocTrees**             | treeUtils           |
-| **private static final java.lang.String**          | OVERRIDE_MARK       |
-| **private static final java.lang.String**          | DESCRIPTION_PATTERN |
 | **final io.github.atlascommunity.marklet.Options** | options             |
+| **final com.sun.source.util.DocTrees**             | treeUtils           |
+| **String**                                         | key                 |
 | **final javax.lang.model.element.TypeElement**     | classElement        |
-| **java.lang.String**                               | key                 |
+| **private static final String**                    | OVERRIDE_MARK       |
+| **private static final String**                    | DESCRIPTION_PATTERN |
 #### Methods
-| Type and modifiers | Method signature                         | Return type                                               |
-| ------------------ | ---------------------------------------- | --------------------------------------------------------- |
-| **private**        | methodDescription(ExecutableElement doc) | java.lang.String                                          |
-| **public**         | generate()                               | java.lang.String                                          |
-| ****               | findElements()                           | java.util.Set<javax.lang.model.element.ExecutableElement> |
-| ****               | signatureString(ExecutableElement doc)   | java.lang.String                                          |
+| Type and modifiers | Method signature                         | Return type                                     |
+| ------------------ | ---------------------------------------- | ----------------------------------------------- |
+| ****               | findElements                             | Set<javax.lang.model.element.ExecutableElement> |
+| **private**        | methodDescription(ExecutableElement doc) | String                                          |
+| ****               | signatureString(ExecutableElement doc)   | String                                          |
+| **public**         | generate                                 | String                                          |
 
 Constructors
 ============
@@ -35,8 +35,17 @@ ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTre
 
 Fields
 ======
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+
 com.sun.source.util.DocTrees treeUtils
 --------------------------------------
+
+java.lang.String key
+--------------------
+
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
 
 java.lang.String OVERRIDE_MARK
 ------------------------------
@@ -44,18 +53,14 @@ java.lang.String OVERRIDE_MARK
 java.lang.String DESCRIPTION_PATTERN
 ------------------------------------
 
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-
-javax.lang.model.element.TypeElement classElement
--------------------------------------------------
-
-java.lang.String key
---------------------
-
 
 Methods
 =======
+findElements
+------------
+*No method description provided*
+
+
 methodDescription(ExecutableElement doc)
 ----------------------------------------
 
@@ -69,23 +74,18 @@ doc: method representation
 markdown string
 
 
-generate()
-----------
+signatureString(ExecutableElement doc)
+--------------------------------------
+*No method description provided*
+
+
+generate
+--------
 
 
 ### Returns
 
 markdown string representation of document part
-
-
-findElements()
---------------
-*No method description provided*
-
-
-signatureString(ExecutableElement doc)
---------------------------------------
-*No method description provided*
 
 
 

@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import static com.sun.source.doctree.DocTree.Kind.*;
 import static io.github.atlascommunity.marklet.constants.Labels.PARAMETERS;
 import static io.github.atlascommunity.marklet.constants.Labels.RETURNS;
+import static io.github.atlascommunity.marklet.util.Sanitizers.sanitizeHtmlTags;
 
 @AllArgsConstructor
 public class ParameterBlock implements ClassPageElement{
@@ -84,7 +85,7 @@ public class ParameterBlock implements ClassPageElement{
         StringBuilder sb = new StringBuilder(new BoldText(Labels.DEPRECATED).toString()).append(" ");
         DeprecatedTree dt = (DeprecatedTree)dts.get(0);
         sb.append(dt.getBody().stream().map(Object::toString).collect(Collectors.joining("")));
-        return sanitize(sb.toString());
+        return sanitizeHtmlTags(sb.toString());
     }
 
     private String formatThrows(List<DocTree> dts) {
@@ -93,14 +94,14 @@ public class ParameterBlock implements ClassPageElement{
         ThrowsTree tt = (ThrowsTree)dts.get(0);
         sb.append(tt.getExceptionName().toString()).append(": ");
         sb.append(tt.getDescription().stream().map(Object::toString).collect(Collectors.joining("")));
-        return sanitize(sb.toString());
+        return sanitizeHtmlTags(sb.toString());
     }
 
     private String formatReturnValue(List<DocTree> dts) {
         Heading parametersHeading = new Heading(RETURNS, 3);
         StringBuilder sb = new StringBuilder(parametersHeading.toString()).append("\n\n");
         sb.append(((ReturnTree)dts.get(0)).getDescription().stream().map(Object::toString).collect(Collectors.joining("")));
-        return sanitize(sb.toString());
+        return sanitizeHtmlTags(sb.toString());
     }
 
     private String formatParams(List<DocTree> dts) {
@@ -120,14 +121,7 @@ public class ParameterBlock implements ClassPageElement{
             }
         }
 
-        return sanitize(sb.toString());
+        return sanitizeHtmlTags(sb.toString());
     }
 
-    private static String sanitize(String input) {
-        String output = input.replaceAll("<tt>", "`");
-        output = output.replaceAll("</tt>", "`");
-        output = output.replaceAll("<b>", "*");
-        output = output.replaceAll("</b>", "*");
-        return output;
-    }
 }

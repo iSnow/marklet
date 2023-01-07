@@ -11,12 +11,12 @@ io.github.atlascommunity.marklet.pages.MarkdownTag Summary
 #### Fields
 | Type and modifiers                               | Field name |
 | ------------------------------------------------ | ---------- |
+| **private final String**                         | fileEnding |
 | **private final com.sun.source.doctree.DocTree** | tag        |
-| **private final java.lang.String**               | fileEnding |
 #### Methods
-| Type and modifiers | Method signature | Return type      |
-| ------------------ | ---------------- | ---------------- |
-| **public**         | create()         | java.lang.String |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | create           | String      |
 
 Constructors
 ============
@@ -28,17 +28,17 @@ MarkdownTag()
 
 Fields
 ======
-com.sun.source.doctree.DocTree tag
-----------------------------------
-
 java.lang.String fileEnding
 ---------------------------
+
+com.sun.source.doctree.DocTree tag
+----------------------------------
 
 
 Methods
 =======
-create()
---------
+create
+------
 Create markdown string from tag
 
 

@@ -2,7 +2,8 @@ Package util
 ============
 Classes
 =======
-| Name                      |
-| ------------------------- |
-| [TypeUtils](TypeUtils.md) |
+| Name                        |
+| --------------------------- |
+| [Sanitizers](Sanitizers.md) |
+| [TypeUtils](TypeUtils.md)   |
 

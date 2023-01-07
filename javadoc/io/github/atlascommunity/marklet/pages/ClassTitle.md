@@ -13,9 +13,9 @@ io.github.atlascommunity.marklet.pages.ClassTitle Summary
 | ------------------------------------------------------ | ------------ |
 | **private final javax.lang.model.element.TypeElement** | classElement |
 #### Methods
-| Type and modifiers | Method signature | Return type      |
-| ------------------ | ---------------- | ---------------- |
-| **public**         | generate()       | java.lang.String |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | generate         | String      |
 
 Constructors
 ============
@@ -33,8 +33,8 @@ javax.lang.model.element.TypeElement classElement
 
 Methods
 =======
-generate()
-----------
+generate
+--------
 
 
 ### Returns

@@ -9,10 +9,10 @@ io.github.atlascommunity.marklet.pages.ClassConstructorsInfo Summary
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **public** | ClassConstructorsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,io.github.atlascommunity.marklet.Options) |
 #### Methods
-| Type and modifiers | Method signature                       | Return type                                               |
-| ------------------ | -------------------------------------- | --------------------------------------------------------- |
-| ****               | findElements()                         | java.util.Set<javax.lang.model.element.ExecutableElement> |
-| ****               | signatureString(ExecutableElement doc) | java.lang.String                                          |
+| Type and modifiers | Method signature                       | Return type                                     |
+| ------------------ | -------------------------------------- | ----------------------------------------------- |
+| ****               | findElements                           | Set<javax.lang.model.element.ExecutableElement> |
+| ****               | signatureString(ExecutableElement doc) | String                                          |
 
 Constructors
 ============
@@ -24,8 +24,8 @@ ClassConstructorsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.D
 
 Methods
 =======
-findElements()
---------------
+findElements
+------------
 *No method description provided*
 
 

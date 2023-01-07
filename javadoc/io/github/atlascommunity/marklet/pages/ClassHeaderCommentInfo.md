@@ -13,9 +13,9 @@ io.github.atlascommunity.marklet.pages.ClassHeaderCommentInfo Summary
 | ------------------------------------------------------- | ---------- |
 | **private final com.sun.source.doctree.DocCommentTree** | comments   |
 #### Methods
-| Type and modifiers | Method signature | Return type      |
-| ------------------ | ---------------- | ---------------- |
-| **public**         | generate()       | java.lang.String |
+| Type and modifiers | Method signature | Return type |
+| ------------------ | ---------------- | ----------- |
+| **public**         | generate         | String      |
 
 Constructors
 ============
@@ -33,8 +33,8 @@ com.sun.source.doctree.DocCommentTree comments
 
 Methods
 =======
-generate()
-----------
+generate
+--------
 *No method description provided*
 
 
