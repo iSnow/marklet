@@ -21,6 +21,8 @@ Constructors
 ============
 ClassHeaderCommentInfo()
 ------------------------
+*No method description provided*
+
 
 
 Fields
@@ -34,7 +36,6 @@ Methods
 generate()
 ----------
 *No method description provided*
-
 
 
 

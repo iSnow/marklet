@@ -7,8 +7,6 @@ import jdk.javadoc.doclet.Reporter;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,9 +16,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 /** Markdown text file with class information */
 @RequiredArgsConstructor
@@ -52,13 +47,13 @@ public class ClassPage implements DocumentPage {
     classPage.append(new ClassSummary(classElement).generate()).append("\n");
 
 
-    String constructorsInfo = new ClassConstructorsInfo(classElement, options).generate();
+    String constructorsInfo = new ClassConstructorsInfo(classElement, treeUtils, options).generate();
     if (!constructorsInfo.isEmpty()) classPage.append(constructorsInfo).append("\n");
 
     String fieldsInfo = new ClassFieldsInfo(classElement).generate();
     if (!fieldsInfo.isEmpty()) classPage.append(fieldsInfo).append("\n");
 
-    String methodsInfo = new ClassMethodsInfo(classElement, treeUtils).generate();
+    String methodsInfo = new ClassMethodsInfo(classElement, treeUtils, options).generate();
     if (!methodsInfo.isEmpty()) classPage.append(methodsInfo).append("\n");
 
     writeFile(classPage);

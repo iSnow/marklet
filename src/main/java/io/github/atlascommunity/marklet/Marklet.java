@@ -102,21 +102,11 @@ public final class Marklet implements Doclet {
       for (TypeElement e : TypeUtils.findPackageClasses(t)) {
           classPackageMapping.put(e.getQualifiedName().toString(), t.getQualifiedName().toString());
       }
-      buildPackages(t);
     }
 
     return packages;
   }
 
-  private List<PackageElement> buildPackages(PackageElement elem) throws IOException {
-    final List<PackageElement> packages = new ArrayList<>();
-    for (Element e : elem.getEnclosedElements()) {
-      if (e.getKind() == ElementKind.PACKAGE) {
-        System.out.println(e);
-      }
-    }
-    return packages;
-  }
 
       /**
        * Generates Readme file
@@ -212,6 +202,13 @@ public final class Marklet implements Doclet {
     return false;
   }
 
+  /**
+   * @deprecated since 9
+   *
+   * @param arg1 the args
+   * @return false if false
+   */
+  @Deprecated(since = "9")
   public boolean test1(Map<String, Integer> arg1) {
     return false;
   }

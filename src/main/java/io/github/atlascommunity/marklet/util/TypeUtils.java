@@ -44,8 +44,11 @@ public class TypeUtils {
      *
      * @param classElement the class to scan
      */
-    public static Set<Element> findClassConstructors(TypeElement classElement) {
-        return findInClass(ElementKind.CONSTRUCTOR, classElement);
+    public static Set<ExecutableElement> findClassConstructors(TypeElement classElement) {
+        return findInClass(ElementKind.CONSTRUCTOR, classElement)
+                .stream()
+                .map((e) -> (ExecutableElement)e)
+                .collect(Collectors.toSet());
     }
 
     /**

@@ -53,4 +53,6 @@ public final class Labels {
 
   /** Label for summary. * */
   public static final String SUMMARY = "Summary";
+
+  public static final String DEPRECATED = "Deprecated";
 }

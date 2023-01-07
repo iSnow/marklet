@@ -3,6 +3,7 @@ package io.github.atlascommunity.marklet.pages;
 import com.sun.source.doctree.*;
 import io.github.atlascommunity.marklet.constants.Labels;
 import lombok.AllArgsConstructor;
+import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import java.util.*;
@@ -17,7 +18,9 @@ public class ParameterBlock implements ClassPageElement{
 
     private final DocCommentTree comments;
 
-    private static final DocTree.Kind[] tags = {THROWS, PARAM, RETURN, AUTHOR, SEE, SINCE, VERSION};
+    private static final DocTree.Kind[] tags = {
+            THROWS, PARAM, RETURN, DEPRECATED, AUTHOR, SEE, SINCE, VERSION
+    };
 
     private static final Map<DocTree.Kind, Integer> ordering = new HashMap<>();
 
@@ -59,10 +62,6 @@ public class ParameterBlock implements ClassPageElement{
         return description.toString();
     }
 
-    private String format(ParamTree param) {
-        return param.getDescription().stream().map(Object::toString).collect(Collectors.joining("\n"));
-    }
-
     private String format(List<DocTree> dts, DocTree.Kind kind) {
         switch (kind) {
             case PARAM -> {
@@ -74,8 +73,18 @@ public class ParameterBlock implements ClassPageElement{
             case THROWS -> {
                 return formatThrows(dts);
             }
+            case DEPRECATED -> {
+                return formatDeprecated(dts);
+            }
             default -> {return dts.stream().map(Object::toString).collect(Collectors.joining("\n\n"));}
         }
+    }
+
+    private String formatDeprecated(List<DocTree> dts) {
+        StringBuilder sb = new StringBuilder(new BoldText(Labels.DEPRECATED).toString()).append(" ");
+        DeprecatedTree dt = (DeprecatedTree)dts.get(0);
+        sb.append(dt.getBody().stream().map(Object::toString).collect(Collectors.joining("")));
+        return sanitize(sb.toString());
     }
 
     private String formatThrows(List<DocTree> dts) {

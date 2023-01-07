@@ -20,41 +20,55 @@ io.github.atlascommunity.marklet.Options Summary
 #### Fields
 | Type and modifiers                                                                                      | Field name               |
 | ------------------------------------------------------------------------------------------------------- | ------------------------ |
-| **private static final java.lang.String**                                                               | DEFAULT_FILE_ENDING      |
-| **public static final java.lang.String**                                                                | CREATE_BADGE_OPTION      |
-| **public static final java.lang.String**                                                                | OUTPUT_DIRECTORY_OPTION  |
 | **private final java.lang.String**                                                                      | fileEnding               |
+| **private static final java.lang.String**                                                               | DEFAULT_FILE_ENDING      |
+| **public static final java.lang.String**                                                                | SOURCE_DIRECTORY_OPTION  |
+| **private static final java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption>** | OPTIONS                  |
+| **private final boolean**                                                                               | hasBadge                 |
+| **public static final java.lang.String**                                                                | CREATE_BADGE_OPTION      |
+| **private static final java.lang.String**                                                               | DEFAULT_OUTPUT_DIRECTORY |
+| **public static final java.lang.String**                                                                | OUTPUT_DIRECTORY_OPTION  |
 | **private final java.lang.String**                                                                      | outputDirectory          |
 | **public static final java.lang.String**                                                                | FILE_ENDING_OPTION       |
-| **private final boolean**                                                                               | hasBadge                 |
-| **public static final java.lang.String**                                                                | SOURCE_DIRECTORY_OPTION  |
-| **private static final java.lang.String**                                                               | DEFAULT_OUTPUT_DIRECTORY |
-| **private static final java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption>** | OPTIONS                  |
 #### Methods
 | Type and modifiers | Method signature      | Return type                                     |
 | ------------------ | --------------------- | ----------------------------------------------- |
-| **public static**  | getSupportedOptions() | java.util.Set<jdk.javadoc.doclet.Doclet.Option> |
 | **public static**  | getOption(String key) | io.github.atlascommunity.marklet.MarkletOption  |
+| **public static**  | getSupportedOptions() | java.util.Set<jdk.javadoc.doclet.Doclet.Option> |
 
 Constructors
 ============
 Options(java.util.Map<java.lang.String,java.lang.String>)
 ---------------------------------------------------------
+Default constructor. Sets options with their default parameters if available.
+
 
 
 Fields
 ======
+java.lang.String fileEnding
+---------------------------
+
 java.lang.String DEFAULT_FILE_ENDING
 ------------------------------------
+
+java.lang.String SOURCE_DIRECTORY_OPTION
+----------------------------------------
+
+java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption> OPTIONS
+--------------------------------------------------------------------------------------
+
+boolean hasBadge
+----------------
 
 java.lang.String CREATE_BADGE_OPTION
 ------------------------------------
 
+java.lang.String DEFAULT_OUTPUT_DIRECTORY
+-----------------------------------------
+
 java.lang.String OUTPUT_DIRECTORY_OPTION
 ----------------------------------------
-
-java.lang.String fileEnding
----------------------------
 
 java.lang.String outputDirectory
 --------------------------------
@@ -62,31 +76,17 @@ java.lang.String outputDirectory
 java.lang.String FILE_ENDING_OPTION
 -----------------------------------
 
-boolean hasBadge
-----------------
-
-java.lang.String SOURCE_DIRECTORY_OPTION
-----------------------------------------
-
-java.lang.String DEFAULT_OUTPUT_DIRECTORY
------------------------------------------
-
-java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption> OPTIONS
---------------------------------------------------------------------------------------
-
 
 Methods
 =======
-getSupportedOptions()
----------------------
-*No method description provided*
-
-
-
 getOption(String key)
 ---------------------
 *No method description provided*
 
+
+getSupportedOptions()
+---------------------
+*No method description provided*
 
 
 

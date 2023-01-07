@@ -11,8 +11,8 @@ io.github.atlascommunity.marklet.pages.MarkdownTag Summary
 #### Fields
 | Type and modifiers                               | Field name |
 | ------------------------------------------------ | ---------- |
-| **private final java.lang.String**               | fileEnding |
 | **private final com.sun.source.doctree.DocTree** | tag        |
+| **private final java.lang.String**               | fileEnding |
 #### Methods
 | Type and modifiers | Method signature | Return type      |
 | ------------------ | ---------------- | ---------------- |
@@ -22,15 +22,17 @@ Constructors
 ============
 MarkdownTag()
 -------------
+*No method description provided*
+
 
 
 Fields
 ======
-java.lang.String fileEnding
----------------------------
-
 com.sun.source.doctree.DocTree tag
 ----------------------------------
+
+java.lang.String fileEnding
+---------------------------
 
 
 Methods
@@ -38,7 +40,6 @@ Methods
 create()
 --------
 Create markdown string from tag
-
 
 
 

@@ -2,8 +2,8 @@ package io.github.atlascommunity.marklet.pages;
 
 import com.sun.source.doctree.DocCommentTree;
 import com.sun.source.util.DocTrees;
+import io.github.atlascommunity.marklet.Options;
 import io.github.atlascommunity.marklet.util.TypeUtils;
-import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.ExecutableElement;
@@ -14,28 +14,37 @@ import java.util.stream.Collectors;
 import static io.github.atlascommunity.marklet.constants.Labels.*;
 
 /** Class methods description */
-@RequiredArgsConstructor
+
 public class ClassMethodsInfo implements ClassPageElement {
 
   /** Class information */
-  private final TypeElement classElement;
+  final TypeElement classElement;
 
-  private final DocTrees treeUtils;
+  final DocTrees treeUtils;
+
+  /** Doclet options */
+  final Options options;
+
+  String key = METHODS;
 
   /** Pattern for colon separated description */
   private static final String DESCRIPTION_PATTERN = "%s: %s";
 
   private static final String OVERRIDE_MARK = "(Override)";
 
+  public ClassMethodsInfo(TypeElement classElement, DocTrees treeUtils, Options options) {
+    this.classElement = classElement;
+    this.treeUtils = treeUtils;
+    this.options = options;
+  }
+
   /** @return markdown string representation of document part */
   @Override
   public String generate() {
-    StringBuilder summary = new StringBuilder();
-    Set<ExecutableElement> methods = TypeUtils.findClassMethods(classElement);
+    Set<ExecutableElement> methods = findElements();
 
-    int numberOfMethods = methods.size();
-    if (numberOfMethods > 0) {
-      Heading sectionHeading = new Heading(METHODS, 1);
+    if (methods.size() > 0) {
+      Heading sectionHeading = new Heading(key, 1);
       StringBuilder methodsInfo = new StringBuilder().append(sectionHeading).append("\n");
       methods.forEach(m -> methodsInfo.append(methodDescription(m)).append("\n"));
       return methodsInfo.toString();
@@ -59,8 +68,9 @@ public class ClassMethodsInfo implements ClassPageElement {
    * @return markdown string
    */
   private String methodDescription(ExecutableElement doc) {
-    String methodHeader = new MethodSignature(doc).generate();
-    Heading heading = new Heading(methodHeader, 2);
+
+    String signatureString = signatureString(doc);
+    Heading heading = new Heading(signatureString, 2);
     StringBuilder description =
             new StringBuilder().append(heading).append("\n");
     DocCommentTree comments = treeUtils.getDocCommentTree(doc);
@@ -71,7 +81,7 @@ public class ClassMethodsInfo implements ClassPageElement {
     }
     ParameterBlock block = new ParameterBlock(comments);
 
-    description.append(block.generate()).append("\n");
+    description.append(block.generate());
     /*
     String methodHeader;
     String name = doc.name();
@@ -133,5 +143,13 @@ public class ClassMethodsInfo implements ClassPageElement {
     return description.toString();
 */
     return description.toString();
+  }
+
+  Set<ExecutableElement> findElements() {
+    return TypeUtils.findClassMethods(classElement);
+  }
+
+  String signatureString(ExecutableElement doc) {
+    return new MethodSignature(doc).generate();
   }
 }

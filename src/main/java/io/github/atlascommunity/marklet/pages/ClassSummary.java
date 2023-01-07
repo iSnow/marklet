@@ -104,7 +104,7 @@ public class ClassSummary implements ClassPageElement {
   /** @return markdown string representation of class constructors */
   private static String generateConstructorSummary(TypeElement classElement) {
 
-    Set<Element> ctors = TypeUtils.findClassConstructors(classElement);
+    Set<ExecutableElement> ctors = TypeUtils.findClassConstructors(classElement);
     StringBuilder summary = new StringBuilder();
 
     int numberOfConstructors = ctors.size();

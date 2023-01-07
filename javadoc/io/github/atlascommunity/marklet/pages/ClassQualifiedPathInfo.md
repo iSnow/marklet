@@ -21,6 +21,8 @@ Constructors
 ============
 ClassQualifiedPathInfo()
 ------------------------
+*No method description provided*
+
 
 
 Fields
@@ -38,7 +40,6 @@ generate()
 ### Returns
 
 markdown string representation of document part
-
 
 
 
