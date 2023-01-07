@@ -15,7 +15,9 @@ build(Reporter reporter)
 ------------------------
 Build document and write it to the selected folder
 
-@throws IOException something went wrong during write operation
+### Throws
+
+IOException: something went wrong during write operation
 
 
 

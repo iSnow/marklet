@@ -145,6 +145,13 @@ public final class Marklet implements Doclet {
     }
   }
 
+  /**
+   * Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
+   * doclet entry point
+   * 
+   * @param locale the locale to be used
+   * @param reporter the reporter to be used
+   */
   @Override
   public void init(Locale locale, Reporter reporter) {
     this.reporter = reporter;

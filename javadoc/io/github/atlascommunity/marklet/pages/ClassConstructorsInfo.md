@@ -11,8 +11,8 @@ io.github.atlascommunity.marklet.pages.ClassConstructorsInfo Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final io.github.atlascommunity.marklet.Options** | options      |
 | **private final javax.lang.model.element.TypeElement**     | classElement |
+| **private final io.github.atlascommunity.marklet.Options** | options      |
 #### Methods
 | Type and modifiers | Method signature                              | Return type      |
 | ------------------ | --------------------------------------------- | ---------------- |
@@ -27,11 +27,11 @@ ClassConstructorsInfo()
 
 Fields
 ======
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
 
 
 Methods
@@ -40,9 +40,13 @@ constructorDescription(ExecutableElement doc)
 ---------------------------------------------
 
 
-@param doc constructor representation
+### Parameters
 
-@return markdown string
+doc: constructor representation
+
+### Returns
+
+markdown string
 
 
 
@@ -50,7 +54,9 @@ generate()
 ----------
 
 
-@return markdown string representation of document part
+### Returns
+
+markdown string representation of document part
 
 
 

@@ -36,9 +36,13 @@ methodParams(java.util.List<? extends javax.lang.model.element.VariableElement> 
 -------------------------------------------------------------------------------------------
 Form doubled bracket params description
 
-@param parameters method params information
+### Parameters
 
-@return formed string
+parameters: method params information
+
+### Returns
+
+formed string
 
 
 
@@ -46,7 +50,9 @@ generate()
 ----------
 Form description from method information
 
-@return method signature string
+### Returns
+
+method signature string
 
 
 

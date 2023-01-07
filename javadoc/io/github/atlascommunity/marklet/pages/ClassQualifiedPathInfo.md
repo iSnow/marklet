@@ -35,7 +35,9 @@ generate()
 ----------
 
 
-@return markdown string representation of document part
+### Returns
+
+markdown string representation of document part
 
 
 

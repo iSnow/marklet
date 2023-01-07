@@ -20,16 +20,16 @@ io.github.atlascommunity.marklet.Options Summary
 #### Fields
 | Type and modifiers                                                                                      | Field name               |
 | ------------------------------------------------------------------------------------------------------- | ------------------------ |
-| **public static final java.lang.String**                                                                | FILE_ENDING_OPTION       |
-| **private static final java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption>** | OPTIONS                  |
 | **private static final java.lang.String**                                                               | DEFAULT_FILE_ENDING      |
-| **private final java.lang.String**                                                                      | outputDirectory          |
-| **public static final java.lang.String**                                                                | SOURCE_DIRECTORY_OPTION  |
-| **private static final java.lang.String**                                                               | DEFAULT_OUTPUT_DIRECTORY |
-| **private final boolean**                                                                               | hasBadge                 |
 | **public static final java.lang.String**                                                                | CREATE_BADGE_OPTION      |
 | **public static final java.lang.String**                                                                | OUTPUT_DIRECTORY_OPTION  |
 | **private final java.lang.String**                                                                      | fileEnding               |
+| **private final java.lang.String**                                                                      | outputDirectory          |
+| **public static final java.lang.String**                                                                | FILE_ENDING_OPTION       |
+| **private final boolean**                                                                               | hasBadge                 |
+| **public static final java.lang.String**                                                                | SOURCE_DIRECTORY_OPTION  |
+| **private static final java.lang.String**                                                               | DEFAULT_OUTPUT_DIRECTORY |
+| **private static final java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption>** | OPTIONS                  |
 #### Methods
 | Type and modifiers | Method signature      | Return type                                     |
 | ------------------ | --------------------- | ----------------------------------------------- |
@@ -44,26 +44,8 @@ Options(java.util.Map<java.lang.String,java.lang.String>)
 
 Fields
 ======
-java.lang.String FILE_ENDING_OPTION
------------------------------------
-
-java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption> OPTIONS
---------------------------------------------------------------------------------------
-
 java.lang.String DEFAULT_FILE_ENDING
 ------------------------------------
-
-java.lang.String outputDirectory
---------------------------------
-
-java.lang.String SOURCE_DIRECTORY_OPTION
-----------------------------------------
-
-java.lang.String DEFAULT_OUTPUT_DIRECTORY
------------------------------------------
-
-boolean hasBadge
-----------------
 
 java.lang.String CREATE_BADGE_OPTION
 ------------------------------------
@@ -73,6 +55,24 @@ java.lang.String OUTPUT_DIRECTORY_OPTION
 
 java.lang.String fileEnding
 ---------------------------
+
+java.lang.String outputDirectory
+--------------------------------
+
+java.lang.String FILE_ENDING_OPTION
+-----------------------------------
+
+boolean hasBadge
+----------------
+
+java.lang.String SOURCE_DIRECTORY_OPTION
+----------------------------------------
+
+java.lang.String DEFAULT_OUTPUT_DIRECTORY
+-----------------------------------------
+
+java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption> OPTIONS
+--------------------------------------------------------------------------------------
 
 
 Methods
