@@ -24,10 +24,14 @@ Filenames()
 
 Fields
 ======
-java.lang.String README_FILE
+String README_FILE
 ----------------------------
+Project readme file with all indexes.
 
-java.lang.String PACKAGE_INDEX_FILE
+
+String PACKAGE_INDEX_FILE
 -----------------------------------
+Package index filename.
+
 
 

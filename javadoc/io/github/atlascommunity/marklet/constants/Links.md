@@ -23,7 +23,9 @@ Links()
 
 Fields
 ======
-java.lang.String BADGE
+String BADGE
 ----------------------
+Marklet link using dynamic badge. *
+
 
 

@@ -12,6 +12,7 @@ io.github.atlascommunity.marklet.pages.ClassFieldsInfo Summary
 | Type and modifiers                                     | Field name   |
 | ------------------------------------------------------ | ------------ |
 | **private final javax.lang.model.element.TypeElement** | classElement |
+| **private final com.sun.source.util.DocTrees**         | treeUtils    |
 #### Methods
 | Type and modifiers | Method signature | Return type |
 | ------------------ | ---------------- | ----------- |
@@ -29,6 +30,13 @@ Fields
 ======
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
+Class information
+
+
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
+*No description provided*
+
 
 
 Methods

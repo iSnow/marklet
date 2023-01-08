@@ -39,55 +39,89 @@ Labels()
 
 Fields
 ======
-java.lang.String ENUMERATIONS
+String ENUMERATIONS
 -----------------------------
+Label for enumerations. *
 
-java.lang.String THROWS
+
+String THROWS
 -----------------------
+Label for throws. *
 
-java.lang.String PARAMETERS
+
+String PARAMETERS
 ---------------------------
+Label for parameters. *
 
-java.lang.String FIELDS
+
+String FIELDS
 -----------------------
+Label for fields. *
 
-java.lang.String METHODS
+
+String METHODS
 ------------------------
+Label for methods. *
 
-java.lang.String DEPRECATED
+
+String DEPRECATED
 ---------------------------
+*No description provided*
 
-java.lang.String ENUMERATION
+
+String ENUMERATION
 ----------------------------
+Label for enumeration. *
 
-java.lang.String RETURNS
+
+String RETURNS
 ------------------------
+Label for returns. *
 
-java.lang.String ANNOTATIONS
+
+String ANNOTATIONS
 ----------------------------
+Label for annotations. *
 
-java.lang.String SUMMARY
+
+String SUMMARY
 ------------------------
+Label for summary. *
 
-java.lang.String CLASSES
+
+String CLASSES
 ------------------------
+Label for classes. *
 
-java.lang.String ANNOTATION
+
+String ANNOTATION
 ---------------------------
+Label for annotation. *
 
-java.lang.String INTERFACE
+
+String INTERFACE
 --------------------------
+Label for interface. *
 
-java.lang.String CONSTRUCTORS
+
+String CONSTRUCTORS
 -----------------------------
+Label for constructor. *
 
-java.lang.String INTERFACES
+
+String INTERFACES
 ---------------------------
+Label for interfaces. *
 
-java.lang.String PACKAGE
+
+String PACKAGE
 ------------------------
+Label for package. *
 
-java.lang.String CLASS
+
+String CLASS
 ----------------------
+Label for class. *
+
 
 

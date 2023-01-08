@@ -50,7 +50,7 @@ public class ClassPage implements DocumentPage {
     String constructorsInfo = new ClassConstructorsInfo(classElement, treeUtils, options).generate();
     if (!constructorsInfo.isEmpty()) classPage.append(constructorsInfo).append("\n");
 
-    String fieldsInfo = new ClassFieldsInfo(classElement).generate();
+    String fieldsInfo = new ClassFieldsInfo(classElement, treeUtils).generate();
     if (!fieldsInfo.isEmpty()) classPage.append(fieldsInfo).append("\n");
 
     String methodsInfo = new ClassMethodsInfo(classElement, treeUtils, options).generate();

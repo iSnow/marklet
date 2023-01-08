@@ -1,5 +1,8 @@
 package io.github.atlascommunity.marklet.pages;
 
+import com.sun.source.doctree.DocCommentTree;
+import com.sun.source.util.DocTrees;
+import io.github.atlascommunity.marklet.util.Sanitizers;
 import io.github.atlascommunity.marklet.util.TypeUtils;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
@@ -9,6 +12,7 @@ import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.constants.Labels.FIELDS;
 
@@ -18,6 +22,7 @@ public class ClassFieldsInfo implements ClassPageElement {
 
   /** Class information */
   private final TypeElement classElement;
+  private  final DocTrees treeUtils;
 
   /** @return markdown string representation of document part */
   @Override
@@ -32,8 +37,18 @@ public class ClassFieldsInfo implements ClassPageElement {
                 f -> {
                   TypeMirror typeMirror = f.asType();
                   String headingText = String.format("%s %s", typeMirror, f.getSimpleName());
-                  StringBuilder fieldDescription =
+                  StringBuilder rawFieldDescription =
                           new StringBuilder().append(new Heading(headingText, 2)).append("\n");
+
+                    DocCommentTree comments = treeUtils.getDocCommentTree(f);
+                    if (null == comments) {
+                        rawFieldDescription.append("*No description provided*").append("\n").append("\n");
+                    } else {
+                        rawFieldDescription.append(comments.getFullBody().stream().map(Object::toString).collect(Collectors.joining())).append("\n").append("\n");
+                    }
+                    String fieldDescription = Sanitizers.sanitizePackageNames(rawFieldDescription.toString());
+
+
                   //String fieldComment =
                   //        f.commentText().isEmpty() ? "No description provided" : f.commentText();
                   //fieldDescription.append(fieldComment).append("\n");

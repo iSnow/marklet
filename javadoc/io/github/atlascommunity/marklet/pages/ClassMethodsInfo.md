@@ -37,21 +37,33 @@ Fields
 ======
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
+Doclet options
+
 
 com.sun.source.util.DocTrees treeUtils
 --------------------------------------
+*No description provided*
 
-java.lang.String key
+
+String key
 --------------------
+*No description provided*
+
 
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
+Class information
 
-java.lang.String OVERRIDE_MARK
+
+String OVERRIDE_MARK
 ------------------------------
+*No description provided*
 
-java.lang.String DESCRIPTION_PATTERN
+
+String DESCRIPTION_PATTERN
 ------------------------------------
+Pattern for colon separated description
+
 
 
 Methods

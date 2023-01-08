@@ -45,20 +45,30 @@ Marklet()
 
 Fields
 ======
-java.util.Locale locale
+Locale locale
 -----------------------
+*No description provided*
+
 
 jdk.javadoc.doclet.Reporter reporter
 ------------------------------------
+*No description provided*
+
 
 jdk.javadoc.doclet.DocletEnvironment root
 -----------------------------------------
+Documentation root provided by the doclet API. *
 
-java.util.Map<java.lang.String,java.lang.String> classPackageMapping
+
+Map<String,String> classPackageMapping
 --------------------------------------------------------------------
+*No description provided*
+
 
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
+Command line options that have been parsed. *
+
 
 
 Methods

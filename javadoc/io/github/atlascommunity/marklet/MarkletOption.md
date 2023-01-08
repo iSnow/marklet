@@ -39,23 +39,35 @@ MarkletOption()
 
 Fields
 ======
-java.lang.String parameters
+String parameters
 ---------------------------
+*No description provided*
 
-java.lang.String description
+
+String description
 ----------------------------
+*No description provided*
 
-java.util.List<java.lang.String> names
+
+List<String> names
 --------------------------------------
+*No description provided*
+
 
 jdk.javadoc.doclet.Doclet.Option.Kind kind
 ------------------------------------------
+*No description provided*
 
-java.lang.String value
+
+String value
 ----------------------
+*No description provided*
+
 
 int argumentCount
 -----------------
+*No description provided*
+
 
 
 Methods

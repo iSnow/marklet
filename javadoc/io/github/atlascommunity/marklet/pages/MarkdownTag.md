@@ -28,11 +28,15 @@ MarkdownTag()
 
 Fields
 ======
-java.lang.String fileEnding
+String fileEnding
 ---------------------------
+File ending from doclet options
+
 
 com.sun.source.doctree.DocTree tag
 ----------------------------------
+Tag information
+
 
 
 Methods

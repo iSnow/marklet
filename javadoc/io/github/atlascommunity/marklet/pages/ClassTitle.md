@@ -29,6 +29,8 @@ Fields
 ======
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
+Class information
+
 
 
 Methods
