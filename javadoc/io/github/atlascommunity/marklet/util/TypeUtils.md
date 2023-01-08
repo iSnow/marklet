@@ -2,7 +2,7 @@ Class TypeUtils
 ===============
 
 
-io.github.atlascommunity.marklet.util.TypeUtils Summary
+io.github.atlascommunity.marklet.util.MarkletTypeUtils Summary
 -------
 #### Constructors
 | Visibility | Signature   |

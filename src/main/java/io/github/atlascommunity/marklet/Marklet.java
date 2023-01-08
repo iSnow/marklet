@@ -5,18 +5,16 @@ import com.sun.source.util.DocTrees;
 import io.github.atlascommunity.marklet.pages.ClassPage;
 import io.github.atlascommunity.marklet.pages.PackagePage;
 import io.github.atlascommunity.marklet.pages.ReadmePage;
-import io.github.atlascommunity.marklet.util.TypeUtils;
+import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import jdk.javadoc.doclet.Doclet;
 import jdk.javadoc.doclet.DocletEnvironment;
 import jdk.javadoc.doclet.Reporter;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.*;
 import javax.lang.model.util.ElementFilter;
-import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic;
 import javax.tools.DocumentationTool;
 import javax.tools.ToolProvider;
@@ -26,7 +24,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.Options.OUTPUT_DIRECTORY_OPTION;
 
@@ -97,7 +94,7 @@ public final class Marklet implements Doclet {
     for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
       packages.add(t);
       //log.trace(t.getKind() + ":" + t);
-      for (TypeElement e : TypeUtils.findPackageClasses(t)) {
+      for (TypeElement e : MarkletTypeUtils.findPackageClasses(t)) {
           classPackageMapping.put(e.getQualifiedName().toString(), t.getQualifiedName().toString());
       }
     }
@@ -123,13 +120,14 @@ public final class Marklet implements Doclet {
    * @throws IOException If any error occurs during generation process.
    */
   private void buildClasses() throws IOException {
-    Set<TypeElement> packageClasses = TypeUtils.findPackageClasses(root);
+    Set<TypeElement> packageClasses = MarkletTypeUtils.findPackageClasses(root);
+
     DocTrees treeUtils = root.getDocTrees();
     for (final TypeElement classElem : packageClasses) {
       reporter.print(Diagnostic.Kind.NOTE, "Generate documentation for " + classElem.getQualifiedName());
       String packageName = classPackageMapping.get(classElem.getQualifiedName().toString());
       DocCommentTree comments = treeUtils.getDocCommentTree(classElem);
-      new ClassPage(classElem, treeUtils, comments, options, packageName).build(reporter);
+      new ClassPage(classElem, treeUtils, comments, root, options, packageName).build(reporter);
     }
   }
 

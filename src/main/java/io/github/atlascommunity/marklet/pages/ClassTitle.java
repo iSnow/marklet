@@ -1,9 +1,8 @@
 package io.github.atlascommunity.marklet.pages;
 
-import io.github.atlascommunity.marklet.util.TypeUtils;
+import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import lombok.RequiredArgsConstructor;
 
-import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeMirror;
 
@@ -49,7 +48,7 @@ public class ClassTitle implements ClassPageElement {
 
     StringBuilder title = builder.append(' ').append(classElement.getSimpleName());
 
-    List<? extends TypeMirror> implementedInterfaces = TypeUtils.findImplementedInterfaces(classElement);
+    List<? extends TypeMirror> implementedInterfaces = MarkletTypeUtils.findImplementedInterfaces(classElement);
     if (!implementedInterfaces.isEmpty()) {
       title.append(" implements ");
       String interfaceStr = implementedInterfaces

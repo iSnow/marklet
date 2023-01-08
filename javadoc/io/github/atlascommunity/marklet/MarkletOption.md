@@ -11,23 +11,23 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 #### Fields
 | Type and modifiers                                      | Field name    |
 | ------------------------------------------------------- | ------------- |
-| **private String**                                      | value         |
-| **private final int**                                   | argumentCount |
+| **private final String**                                | parameters    |
 | **private final List<String>**                          | names         |
 | **private final String**                                | description   |
+| **private String**                                      | value         |
 | **private final jdk.javadoc.doclet.Doclet.Option.Kind** | kind          |
-| **private final String**                                | parameters    |
+| **private final int**                                   | argumentCount |
 #### Methods
-| Type and modifiers | Method signature                               | Return type                           |
-| ------------------ | ---------------------------------------------- | ------------------------------------- |
-| **public**         | getValue                                       | String                                |
-| **public**         | getDescription                                 | String                                |
-| **public**         | process(String option, List<String> arguments) | boolean                               |
-| **public**         | getParameters                                  | String                                |
-| **public**         | getNames                                       | List<String>                          |
-| **public**         | toString                                       | String                                |
-| **public**         | getKind                                        | jdk.javadoc.doclet.Doclet.Option.Kind |
-| **public**         | getArgumentCount                               | int                                   |
+| Type and modifiers | Method signature                                | Return type                           |
+| ------------------ | ----------------------------------------------- | ------------------------------------- |
+| **public**         | getKind  **(Override)**                         | jdk.javadoc.doclet.Doclet.Option.Kind |
+| **public**         | getValue                                        | String                                |
+| **public**         | getNames  **(Override)**                        | List<String>                          |
+| **public**         | getDescription  **(Override)**                  | String                                |
+| **public**         | getArgumentCount  **(Override)**                | int                                   |
+| **public**         | getParameters  **(Override)**                   | String                                |
+| **public**         | toString  **(Override)**                        | String                                |
+| **public**         | process (String option, List<String> arguments) | boolean                               |
 
 Constructors
 ============
@@ -39,13 +39,8 @@ MarkletOption()
 
 Fields
 ======
-String value
-----------------------
-*No description provided*
-
-
-int argumentCount
------------------
+String parameters
+---------------------------
 *No description provided*
 
 
@@ -59,56 +54,61 @@ String description
 *No description provided*
 
 
+String value
+----------------------
+*No description provided*
+
+
 jdk.javadoc.doclet.Doclet.Option.Kind kind
 ------------------------------------------
 *No description provided*
 
 
-String parameters
----------------------------
+int argumentCount
+-----------------
 *No description provided*
 
 
 
 Methods
 =======
-getValue
---------
+getKind  **(Override)**
+-----------------------
 *No method description provided*
 
 
-getDescription
---------------
+getValue 
+---------
 *No method description provided*
 
 
-process(String option, List<String> arguments)
-----------------------------------------------
+getNames  **(Override)**
+------------------------
 *No method description provided*
 
 
-getParameters
--------------
+getDescription  **(Override)**
+------------------------------
 *No method description provided*
 
 
-getNames
---------
+getArgumentCount  **(Override)**
+--------------------------------
 *No method description provided*
 
 
-toString
---------
+getParameters  **(Override)**
+-----------------------------
 *No method description provided*
 
 
-getKind
--------
+toString  **(Override)**
+------------------------
 *No method description provided*
 
 
-getArgumentCount
-----------------
+process (String option, List<String> arguments)
+-----------------------------------------------
 *No method description provided*
 
 

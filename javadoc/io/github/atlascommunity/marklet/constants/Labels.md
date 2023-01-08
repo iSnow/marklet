@@ -9,27 +9,28 @@ io.github.atlascommunity.marklet.constants.Labels Summary
 | ---------- | --------- |
 | **public** | Labels()  |
 #### Fields
-| Type and modifiers             | Field name   |
-| ------------------------------ | ------------ |
-| **public static final String** | ANNOTATION   |
-| **public static final String** | RETURNS      |
-| **public static final String** | ANNOTATIONS  |
-| **public static final String** | THROWS       |
-| **public static final String** | CONSTRUCTORS |
-| **public static final String** | CLASSES      |
-| **public static final String** | INTERFACES   |
-| **public static final String** | DEPRECATED   |
-| **public static final String** | UNKNOWN      |
-| **public static final String** | FIELDS       |
-| **public static final String** | PACKAGE      |
-| **public static final String** | ENUMERATIONS |
-| **public static final String** | PARAMETERS   |
-| **public static final String** | CLASS        |
-| **public static final String** | METHODS      |
-| **public static final String** | RECORD       |
-| **public static final String** | ENUMERATION  |
-| **public static final String** | INTERFACE    |
-| **public static final String** | SUMMARY      |
+| Type and modifiers             | Field name    |
+| ------------------------------ | ------------- |
+| **public static final String** | INTERFACE     |
+| **public static final String** | METHODS       |
+| **public static final String** | ENUMERATION   |
+| **public static final String** | CONSTRUCTORS  |
+| **public static final String** | CLASSES       |
+| **public static final String** | ANNOTATION    |
+| **public static final String** | CLASS         |
+| **public static final String** | PARAMETERS    |
+| **public static final String** | DEPRECATED    |
+| **public static final String** | RETURNS       |
+| **public static final String** | ENUMERATIONS  |
+| **public static final String** | INTERFACES    |
+| **public static final String** | FIELDS        |
+| **public static final String** | PACKAGE       |
+| **public static final String** | ANNOTATIONS   |
+| **public static final String** | SUMMARY       |
+| **public static final String** | OVERRIDE_MARK |
+| **public static final String** | UNKNOWN       |
+| **public static final String** | RECORD        |
+| **public static final String** | THROWS        |
 
 Constructors
 ============
@@ -41,24 +42,19 @@ Labels()
 
 Fields
 ======
-String ANNOTATION
----------------------------
-Label for annotation. *
+String INTERFACE
+--------------------------
+Label for interface. *
 
 
-String RETURNS
+String METHODS
 ------------------------
-Label for returns. *
+Label for methods. *
 
 
-String ANNOTATIONS
+String ENUMERATION
 ----------------------------
-Label for annotations. *
-
-
-String THROWS
------------------------
-Label for throws. *
+Label for enumeration. *
 
 
 String CONSTRUCTORS
@@ -71,9 +67,19 @@ String CLASSES
 Label for classes. *
 
 
-String INTERFACES
+String ANNOTATION
 ---------------------------
-Label for interfaces. *
+Label for annotation. *
+
+
+String CLASS
+----------------------
+Label for class. *
+
+
+String PARAMETERS
+---------------------------
+Label for parameters. *
 
 
 String DEPRECATED
@@ -81,9 +87,19 @@ String DEPRECATED
 *No description provided*
 
 
-String UNKNOWN
+String RETURNS
 ------------------------
-Label for unknown. *
+Label for returns. *
+
+
+String ENUMERATIONS
+-----------------------------
+Label for enumerations. *
+
+
+String INTERFACES
+---------------------------
+Label for interfaces. *
 
 
 String FIELDS
@@ -96,24 +112,24 @@ String PACKAGE
 Label for package. *
 
 
-String ENUMERATIONS
------------------------------
-Label for enumerations. *
+String ANNOTATIONS
+----------------------------
+Label for annotations. *
 
 
-String PARAMETERS
----------------------------
-Label for parameters. *
-
-
-String CLASS
-----------------------
-Label for class. *
-
-
-String METHODS
+String SUMMARY
 ------------------------
-Label for methods. *
+Label for summary. *
+
+
+String OVERRIDE_MARK
+------------------------------
+*No description provided*
+
+
+String UNKNOWN
+------------------------
+Label for unknown. *
 
 
 String RECORD
@@ -121,19 +137,9 @@ String RECORD
 Label for Record. *
 
 
-String ENUMERATION
-----------------------------
-Label for enumeration. *
-
-
-String INTERFACE
---------------------------
-Label for interface. *
-
-
-String SUMMARY
-------------------------
-Label for summary. *
+String THROWS
+-----------------------
+Label for throws. *
 
 
 

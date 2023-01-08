@@ -3,15 +3,17 @@ package io.github.atlascommunity.marklet.pages;
 import com.sun.source.doctree.DocCommentTree;
 import com.sun.source.util.DocTrees;
 import io.github.atlascommunity.marklet.Options;
-import io.github.atlascommunity.marklet.util.TypeUtils;
+import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.util.Types;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.constants.Labels.*;
+import static io.github.atlascommunity.marklet.util.MarkletTypeUtils.findOverriddenMethod;
 
 /** Class methods description */
 
@@ -22,6 +24,8 @@ public class ClassMethodsInfo implements ClassPageElement {
 
   final DocTrees treeUtils;
 
+  final Types typeUtils;
+
   /** Doclet options */
   final Options options;
 
@@ -30,11 +34,12 @@ public class ClassMethodsInfo implements ClassPageElement {
   /** Pattern for colon separated description */
   private static final String DESCRIPTION_PATTERN = "%s: %s";
 
-  private static final String OVERRIDE_MARK = "(Override)";
 
-  public ClassMethodsInfo(TypeElement classElement, DocTrees treeUtils, Options options) {
+
+  public ClassMethodsInfo(TypeElement classElement, DocTrees treeUtils, Types typeUtils, Options options) {
     this.classElement = classElement;
     this.treeUtils = treeUtils;
+    this.typeUtils = typeUtils;
     this.options = options;
   }
 
@@ -146,10 +151,11 @@ public class ClassMethodsInfo implements ClassPageElement {
   }
 
   Set<ExecutableElement> findElements() {
-    return TypeUtils.findClassMethods(classElement);
+    return MarkletTypeUtils.findClassMethods(classElement);
   }
 
-  String signatureString(ExecutableElement doc) {
-    return new MethodSignature(doc).generate();
+  String signatureString(ExecutableElement method) {
+    ExecutableElement overriddenMethod = findOverriddenMethod(method, typeUtils);
+    return new MethodSignatureElement(method, overriddenMethod).generate();
   }
 }

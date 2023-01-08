@@ -3,7 +3,7 @@ package io.github.atlascommunity.marklet.pages;
 
 import com.sun.source.util.DocTrees;
 import io.github.atlascommunity.marklet.Options;
-import io.github.atlascommunity.marklet.util.TypeUtils;
+import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
@@ -17,17 +17,17 @@ import static io.github.atlascommunity.marklet.constants.Labels.CONSTRUCTORS;
 public class ClassConstructorsInfo extends ClassMethodsInfo {
 
   public ClassConstructorsInfo(TypeElement classElement, DocTrees treeUtils, Options options) {
-    super(classElement, treeUtils, options);
+    super(classElement, treeUtils, null, options);
     key = CONSTRUCTORS;
   }
 
   @Override
   Set<ExecutableElement> findElements() {
-    return TypeUtils.findClassConstructors(classElement);
+    return MarkletTypeUtils.findClassConstructors(classElement);
   }
 
   @Override
-  String signatureString(ExecutableElement doc) {
-    return doc.toString();
+  String signatureString(ExecutableElement method) {
+    return method.toString();
   }
 }

@@ -61,4 +61,6 @@ public final class Labels {
   public static final String UNKNOWN = "???";
 
   public static final String DEPRECATED = "Deprecated";
+
+  public static final String OVERRIDE_MARK = "(Override)";
 }

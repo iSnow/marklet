@@ -11,8 +11,8 @@ io.github.atlascommunity.marklet.pages.ClassPageElement Summary
 
 Methods
 =======
-generate
---------
+generate 
+---------
 
 
 ### Returns

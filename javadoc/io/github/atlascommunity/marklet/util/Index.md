@@ -2,8 +2,9 @@ Package util
 ============
 Classes
 =======
-| Name                        |
-| --------------------------- |
-| [Sanitizers](Sanitizers.md) |
-| [TypeUtils](TypeUtils.md)   |
+| Name                                    |
+| --------------------------------------- |
+| [MarkletTypeUtils](MarkletTypeUtils.md) |
+| [MethodSignature](MethodSignature.md)   |
+| [Sanitizers](Sanitizers.md)             |
 

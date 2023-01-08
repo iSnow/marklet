@@ -1,7 +1,7 @@
 package io.github.atlascommunity.marklet.pages;
 
+import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import io.github.atlascommunity.marklet.util.Sanitizers;
-import io.github.atlascommunity.marklet.util.TypeUtils;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
@@ -9,10 +9,12 @@ import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.*;
 import javax.lang.model.type.*;
+import javax.lang.model.util.Types;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.constants.Labels.*;
+import static io.github.atlascommunity.marklet.util.MarkletTypeUtils.findOverriddenMethod;
 
 /** Brief class description */
 @RequiredArgsConstructor
@@ -20,6 +22,8 @@ public class ClassSummary implements ClassPageElement {
 
   /** Class information */
   private final TypeElement classElement;
+
+  private final Types typeUtils;
 
   /** Table column name */
   private static final String TYPE_AND_MODIFIERS_COLUMN = "Type and modifiers";
@@ -32,16 +36,16 @@ public class ClassSummary implements ClassPageElement {
 
     summary.append(generateConstructorSummary(classElement));
     summary.append(generateFieldSummary(classElement));
-    summary.append(generateMethodSummary(classElement));
+    summary.append(generateMethodSummary(classElement, typeUtils));
 
     return summary.toString();
   }
 
   /** @return markdown string representation of class methods */
-  private static String generateMethodSummary(TypeElement classElement) {
+  private static String generateMethodSummary(TypeElement classElement, Types typeUtils) {
 
     StringBuilder summary = new StringBuilder();
-    Set<ExecutableElement> methods = TypeUtils.findClassMethods(classElement);
+    Set<ExecutableElement> methods = MarkletTypeUtils.findClassMethods(classElement);
 
     int numberOfMethods = methods.size();
     if (numberOfMethods > 0) {
@@ -60,9 +64,10 @@ public class ClassSummary implements ClassPageElement {
                       m -> {
                         String modifiers = m.getModifiers().stream().map(Modifier::toString).collect(Collectors.joining(" "));
                         TypeMirror mirror = m.getReturnType();
+                        ExecutableElement overriddenMethod = findOverriddenMethod(m, typeUtils);
                         tableEntries.addRow(
                                 new BoldText(modifiers),
-                                new MethodSignature(m).generate(),
+                                new MethodSignatureElement(m, overriddenMethod).generate(),
                                 Sanitizers.sanitizePackageNames(mirror.toString()));
                       });
 
@@ -78,7 +83,7 @@ public class ClassSummary implements ClassPageElement {
 
     StringBuilder summary = new StringBuilder();
 
-    Set<VariableElement> fields = TypeUtils.findClassFields(classElement);
+    Set<VariableElement> fields = MarkletTypeUtils.findClassFields(classElement);
     int numberOfFields = fields.size();
     if (numberOfFields > 0) {
 
@@ -110,7 +115,7 @@ public class ClassSummary implements ClassPageElement {
   /** @return markdown string representation of class constructors */
   private static String generateConstructorSummary(TypeElement classElement) {
 
-    Set<ExecutableElement> ctors = TypeUtils.findClassConstructors(classElement);
+    Set<ExecutableElement> ctors = MarkletTypeUtils.findClassConstructors(classElement);
     StringBuilder summary = new StringBuilder();
 
     int numberOfConstructors = ctors.size();

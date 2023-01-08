@@ -41,8 +41,8 @@ Tag information
 
 Methods
 =======
-create
-------
+create 
+-------
 Create markdown string from tag
 
 

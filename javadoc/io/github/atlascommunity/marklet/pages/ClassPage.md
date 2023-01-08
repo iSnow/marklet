@@ -11,16 +11,17 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final io.github.atlascommunity.marklet.Options** | options      |
+| **private final jdk.javadoc.doclet.DocletEnvironment**     | environment  |
 | **private final com.sun.source.doctree.DocCommentTree**    | comments     |
-| **private final com.sun.source.util.DocTrees**             | treeUtils    |
 | **private final javax.lang.model.element.TypeElement**     | classElement |
 | **private final String**                                   | packageName  |
+| **private final io.github.atlascommunity.marklet.Options** | options      |
+| **private final com.sun.source.util.DocTrees**             | treeUtils    |
 #### Methods
-| Type and modifiers | Method signature                   | Return type |
-| ------------------ | ---------------------------------- | ----------- |
-| **public**         | build(Reporter reporter)           | void        |
-| **private**        | writeFile(StringBuilder classPage) | void        |
+| Type and modifiers | Method signature                         | Return type |
+| ------------------ | ---------------------------------------- | ----------- |
+| **private**        | writeFile (StringBuilder classPage)      | void        |
+| **public**         | build (Reporter reporter) **(Override)** | void        |
 
 Constructors
 ============
@@ -32,18 +33,13 @@ ClassPage()
 
 Fields
 ======
-io.github.atlascommunity.marklet.Options options
+jdk.javadoc.doclet.DocletEnvironment environment
 ------------------------------------------------
-Doclet options
+*No description provided*
 
 
 com.sun.source.doctree.DocCommentTree comments
 ----------------------------------------------
-*No description provided*
-
-
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
 *No description provided*
 
 
@@ -57,16 +53,21 @@ String packageName
 *No description provided*
 
 
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+Doclet options
+
+
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
+*No description provided*
+
+
 
 Methods
 =======
-build(Reporter reporter)
-------------------------
-Creates markdown text file
-
-
-writeFile(StringBuilder classPage)
-----------------------------------
+writeFile (StringBuilder classPage)
+-----------------------------------
 Writes file to disk
 
 ### Throws
@@ -76,6 +77,11 @@ IOException: If any error occurs during write process.
 ### Parameters
 
 classPage: markdown string with class information
+
+
+build (Reporter reporter) **(Override)**
+----------------------------------------
+Creates markdown text file
 
 
 

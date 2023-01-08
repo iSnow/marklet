@@ -16,7 +16,7 @@ Classes
 | [ClassTitle](ClassTitle.md)                             |
 | [DocumentPage](DocumentPage.md)                         |
 | [MarkdownTag](MarkdownTag.md)                           |
-| [MethodSignature](MethodSignature.md)                   |
+| [MethodSignatureElement](MethodSignatureElement.md)     |
 | [PackagePage](PackagePage.md)                           |
 | [ParameterBlock](ParameterBlock.md)                     |
 | [ReadmePage](ReadmePage.md)                             |

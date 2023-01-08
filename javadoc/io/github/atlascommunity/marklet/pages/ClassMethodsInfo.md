@@ -5,39 +5,54 @@ Class methods description
 io.github.atlascommunity.marklet.pages.ClassMethodsInfo Summary
 -------
 #### Constructors
-| Visibility | Signature                                                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **public** | ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,io.github.atlascommunity.marklet.Options) |
+| Visibility | Signature                                                                                                                                                |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **public** | ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,javax.lang.model.util.Types,io.github.atlascommunity.marklet.Options) |
 #### Fields
 | Type and modifiers                                 | Field name          |
 | -------------------------------------------------- | ------------------- |
-| **private static final String**                    | OVERRIDE_MARK       |
+| **final com.sun.source.util.DocTrees**             | treeUtils           |
+| **final javax.lang.model.util.Types**              | typeUtils           |
+| **private static final String**                    | DESCRIPTION_PATTERN |
+| **final javax.lang.model.element.TypeElement**     | classElement        |
 | **String**                                         | key                 |
 | **final io.github.atlascommunity.marklet.Options** | options             |
-| **final javax.lang.model.element.TypeElement**     | classElement        |
-| **private static final String**                    | DESCRIPTION_PATTERN |
-| **final com.sun.source.util.DocTrees**             | treeUtils           |
 #### Methods
-| Type and modifiers | Method signature                         | Return type                                     |
-| ------------------ | ---------------------------------------- | ----------------------------------------------- |
-| ****               | findElements                             | Set<javax.lang.model.element.ExecutableElement> |
-| **private**        | methodDescription(ExecutableElement doc) | String                                          |
-| **public**         | generate                                 | String                                          |
-| ****               | signatureString(ExecutableElement doc)   | String                                          |
+| Type and modifiers | Method signature                           | Return type                                     |
+| ------------------ | ------------------------------------------ | ----------------------------------------------- |
+| ****               | signatureString (ExecutableElement method) | String                                          |
+| **public**         | generate  **(Override)**                   | String                                          |
+| **private**        | methodDescription (ExecutableElement doc)  | String                                          |
+| ****               | findElements                               | Set<javax.lang.model.element.ExecutableElement> |
 
 Constructors
 ============
-ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,io.github.atlascommunity.marklet.Options)
-----------------------------------------------------------------------------------------------------------------------------
+ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,javax.lang.model.util.Types,io.github.atlascommunity.marklet.Options)
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 *No method description provided*
 
 
 
 Fields
 ======
-String OVERRIDE_MARK
-------------------------------
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
 *No description provided*
+
+
+javax.lang.model.util.Types typeUtils
+-------------------------------------
+*No description provided*
+
+
+String DESCRIPTION_PATTERN
+------------------------------------
+Pattern for colon separated description
+
+
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
+Class information
 
 
 String key
@@ -50,31 +65,25 @@ io.github.atlascommunity.marklet.Options options
 Doclet options
 
 
-javax.lang.model.element.TypeElement classElement
--------------------------------------------------
-Class information
-
-
-String DESCRIPTION_PATTERN
-------------------------------------
-Pattern for colon separated description
-
-
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
-*No description provided*
-
-
 
 Methods
 =======
-findElements
-------------
+signatureString (ExecutableElement method)
+------------------------------------------
 *No method description provided*
 
 
-methodDescription(ExecutableElement doc)
-----------------------------------------
+generate  **(Override)**
+------------------------
+
+
+### Returns
+
+markdown string representation of document part
+
+
+methodDescription (ExecutableElement doc)
+-----------------------------------------
 
 
 ### Parameters
@@ -86,17 +95,8 @@ doc: method representation
 markdown string
 
 
-generate
---------
-
-
-### Returns
-
-markdown string representation of document part
-
-
-signatureString(ExecutableElement doc)
---------------------------------------
+findElements 
+-------------
 *No method description provided*
 
 

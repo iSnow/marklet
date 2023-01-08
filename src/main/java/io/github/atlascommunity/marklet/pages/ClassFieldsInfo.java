@@ -2,15 +2,14 @@ package io.github.atlascommunity.marklet.pages;
 
 import com.sun.source.doctree.DocCommentTree;
 import com.sun.source.util.DocTrees;
+import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import io.github.atlascommunity.marklet.util.Sanitizers;
-import io.github.atlascommunity.marklet.util.TypeUtils;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -28,7 +27,7 @@ public class ClassFieldsInfo implements ClassPageElement {
   @Override
   public String generate() {
 
-    Set<VariableElement> fields = TypeUtils.findClassFields(classElement);
+    Set<VariableElement> fields = MarkletTypeUtils.findClassFields(classElement);
     int numberOfFields = fields.size();
     if (numberOfFields > 0) {
       Heading sectionHeading = new Heading(FIELDS, 1);

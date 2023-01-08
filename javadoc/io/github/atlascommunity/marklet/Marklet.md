@@ -12,28 +12,28 @@ io.github.atlascommunity.marklet.Marklet Summary
 #### Fields
 | Type and modifiers                                         | Field name          |
 | ---------------------------------------------------------- | ------------------- |
-| **jdk.javadoc.doclet.Reporter**                            | reporter            |
-| **private jdk.javadoc.doclet.DocletEnvironment**           | root                |
-| **private final Map<String,String>**                       | classPackageMapping |
 | **private Locale**                                         | locale              |
+| **private jdk.javadoc.doclet.DocletEnvironment**           | root                |
+| **jdk.javadoc.doclet.Reporter**                            | reporter            |
+| **private final Map<String,String>**                       | classPackageMapping |
 | **private final io.github.atlascommunity.marklet.Options** | options             |
 #### Methods
-| Type and modifiers | Method signature                                                       | Return type                                     |
-| ------------------ | ---------------------------------------------------------------------- | ----------------------------------------------- |
-| **public**         | getSupportedOptions                                                    | Set<? extends jdk.javadoc.doclet.Doclet.Option> |
-| **public**         | getName                                                                | String                                          |
-| **public**         | test1(Map<String,Integer> arg1)                                        | boolean                                         |
-| **private**        | buildClasses                                                           | void                                            |
-| **private**        | start                                                                  | boolean                                         |
-| **private**        | getPackageDirectory(String packageName)                                | java.nio.file.Path                              |
-| **private**        | generatePackage(PackageElement packageElement)                         | void                                            |
-| **public**         | run(DocletEnvironment environment)                                     | boolean                                         |
-| **public**         | test1(boolean test1Var1, int test1Var2)                                | boolean                                         |
-| **public static**  | main(String[] args)                                                    | void                                            |
-| **public**         | init(Locale locale, Reporter reporter)                                 | void                                            |
-| **private**        | generateReadme(List<javax.lang.model.element.PackageElement> packages) | void                                            |
-| **public**         | getSupportedSourceVersion                                              | javax.lang.model.SourceVersion                  |
-| **private**        | buildPackages                                                          | List<javax.lang.model.element.PackageElement>   |
+| Type and modifiers | Method signature                                                        | Return type                                     |
+| ------------------ | ----------------------------------------------------------------------- | ----------------------------------------------- |
+| **private**        | buildClasses                                                            | void                                            |
+| **private**        | generateReadme (List<javax.lang.model.element.PackageElement> packages) | void                                            |
+| **public**         | test1 (boolean test1Var1, int test1Var2)                                | boolean                                         |
+| **public**         | test1 (Map<String,Integer> arg1)                                        | boolean                                         |
+| **private**        | generatePackage (PackageElement packageElement)                         | void                                            |
+| **private**        | start                                                                   | boolean                                         |
+| **public**         | getName  **(Override)**                                                 | String                                          |
+| **public**         | getSupportedOptions  **(Override)**                                     | Set<? extends jdk.javadoc.doclet.Doclet.Option> |
+| **private**        | buildPackages                                                           | List<javax.lang.model.element.PackageElement>   |
+| **private**        | getPackageDirectory (String packageName)                                | java.nio.file.Path                              |
+| **public**         | init (Locale locale, Reporter reporter)                                 | void                                            |
+| **public**         | run (DocletEnvironment environment)                                     | boolean                                         |
+| **public static**  | main (String[] args)                                                    | void                                            |
+| **public**         | getSupportedSourceVersion  **(Override)**                               | javax.lang.model.SourceVersion                  |
 
 Constructors
 ============
@@ -45,8 +45,8 @@ Marklet()
 
 Fields
 ======
-jdk.javadoc.doclet.Reporter reporter
-------------------------------------
+Locale locale
+-----------------------
 *No description provided*
 
 
@@ -55,13 +55,13 @@ jdk.javadoc.doclet.DocletEnvironment root
 Documentation root provided by the doclet API. *
 
 
-Map<String,String> classPackageMapping
---------------------------------------------------------------------
+jdk.javadoc.doclet.Reporter reporter
+------------------------------------
 *No description provided*
 
 
-Locale locale
------------------------
+Map<String,String> classPackageMapping
+--------------------------------------------------------------------
 *No description provided*
 
 
@@ -73,18 +73,35 @@ Command line options that have been parsed. *
 
 Methods
 =======
-getSupportedOptions
--------------------
-*No method description provided*
+buildClasses 
+-------------
+Generates documentation file for classes, enumerations, interfaces, or annotations.
+
+### Throws
+
+IOException: If any error occurs during generation process.
 
 
-getName
--------
-*No method description provided*
+generateReadme (List<javax.lang.model.element.PackageElement> packages)
+-----------------------------------------------------------------------
+Generates Readme file
+
+### Throws
+
+IOException: If any error occurs during generation process.
+
+### Parameters
+
+packages: project packages list
 
 
-test1(Map<String,Integer> arg1)
--------------------------------
+test1 (boolean test1Var1, int test1Var2)
+----------------------------------------
+Test methods
+
+
+test1 (Map<String,Integer> arg1)
+--------------------------------
 
 
 ### Parameters
@@ -98,17 +115,21 @@ false if false
 **Deprecated** since 9
 
 
-buildClasses
-------------
-Generates documentation file for classes, enumerations, interfaces, or annotations.
+generatePackage (PackageElement packageElement)
+-----------------------------------------------
+Generates package documentation for the given ``packageElement``.
 
 ### Throws
 
-IOException: If any error occurs during generation process.
+IOException: If any error occurs while creating file or directories.
+
+### Parameters
+
+packageElement: Package to generate documentation for.
 
 
-start
------
+start 
+------
 
 
 ### Returns
@@ -116,8 +137,31 @@ start
 `true` if generation was successful, `false` otherwise.
 
 
-getPackageDirectory(String packageName)
----------------------------------------
+getName  **(Override)**
+-----------------------
+*No method description provided*
+
+
+getSupportedOptions  **(Override)**
+-----------------------------------
+*No method description provided*
+
+
+buildPackages 
+--------------
+Generates documentation file for each package.
+
+### Throws
+
+IOException: If any error occurs during generation process.
+
+### Returns
+
+list of packages documents
+
+
+getPackageDirectory (String packageName)
+----------------------------------------
 Builds and retrieves the path for the directory associated to the package with the given
  <tt>name</tt>.
 
@@ -130,21 +174,20 @@ packageName: Name of the package to get directory for.
 Built path.
 
 
-generatePackage(PackageElement packageElement)
-----------------------------------------------
-Generates package documentation for the given ``packageElement``.
-
-### Throws
-
-IOException: If any error occurs while creating file or directories.
+init (Locale locale, Reporter reporter)
+---------------------------------------
+Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
+ doclet entry point
 
 ### Parameters
 
-packageElement: Package to generate documentation for.
+- locale: the locale to be used
+- reporter: the reporter to be used
 
 
-run(DocletEnvironment environment)
-----------------------------------
+
+run (DocletEnvironment environment)
+-----------------------------------
 **Doclet** worker point. Parses user provided options and starts a **Marklet** execution.
 
 ### Parameters
@@ -156,61 +199,18 @@ environment: DocletEnvironment.
 ``true`` if the generation went well, ``false`` otherwise.
 
 
-test1(boolean test1Var1, int test1Var2)
----------------------------------------
-Test methods
-
-
-main(String[] args)
--------------------
+main (String[] args)
+--------------------
 *No method description provided*
 
 
-init(Locale locale, Reporter reporter)
---------------------------------------
-Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
- doclet entry point
-
-### Parameters
-
-- locale: the locale to be used
-- reporter: the reporter to be used
-
-
-
-generateReadme(List<javax.lang.model.element.PackageElement> packages)
-----------------------------------------------------------------------
-Generates Readme file
-
-### Throws
-
-IOException: If any error occurs during generation process.
-
-### Parameters
-
-packages: project packages list
-
-
-getSupportedSourceVersion
--------------------------
+getSupportedSourceVersion  **(Override)**
+-----------------------------------------
 
 
 ### Returns
 
 LanguageVersion supported.
-
-
-buildPackages
--------------
-Generates documentation file for each package.
-
-### Throws
-
-IOException: If any error occurs during generation process.
-
-### Returns
-
-list of packages documents
 
 
 

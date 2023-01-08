@@ -5,7 +5,7 @@ import com.sun.source.doctree.DocTree;
 import com.sun.source.util.DocTrees;
 import com.sun.source.util.TreePath;
 import io.github.atlascommunity.marklet.Options;
-import io.github.atlascommunity.marklet.util.TypeUtils;
+import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import jdk.javadoc.doclet.DocletEnvironment;
 import jdk.javadoc.doclet.Reporter;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,6 @@ import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.*;
 import javax.lang.model.util.ElementFilter;
-import javax.lang.model.util.ElementScanner14;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -150,7 +149,7 @@ public class PackagePage implements DocumentPage {
    * @param packagePage string representation of package page content
    */
   private void createPackageClassIndex(StringBuilder packagePage) {
-    Set<TypeElement> packageClasses = TypeUtils.findPackageClasses(packageElement);
+    Set<TypeElement> packageClasses = MarkletTypeUtils.findPackageClasses(packageElement);
     if (!packageClasses.isEmpty()) {
       generateTable(CLASSES, packageClasses.toArray(new TypeElement[]{}), packagePage);
       packagePage.append("\n");
