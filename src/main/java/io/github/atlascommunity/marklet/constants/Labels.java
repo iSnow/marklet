@@ -12,6 +12,9 @@ public final class Labels {
   /** Label for interface. * */
   public static final String INTERFACE = "Interface";
 
+  /** Label for Record. * */
+  public static final String RECORD = "Record";
+
   /** Label for class. * */
   public static final String CLASS = "Class";
 
@@ -53,6 +56,9 @@ public final class Labels {
 
   /** Label for summary. * */
   public static final String SUMMARY = "Summary";
+
+  /** Label for unknown. * */
+  public static final String UNKNOWN = "???";
 
   public static final String DEPRECATED = "Deprecated";
 }

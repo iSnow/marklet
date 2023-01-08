@@ -1,5 +1,5 @@
-Class ClassQualifiedPathInfo
-============================
+Class ClassQualifiedPathInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
+===============================================================================================
 Class document title
 
 io.github.atlascommunity.marklet.pages.ClassQualifiedPathInfo Summary

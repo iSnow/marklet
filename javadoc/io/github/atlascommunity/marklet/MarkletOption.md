@@ -1,5 +1,5 @@
-Class MarkletOption
-===================
+Class MarkletOption implements jdk.javadoc.doclet.Doclet.Option
+===============================================================
 
 
 io.github.atlascommunity.marklet.MarkletOption Summary
@@ -11,23 +11,23 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 #### Fields
 | Type and modifiers                                      | Field name    |
 | ------------------------------------------------------- | ------------- |
-| **private final String**                                | parameters    |
 | **private final String**                                | description   |
-| **private final List<String>**                          | names         |
 | **private final jdk.javadoc.doclet.Doclet.Option.Kind** | kind          |
 | **private String**                                      | value         |
+| **private final String**                                | parameters    |
+| **private final List<String>**                          | names         |
 | **private final int**                                   | argumentCount |
 #### Methods
 | Type and modifiers | Method signature                               | Return type                           |
 | ------------------ | ---------------------------------------------- | ------------------------------------- |
-| **public**         | getNames                                       | List<String>                          |
-| **public**         | getDescription                                 | String                                |
-| **public**         | getValue                                       | String                                |
-| **public**         | toString                                       | String                                |
+| **public**         | getArgumentCount                               | int                                   |
 | **public**         | process(String option, List<String> arguments) | boolean                               |
 | **public**         | getKind                                        | jdk.javadoc.doclet.Doclet.Option.Kind |
+| **public**         | toString                                       | String                                |
+| **public**         | getValue                                       | String                                |
 | **public**         | getParameters                                  | String                                |
-| **public**         | getArgumentCount                               | int                                   |
+| **public**         | getNames                                       | List<String>                          |
+| **public**         | getDescription                                 | String                                |
 
 Constructors
 ============
@@ -39,18 +39,8 @@ MarkletOption()
 
 Fields
 ======
-String parameters
----------------------------
-*No description provided*
-
-
 String description
 ----------------------------
-*No description provided*
-
-
-List<String> names
---------------------------------------
 *No description provided*
 
 
@@ -64,6 +54,16 @@ String value
 *No description provided*
 
 
+String parameters
+---------------------------
+*No description provided*
+
+
+List<String> names
+--------------------------------------
+*No description provided*
+
+
 int argumentCount
 -----------------
 *No description provided*
@@ -72,23 +72,8 @@ int argumentCount
 
 Methods
 =======
-getNames
---------
-*No method description provided*
-
-
-getDescription
---------------
-*No method description provided*
-
-
-getValue
---------
-*No method description provided*
-
-
-toString
---------
+getArgumentCount
+----------------
 *No method description provided*
 
 
@@ -102,13 +87,28 @@ getKind
 *No method description provided*
 
 
+toString
+--------
+*No method description provided*
+
+
+getValue
+--------
+*No method description provided*
+
+
 getParameters
 -------------
 *No method description provided*
 
 
-getArgumentCount
-----------------
+getNames
+--------
+*No method description provided*
+
+
+getDescription
+--------------
 *No method description provided*
 
 

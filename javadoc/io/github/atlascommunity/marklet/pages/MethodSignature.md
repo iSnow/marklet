@@ -1,5 +1,5 @@
-Class MethodSignature
-=====================
+Class MethodSignature implements io.github.atlascommunity.marklet.pages.ClassPageElement
+========================================================================================
 Forms readable method signature
 
 io.github.atlascommunity.marklet.pages.MethodSignature Summary

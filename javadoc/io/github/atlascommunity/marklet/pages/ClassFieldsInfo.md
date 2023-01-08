@@ -1,5 +1,5 @@
-Class ClassFieldsInfo
-=====================
+Class ClassFieldsInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
+========================================================================================
 Class fields description
 
 io.github.atlascommunity.marklet.pages.ClassFieldsInfo Summary

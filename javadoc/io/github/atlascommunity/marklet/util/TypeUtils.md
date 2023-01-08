@@ -9,14 +9,16 @@ io.github.atlascommunity.marklet.util.TypeUtils Summary
 | ---------- | ----------- |
 | **public** | TypeUtils() |
 #### Methods
-| Type and modifiers | Method signature                                        | Return type                                     |
-| ------------------ | ------------------------------------------------------- | ----------------------------------------------- |
-| **public static**  | findClassFields(TypeElement classElement)               | Set<javax.lang.model.element.VariableElement>   |
-| **public static**  | findPackageClasses(DocletEnvironment root)              | Set<javax.lang.model.element.TypeElement>       |
-| **public static**  | findPackageClasses(PackageElement t)                    | Set<javax.lang.model.element.TypeElement>       |
-| **public static**  | findClassMethods(TypeElement classElement)              | Set<javax.lang.model.element.ExecutableElement> |
-| **public static**  | findInClass(ElementKind kind, TypeElement classElement) | Set<javax.lang.model.element.Element>           |
-| **public static**  | findClassConstructors(TypeElement classElement)         | Set<javax.lang.model.element.ExecutableElement> |
+| Type and modifiers | Method signature                                        | Return type                                      |
+| ------------------ | ------------------------------------------------------- | ------------------------------------------------ |
+| **public static**  | findClassFields(TypeElement classElement)               | Set<javax.lang.model.element.VariableElement>    |
+| **public static**  | findClassMethods(TypeElement classElement)              | Set<javax.lang.model.element.ExecutableElement>  |
+| **public static**  | findPackageClasses(DocletEnvironment root)              | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | findPackageClasses(PackageElement t)                    | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | findImplementedInterfaces(TypeElement classElement)     | List<? extends javax.lang.model.type.TypeMirror> |
+| **public static**  | findClassAnnotations(TypeElement classElement)          | Set<javax.lang.model.element.Element>            |
+| **public static**  | findClassConstructors(TypeElement classElement)         | Set<javax.lang.model.element.ExecutableElement>  |
+| **public static**  | findInClass(ElementKind kind, TypeElement classElement) | Set<javax.lang.model.element.Element>            |
 
 Constructors
 ============
@@ -31,6 +33,15 @@ Methods
 findClassFields(TypeElement classElement)
 -----------------------------------------
 Find all class fields
+
+### Parameters
+
+classElement: the class to scan
+
+
+findClassMethods(TypeElement classElement)
+------------------------------------------
+Find all class methods
 
 ### Parameters
 
@@ -55,18 +66,18 @@ Find all package classes
 t: the PackageElement to scan
 
 
-findClassMethods(TypeElement classElement)
-------------------------------------------
-Find all class methods
+findImplementedInterfaces(TypeElement classElement)
+---------------------------------------------------
+*No method description provided*
+
+
+findClassAnnotations(TypeElement classElement)
+----------------------------------------------
+Find all class annotations
 
 ### Parameters
 
 classElement: the class to scan
-
-
-findInClass(ElementKind kind, TypeElement classElement)
--------------------------------------------------------
-*No method description provided*
 
 
 findClassConstructors(TypeElement classElement)
@@ -76,6 +87,11 @@ Find all class constructors
 ### Parameters
 
 classElement: the class to scan
+
+
+findInClass(ElementKind kind, TypeElement classElement)
+-------------------------------------------------------
+*No method description provided*
 
 
 

@@ -1,5 +1,5 @@
-Class ClassMethodsInfo
-======================
+Class ClassMethodsInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
+=========================================================================================
 Class methods description
 
 io.github.atlascommunity.marklet.pages.ClassMethodsInfo Summary
@@ -11,19 +11,19 @@ io.github.atlascommunity.marklet.pages.ClassMethodsInfo Summary
 #### Fields
 | Type and modifiers                                 | Field name          |
 | -------------------------------------------------- | ------------------- |
-| **final io.github.atlascommunity.marklet.Options** | options             |
-| **final com.sun.source.util.DocTrees**             | treeUtils           |
+| **private static final String**                    | DESCRIPTION_PATTERN |
 | **String**                                         | key                 |
 | **final javax.lang.model.element.TypeElement**     | classElement        |
+| **final com.sun.source.util.DocTrees**             | treeUtils           |
 | **private static final String**                    | OVERRIDE_MARK       |
-| **private static final String**                    | DESCRIPTION_PATTERN |
+| **final io.github.atlascommunity.marklet.Options** | options             |
 #### Methods
 | Type and modifiers | Method signature                         | Return type                                     |
 | ------------------ | ---------------------------------------- | ----------------------------------------------- |
+| **public**         | generate                                 | String                                          |
+| ****               | signatureString(ExecutableElement doc)   | String                                          |
 | ****               | findElements                             | Set<javax.lang.model.element.ExecutableElement> |
 | **private**        | methodDescription(ExecutableElement doc) | String                                          |
-| ****               | signatureString(ExecutableElement doc)   | String                                          |
-| **public**         | generate                                 | String                                          |
 
 Constructors
 ============
@@ -35,14 +35,9 @@ ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTre
 
 Fields
 ======
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-Doclet options
-
-
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
-*No description provided*
+String DESCRIPTION_PATTERN
+------------------------------------
+Pattern for colon separated description
 
 
 String key
@@ -55,19 +50,38 @@ javax.lang.model.element.TypeElement classElement
 Class information
 
 
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
+*No description provided*
+
+
 String OVERRIDE_MARK
 ------------------------------
 *No description provided*
 
 
-String DESCRIPTION_PATTERN
-------------------------------------
-Pattern for colon separated description
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+Doclet options
 
 
 
 Methods
 =======
+generate
+--------
+
+
+### Returns
+
+markdown string representation of document part
+
+
+signatureString(ExecutableElement doc)
+--------------------------------------
+*No method description provided*
+
+
 findElements
 ------------
 *No method description provided*
@@ -84,20 +98,6 @@ doc: method representation
 ### Returns
 
 markdown string
-
-
-signatureString(ExecutableElement doc)
---------------------------------------
-*No method description provided*
-
-
-generate
---------
-
-
-### Returns
-
-markdown string representation of document part
 
 
 

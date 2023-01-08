@@ -1,5 +1,5 @@
-Class ReadmePage
-================
+Class ReadmePage implements io.github.atlascommunity.marklet.pages.DocumentPage
+===============================================================================
 Index of project packages
 
 io.github.atlascommunity.marklet.pages.ReadmePage Summary
@@ -11,9 +11,9 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 #### Fields
 | Type and modifiers                                              | Field name           |
 | --------------------------------------------------------------- | -------------------- |
+| **private final List<javax.lang.model.element.PackageElement>** | packages             |
 | **private final io.github.atlascommunity.marklet.Options**      | options              |
 | **private static final String**                                 | TABLE_PACKAGE_HEADER |
-| **private final List<javax.lang.model.element.PackageElement>** | packages             |
 #### Methods
 | Type and modifiers | Method signature         | Return type |
 | ------------------ | ------------------------ | ----------- |
@@ -29,6 +29,11 @@ ReadmePage()
 
 Fields
 ======
+List<javax.lang.model.element.PackageElement> packages
+----------------------------------------------------------------
+List of project packages
+
+
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
 Doclet options
@@ -37,11 +42,6 @@ Doclet options
 String TABLE_PACKAGE_HEADER
 -------------------------------------
 Table header
-
-
-List<javax.lang.model.element.PackageElement> packages
-----------------------------------------------------------------
-List of project packages
 
 
 

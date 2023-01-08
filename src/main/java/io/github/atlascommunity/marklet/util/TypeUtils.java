@@ -3,8 +3,11 @@ package io.github.atlascommunity.marklet.util;
 import jdk.javadoc.doclet.DocletEnvironment;
 
 import javax.lang.model.element.*;
+import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -75,6 +78,18 @@ public class TypeUtils {
                 .collect(Collectors.toSet());
     }
 
+    /**
+     * Find all class annotations
+     *
+     * @param classElement the class to scan
+     */
+    public static Set<Element> findClassAnnotations(TypeElement classElement) {
+        return findInClass(ElementKind.ANNOTATION_TYPE, classElement)
+                .stream()
+                .map((e) -> (Element)e)
+                .collect(Collectors.toSet());
+    }
+
     public static Set<Element> findInClass(ElementKind kind, TypeElement classElement) {
         Set<Element> elements = new LinkedHashSet<>();
         for (Element e : classElement.getEnclosedElements()) {
@@ -83,5 +98,12 @@ public class TypeUtils {
             }
         }
         return elements;
+    }
+
+    public static List<? extends TypeMirror> findImplementedInterfaces(TypeElement classElement) {
+        if (!classElement.getKind().equals(ElementKind.ANNOTATION_TYPE)) {
+                    return classElement.getInterfaces();
+        }
+        return new ArrayList<>();
     }
 }

@@ -14,10 +14,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.lang.model.SourceVersion;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.PackageElement;
-import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.*;
 import javax.lang.model.util.ElementFilter;
 import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic;
@@ -29,6 +26,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.Options.OUTPUT_DIRECTORY_OPTION;
 
@@ -223,6 +221,12 @@ public final class Marklet implements Doclet {
       if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
 
       List<PackageElement> packages = buildPackages();
+      // shortest pkg name is base package
+      /*basePackageName = packages
+              .stream()
+              .map(Object::toString)
+              .min(Comparator.comparingInt(CharSequence::length))
+              .orElse(null);*/
       reporter.print(Diagnostic.Kind.NOTE, "packages: " + packages);
 
       generateReadme(packages);

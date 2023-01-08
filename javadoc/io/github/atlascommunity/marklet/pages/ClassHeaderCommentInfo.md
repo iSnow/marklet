@@ -1,5 +1,5 @@
-Class ClassHeaderCommentInfo
-============================
+Class ClassHeaderCommentInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
+===============================================================================================
 
 
 io.github.atlascommunity.marklet.pages.ClassHeaderCommentInfo Summary

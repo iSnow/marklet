@@ -1,11 +1,17 @@
 package io.github.atlascommunity.marklet.pages;
 
+import io.github.atlascommunity.marklet.util.TypeUtils;
 import lombok.RequiredArgsConstructor;
 
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.TypeMirror;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.constants.Labels.*;
+import static io.github.atlascommunity.marklet.constants.Labels.INTERFACE;
 
 /** Class document title */
 @RequiredArgsConstructor
@@ -19,19 +25,38 @@ public class ClassTitle implements ClassPageElement {
   public String generate() {
 
     StringBuilder builder = new StringBuilder();
-    ElementKind kind = classElement.getKind();
-    if (kind.equals(ElementKind.ANNOTATION_TYPE)) {
-      builder.append(ANNOTATION);
-    } else if (kind.equals(ElementKind.INTERFACE)) {
-      builder.append(INTERFACE);
-    } else if (kind.equals(ElementKind.ENUM)) {
-      builder.append(ENUMERATION);
-    } else if (kind.isClass()) {
-      builder.append(CLASS);
+    switch (classElement.getKind()) {
+      case ENUM -> {
+        builder.append(ENUMERATION);
+      }
+      case CLASS -> {
+        builder.append(CLASS);
+      }
+      case ANNOTATION_TYPE -> {
+        builder.append(ANNOTATION);
+      }
+      case INTERFACE -> {
+        builder.append(INTERFACE);
+      }
+      case RECORD -> {
+        builder.append(RECORD);
+      }
+      default -> {
+        builder.append(UNKNOWN);
+      }
     }
 
     StringBuilder title = builder.append(' ').append(classElement.getSimpleName());
 
+    List<? extends TypeMirror> implementedInterfaces = TypeUtils.findImplementedInterfaces(classElement);
+    if (!implementedInterfaces.isEmpty()) {
+      title.append(" implements ");
+      String interfaceStr = implementedInterfaces
+              .stream()
+              .map(TypeMirror::toString)
+              .collect(Collectors.joining(", "));
+      title.append(interfaceStr);
+    }
     return title.toString();
   }
 }

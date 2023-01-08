@@ -1,5 +1,5 @@
-Class ClassSummary
-==================
+Class ClassSummary implements io.github.atlascommunity.marklet.pages.ClassPageElement
+=====================================================================================
 Brief class description
 
 io.github.atlascommunity.marklet.pages.ClassSummary Summary
@@ -16,10 +16,10 @@ io.github.atlascommunity.marklet.pages.ClassSummary Summary
 #### Methods
 | Type and modifiers | Method signature                                     | Return type |
 | ------------------ | ---------------------------------------------------- | ----------- |
+| **private static** | generateFieldSummary(TypeElement classElement)       | String      |
 | **private static** | generateMethodSummary(TypeElement classElement)      | String      |
 | **public**         | generate                                             | String      |
 | **private static** | generateConstructorSummary(TypeElement classElement) | String      |
-| **private static** | generateFieldSummary(TypeElement classElement)       | String      |
 
 Constructors
 ============
@@ -44,6 +44,15 @@ Table column name
 
 Methods
 =======
+generateFieldSummary(TypeElement classElement)
+----------------------------------------------
+
+
+### Returns
+
+markdown string representation of class fields
+
+
 generateMethodSummary(TypeElement classElement)
 -----------------------------------------------
 
@@ -69,15 +78,6 @@ generateConstructorSummary(TypeElement classElement)
 ### Returns
 
 markdown string representation of class constructors
-
-
-generateFieldSummary(TypeElement classElement)
-----------------------------------------------
-
-
-### Returns
-
-markdown string representation of class fields
 
 
 

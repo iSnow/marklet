@@ -1,5 +1,5 @@
-Class ClassPage
-===============
+Class ClassPage implements io.github.atlascommunity.marklet.pages.DocumentPage
+==============================================================================
 Markdown text file with class information
 
 io.github.atlascommunity.marklet.pages.ClassPage Summary
@@ -11,10 +11,10 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final com.sun.source.util.DocTrees**             | treeUtils    |
-| **private final com.sun.source.doctree.DocCommentTree**    | comments     |
 | **private final String**                                   | packageName  |
 | **private final io.github.atlascommunity.marklet.Options** | options      |
+| **private final com.sun.source.doctree.DocCommentTree**    | comments     |
+| **private final com.sun.source.util.DocTrees**             | treeUtils    |
 | **private final javax.lang.model.element.TypeElement**     | classElement |
 #### Methods
 | Type and modifiers | Method signature                   | Return type |
@@ -32,16 +32,6 @@ ClassPage()
 
 Fields
 ======
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
-*No description provided*
-
-
-com.sun.source.doctree.DocCommentTree comments
-----------------------------------------------
-*No description provided*
-
-
 String packageName
 ----------------------------
 *No description provided*
@@ -50,6 +40,16 @@ String packageName
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
 Doclet options
+
+
+com.sun.source.doctree.DocCommentTree comments
+----------------------------------------------
+*No description provided*
+
+
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
+*No description provided*
 
 
 javax.lang.model.element.TypeElement classElement

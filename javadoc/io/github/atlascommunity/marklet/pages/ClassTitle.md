@@ -1,5 +1,5 @@
-Class ClassTitle
-================
+Class ClassTitle implements io.github.atlascommunity.marklet.pages.ClassPageElement
+===================================================================================
 Class document title
 
 io.github.atlascommunity.marklet.pages.ClassTitle Summary

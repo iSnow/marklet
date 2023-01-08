@@ -1,6 +1,7 @@
 package io.github.atlascommunity.marklet.pages;
 
 import io.github.atlascommunity.marklet.util.Sanitizers;
+import io.github.atlascommunity.marklet.util.TypeUtils;
 import lombok.RequiredArgsConstructor;
 
 import javax.lang.model.element.Element;
