@@ -1,5 +1,5 @@
-Class ClassConstructorsInfo
-===========================
+Class ClassConstructorsInfo extends io.github.atlascommunity.marklet.pages.ClassMethodsInfo
+===========================================================================================
 Class constructors description
 
 io.github.atlascommunity.marklet.pages.ClassConstructorsInfo Summary
@@ -11,8 +11,8 @@ io.github.atlascommunity.marklet.pages.ClassConstructorsInfo Summary
 #### Methods
 | Type and modifiers | Method signature                       | Return type                                     |
 | ------------------ | -------------------------------------- | ----------------------------------------------- |
-| ****               | findElements                           | Set<javax.lang.model.element.ExecutableElement> |
 | ****               | signatureString(ExecutableElement doc) | String                                          |
+| ****               | findElements                           | Set<javax.lang.model.element.ExecutableElement> |
 
 Constructors
 ============
@@ -24,13 +24,13 @@ ClassConstructorsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.D
 
 Methods
 =======
-findElements
-------------
+signatureString(ExecutableElement doc)
+--------------------------------------
 *No method description provided*
 
 
-signatureString(ExecutableElement doc)
---------------------------------------
+findElements
+------------
 *No method description provided*
 
 

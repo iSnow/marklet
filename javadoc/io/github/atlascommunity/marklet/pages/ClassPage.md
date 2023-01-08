@@ -11,16 +11,16 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final String**                                   | packageName  |
 | **private final io.github.atlascommunity.marklet.Options** | options      |
 | **private final com.sun.source.doctree.DocCommentTree**    | comments     |
 | **private final com.sun.source.util.DocTrees**             | treeUtils    |
 | **private final javax.lang.model.element.TypeElement**     | classElement |
+| **private final String**                                   | packageName  |
 #### Methods
 | Type and modifiers | Method signature                   | Return type |
 | ------------------ | ---------------------------------- | ----------- |
-| **private**        | writeFile(StringBuilder classPage) | void        |
 | **public**         | build(Reporter reporter)           | void        |
+| **private**        | writeFile(StringBuilder classPage) | void        |
 
 Constructors
 ============
@@ -32,11 +32,6 @@ ClassPage()
 
 Fields
 ======
-String packageName
-----------------------------
-*No description provided*
-
-
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
 Doclet options
@@ -57,9 +52,19 @@ javax.lang.model.element.TypeElement classElement
 Class information
 
 
+String packageName
+----------------------------
+*No description provided*
+
+
 
 Methods
 =======
+build(Reporter reporter)
+------------------------
+Creates markdown text file
+
+
 writeFile(StringBuilder classPage)
 ----------------------------------
 Writes file to disk
@@ -71,11 +76,6 @@ IOException: If any error occurs during write process.
 ### Parameters
 
 classPage: markdown string with class information
-
-
-build(Reporter reporter)
-------------------------
-Creates markdown text file
 
 
 

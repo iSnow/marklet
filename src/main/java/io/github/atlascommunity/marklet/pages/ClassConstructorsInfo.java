@@ -21,6 +21,7 @@ public class ClassConstructorsInfo extends ClassMethodsInfo {
     key = CONSTRUCTORS;
   }
 
+  @Override
   Set<ExecutableElement> findElements() {
     return TypeUtils.findClassConstructors(classElement);
   }

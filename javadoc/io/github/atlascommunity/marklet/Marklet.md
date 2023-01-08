@@ -15,25 +15,25 @@ io.github.atlascommunity.marklet.Marklet Summary
 | **jdk.javadoc.doclet.Reporter**                            | reporter            |
 | **private jdk.javadoc.doclet.DocletEnvironment**           | root                |
 | **private final Map<String,String>**                       | classPackageMapping |
-| **private final io.github.atlascommunity.marklet.Options** | options             |
 | **private Locale**                                         | locale              |
+| **private final io.github.atlascommunity.marklet.Options** | options             |
 #### Methods
 | Type and modifiers | Method signature                                                       | Return type                                     |
 | ------------------ | ---------------------------------------------------------------------- | ----------------------------------------------- |
-| **public**         | getSupportedSourceVersion                                              | javax.lang.model.SourceVersion                  |
 | **public**         | getSupportedOptions                                                    | Set<? extends jdk.javadoc.doclet.Doclet.Option> |
+| **public**         | getName                                                                | String                                          |
+| **public**         | test1(Map<String,Integer> arg1)                                        | boolean                                         |
+| **private**        | buildClasses                                                           | void                                            |
 | **private**        | start                                                                  | boolean                                         |
-| **public**         | init(Locale locale, Reporter reporter)                                 | void                                            |
-| **public static**  | main(String[] args)                                                    | void                                            |
 | **private**        | getPackageDirectory(String packageName)                                | java.nio.file.Path                              |
 | **private**        | generatePackage(PackageElement packageElement)                         | void                                            |
-| **private**        | buildPackages                                                          | List<javax.lang.model.element.PackageElement>   |
-| **public**         | test1(boolean test1Var1, int test1Var2)                                | boolean                                         |
-| **public**         | getName                                                                | String                                          |
-| **private**        | buildClasses                                                           | void                                            |
 | **public**         | run(DocletEnvironment environment)                                     | boolean                                         |
-| **public**         | test1(Map<String,Integer> arg1)                                        | boolean                                         |
+| **public**         | test1(boolean test1Var1, int test1Var2)                                | boolean                                         |
+| **public static**  | main(String[] args)                                                    | void                                            |
+| **public**         | init(Locale locale, Reporter reporter)                                 | void                                            |
 | **private**        | generateReadme(List<javax.lang.model.element.PackageElement> packages) | void                                            |
+| **public**         | getSupportedSourceVersion                                              | javax.lang.model.SourceVersion                  |
+| **private**        | buildPackages                                                          | List<javax.lang.model.element.PackageElement>   |
 
 Constructors
 ============
@@ -60,31 +60,51 @@ Map<String,String> classPackageMapping
 *No description provided*
 
 
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-Command line options that have been parsed. *
-
-
 Locale locale
 -----------------------
 *No description provided*
 
 
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+Command line options that have been parsed. *
+
+
 
 Methods
 =======
-getSupportedSourceVersion
--------------------------
-
-
-### Returns
-
-LanguageVersion supported.
-
-
 getSupportedOptions
 -------------------
 *No method description provided*
+
+
+getName
+-------
+*No method description provided*
+
+
+test1(Map<String,Integer> arg1)
+-------------------------------
+
+
+### Parameters
+
+arg1: the args
+
+### Returns
+
+false if false
+
+**Deprecated** since 9
+
+
+buildClasses
+------------
+Generates documentation file for classes, enumerations, interfaces, or annotations.
+
+### Throws
+
+IOException: If any error occurs during generation process.
 
 
 start
@@ -94,23 +114,6 @@ start
 ### Returns
 
 `true` if generation was successful, `false` otherwise.
-
-
-init(Locale locale, Reporter reporter)
---------------------------------------
-Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
- doclet entry point
-
-### Parameters
-
-- locale: the locale to be used
-- reporter: the reporter to be used
-
-
-
-main(String[] args)
--------------------
-*No method description provided*
 
 
 getPackageDirectory(String packageName)
@@ -140,38 +143,6 @@ IOException: If any error occurs while creating file or directories.
 packageElement: Package to generate documentation for.
 
 
-buildPackages
--------------
-Generates documentation file for each package.
-
-### Throws
-
-IOException: If any error occurs during generation process.
-
-### Returns
-
-list of packages documents
-
-
-test1(boolean test1Var1, int test1Var2)
----------------------------------------
-Test methods
-
-
-getName
--------
-*No method description provided*
-
-
-buildClasses
-------------
-Generates documentation file for classes, enumerations, interfaces, or annotations.
-
-### Throws
-
-IOException: If any error occurs during generation process.
-
-
 run(DocletEnvironment environment)
 ----------------------------------
 **Doclet** worker point. Parses user provided options and starts a **Marklet** execution.
@@ -185,19 +156,26 @@ environment: DocletEnvironment.
 ``true`` if the generation went well, ``false`` otherwise.
 
 
-test1(Map<String,Integer> arg1)
--------------------------------
+test1(boolean test1Var1, int test1Var2)
+---------------------------------------
+Test methods
 
+
+main(String[] args)
+-------------------
+*No method description provided*
+
+
+init(Locale locale, Reporter reporter)
+--------------------------------------
+Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
+ doclet entry point
 
 ### Parameters
 
-arg1: the args
+- locale: the locale to be used
+- reporter: the reporter to be used
 
-### Returns
-
-false if false
-
-**Deprecated** since 9
 
 
 generateReadme(List<javax.lang.model.element.PackageElement> packages)
@@ -211,6 +189,28 @@ IOException: If any error occurs during generation process.
 ### Parameters
 
 packages: project packages list
+
+
+getSupportedSourceVersion
+-------------------------
+
+
+### Returns
+
+LanguageVersion supported.
+
+
+buildPackages
+-------------
+Generates documentation file for each package.
+
+### Throws
+
+IOException: If any error occurs during generation process.
+
+### Returns
+
+list of packages documents
 
 
 

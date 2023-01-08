@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.constants.Labels.*;
 import static io.github.atlascommunity.marklet.constants.Labels.INTERFACE;
+import static io.github.atlascommunity.marklet.util.Sanitizers.sanitizeSuperClass;
 
 /** Class document title */
 @RequiredArgsConstructor
@@ -56,6 +57,12 @@ public class ClassTitle implements ClassPageElement {
               .map(TypeMirror::toString)
               .collect(Collectors.joining(", "));
       title.append(interfaceStr);
+    }
+
+    String superclass = sanitizeSuperClass(classElement.getSuperclass());
+    if (!superclass.isEmpty()) {
+      title.append(" extends ");
+      title.append(superclass);
     }
     return title.toString();
   }
