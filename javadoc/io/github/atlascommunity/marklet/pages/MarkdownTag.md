@@ -7,7 +7,7 @@ io.github.atlascommunity.marklet.pages.MarkdownTag Summary
 #### Constructors
 | Visibility | Signature     |
 | ---------- | ------------- |
-| **public** | MarkdownTag() |
+| public     | MarkdownTag() |
 #### Fields
 | Type and modifiers                               | Field name |
 | ------------------------------------------------ | ---------- |

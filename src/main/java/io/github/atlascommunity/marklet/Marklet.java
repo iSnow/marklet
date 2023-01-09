@@ -103,15 +103,19 @@ public final class Marklet implements Doclet {
   }
 
 
-      /**
-       * Generates Readme file
-       *
-       * @param packages project packages list
-       * @throws IOException If any error occurs during generation process.
-       */
-  private void generateReadme(List<PackageElement> packages) throws IOException {
+  /**
+   * Generates documentation file for each module.
+   *
+   * @throws IOException If any error occurs during generation process.
+   * @return list of modules
+   */
+  private List<ModuleElement> buildModules() throws IOException {
+    final List<ModuleElement> modules = new ArrayList<>();
+    for (ModuleElement t : ElementFilter.modulesIn(root.getIncludedElements())) {
+      modules.add(t);
+    }
 
-    new ReadmePage(packages, options).build(reporter);
+    return modules;
   }
 
   /**
@@ -132,23 +136,18 @@ public final class Marklet implements Doclet {
   }
 
   /**
-   * Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
-   * doclet entry point
-   * 
-   * @param locale the locale to be used
-   * @param reporter the reporter to be used
-   */
-  @Override
-  public void init(Locale locale, Reporter reporter) {
-    this.reporter = reporter;
-    try {
-      final Path outputDirectory = Paths.get(options.getOutputDirectory());
-      //log.info("Target output directory : " + outputDirectory.toAbsolutePath());
-      if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
-    } catch (final IOException e) {
-      //log.error(e.getMessage());
-    }
+       * Generates Readme file
+       *
+       * @param modules project modules list
+       * @param packages project packages list
+       * @throws IOException If any error occurs during generation process.
+       */
+  private void generateReadme(List<ModuleElement> modules, List<PackageElement> packages) throws IOException {
+
+    new ReadmePage(modules, packages, options).build(reporter);
   }
+
+
 
   @Override
   public String getName() {
@@ -166,6 +165,24 @@ public final class Marklet implements Doclet {
     return SourceVersion.latest();
   }
 
+  /**
+   * Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
+   * doclet entry point
+   *
+   * @param locale the locale to be used
+   * @param reporter the reporter to be used
+   */
+  @Override
+  public void init(Locale locale, Reporter reporter) {
+    this.reporter = reporter;
+    try {
+      final Path outputDirectory = Paths.get(options.getOutputDirectory());
+      //log.info("Target output directory : " + outputDirectory.toAbsolutePath());
+      if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
+    } catch (final IOException e) {
+      //log.error(e.getMessage());
+    }
+  }
 
   /**
    * **Doclet** worker point. Parses user provided options and starts a **Marklet** execution.
@@ -175,15 +192,14 @@ public final class Marklet implements Doclet {
    */
   @Override
   public boolean run(DocletEnvironment environment) {
-    this.root = environment;
+    reporter.print(Diagnostic.Kind.NOTE, "Doclet 'Marklet' starting up");
     reporter.print(Diagnostic.Kind.NOTE, "outputDirectory: " + Options.getOption(OUTPUT_DIRECTORY_OPTION));
-    //log.info("start up");
+    root = environment;
     boolean result;
     try {
-      result = start();
+      result = doWork();
     } catch (final Exception e) {
       reporter.print(Diagnostic.Kind.ERROR, e.getMessage());
-      //log.error("An exception has been caught during generation (see stack trace below).");
       e.printStackTrace();
       result = false;
     }
@@ -210,30 +226,26 @@ public final class Marklet implements Doclet {
   }
 
   /** @return <tt>true</tt> if generation was successful, <tt>false</tt> otherwise. */
-  private boolean start() {
+  private boolean doWork() {
 
     try {
       final Path outputDirectory = Paths.get(options.getOutputDirectory());
-      //log.info("Target output directory : " + outputDirectory.toAbsolutePath());
       reporter.print(Diagnostic.Kind.NOTE, "Target output directory : " + outputDirectory.toAbsolutePath());
       if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
 
+      List<ModuleElement> modules = buildModules();
+      reporter.print(Diagnostic.Kind.NOTE, "modules: " + modules);
+
       List<PackageElement> packages = buildPackages();
-      // shortest pkg name is base package
-      /*basePackageName = packages
-              .stream()
-              .map(Object::toString)
-              .min(Comparator.comparingInt(CharSequence::length))
-              .orElse(null);*/
       reporter.print(Diagnostic.Kind.NOTE, "packages: " + packages);
 
-      generateReadme(packages);
+      generateReadme(modules, packages);
       for (PackageElement p : packages) {
         generatePackage(p);
       }
       buildClasses();
     } catch (final IOException e) {
-      //log.error(e.getMessage());
+      reporter.print(Diagnostic.Kind.ERROR, e.getMessage());
       return false;
     }
     return true;

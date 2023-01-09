@@ -7,7 +7,7 @@ io.github.atlascommunity.marklet.pages.ClassFieldsInfo Summary
 #### Constructors
 | Visibility | Signature         |
 | ---------- | ----------------- |
-| **public** | ClassFieldsInfo() |
+| public     | ClassFieldsInfo() |
 #### Fields
 | Type and modifiers                                     | Field name   |
 | ------------------------------------------------------ | ------------ |

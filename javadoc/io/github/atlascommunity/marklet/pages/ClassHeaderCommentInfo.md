@@ -7,7 +7,7 @@ io.github.atlascommunity.marklet.pages.ClassHeaderCommentInfo Summary
 #### Constructors
 | Visibility | Signature                |
 | ---------- | ------------------------ |
-| **public** | ClassHeaderCommentInfo() |
+| public     | ClassHeaderCommentInfo() |
 #### Fields
 | Type and modifiers                                      | Field name |
 | ------------------------------------------------------- | ---------- |

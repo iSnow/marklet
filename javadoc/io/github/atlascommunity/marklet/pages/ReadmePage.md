@@ -7,13 +7,13 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 #### Constructors
 | Visibility | Signature    |
 | ---------- | ------------ |
-| **public** | ReadmePage() |
+| public     | ReadmePage() |
 #### Fields
-| Type and modifiers                                              | Field name           |
-| --------------------------------------------------------------- | -------------------- |
-| **private static final String**                                 | TABLE_PACKAGE_HEADER |
-| **private final List<javax.lang.model.element.PackageElement>** | packages             |
-| **private final io.github.atlascommunity.marklet.Options**      | options              |
+| Type and modifiers                                              | Field name |
+| --------------------------------------------------------------- | ---------- |
+| **private final List<javax.lang.model.element.ModuleElement>**  | modules    |
+| **private final io.github.atlascommunity.marklet.Options**      | options    |
+| **private final List<javax.lang.model.element.PackageElement>** | packages   |
 #### Methods
 | Type and modifiers | Method signature                        | Return type |
 | ------------------ | --------------------------------------- | ----------- |
@@ -29,19 +29,19 @@ ReadmePage()
 
 Fields
 ======
-String TABLE_PACKAGE_HEADER
--------------------------------------
-Table header
-
-
-List<javax.lang.model.element.PackageElement> packages
-----------------------------------------------------------------
-List of project packages
+List<javax.lang.model.element.ModuleElement> modules
+--------------------------------------------------------------
+List of modules in the project
 
 
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
 Doclet options
+
+
+List<javax.lang.model.element.PackageElement> packages
+----------------------------------------------------------------
+List of project packages
 
 
 

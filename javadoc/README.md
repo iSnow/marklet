@@ -1,5 +1,11 @@
-Project packages list
-=====================
+List of modules
+===============
+| Module                           |
+| -------------------------------- |
+| io.github.atlascommunity.marklet |
+
+List of packages
+================
 | Package                                                                                           |
 | ------------------------------------------------------------------------------------------------- |
 | [io.github.atlascommunity.marklet](io/github/atlascommunity/marklet/Index.md)                     |

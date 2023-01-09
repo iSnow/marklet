@@ -7,7 +7,7 @@ io.github.atlascommunity.marklet.constants.Links Summary
 #### Constructors
 | Visibility | Signature |
 | ---------- | --------- |
-| **public** | Links()   |
+| public     | Links()   |
 #### Fields
 | Type and modifiers             | Field name |
 | ------------------------------ | ---------- |

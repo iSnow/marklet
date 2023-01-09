@@ -58,18 +58,16 @@ public class ClassSummary implements ClassPageElement {
                       .withRowLimit(numberOfMethods + 1)
                       .addRow(TYPE_AND_MODIFIERS_COLUMN, "Method signature", "Return type");
 
-      methods.stream()
-              //.filter(m -> m.overriddenMethod() == null)
-              .forEach(
-                      m -> {
-                        String modifiers = m.getModifiers().stream().map(Modifier::toString).collect(Collectors.joining(" "));
-                        TypeMirror mirror = m.getReturnType();
-                        ExecutableElement overriddenMethod = findOverriddenMethod(m, typeUtils);
-                        tableEntries.addRow(
-                                new BoldText(modifiers),
-                                new OverriddenMethodSignatureElement(m, overriddenMethod).generate(),
-                                Sanitizers.sanitizePackageNames(mirror.toString()));
-                      });
+      methods.forEach(
+        m -> {
+          String modifiers = m.getModifiers().stream().map(Modifier::toString).collect(Collectors.joining(" "));
+          TypeMirror mirror = m.getReturnType();
+          ExecutableElement overriddenMethod = findOverriddenMethod(m, typeUtils);
+          tableEntries.addRow(
+                  modifiers.isEmpty()? "" : new BoldText(modifiers),
+                  new OverriddenMethodSignatureElement(m, overriddenMethod).generate(),
+                  Sanitizers.sanitizePackageNames(mirror.toString()));
+        });
 
       methodsTable.append(tableEntries.build());
       summary.append(methodsTable).append("\n");
@@ -104,7 +102,7 @@ public class ClassSummary implements ClassPageElement {
         TypeMirror typeMirror = f.asType();
         String rawModifiersAndType = String.format("%s %s", modifiers, typeMirror).trim();
         String modifiersAndType = Sanitizers.sanitizePackageNames(rawModifiersAndType);
-        tableEntries.addRow(new BoldText(modifiersAndType), f.getSimpleName());
+        tableEntries.addRow(modifiersAndType.isEmpty()? "" : new BoldText(modifiersAndType), f.getSimpleName());
       }
       fieldsTable.append(tableEntries.build());
       summary.append(fieldsTable).append("\n");
@@ -132,7 +130,7 @@ public class ClassSummary implements ClassPageElement {
       for (Element c : ctors) {
 
         String modifiers = c.getModifiers().stream().map(Modifier::toString).collect(Collectors.joining(" "));
-        tableEntries.addRow(new BoldText(modifiers), c.toString());
+        tableEntries.addRow(modifiers.isEmpty()? "" : modifiers, c.toString());
       }
 
       constructorsTable.append(tableEntries.build());

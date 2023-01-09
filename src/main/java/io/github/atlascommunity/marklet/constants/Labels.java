@@ -66,4 +66,12 @@ public final class Labels {
   public static final String OVERRIDES = "Overrides/Implements:";
 
   public static final String OVERRIDE_MARK = "(Override)";
+
+  /** Table header */
+  public static final String TABLE_PACKAGE_HEADER = "Package";
+
+  /** Table header */
+  public static final String TABLE_MODULE_HEADER = "Module";
+
+
 }

@@ -7,7 +7,7 @@ io.github.atlascommunity.marklet.pages.ClassQualifiedPathInfo Summary
 #### Constructors
 | Visibility | Signature                |
 | ---------- | ------------------------ |
-| **public** | ClassQualifiedPathInfo() |
+| public     | ClassQualifiedPathInfo() |
 #### Fields
 | Type and modifiers                                     | Field name   |
 | ------------------------------------------------------ | ------------ |

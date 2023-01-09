@@ -7,7 +7,7 @@ io.github.atlascommunity.marklet.pages.ClassTitle Summary
 #### Constructors
 | Visibility | Signature    |
 | ---------- | ------------ |
-| **public** | ClassTitle() |
+| public     | ClassTitle() |
 #### Fields
 | Type and modifiers                                     | Field name   |
 | ------------------------------------------------------ | ------------ |

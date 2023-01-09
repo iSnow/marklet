@@ -8,6 +8,7 @@ import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+import javax.lang.model.element.ModuleElement;
 import javax.lang.model.element.PackageElement;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,19 +20,21 @@ import java.util.List;
 
 import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
 import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
+import static io.github.atlascommunity.marklet.constants.Labels.TABLE_MODULE_HEADER;
+import static io.github.atlascommunity.marklet.constants.Labels.TABLE_PACKAGE_HEADER;
 
 /** Index of project packages */
 @RequiredArgsConstructor
 public class ReadmePage implements DocumentPage {
+
+  /** List of modules in the project */
+  private final List<ModuleElement> modules;
 
   /** List of project packages */
   private final List<PackageElement> packages;
 
   /** Doclet options */
   private final Options options;
-
-  /** Table header */
-  private static final String TABLE_PACKAGE_HEADER = "Package";
 
   /**
    * Build document and write it to the selected folder
@@ -41,8 +44,22 @@ public class ReadmePage implements DocumentPage {
   @Override
   public void build(Reporter reporter) throws IOException {
 
-    StringBuilder tableOfContents =
-        new StringBuilder().append(new Heading("Project packages list", 1)).append("\n");
+    StringBuilder tableOfContents = new StringBuilder();
+
+    if (modules.size() > 0) {
+      tableOfContents.append(new Heading("List of modules", 1)).append("\n");
+      Table.Builder moduleTable =
+              new Table.Builder()
+                      .withAlignments(Table.ALIGN_LEFT)
+                      .withRowLimit(modules.size() +1)
+                      .addRow(TABLE_MODULE_HEADER);
+      modules.forEach(
+              p -> {
+                moduleTable.addRow(p.getQualifiedName().toString());
+              });
+      tableOfContents.append(moduleTable.build()).append("\n\n");
+    }
+    tableOfContents.append(new Heading("List of packages", 1)).append("\n");
 
     int numberOfEntries = packages.size() + 1;
 
