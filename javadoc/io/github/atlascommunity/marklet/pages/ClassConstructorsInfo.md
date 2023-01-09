@@ -9,17 +9,16 @@ io.github.atlascommunity.marklet.pages.ClassConstructorsInfo Summary
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | public     | ClassConstructorsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,io.github.atlascommunity.marklet.Options) |
 #### Methods
-| Type and modifiers | Method signature                                         | Return type                                     |
-| ------------------ | -------------------------------------------------------- | ----------------------------------------------- |
-|                    | findElements() **(Override)**                            | Set<javax.lang.model.element.ExecutableElement> |
-|                    | signatureString(ExecutableElement method) **(Override)** | String                                          |
+| Modifiers | Method signature                                         | Return type                                     |
+| --------- | -------------------------------------------------------- | ----------------------------------------------- |
+|           | findElements() **(Override)**                            | Set<javax.lang.model.element.ExecutableElement> |
+|           | signatureString(ExecutableElement method) **(Override)** | String                                          |
 
 Constructors
 ============
 ClassConstructorsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,io.github.atlascommunity.marklet.Options)
 ---------------------------------------------------------------------------------------------------------------------------------
 *No method description provided*
-
 
 
 Methods
@@ -38,6 +37,5 @@ signatureString(ExecutableElement method)
 signatureString(ExecutableElement method) from io.github.atlascommunity.marklet.pages.ClassMethodsInfo
 
 *No method description provided*
-
 
 

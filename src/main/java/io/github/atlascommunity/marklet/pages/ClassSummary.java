@@ -25,8 +25,6 @@ public class ClassSummary implements ClassPageElement {
 
   private final Types typeUtils;
 
-  /** Table column name */
-  private static final String TYPE_AND_MODIFIERS_COLUMN = "Type and modifiers";
 
   /** @return markdown string representation of document part */
   @Override
@@ -56,7 +54,7 @@ public class ClassSummary implements ClassPageElement {
               new Table.Builder()
                       .withAlignments(Table.ALIGN_LEFT)
                       .withRowLimit(numberOfMethods + 1)
-                      .addRow(TYPE_AND_MODIFIERS_COLUMN, "Method signature", "Return type");
+                      .addRow(MODIFIERS_COLUMN, "Method signature", "Return type");
 
       methods.forEach(
         m -> {

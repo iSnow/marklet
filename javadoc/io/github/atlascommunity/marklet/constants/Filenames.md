@@ -21,7 +21,6 @@ Filenames()
 *No method description provided*
 
 
-
 Fields
 ======
 String README_FILE
@@ -32,6 +31,5 @@ Project readme file with all indexes.
 String PACKAGE_INDEX_FILE
 -----------------------------------
 Package index filename.
-
 
 

@@ -1,6 +1,7 @@
 package io.github.atlascommunity.marklet.pages;
 
 import com.sun.source.doctree.DocCommentTree;
+import io.github.atlascommunity.marklet.util.Sanitizers;
 import lombok.RequiredArgsConstructor;
 
 import java.util.stream.Collectors;
@@ -14,6 +15,7 @@ public class ClassHeaderCommentInfo  implements ClassPageElement{
     public String generate() {
         if (null == comments)
             return "";
-        return comments.getFullBody().stream().map(Object::toString).collect(Collectors.joining());
+        String rawVal = comments.getFullBody().stream().map(Object::toString).collect(Collectors.joining());
+        return Sanitizers.sanitizeHtmlTags(rawVal);
     }
 }

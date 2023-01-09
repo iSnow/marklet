@@ -20,12 +20,10 @@ Links()
 *No method description provided*
 
 
-
 Fields
 ======
 String BADGE
 ----------------------
 Marklet link using dynamic badge. *
-
 
 

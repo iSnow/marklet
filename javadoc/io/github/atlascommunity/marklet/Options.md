@@ -3,11 +3,22 @@ Class Options
 Class that reads and stores provided options for javadoc execution. Options that we care about
  are :
 
- <p>* `-d` specifies the output directory (default: `javadocs`) * `-e` specifies the file ending
- for files to be created (default `md`) * `-l` specifies the file ending used in internal links
- (default `md`)
+ 
 
- <p> The default options are ideal if you want to serve the documentation using GitHub's
+
+  
+* `-d` specifies the output directory (default: `javadocs`) 
+  
+* `-e` specifies the file ending for files to be created (default `md`)
+  
+* `-l` specifies the file ending used in internal links
+ (default `md`)
+ 
+
+
+ 
+
+ The default options are ideal if you want to serve the documentation using GitHub's
  built-in README rendering. If you are using a tool like Slate, change the options as follows: ```
  $ javadoc -doclet fr.faylixe.marklet.Marklet -e html.md -l html \u2026 ```
 
@@ -20,21 +31,21 @@ io.github.atlascommunity.marklet.Options Summary
 #### Fields
 | Type and modifiers                                                                  | Field name               |
 | ----------------------------------------------------------------------------------- | ------------------------ |
-| **private static final String**                                                     | DEFAULT_FILE_ENDING      |
-| **public static final String**                                                      | FILE_ENDING_OPTION       |
 | **private static final String**                                                     | DEFAULT_OUTPUT_DIRECTORY |
-| **public static final String**                                                      | CREATE_BADGE_OPTION      |
+| **public static final String**                                                      | OUTPUT_DIRECTORY_OPTION  |
 | **private static final Map<String,io.github.atlascommunity.marklet.MarkletOption>** | OPTIONS                  |
-| **private final String**                                                            | fileEnding               |
+| **public static final String**                                                      | FILE_ENDING_OPTION       |
 | **private final String**                                                            | outputDirectory          |
+| **public static final String**                                                      | CREATE_BADGE_OPTION      |
+| **private static final String**                                                     | DEFAULT_FILE_ENDING      |
+| **private final String**                                                            | fileEnding               |
 | **private final boolean**                                                           | hasBadge                 |
 | **public static final String**                                                      | SOURCE_DIRECTORY_OPTION  |
-| **public static final String**                                                      | OUTPUT_DIRECTORY_OPTION  |
 #### Methods
-| Type and modifiers | Method signature      | Return type                                    |
-| ------------------ | --------------------- | ---------------------------------------------- |
-| **public static**  | getSupportedOptions() | Set<jdk.javadoc.doclet.Doclet.Option>          |
-| **public static**  | getOption(String key) | io.github.atlascommunity.marklet.MarkletOption |
+| Modifiers         | Method signature      | Return type                                    |
+| ----------------- | --------------------- | ---------------------------------------------- |
+| **public static** | getOption(String key) | io.github.atlascommunity.marklet.MarkletOption |
+| **public static** | getSupportedOptions() | Set<jdk.javadoc.doclet.Doclet.Option>          |
 
 Constructors
 ============
@@ -43,27 +54,16 @@ Options(java.util.Map<java.lang.String,java.lang.String>)
 Default constructor. Sets options with their default parameters if available.
 
 
-
 Fields
 ======
-String DEFAULT_FILE_ENDING
-------------------------------------
-Default output file ending (`md`) *
-
-
-String FILE_ENDING_OPTION
------------------------------------
-Option name for the file ending (`-e`) *
-
-
 String DEFAULT_OUTPUT_DIRECTORY
 -----------------------------------------
 Default output directory to use. *
 
 
-String CREATE_BADGE_OPTION
-------------------------------------
-MarkletOption name for create badge flag (`-b`) *
+String OUTPUT_DIRECTORY_OPTION
+----------------------------------------
+Option name for the target output directory. (`-d`) *
 
 
 Map<String,io.github.atlascommunity.marklet.MarkletOption> OPTIONS
@@ -71,14 +71,29 @@ Map<String,io.github.atlascommunity.marklet.MarkletOption> OPTIONS
 *No description provided*
 
 
-String fileEnding
----------------------------
-Extension to use for generated file. *
+String FILE_ENDING_OPTION
+-----------------------------------
+Option name for the file ending (`-e`) *
 
 
 String outputDirectory
 --------------------------------
 Output directory file are generated in. *
+
+
+String CREATE_BADGE_OPTION
+------------------------------------
+MarkletOption name for create badge flag (`-b`) *
+
+
+String DEFAULT_FILE_ENDING
+------------------------------------
+Default output file ending (`md`) *
+
+
+String fileEnding
+---------------------------
+Extension to use for generated file. *
 
 
 boolean hasBadge
@@ -91,22 +106,15 @@ String SOURCE_DIRECTORY_OPTION
 Option name for the source directory. (`-i`) *
 
 
-String OUTPUT_DIRECTORY_OPTION
-----------------------------------------
-Option name for the target output directory. (`-d`) *
-
-
-
 Methods
 =======
-getSupportedOptions()
----------------------
-*No method description provided*
-
-
 getOption(String key)
 ---------------------
 *No method description provided*
 
+
+getSupportedOptions()
+---------------------
+*No method description provided*
 
 

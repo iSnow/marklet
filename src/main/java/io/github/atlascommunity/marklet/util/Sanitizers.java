@@ -10,6 +10,11 @@ public class Sanitizers {
         output = output.replaceAll("</tt>", "`");
         output = output.replaceAll("<b>", "*");
         output = output.replaceAll("</b>", "*");
+        output = output.replaceAll("<p>", "\n\n");
+        output = output.replaceAll("<ul>", "\n\n");
+        output = output.replaceAll("</ul>", "\n");
+        output = output.replaceAll("<li>", "\n* ");
+        output = output.replaceAll("</li>", "");
         return output;
     }
 

@@ -14,16 +14,15 @@ io.github.atlascommunity.marklet.pages.ClassFieldsInfo Summary
 | **private final javax.lang.model.element.TypeElement** | classElement |
 | **private final com.sun.source.util.DocTrees**         | treeUtils    |
 #### Methods
-| Type and modifiers | Method signature          | Return type |
-| ------------------ | ------------------------- | ----------- |
-| **public**         | generate() **(Override)** | String      |
+| Modifiers  | Method signature          | Return type |
+| ---------- | ------------------------- | ----------- |
+| **public** | generate() **(Override)** | String      |
 
 Constructors
 ============
 ClassFieldsInfo()
 -----------------
 *No method description provided*
-
 
 
 Fields
@@ -38,7 +37,6 @@ com.sun.source.util.DocTrees treeUtils
 *No description provided*
 
 
-
 Methods
 =======
 generate()
@@ -51,6 +49,5 @@ generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
 ### Returns
 
 markdown string representation of document part
-
 
 

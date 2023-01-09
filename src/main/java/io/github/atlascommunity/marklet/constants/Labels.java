@@ -73,5 +73,11 @@ public final class Labels {
   /** Table header */
   public static final String TABLE_MODULE_HEADER = "Module";
 
+  /** Table column name */
+  public static final String MODIFIERS_COLUMN = "Modifiers";
+
+  /** Table column name */
+  public static final String TYPE_AND_MODIFIERS_COLUMN = "Type and modifiers";
+
 
 }

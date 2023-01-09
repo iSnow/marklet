@@ -13,9 +13,9 @@ io.github.atlascommunity.marklet.pages.ClassHeaderCommentInfo Summary
 | ------------------------------------------------------- | ---------- |
 | **private final com.sun.source.doctree.DocCommentTree** | comments   |
 #### Methods
-| Type and modifiers | Method signature          | Return type |
-| ------------------ | ------------------------- | ----------- |
-| **public**         | generate() **(Override)** | String      |
+| Modifiers  | Method signature          | Return type |
+| ---------- | ------------------------- | ----------- |
+| **public** | generate() **(Override)** | String      |
 
 Constructors
 ============
@@ -24,13 +24,11 @@ ClassHeaderCommentInfo()
 *No method description provided*
 
 
-
 Fields
 ======
 com.sun.source.doctree.DocCommentTree comments
 ----------------------------------------------
 *No description provided*
-
 
 
 Methods
@@ -41,6 +39,5 @@ generate()
 generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
 
 *No method description provided*
-
 
 

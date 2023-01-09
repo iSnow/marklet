@@ -12,19 +12,18 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 | Type and modifiers                                              | Field name |
 | --------------------------------------------------------------- | ---------- |
 | **private final List<javax.lang.model.element.ModuleElement>**  | modules    |
-| **private final io.github.atlascommunity.marklet.Options**      | options    |
 | **private final List<javax.lang.model.element.PackageElement>** | packages   |
+| **private final io.github.atlascommunity.marklet.Options**      | options    |
 #### Methods
-| Type and modifiers | Method signature                        | Return type |
-| ------------------ | --------------------------------------- | ----------- |
-| **public**         | build(Reporter reporter) **(Override)** | void        |
+| Modifiers  | Method signature                        | Return type |
+| ---------- | --------------------------------------- | ----------- |
+| **public** | build(Reporter reporter) **(Override)** | void        |
 
 Constructors
 ============
 ReadmePage()
 ------------
 *No method description provided*
-
 
 
 Fields
@@ -34,15 +33,14 @@ List<javax.lang.model.element.ModuleElement> modules
 List of modules in the project
 
 
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-Doclet options
-
-
 List<javax.lang.model.element.PackageElement> packages
 ----------------------------------------------------------------
 List of project packages
 
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+Doclet options
 
 
 Methods
@@ -57,6 +55,5 @@ Build document and write it to the selected folder
 ### Throws
 
 IOException: something went wrong during write operation
-
 
 

@@ -14,16 +14,15 @@ io.github.atlascommunity.marklet.pages.MarkdownTag Summary
 | **private final com.sun.source.doctree.DocTree** | tag        |
 | **private final String**                         | fileEnding |
 #### Methods
-| Type and modifiers | Method signature | Return type |
-| ------------------ | ---------------- | ----------- |
-| **public**         | create()         | String      |
+| Modifiers  | Method signature | Return type |
+| ---------- | ---------------- | ----------- |
+| **public** | create()         | String      |
 
 Constructors
 ============
 MarkdownTag()
 -------------
 *No method description provided*
-
 
 
 Fields
@@ -38,12 +37,10 @@ String fileEnding
 File ending from doclet options
 
 
-
 Methods
 =======
 create()
 --------
 Create markdown string from tag
-
 
 

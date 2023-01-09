@@ -11,19 +11,19 @@ io.github.atlascommunity.marklet.pages.ClassMethodsInfo Summary
 #### Fields
 | Type and modifiers                                 | Field name          |
 | -------------------------------------------------- | ------------------- |
-| **final io.github.atlascommunity.marklet.Options** | options             |
 | **final javax.lang.model.element.TypeElement**     | classElement        |
-| **final com.sun.source.util.DocTrees**             | treeUtils           |
-| **String**                                         | key                 |
 | **private static final String**                    | DESCRIPTION_PATTERN |
+| **final com.sun.source.util.DocTrees**             | treeUtils           |
 | **final javax.lang.model.util.Types**              | typeUtils           |
+| **final io.github.atlascommunity.marklet.Options** | options             |
+| **String**                                         | key                 |
 #### Methods
-| Type and modifiers | Method signature                          | Return type                                     |
-| ------------------ | ----------------------------------------- | ----------------------------------------------- |
-| **private**        | methodDescription(ExecutableElement doc)  | String                                          |
-|                    | findElements()                            | Set<javax.lang.model.element.ExecutableElement> |
-|                    | signatureString(ExecutableElement method) | String                                          |
-| **public**         | generate() **(Override)**                 | String                                          |
+| Modifiers   | Method signature                          | Return type                                     |
+| ----------- | ----------------------------------------- | ----------------------------------------------- |
+|             | findElements()                            | Set<javax.lang.model.element.ExecutableElement> |
+| **public**  | generate() **(Override)**                 | String                                          |
+| **private** | methodDescription(ExecutableElement doc)  | String                                          |
+|             | signatureString(ExecutableElement method) | String                                          |
 
 Constructors
 ============
@@ -32,27 +32,11 @@ ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTre
 *No method description provided*
 
 
-
 Fields
 ======
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-Doclet options
-
-
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
 Class information
-
-
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
-*No description provided*
-
-
-String key
---------------------
-*No description provided*
 
 
 String DESCRIPTION_PATTERN
@@ -60,34 +44,30 @@ String DESCRIPTION_PATTERN
 Pattern for colon separated description
 
 
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
+*No description provided*
+
+
 javax.lang.model.util.Types typeUtils
 -------------------------------------
 *No description provided*
 
 
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+Doclet options
+
+
+String key
+--------------------
+*No description provided*
+
 
 Methods
 =======
-methodDescription(ExecutableElement doc)
-----------------------------------------
-
-
-### Parameters
-
-doc: method representation
-
-### Returns
-
-markdown string
-
-
 findElements()
 --------------
-*No method description provided*
-
-
-signatureString(ExecutableElement method)
------------------------------------------
 *No method description provided*
 
 
@@ -102,5 +82,22 @@ generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
 
 markdown string representation of document part
 
+
+methodDescription(ExecutableElement doc)
+----------------------------------------
+
+
+### Parameters
+
+doc: method representation
+
+### Returns
+
+markdown string
+
+
+signatureString(ExecutableElement method)
+-----------------------------------------
+*No method description provided*
 
 
