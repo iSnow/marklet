@@ -2,7 +2,7 @@ Class MarkdownTag
 =================
 Javadoc tag processor
 
-io.github.atlascommunity.marklet.pages.MarkdownTag Summary
+io.github.atlascommunity.marklet.page_elements.MarkdownTag Summary
 -------
 #### Constructors
 | Visibility | Signature     |

@@ -1,17 +1,16 @@
-Class ClassFieldsInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
-========================================================================================
-Class fields description
+Class ClassQualifiedPathInfo implements io.github.atlascommunity.marklet.page_elements.ClassPageElement
+=======================================================================================================
+Class document title
 
-io.github.atlascommunity.marklet.pages.ClassFieldsInfo Summary
+io.github.atlascommunity.marklet.page_elements.ClassQualifiedPathInfo Summary
 -------
 #### Constructors
-| Visibility | Signature         |
-| ---------- | ----------------- |
-| public     | ClassFieldsInfo() |
+| Visibility | Signature                |
+| ---------- | ------------------------ |
+| public     | ClassQualifiedPathInfo() |
 #### Fields
 | Type and modifiers                                     | Field name   |
 | ------------------------------------------------------ | ------------ |
-| **private final com.sun.source.util.DocTrees**         | treeUtils    |
 | **private final javax.lang.model.element.TypeElement** | classElement |
 #### Methods
 | Modifiers  | Method signature          | Return type |
@@ -20,18 +19,13 @@ io.github.atlascommunity.marklet.pages.ClassFieldsInfo Summary
 
 Constructors
 ============
-ClassFieldsInfo()
------------------
+ClassQualifiedPathInfo()
+------------------------
 *No method description provided*
 
 
 Fields
 ======
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
-*No description provided*
-
-
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
 Class information
@@ -42,7 +36,7 @@ Methods
 generate()
 ----------
 ### Overrides/Implements:
-generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
+generate() from io.github.atlascommunity.marklet.page_elements.ClassPageElement
 
 
 

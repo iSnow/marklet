@@ -10,28 +10,27 @@ io.github.atlascommunity.marklet.Marklet Summary
 | ---------- | --------- |
 | public     | Marklet() |
 #### Fields
-| Type and modifiers                                         | Field name          |
-| ---------------------------------------------------------- | ------------------- |
-| **private final io.github.atlascommunity.marklet.Options** | options             |
-| **jdk.javadoc.doclet.Reporter**                            | reporter            |
-| **private final Map<String,String>**                       | classPackageMapping |
-| **private jdk.javadoc.doclet.DocletEnvironment**           | root                |
+| Type and modifiers                                         | Field name |
+| ---------------------------------------------------------- | ---------- |
+| **private final io.github.atlascommunity.marklet.Options** | options    |
+| **jdk.javadoc.doclet.Reporter**                            | reporter   |
+| **private jdk.javadoc.doclet.DocletEnvironment**           | root       |
 #### Methods
 | Modifiers         | Method signature                                                                                                             | Return type                                     |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| **public**        | getSupportedOptions() **(Override)**                                                                                         | Set<? extends jdk.javadoc.doclet.Doclet.Option> |
 | **private**       | buildPackages()                                                                                                              | List<javax.lang.model.element.PackageElement>   |
-| **private**       | generateReadme(List<javax.lang.model.element.ModuleElement> modules, List<javax.lang.model.element.PackageElement> packages) | void                                            |
-| **private**       | generatePackage(PackageElement packageElement)                                                                               | void                                            |
-| **private**       | doWork()                                                                                                                     | boolean                                         |
 | **private**       | buildModules()                                                                                                               | List<javax.lang.model.element.ModuleElement>    |
-| **public**        | getName() **(Override)**                                                                                                     | String                                          |
-| **private**       | buildClasses()                                                                                                               | void                                            |
-| **public**        | getSupportedSourceVersion() **(Override)**                                                                                   | javax.lang.model.SourceVersion                  |
-| **public**        | run(DocletEnvironment environment)                                                                                           | boolean                                         |
-| **private**       | getPackageDirectory(String packageName)                                                                                      | java.nio.file.Path                              |
 | **public**        | init(Locale locale, Reporter reporter)                                                                                       | void                                            |
 | **public static** | main(String[] args)                                                                                                          | void                                            |
+| **public**        | getSupportedSourceVersion() **(Override)**                                                                                   | javax.lang.model.SourceVersion                  |
+| **private**       | doWork()                                                                                                                     | boolean                                         |
+| **private**       | buildClasses()                                                                                                               | void                                            |
+| **private**       | getPackageDirectory(String packageName)                                                                                      | java.nio.file.Path                              |
+| **public**        | getName() **(Override)**                                                                                                     | String                                          |
+| **public**        | getSupportedOptions() **(Override)**                                                                                         | Set<? extends jdk.javadoc.doclet.Doclet.Option> |
+| **private**       | generateReadme(List<javax.lang.model.element.ModuleElement> modules, List<javax.lang.model.element.PackageElement> packages) | void                                            |
+| **private**       | generatePackage(PackageElement packageElement)                                                                               | void                                            |
+| **public**        | run(DocletEnvironment environment)                                                                                           | boolean                                         |
 
 Constructors
 ============
@@ -52,11 +51,6 @@ jdk.javadoc.doclet.Reporter reporter
 *No description provided*
 
 
-Map<String,String> classPackageMapping
---------------------------------------------------------------------
-*No description provided*
-
-
 jdk.javadoc.doclet.DocletEnvironment root
 -----------------------------------------
 Documentation root provided by the doclet API. *
@@ -64,14 +58,6 @@ Documentation root provided by the doclet API. *
 
 Methods
 =======
-getSupportedOptions()
----------------------
-### Overrides/Implements:
-getSupportedOptions() from jdk.javadoc.doclet.Doclet
-
-*No method description provided*
-
-
 buildPackages()
 ---------------
 Generates documentation file for each package.
@@ -83,6 +69,96 @@ IOException: If any error occurs during generation process.
 ### Returns
 
 list of packages documents
+
+
+buildModules()
+--------------
+Generates documentation file for each module.
+
+### Throws
+
+IOException: If any error occurs during generation process.
+
+### Returns
+
+list of modules
+
+
+init(Locale locale, Reporter reporter)
+--------------------------------------
+Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
+ doclet entry point
+
+### Parameters
+
+- locale: the locale to be used
+- reporter: the reporter to be used
+
+
+
+main(String[] args)
+-------------------
+*No method description provided*
+
+
+getSupportedSourceVersion()
+---------------------------
+### Overrides/Implements:
+getSupportedSourceVersion() from jdk.javadoc.doclet.Doclet
+
+
+
+### Returns
+
+LanguageVersion supported.
+
+
+doWork()
+--------
+
+
+### Returns
+
+`true` if generation was successful, `false` otherwise.
+
+
+buildClasses()
+--------------
+Generates documentation file for classes, enumerations, interfaces, or annotations.
+
+### Throws
+
+IOException: If any error occurs during generation process.
+
+
+getPackageDirectory(String packageName)
+---------------------------------------
+Builds and retrieves the path for the directory associated to the package with the given
+ <tt>name</tt>.
+
+### Parameters
+
+packageName: Name of the package to get directory for.
+
+### Returns
+
+Built path.
+
+
+getName()
+---------
+### Overrides/Implements:
+getName() from jdk.javadoc.doclet.Doclet
+
+*No method description provided*
+
+
+getSupportedOptions()
+---------------------
+### Overrides/Implements:
+getSupportedOptions() from jdk.javadoc.doclet.Doclet
+
+*No method description provided*
 
 
 generateReadme(List<javax.lang.model.element.ModuleElement> modules, List<javax.lang.model.element.PackageElement> packages)
@@ -113,57 +189,6 @@ IOException: If any error occurs while creating file or directories.
 packageElement: Package to generate documentation for.
 
 
-doWork()
---------
-
-
-### Returns
-
-`true` if generation was successful, `false` otherwise.
-
-
-buildModules()
---------------
-Generates documentation file for each module.
-
-### Throws
-
-IOException: If any error occurs during generation process.
-
-### Returns
-
-list of modules
-
-
-getName()
----------
-### Overrides/Implements:
-getName() from jdk.javadoc.doclet.Doclet
-
-*No method description provided*
-
-
-buildClasses()
---------------
-Generates documentation file for classes, enumerations, interfaces, or annotations.
-
-### Throws
-
-IOException: If any error occurs during generation process.
-
-
-getSupportedSourceVersion()
----------------------------
-### Overrides/Implements:
-getSupportedSourceVersion() from jdk.javadoc.doclet.Doclet
-
-
-
-### Returns
-
-LanguageVersion supported.
-
-
 run(DocletEnvironment environment)
 ----------------------------------
 **Doclet** worker point. Parses user provided options and starts a **Marklet** execution.
@@ -175,36 +200,5 @@ environment: DocletEnvironment.
 ### Returns
 
 ``true`` if the generation went well, ``false`` otherwise.
-
-
-getPackageDirectory(String packageName)
----------------------------------------
-Builds and retrieves the path for the directory associated to the package with the given
- <tt>name</tt>.
-
-### Parameters
-
-packageName: Name of the package to get directory for.
-
-### Returns
-
-Built path.
-
-
-init(Locale locale, Reporter reporter)
---------------------------------------
-Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
- doclet entry point
-
-### Parameters
-
-- locale: the locale to be used
-- reporter: the reporter to be used
-
-
-
-main(String[] args)
--------------------
-*No method description provided*
 
 

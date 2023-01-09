@@ -43,7 +43,7 @@ public final class Marklet implements Doclet {
   /** Documentation root provided by the doclet API. * */
   private DocletEnvironment root;
 
-  private final Map<String, String> classPackageMapping = new HashMap<>();
+  //private final Map<String, String> classPackageMapping = new HashMap<>();
 
 
   /**
@@ -91,9 +91,9 @@ public final class Marklet implements Doclet {
     for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
       packages.add(t);
       //log.trace(t.getKind() + ":" + t);
-      for (TypeElement e : MarkletTypeUtils.findPackageClasses(t)) {
+      /*for (TypeElement e : MarkletTypeUtils.findPackageClasses(t)) {
           classPackageMapping.put(e.getQualifiedName().toString(), t.getQualifiedName().toString());
-      }
+      }*/
     }
 
     return packages;
@@ -125,8 +125,9 @@ public final class Marklet implements Doclet {
 
     DocTrees treeUtils = root.getDocTrees();
     for (final TypeElement classElem : packageClasses) {
+      PackageElement enclosingElement = (PackageElement)classElem.getEnclosingElement();
       reporter.print(Diagnostic.Kind.NOTE, "Generate documentation for " + classElem.getQualifiedName());
-      String packageName = classPackageMapping.get(classElem.getQualifiedName().toString());
+      String packageName = enclosingElement.getQualifiedName().toString();
       DocCommentTree comments = treeUtils.getDocCommentTree(classElem);
       new ClassPage(classElem, treeUtils, comments, root, options, packageName).build(reporter);
     }

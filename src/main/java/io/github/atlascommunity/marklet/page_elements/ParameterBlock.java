@@ -1,4 +1,4 @@
-package io.github.atlascommunity.marklet.pages;
+package io.github.atlascommunity.marklet.page_elements;
 
 import com.sun.source.doctree.*;
 import io.github.atlascommunity.marklet.constants.Labels;

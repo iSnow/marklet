@@ -1,13 +1,13 @@
-Class ClassQualifiedPathInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
-===============================================================================================
+Class ClassTitle implements io.github.atlascommunity.marklet.page_elements.ClassPageElement
+===========================================================================================
 Class document title
 
-io.github.atlascommunity.marklet.pages.ClassQualifiedPathInfo Summary
+io.github.atlascommunity.marklet.page_elements.ClassTitle Summary
 -------
 #### Constructors
-| Visibility | Signature                |
-| ---------- | ------------------------ |
-| public     | ClassQualifiedPathInfo() |
+| Visibility | Signature    |
+| ---------- | ------------ |
+| public     | ClassTitle() |
 #### Fields
 | Type and modifiers                                     | Field name   |
 | ------------------------------------------------------ | ------------ |
@@ -19,8 +19,8 @@ io.github.atlascommunity.marklet.pages.ClassQualifiedPathInfo Summary
 
 Constructors
 ============
-ClassQualifiedPathInfo()
-------------------------
+ClassTitle()
+------------
 *No method description provided*
 
 
@@ -36,7 +36,7 @@ Methods
 generate()
 ----------
 ### Overrides/Implements:
-generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
+generate() from io.github.atlascommunity.marklet.page_elements.ClassPageElement
 
 
 

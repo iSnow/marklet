@@ -1,8 +1,8 @@
-Class OverriddenMethodSignatureElement extends io.github.atlascommunity.marklet.pages.MethodSignatureElement
-============================================================================================================
+Class OverriddenMethodSignatureElement extends io.github.atlascommunity.marklet.page_elements.MethodSignatureElement
+====================================================================================================================
 Forms readable method signature
 
-io.github.atlascommunity.marklet.pages.OverriddenMethodSignatureElement Summary
+io.github.atlascommunity.marklet.page_elements.OverriddenMethodSignatureElement Summary
 -------
 #### Constructors
 | Visibility | Signature                                                                                                               |
@@ -36,7 +36,7 @@ Methods
 generate()
 ----------
 ### Overrides/Implements:
-generate() from io.github.atlascommunity.marklet.pages.MethodSignatureElement
+generate() from io.github.atlascommunity.marklet.page_elements.MethodSignatureElement
 
 Form description from method information
 

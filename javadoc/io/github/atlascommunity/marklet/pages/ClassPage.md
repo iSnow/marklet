@@ -11,12 +11,12 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final io.github.atlascommunity.marklet.Options** | options      |
-| **private final String**                                   | packageName  |
 | **private final com.sun.source.util.DocTrees**             | treeUtils    |
+| **private final jdk.javadoc.doclet.DocletEnvironment**     | environment  |
+| **private final io.github.atlascommunity.marklet.Options** | options      |
 | **private final javax.lang.model.element.TypeElement**     | classElement |
 | **private final com.sun.source.doctree.DocCommentTree**    | comments     |
-| **private final jdk.javadoc.doclet.DocletEnvironment**     | environment  |
+| **private final String**                                   | packageName  |
 #### Methods
 | Modifiers   | Method signature                        | Return type |
 | ----------- | --------------------------------------- | ----------- |
@@ -32,19 +32,19 @@ ClassPage()
 
 Fields
 ======
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-Doclet options
-
-
-String packageName
-----------------------------
-*No description provided*
-
-
 com.sun.source.util.DocTrees treeUtils
 --------------------------------------
 *No description provided*
+
+
+jdk.javadoc.doclet.DocletEnvironment environment
+------------------------------------------------
+*No description provided*
+
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+Doclet options
 
 
 javax.lang.model.element.TypeElement classElement
@@ -57,8 +57,8 @@ com.sun.source.doctree.DocCommentTree comments
 *No description provided*
 
 
-jdk.javadoc.doclet.DocletEnvironment environment
-------------------------------------------------
+String packageName
+----------------------------
 *No description provided*
 
 

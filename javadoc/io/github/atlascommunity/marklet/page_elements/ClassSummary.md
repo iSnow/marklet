@@ -1,8 +1,8 @@
-Class ClassSummary implements io.github.atlascommunity.marklet.pages.ClassPageElement
-=====================================================================================
+Class ClassSummary implements io.github.atlascommunity.marklet.page_elements.ClassPageElement
+=============================================================================================
 Brief class description
 
-io.github.atlascommunity.marklet.pages.ClassSummary Summary
+io.github.atlascommunity.marklet.page_elements.ClassSummary Summary
 -------
 #### Constructors
 | Visibility | Signature      |
@@ -16,10 +16,10 @@ io.github.atlascommunity.marklet.pages.ClassSummary Summary
 #### Methods
 | Modifiers          | Method signature                                                 | Return type |
 | ------------------ | ---------------------------------------------------------------- | ----------- |
+| **private static** | generateConstructorSummary(TypeElement classElement)             | String      |
+| **public**         | generate() **(Override)**                                        | String      |
 | **private static** | generateMethodSummary(TypeElement classElement, Types typeUtils) | String      |
 | **private static** | generateFieldSummary(TypeElement classElement)                   | String      |
-| **public**         | generate() **(Override)**                                        | String      |
-| **private static** | generateConstructorSummary(TypeElement classElement)             | String      |
 
 Constructors
 ============
@@ -42,6 +42,27 @@ javax.lang.model.util.Types typeUtils
 
 Methods
 =======
+generateConstructorSummary(TypeElement classElement)
+----------------------------------------------------
+
+
+### Returns
+
+markdown string representation of class constructors
+
+
+generate()
+----------
+### Overrides/Implements:
+generate() from io.github.atlascommunity.marklet.page_elements.ClassPageElement
+
+
+
+### Returns
+
+markdown string representation of document part
+
+
 generateMethodSummary(TypeElement classElement, Types typeUtils)
 ----------------------------------------------------------------
 
@@ -58,26 +79,5 @@ generateFieldSummary(TypeElement classElement)
 ### Returns
 
 markdown string representation of class fields
-
-
-generate()
-----------
-### Overrides/Implements:
-generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
-
-
-
-### Returns
-
-markdown string representation of document part
-
-
-generateConstructorSummary(TypeElement classElement)
-----------------------------------------------------
-
-
-### Returns
-
-markdown string representation of class constructors
 
 

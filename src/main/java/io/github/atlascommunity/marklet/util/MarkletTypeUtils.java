@@ -23,6 +23,7 @@ public class MarkletTypeUtils {
         Set<TypeElement> packageClasses = new LinkedHashSet<>();
         for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
             packageClasses.addAll(findPackageClasses(t));
+            packageClasses.addAll(findPackageInterfaces(t));
         }
         return packageClasses;
     }
@@ -35,14 +36,35 @@ public class MarkletTypeUtils {
     public static Set<TypeElement> findPackageClasses(PackageElement t) {
         Set<TypeElement> packageClasses = new LinkedHashSet<>();
         for (Element e : t.getEnclosedElements()) {
-            if ((e.getKind().equals (ElementKind.CLASS))
-                    || (e.getKind().equals (ElementKind.INTERFACE))){
+            if ((e.getKind().equals (ElementKind.CLASS))){
                 packageClasses.add((TypeElement) e);
             }
         }
         return packageClasses;
     }
-
+    /**
+     * Find all package interfaces
+     *
+     * @param t the PackageElement to scan
+     */
+    public static Set<TypeElement> findPackageInterfaces(PackageElement t) {
+        Set<TypeElement> interfaces = new LinkedHashSet<>();
+        for (Element e : t.getEnclosedElements()) {
+            if (e.getKind().equals (ElementKind.INTERFACE)) {
+                interfaces.add((TypeElement) e);
+            }
+        }
+        return interfaces;
+    }
+    private static Set<Element> findInPackage(ElementKind kind, PackageElement pkg) {
+        Set<Element> elements = new LinkedHashSet<>();
+        for (Element e : pkg.getEnclosedElements()) {
+            if (e.getKind().equals(kind)) {
+                elements.add(e);
+            }
+        }
+        return elements;
+    }
     /**
      * Find all class constructors
      *
@@ -91,7 +113,7 @@ public class MarkletTypeUtils {
                 .collect(Collectors.toSet());
     }
 
-    public static Set<Element> findInClass(ElementKind kind, TypeElement classElement) {
+    private static Set<Element> findInClass(ElementKind kind, TypeElement classElement) {
         Set<Element> elements = new LinkedHashSet<>();
         for (Element e : classElement.getEnclosedElements()) {
             if (e.getKind().equals(kind)) {

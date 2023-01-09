@@ -11,23 +11,23 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 #### Fields
 | Type and modifiers                                      | Field name    |
 | ------------------------------------------------------- | ------------- |
-| **private final String**                                | parameters    |
 | **private final int**                                   | argumentCount |
+| **private final jdk.javadoc.doclet.Doclet.Option.Kind** | kind          |
 | **private String**                                      | value         |
 | **private final String**                                | description   |
 | **private final List<String>**                          | names         |
-| **private final jdk.javadoc.doclet.Doclet.Option.Kind** | kind          |
+| **private final String**                                | parameters    |
 #### Methods
 | Modifiers  | Method signature                               | Return type                           |
 | ---------- | ---------------------------------------------- | ------------------------------------- |
 | **public** | getParameters() **(Override)**                 | String                                |
 | **public** | getNames() **(Override)**                      | List<String>                          |
+| **public** | getDescription() **(Override)**                | String                                |
+| **public** | getArgumentCount() **(Override)**              | int                                   |
 | **public** | getKind() **(Override)**                       | jdk.javadoc.doclet.Doclet.Option.Kind |
 | **public** | process(String option, List<String> arguments) | boolean                               |
-| **public** | getDescription() **(Override)**                | String                                |
-| **public** | getValue()                                     | String                                |
 | **public** | toString() **(Override)**                      | String                                |
-| **public** | getArgumentCount() **(Override)**              | int                                   |
+| **public** | getValue()                                     | String                                |
 
 Constructors
 ============
@@ -38,13 +38,13 @@ MarkletOption()
 
 Fields
 ======
-String parameters
----------------------------
+int argumentCount
+-----------------
 *No description provided*
 
 
-int argumentCount
------------------
+jdk.javadoc.doclet.Doclet.Option.Kind kind
+------------------------------------------
 *No description provided*
 
 
@@ -63,8 +63,8 @@ List<String> names
 *No description provided*
 
 
-jdk.javadoc.doclet.Doclet.Option.Kind kind
-------------------------------------------
+String parameters
+---------------------------
 *No description provided*
 
 
@@ -86,6 +86,22 @@ getNames() from jdk.javadoc.doclet.Doclet.Option
 *No method description provided*
 
 
+getDescription()
+----------------
+### Overrides/Implements:
+getDescription() from jdk.javadoc.doclet.Doclet.Option
+
+*No method description provided*
+
+
+getArgumentCount()
+------------------
+### Overrides/Implements:
+getArgumentCount() from jdk.javadoc.doclet.Doclet.Option
+
+*No method description provided*
+
+
 getKind()
 ---------
 ### Overrides/Implements:
@@ -99,19 +115,6 @@ process(String option, List<String> arguments)
 *No method description provided*
 
 
-getDescription()
-----------------
-### Overrides/Implements:
-getDescription() from jdk.javadoc.doclet.Doclet.Option
-
-*No method description provided*
-
-
-getValue()
-----------
-*No method description provided*
-
-
 toString()
 ----------
 ### Overrides/Implements:
@@ -120,11 +123,8 @@ toString() from java.lang.Object
 *No method description provided*
 
 
-getArgumentCount()
-------------------
-### Overrides/Implements:
-getArgumentCount() from jdk.javadoc.doclet.Doclet.Option
-
+getValue()
+----------
 *No method description provided*
 
 

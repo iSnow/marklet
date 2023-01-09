@@ -1,8 +1,8 @@
-Class ClassHeaderCommentInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
-===============================================================================================
+Class ClassHeaderCommentInfo implements io.github.atlascommunity.marklet.page_elements.ClassPageElement
+=======================================================================================================
 
 
-io.github.atlascommunity.marklet.pages.ClassHeaderCommentInfo Summary
+io.github.atlascommunity.marklet.page_elements.ClassHeaderCommentInfo Summary
 -------
 #### Constructors
 | Visibility | Signature                |
@@ -36,7 +36,7 @@ Methods
 generate()
 ----------
 ### Overrides/Implements:
-generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
+generate() from io.github.atlascommunity.marklet.page_elements.ClassPageElement
 
 *No method description provided*
 

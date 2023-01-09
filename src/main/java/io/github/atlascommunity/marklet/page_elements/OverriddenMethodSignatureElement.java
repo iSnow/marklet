@@ -1,8 +1,6 @@
-package io.github.atlascommunity.marklet.pages;
+package io.github.atlascommunity.marklet.page_elements;
 
 import io.github.atlascommunity.marklet.util.MethodSignature;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 
 import javax.lang.model.element.ExecutableElement;

@@ -3,6 +3,7 @@ package io.github.atlascommunity.marklet.pages;
 import com.sun.source.doctree.DocCommentTree;
 import com.sun.source.util.DocTrees;
 import io.github.atlascommunity.marklet.Options;
+import io.github.atlascommunity.marklet.page_elements.*;
 import jdk.javadoc.doclet.DocletEnvironment;
 import jdk.javadoc.doclet.Reporter;
 import lombok.RequiredArgsConstructor;

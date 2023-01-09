@@ -5,6 +5,7 @@ import com.sun.source.doctree.DocTree;
 import com.sun.source.util.DocTrees;
 import com.sun.source.util.TreePath;
 import io.github.atlascommunity.marklet.Options;
+import io.github.atlascommunity.marklet.page_elements.MarkdownTag;
 import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import jdk.javadoc.doclet.DocletEnvironment;
 import jdk.javadoc.doclet.Reporter;
@@ -94,8 +95,9 @@ public class PackagePage implements DocumentPage {
    * @param packagePage string representation of package page content
    */
   private void createPackageIndexes(StringBuilder packagePage) {
-    createPackageClassIndex(packagePage);
     createPackageEnumIndex(packagePage);
+    createPackageInterfaceIndex(packagePage);
+    createPackageClassIndex(packagePage);
 
 /*
     AnnotationTypeDoc[] packageAnnotations = packageElement.annotationTypes();
@@ -122,10 +124,11 @@ public class PackagePage implements DocumentPage {
     }*/
   }
 
+
   /**
    * Generate index table for package classes
    *
-   * @param packagePage string representation of package page content
+   * @param packagePage StringBuilder collecting package page content
    */
   private void createPackageEnumIndex(StringBuilder packagePage) {
     Set<TypeElement> packageEnums = new LinkedHashSet<>();
@@ -143,9 +146,22 @@ public class PackagePage implements DocumentPage {
   }
 
   /**
+   * Generate index table for package interfaces
+   *
+   * @param packagePage StringBuilder collecting package page content
+   */
+  private void createPackageInterfaceIndex(StringBuilder packagePage) {
+    Set<TypeElement> interfaces = MarkletTypeUtils.findPackageInterfaces(packageElement);
+    if (!interfaces.isEmpty()) {
+      generateTable(INTERFACES, interfaces.toArray(new TypeElement[]{}), packagePage);
+      packagePage.append("\n");
+    }
+  }
+
+  /**
    * Generate index table for package classes
    *
-   * @param packagePage string representation of package page content
+   * @param packagePage StringBuilder collecting package page content
    */
   private void createPackageClassIndex(StringBuilder packagePage) {
     Set<TypeElement> packageClasses = MarkletTypeUtils.findPackageClasses(packageElement);

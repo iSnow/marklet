@@ -1,8 +1,8 @@
-Class MethodSignatureElement implements io.github.atlascommunity.marklet.pages.ClassPageElement
-===============================================================================================
+Class MethodSignatureElement implements io.github.atlascommunity.marklet.page_elements.ClassPageElement
+=======================================================================================================
 Forms readable method signature
 
-io.github.atlascommunity.marklet.pages.MethodSignatureElement Summary
+io.github.atlascommunity.marklet.page_elements.MethodSignatureElement Summary
 -------
 #### Constructors
 | Visibility | Signature                |
@@ -36,7 +36,7 @@ Methods
 generate()
 ----------
 ### Overrides/Implements:
-generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
+generate() from io.github.atlascommunity.marklet.page_elements.ClassPageElement
 
 Form description from method information
 
