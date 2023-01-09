@@ -1,18 +1,20 @@
 # Marklet
 
-This is custom fork of
-useful [Marklet doclet](https://github.com/atlascommunity/marklet/tree/master/src/main/java/io/github/atlascommunity/marklet)
-which main purpose was to generate a Javadoc in a markdown format.
+This is fork of the [Marklet doclet](https://github.com/atlascommunity/marklet/tree/master/src/main/java/io/github/atlascommunity/marklet)
+. The main purpose of Marklet is to generate Javadoc in markdown format. This version requires Java 14, but can
+document all lower source code versions.
 
 Currently working on the migration from `com.sun.javadoc` to the newer `jdk.javadoc.doclet` 
-API because the  `com.sun.javadoc` classes are no longer supported on Java 9 and up. Still work in progress, so 
+API because the  `com.sun.javadoc` classes are no longer supported on Java 12 and up. Still work in progress, so 
 you can't just use it in your projects.
 
 **Examples** :
 
-* [Marklet itself!](https://github.com/iSnow/marklet/tree/master/javadoc)
+* [Marklet documenting itself!](https://github.com/iSnow/marklet/tree/master/javadoc)
 
-In order to use it with Maven, adds the following configuration for the ``maven-javadoc-plugin``
+## How to use
+
+In order to use it with Maven, add the following configuration for the ``maven-javadoc-plugin``
 in your project ``POM`` :
 
 ```xml
@@ -28,6 +30,8 @@ in your project ``POM`` :
             <artifactId>marklet</artifactId>
             <version>2.0.0</version>
         </docletArtifact>
+        <subpackages>io.github.atlascommunity.marklet</subpackages>
+        <sourcepath>src/main/java/</sourcepath>
         <reportOutputDirectory>./</reportOutputDirectory>
         <destDir>./</destDir>
         <additionalOptions>
@@ -40,8 +44,12 @@ in your project ``POM`` :
     </configuration>
 </plugin>
 ```
+The most important caveat is that you have to specify the Java packages (option `-subpackage`) you want to document 
+and their location in the file system (option `-sourcepath`) correctly, otherwise no output will be generated 
+(specifying `-sourcepath` alone is not sufficient). 
 
-This will generate the javadoc report into the project directory under project subfolder ``doc``.
+This will generate the javadoc report into the project directory under project subfolder `doc` and use the 
+file extension `md`.
 
 ## Java 8 doclint issues.
 
@@ -84,11 +92,12 @@ Marklet is licensed under the Apache License, Version 2.0
 
 ## Current issues
 
-The current version is a still under development with the following feature missing :
+The current version is still under development with the following issues:
 
-* Interfaces, inner classes, enumerations, and annotations has not been tested already and subject
-  to bug.
+* Interfaces, inner classes, enumerations, and annotations might have bugs.
 
-* Migration from com.sun.javadoc to jdk.javadoc.doclet API
+* Many modern (post Java-8) features will not be documented yet.
 
-* Version still needs testing
+* Migration from com.sun.javadoc to jdk.javadoc.doclet API (WIP)
+
+* Basically no unit tests
