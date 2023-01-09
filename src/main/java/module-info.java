@@ -1,3 +1,6 @@
+/**
+ * Module definition stating module exports and imports
+ */
 module io.github.atlascommunity.marklet {
     requires jdk.javadoc;
     requires static  lombok;

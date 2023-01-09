@@ -1,7 +1,7 @@
 # Marklet
 
 This is fork of the [Marklet doclet](https://github.com/atlascommunity/marklet/tree/master/src/main/java/io/github/atlascommunity/marklet)
-. The main purpose of Marklet is to generate Javadoc in markdown format. This version requires Java 14, but can
+. The purpose of Marklet is to generate Javadoc in markdown format. This version requires Java 14, but can
 document all lower source code versions.
 
 Currently working on the migration from `com.sun.javadoc` to the newer `jdk.javadoc.doclet` 
