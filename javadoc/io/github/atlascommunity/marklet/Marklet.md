@@ -1,6 +1,6 @@
 Class Marklet implements jdk.javadoc.doclet.Doclet
 ==================================================
-Marklet entry point. This class declares the {@link #init(Locale, Reporter)} and {@link #run(DocletEnvironment)}
+Marklet entry point. This class declares the [#init(Locale, Reporter)](#initlocale--reporter) and [#run(DocletEnvironment)](#rundocletenvironment)
  methods required by the doclet API in order to be called by the javadoc tool.
 
 io.github.atlascommunity.marklet.Marklet Summary

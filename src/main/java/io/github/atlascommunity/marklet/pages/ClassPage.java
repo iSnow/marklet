@@ -46,7 +46,7 @@ public class ClassPage implements DocumentPage {
             .append(new Heading(new ClassTitle(classElement).generate(), 1))
             .append("\n");
 
-    classPage.append(new ClassHeaderCommentInfo(comments).generate()).append("\n\n");
+    classPage.append(new ClassHeaderCommentInfo(comments, classElement, options).generate()).append("\n\n");
     classPage.append(new ClassQualifiedPathInfo(classElement).generate()).append(" ");
     classPage.append(new ClassSummary(classElement, environment.getTypeUtils()).generate()).append("\n");
 

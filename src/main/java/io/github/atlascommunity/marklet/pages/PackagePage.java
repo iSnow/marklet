@@ -61,7 +61,7 @@ public class PackagePage implements DocumentPage {
     if (null != bodyList) {
       boolean ruleAppended = false;
       for (DocTree tag : bodyList) {
-        String formattedTag = new MarkdownTag(tag, options.getFileEnding()).create();
+        String formattedTag = new MarkdownTag(tag, "", options.getFileEnding()).create();
         packagePage.append(formattedTag);
         if (ruleAppended) {
           packagePage.append("\n\n");

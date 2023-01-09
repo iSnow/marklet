@@ -12,8 +12,8 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 | Type and modifiers                                              | Field name |
 | --------------------------------------------------------------- | ---------- |
 | **private final List<javax.lang.model.element.ModuleElement>**  | modules    |
-| **private final List<javax.lang.model.element.PackageElement>** | packages   |
 | **private final io.github.atlascommunity.marklet.Options**      | options    |
+| **private final List<javax.lang.model.element.PackageElement>** | packages   |
 #### Methods
 | Modifiers  | Method signature                        | Return type |
 | ---------- | --------------------------------------- | ----------- |
@@ -33,14 +33,14 @@ List<javax.lang.model.element.ModuleElement> modules
 List of modules in the project
 
 
-List<javax.lang.model.element.PackageElement> packages
-----------------------------------------------------------------
-List of project packages
-
-
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
 Doclet options
+
+
+List<javax.lang.model.element.PackageElement> packages
+----------------------------------------------------------------
+List of project packages
 
 
 Methods

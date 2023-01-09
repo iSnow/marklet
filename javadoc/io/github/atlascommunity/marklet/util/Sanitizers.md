@@ -11,9 +11,9 @@ io.github.atlascommunity.marklet.util.Sanitizers Summary
 #### Methods
 | Modifiers         | Method signature                          | Return type |
 | ----------------- | ----------------------------------------- | ----------- |
-| **public static** | sanitizeSuperClass(TypeMirror superclass) | String      |
 | **public static** | sanitizePackageNames(String input)        | String      |
 | **public static** | sanitizeHtmlTags(String input)            | String      |
+| **public static** | sanitizeSuperClass(TypeMirror superclass) | String      |
 
 Constructors
 ============
@@ -24,11 +24,6 @@ Sanitizers()
 
 Methods
 =======
-sanitizeSuperClass(TypeMirror superclass)
------------------------------------------
-*No method description provided*
-
-
 sanitizePackageNames(String input)
 ----------------------------------
 *No method description provided*
@@ -36,6 +31,11 @@ sanitizePackageNames(String input)
 
 sanitizeHtmlTags(String input)
 ------------------------------
+*No method description provided*
+
+
+sanitizeSuperClass(TypeMirror superclass)
+-----------------------------------------
 *No method description provided*
 
 

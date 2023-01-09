@@ -11,6 +11,7 @@ io.github.atlascommunity.marklet.page_elements.MarkdownTag Summary
 #### Fields
 | Type and modifiers                               | Field name |
 | ------------------------------------------------ | ---------- |
+| **private final String**                         | className  |
 | **private final String**                         | fileEnding |
 | **private final com.sun.source.doctree.DocTree** | tag        |
 #### Methods
@@ -27,6 +28,11 @@ MarkdownTag()
 
 Fields
 ======
+String className
+--------------------------
+*No description provided*
+
+
 String fileEnding
 ---------------------------
 File ending from doclet options

@@ -4,23 +4,15 @@ Class that reads and stores provided options for javadoc execution. Options that
  are :
 
  
-
-
-  
-* `-d` specifies the output directory (default: `javadocs`) 
-  
-* `-e` specifies the file ending for files to be created (default `md`)
-  
-* `-l` specifies the file ending used in internal links
+  `-d` specifies the output directory (default: `javadocs`) 
+  `-e` specifies the file ending for files to be created (default `md`)
+  `-l` specifies the file ending used in internal links
  (default `md`)
  
 
-
- 
-
- The default options are ideal if you want to serve the documentation using GitHub's
+  The default options are ideal if you want to serve the documentation using GitHub's
  built-in README rendering. If you are using a tool like Slate, change the options as follows: ```
- $ javadoc -doclet fr.faylixe.marklet.Marklet -e html.md -l html \u2026 ```
+ $ javadoc -doclet fr.faylixe.marklet.Marklet -e html.md -l html … ```
 
 io.github.atlascommunity.marklet.Options Summary
 -------
