@@ -59,11 +59,17 @@ public class PackagePage implements DocumentPage {
 
     List<DocTree> bodyList =  getFullBody(packageElement, comments);
     if (null != bodyList) {
-      bodyList.forEach((tag) -> {
+      boolean ruleAppended = false;
+      for (DocTree tag : bodyList) {
         String formattedTag = new MarkdownTag(tag, options.getFileEnding()).create();
         packagePage.append(formattedTag);
-        packagePage.append("\n").append(new HorizontalRule()).append("\n");
-      });
+        if (ruleAppended) {
+          packagePage.append("\n\n");
+        } else {
+          packagePage.append("\n").append(new HorizontalRule()).append("\n");
+          ruleAppended = true;
+        }
+      };
     }
     /*Arrays.stream(packageElement.inlineTags())
         .forEach(

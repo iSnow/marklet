@@ -11,12 +11,12 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final com.sun.source.doctree.DocCommentTree**    | comments     |
 | **private final javax.lang.model.element.TypeElement**     | classElement |
-| **private final com.sun.source.util.DocTrees**             | treeUtils    |
+| **private final com.sun.source.doctree.DocCommentTree**    | comments     |
+| **private final jdk.javadoc.doclet.DocletEnvironment**     | environment  |
 | **private final io.github.atlascommunity.marklet.Options** | options      |
 | **private final String**                                   | packageName  |
-| **private final jdk.javadoc.doclet.DocletEnvironment**     | environment  |
+| **private final com.sun.source.util.DocTrees**             | treeUtils    |
 #### Methods
 | Modifiers   | Method signature                        | Return type |
 | ----------- | --------------------------------------- | ----------- |
@@ -32,18 +32,18 @@ ClassPage()
 
 Fields
 ======
-com.sun.source.doctree.DocCommentTree comments
-----------------------------------------------
-*No description provided*
-
-
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
 Class information
 
 
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
+com.sun.source.doctree.DocCommentTree comments
+----------------------------------------------
+*No description provided*
+
+
+jdk.javadoc.doclet.DocletEnvironment environment
+------------------------------------------------
 *No description provided*
 
 
@@ -57,8 +57,8 @@ String packageName
 *No description provided*
 
 
-jdk.javadoc.doclet.DocletEnvironment environment
-------------------------------------------------
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
 *No description provided*
 
 

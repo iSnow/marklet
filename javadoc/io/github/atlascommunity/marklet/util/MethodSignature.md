@@ -15,8 +15,8 @@ io.github.atlascommunity.marklet.util.MethodSignature Summary
 #### Methods
 | Modifiers   | Method signature                                                                  | Return type |
 | ----------- | --------------------------------------------------------------------------------- | ----------- |
-| **private** | methodParams(List<? extends javax.lang.model.element.VariableElement> parameters) | String      |
 | **public**  | toString() **(Override)**                                                         | String      |
+| **private** | methodParams(List<? extends javax.lang.model.element.VariableElement> parameters) | String      |
 
 Constructors
 ============
@@ -34,6 +34,18 @@ Method information
 
 Methods
 =======
+toString()
+----------
+### Overrides/Implements:
+toString() from java.lang.Object
+
+Form description from method information
+
+### Returns
+
+method signature string
+
+
 methodParams(List<? extends javax.lang.model.element.VariableElement> parameters)
 ---------------------------------------------------------------------------------
 Form doubled bracket params description
@@ -45,17 +57,5 @@ parameters: method params information
 ### Returns
 
 formed string
-
-
-toString()
-----------
-### Overrides/Implements:
-toString() from java.lang.Object
-
-Form description from method information
-
-### Returns
-
-method signature string
 
 

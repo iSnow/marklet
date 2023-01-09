@@ -16,9 +16,9 @@ io.github.atlascommunity.marklet.page_elements.ClassSummary Summary
 #### Methods
 | Modifiers          | Method signature                                                 | Return type |
 | ------------------ | ---------------------------------------------------------------- | ----------- |
+| **private static** | generateFieldSummary(TypeElement classElement)                   | String      |
 | **public**         | generate() **(Override)**                                        | String      |
 | **private static** | generateMethodSummary(TypeElement classElement, Types typeUtils) | String      |
-| **private static** | generateFieldSummary(TypeElement classElement)                   | String      |
 | **private static** | generateConstructorSummary(TypeElement classElement)             | String      |
 
 Constructors
@@ -42,6 +42,15 @@ javax.lang.model.util.Types typeUtils
 
 Methods
 =======
+generateFieldSummary(TypeElement classElement)
+----------------------------------------------
+
+
+### Returns
+
+markdown string representation of class fields
+
+
 generate()
 ----------
 ### Overrides/Implements:
@@ -61,15 +70,6 @@ generateMethodSummary(TypeElement classElement, Types typeUtils)
 ### Returns
 
 markdown string representation of class methods
-
-
-generateFieldSummary(TypeElement classElement)
-----------------------------------------------
-
-
-### Returns
-
-markdown string representation of class fields
 
 
 generateConstructorSummary(TypeElement classElement)

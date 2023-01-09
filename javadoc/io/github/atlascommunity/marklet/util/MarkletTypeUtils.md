@@ -11,17 +11,17 @@ io.github.atlascommunity.marklet.util.MarkletTypeUtils Summary
 #### Methods
 | Modifiers          | Method signature                                                       | Return type                                      |
 | ------------------ | ---------------------------------------------------------------------- | ------------------------------------------------ |
-| **public static**  | findPackageClasses(DocletEnvironment root)                             | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | findClassConstructors(TypeElement classElement)                        | Set<javax.lang.model.element.ExecutableElement>  |
+| **public static**  | findClassFields(TypeElement classElement)                              | Set<javax.lang.model.element.VariableElement>    |
+| **private static** | findInClass(ElementKind kind, TypeElement classElement)                | Set<javax.lang.model.element.Element>            |
+| **public static**  | findImplementedInterfaces(TypeElement classElement)                    | List<? extends javax.lang.model.type.TypeMirror> |
 | **public static**  | findPackageClasses(PackageElement t)                                   | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | findPackageInterfaces(PackageElement t)                                | Set<javax.lang.model.element.TypeElement>        |
 | **public static**  | findClassMethods(TypeElement classElement)                             | Set<javax.lang.model.element.ExecutableElement>  |
 | **public static**  | findClassAnnotations(TypeElement classElement)                         | Set<javax.lang.model.element.Element>            |
 | **public static**  | findOverriddenMethod(ExecutableElement methodElement, Types typeUtils) | javax.lang.model.element.ExecutableElement       |
+| **public static**  | findPackageClasses(DocletEnvironment root)                             | Set<javax.lang.model.element.TypeElement>        |
 | **private static** | findInPackage(ElementKind kind, PackageElement pkg)                    | Set<javax.lang.model.element.Element>            |
-| **public static**  | findClassConstructors(TypeElement classElement)                        | Set<javax.lang.model.element.ExecutableElement>  |
-| **private static** | findInClass(ElementKind kind, TypeElement classElement)                | Set<javax.lang.model.element.Element>            |
-| **public static**  | findImplementedInterfaces(TypeElement classElement)                    | List<? extends javax.lang.model.type.TypeMirror> |
-| **public static**  | findPackageInterfaces(PackageElement t)                                | Set<javax.lang.model.element.TypeElement>        |
-| **public static**  | findClassFields(TypeElement classElement)                              | Set<javax.lang.model.element.VariableElement>    |
 
 Constructors
 ============
@@ -32,18 +32,46 @@ MarkletTypeUtils()
 
 Methods
 =======
-findPackageClasses(DocletEnvironment root)
-------------------------------------------
-Find all package classes
+findClassConstructors(TypeElement classElement)
+-----------------------------------------------
+Find all class constructors
 
 ### Parameters
 
-root: the DocletEnvironment to scan
+classElement: the class to scan
+
+
+findClassFields(TypeElement classElement)
+-----------------------------------------
+Find all class fields
+
+### Parameters
+
+classElement: the class to scan
+
+
+findInClass(ElementKind kind, TypeElement classElement)
+-------------------------------------------------------
+*No method description provided*
+
+
+findImplementedInterfaces(TypeElement classElement)
+---------------------------------------------------
+*No method description provided*
 
 
 findPackageClasses(PackageElement t)
 ------------------------------------
 Find all package classes
+
+### Parameters
+
+t: the PackageElement to scan
+
+
+findPackageInterfaces(PackageElement t)
+---------------------------------------
+Find all package interfaces
 
 ### Parameters
 
@@ -73,45 +101,17 @@ findOverriddenMethod(ExecutableElement methodElement, Types typeUtils)
 *No method description provided*
 
 
+findPackageClasses(DocletEnvironment root)
+------------------------------------------
+Find all package classes
+
+### Parameters
+
+root: the DocletEnvironment to scan
+
+
 findInPackage(ElementKind kind, PackageElement pkg)
 ---------------------------------------------------
 *No method description provided*
-
-
-findClassConstructors(TypeElement classElement)
------------------------------------------------
-Find all class constructors
-
-### Parameters
-
-classElement: the class to scan
-
-
-findInClass(ElementKind kind, TypeElement classElement)
--------------------------------------------------------
-*No method description provided*
-
-
-findImplementedInterfaces(TypeElement classElement)
----------------------------------------------------
-*No method description provided*
-
-
-findPackageInterfaces(PackageElement t)
----------------------------------------
-Find all package interfaces
-
-### Parameters
-
-t: the PackageElement to scan
-
-
-findClassFields(TypeElement classElement)
------------------------------------------
-Find all class fields
-
-### Parameters
-
-classElement: the class to scan
 
 
