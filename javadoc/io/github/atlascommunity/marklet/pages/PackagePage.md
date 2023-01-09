@@ -11,21 +11,21 @@ io.github.atlascommunity.marklet.pages.PackagePage Summary
 #### Fields
 | Type and modifiers                                         | Field name       |
 | ---------------------------------------------------------- | ---------------- |
+| **private final com.sun.source.util.DocTrees**             | comments         |
 | **private final io.github.atlascommunity.marklet.Options** | options          |
 | **private final java.nio.file.Path**                       | packageDirectory |
 | **private final jdk.javadoc.doclet.DocletEnvironment**     | root             |
 | **private final javax.lang.model.element.PackageElement**  | packageElement   |
-| **private final com.sun.source.util.DocTrees**             | comments         |
 #### Methods
 | Modifiers   | Method signature                                                                                         | Return type                          |
 | ----------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| **private** | getFullBody(PackageElement packageElement, DocTrees comments)                                            | List<com.sun.source.doctree.DocTree> |
+| **private** | createPackageEnumIndex(StringBuilder packagePage)                                                        | void                                 |
 | **public**  | build(Reporter reporter) **(Override)**                                                                  | void                                 |
 | **private** | createPackageIndexes(StringBuilder packagePage)                                                          | void                                 |
-| **private** | generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage) | void                                 |
-| **private** | createPackageEnumIndex(StringBuilder packagePage)                                                        | void                                 |
 | **private** | writeFile(StringBuilder pageContent)                                                                     | void                                 |
 | **private** | createPackageClassIndex(StringBuilder packagePage)                                                       | void                                 |
+| **private** | generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage) | void                                 |
+| **private** | getFullBody(PackageElement packageElement, DocTrees comments)                                            | List<com.sun.source.doctree.DocTree> |
 
 Constructors
 ============
@@ -36,6 +36,11 @@ PackagePage()
 
 Fields
 ======
+com.sun.source.util.DocTrees comments
+-------------------------------------
+This class provides methods to access TreePaths, DocCommentTrees and so on.
+
+
 io.github.atlascommunity.marklet.Options options
 ------------------------------------------------
 Doclet options
@@ -56,16 +61,15 @@ javax.lang.model.element.PackageElement packageElement
 Package information
 
 
-com.sun.source.util.DocTrees comments
--------------------------------------
-This class provides methods to access TreePaths, DocCommentTrees and so on.
-
-
 Methods
 =======
-getFullBody(PackageElement packageElement, DocTrees comments)
--------------------------------------------------------------
-*No method description provided*
+createPackageEnumIndex(StringBuilder packagePage)
+-------------------------------------------------
+Generate index table for package classes
+
+### Parameters
+
+packagePage: string representation of package page content
 
 
 build(Reporter reporter)
@@ -83,27 +87,6 @@ IOException: something went wrong during write operation
 createPackageIndexes(StringBuilder packagePage)
 -----------------------------------------------
 Generate index tables for package annotations, enums, interfaces and classes
-
-### Parameters
-
-packagePage: string representation of package page content
-
-
-generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage)
---------------------------------------------------------------------------------------------------------
-Generate index table
-
-### Parameters
-
-- tableLabel: table name
-- docs: elements to work with
-- packagePage: string representation of package page content
-
-
-
-createPackageEnumIndex(StringBuilder packagePage)
--------------------------------------------------
-Generate index table for package classes
 
 ### Parameters
 
@@ -130,5 +113,22 @@ Generate index table for package classes
 ### Parameters
 
 packagePage: string representation of package page content
+
+
+generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage)
+--------------------------------------------------------------------------------------------------------
+Generate index table
+
+### Parameters
+
+- tableLabel: table name
+- docs: elements to work with
+- packagePage: string representation of package page content
+
+
+
+getFullBody(PackageElement packageElement, DocTrees comments)
+-------------------------------------------------------------
+*No method description provided*
 
 

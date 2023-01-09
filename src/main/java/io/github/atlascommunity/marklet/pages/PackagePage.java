@@ -9,7 +9,6 @@ import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import jdk.javadoc.doclet.DocletEnvironment;
 import jdk.javadoc.doclet.Reporter;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.table.Table;
@@ -29,7 +28,7 @@ import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX
 import static io.github.atlascommunity.marklet.constants.Labels.*;
 
 /** Index of package elements */
-@Slf4j
+
 @RequiredArgsConstructor
 public class PackagePage implements DocumentPage {
 

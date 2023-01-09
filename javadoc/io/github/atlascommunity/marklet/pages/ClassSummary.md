@@ -11,15 +11,15 @@ io.github.atlascommunity.marklet.pages.ClassSummary Summary
 #### Fields
 | Type and modifiers                                     | Field name   |
 | ------------------------------------------------------ | ------------ |
-| **private final javax.lang.model.util.Types**          | typeUtils    |
 | **private final javax.lang.model.element.TypeElement** | classElement |
+| **private final javax.lang.model.util.Types**          | typeUtils    |
 #### Methods
 | Modifiers          | Method signature                                                 | Return type |
 | ------------------ | ---------------------------------------------------------------- | ----------- |
-| **private static** | generateFieldSummary(TypeElement classElement)                   | String      |
 | **private static** | generateMethodSummary(TypeElement classElement, Types typeUtils) | String      |
-| **private static** | generateConstructorSummary(TypeElement classElement)             | String      |
+| **private static** | generateFieldSummary(TypeElement classElement)                   | String      |
 | **public**         | generate() **(Override)**                                        | String      |
+| **private static** | generateConstructorSummary(TypeElement classElement)             | String      |
 
 Constructors
 ============
@@ -30,27 +30,18 @@ ClassSummary()
 
 Fields
 ======
-javax.lang.model.util.Types typeUtils
--------------------------------------
-*No description provided*
-
-
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
 Class information
 
 
+javax.lang.model.util.Types typeUtils
+-------------------------------------
+*No description provided*
+
+
 Methods
 =======
-generateFieldSummary(TypeElement classElement)
-----------------------------------------------
-
-
-### Returns
-
-markdown string representation of class fields
-
-
 generateMethodSummary(TypeElement classElement, Types typeUtils)
 ----------------------------------------------------------------
 
@@ -60,13 +51,13 @@ generateMethodSummary(TypeElement classElement, Types typeUtils)
 markdown string representation of class methods
 
 
-generateConstructorSummary(TypeElement classElement)
-----------------------------------------------------
+generateFieldSummary(TypeElement classElement)
+----------------------------------------------
 
 
 ### Returns
 
-markdown string representation of class constructors
+markdown string representation of class fields
 
 
 generate()
@@ -79,5 +70,14 @@ generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
 ### Returns
 
 markdown string representation of document part
+
+
+generateConstructorSummary(TypeElement classElement)
+----------------------------------------------------
+
+
+### Returns
+
+markdown string representation of class constructors
 
 

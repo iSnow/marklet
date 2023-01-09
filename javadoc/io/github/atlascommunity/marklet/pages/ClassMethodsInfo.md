@@ -11,19 +11,19 @@ io.github.atlascommunity.marklet.pages.ClassMethodsInfo Summary
 #### Fields
 | Type and modifiers                                 | Field name          |
 | -------------------------------------------------- | ------------------- |
-| **final javax.lang.model.element.TypeElement**     | classElement        |
+| **final io.github.atlascommunity.marklet.Options** | options             |
 | **private static final String**                    | DESCRIPTION_PATTERN |
+| **final javax.lang.model.element.TypeElement**     | classElement        |
 | **final com.sun.source.util.DocTrees**             | treeUtils           |
 | **final javax.lang.model.util.Types**              | typeUtils           |
-| **final io.github.atlascommunity.marklet.Options** | options             |
 | **String**                                         | key                 |
 #### Methods
 | Modifiers   | Method signature                          | Return type                                     |
 | ----------- | ----------------------------------------- | ----------------------------------------------- |
-|             | findElements()                            | Set<javax.lang.model.element.ExecutableElement> |
-| **public**  | generate() **(Override)**                 | String                                          |
 | **private** | methodDescription(ExecutableElement doc)  | String                                          |
+| **public**  | generate() **(Override)**                 | String                                          |
 |             | signatureString(ExecutableElement method) | String                                          |
+|             | findElements()                            | Set<javax.lang.model.element.ExecutableElement> |
 
 Constructors
 ============
@@ -34,14 +34,19 @@ ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTre
 
 Fields
 ======
-javax.lang.model.element.TypeElement classElement
--------------------------------------------------
-Class information
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+Doclet options
 
 
 String DESCRIPTION_PATTERN
 ------------------------------------
 Pattern for colon separated description
+
+
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
+Class information
 
 
 com.sun.source.util.DocTrees treeUtils
@@ -54,11 +59,6 @@ javax.lang.model.util.Types typeUtils
 *No description provided*
 
 
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-Doclet options
-
-
 String key
 --------------------
 *No description provided*
@@ -66,9 +66,17 @@ String key
 
 Methods
 =======
-findElements()
---------------
-*No method description provided*
+methodDescription(ExecutableElement doc)
+----------------------------------------
+
+
+### Parameters
+
+doc: method representation
+
+### Returns
+
+markdown string
 
 
 generate()
@@ -83,21 +91,13 @@ generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
 markdown string representation of document part
 
 
-methodDescription(ExecutableElement doc)
-----------------------------------------
-
-
-### Parameters
-
-doc: method representation
-
-### Returns
-
-markdown string
-
-
 signatureString(ExecutableElement method)
 -----------------------------------------
+*No method description provided*
+
+
+findElements()
+--------------
 *No method description provided*
 
 

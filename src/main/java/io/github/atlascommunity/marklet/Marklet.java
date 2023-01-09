@@ -33,7 +33,6 @@ import static io.github.atlascommunity.marklet.Options.OUTPUT_DIRECTORY_OPTION;
  *
  * @author fv
  */
-//@Slf4j
 @NoArgsConstructor()
 public final class Marklet implements Doclet {
   Reporter reporter;
@@ -43,8 +42,6 @@ public final class Marklet implements Doclet {
 
   /** Documentation root provided by the doclet API. * */
   private DocletEnvironment root;
-
-  private Locale locale;
 
   private final Map<String, String> classPackageMapping = new HashMap<>();
 
@@ -206,24 +203,6 @@ public final class Marklet implements Doclet {
     return result;
   }
 
-  /**
-   * Test methods
-   */
-
-  public boolean test1(boolean test1Var1, int test1Var2) {
-    return false;
-  }
-
-  /**
-   * @deprecated since 9
-   *
-   * @param arg1 the args
-   * @return false if false
-   */
-  @Deprecated(since = "9")
-  public boolean test1(Map<String, Integer> arg1) {
-    return false;
-  }
 
   /** @return <tt>true</tt> if generation was successful, <tt>false</tt> otherwise. */
   private boolean doWork() {
