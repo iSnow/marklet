@@ -97,7 +97,7 @@ Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)},
 getSupportedSourceVersion()
 ---------------------------
 ### Overrides/Implements:
-getSupportedSourceVersion() from Interface Doclet
+getSupportedSourceVersion() from jdk.javadoc.doclet.Doclet
 
 
 
@@ -109,7 +109,7 @@ LanguageVersion supported.
 getName()
 ---------
 ### Overrides/Implements:
-getName() from Interface Doclet
+getName() from jdk.javadoc.doclet.Doclet
 
 *No method description provided*
 
@@ -156,7 +156,7 @@ list of packages documents
 getSupportedOptions()
 ---------------------
 ### Overrides/Implements:
-getSupportedOptions() from Interface Doclet
+getSupportedOptions() from jdk.javadoc.doclet.Doclet
 
 *No method description provided*
 

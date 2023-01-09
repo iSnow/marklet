@@ -27,7 +27,7 @@ Methods
 signatureString(ExecutableElement method)
 -----------------------------------------
 ### Overrides/Implements:
-signatureString(ExecutableElement method) from Class ClassMethodsInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
+signatureString(ExecutableElement method) from io.github.atlascommunity.marklet.pages.ClassMethodsInfo
 
 *No method description provided*
 
@@ -35,7 +35,7 @@ signatureString(ExecutableElement method) from Class ClassMethodsInfo implements
 findElements()
 --------------
 ### Overrides/Implements:
-findElements() from Class ClassMethodsInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
+findElements() from io.github.atlascommunity.marklet.pages.ClassMethodsInfo
 
 *No method description provided*
 

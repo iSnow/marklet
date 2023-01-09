@@ -38,7 +38,7 @@ Methods
 generate()
 ----------
 ### Overrides/Implements:
-generate() from Interface ClassPageElement
+generate() from io.github.atlascommunity.marklet.pages.ClassPageElement
 
 *No method description provided*
 

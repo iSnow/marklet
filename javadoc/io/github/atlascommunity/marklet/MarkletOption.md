@@ -75,7 +75,7 @@ Methods
 getArgumentCount()
 ------------------
 ### Overrides/Implements:
-getArgumentCount() from Interface Option
+getArgumentCount() from jdk.javadoc.doclet.Doclet.Option
 
 *No method description provided*
 
@@ -88,7 +88,7 @@ process(String option, List<String> arguments)
 toString()
 ----------
 ### Overrides/Implements:
-toString() from Class Object
+toString() from java.lang.Object
 
 *No method description provided*
 
@@ -96,7 +96,7 @@ toString() from Class Object
 getParameters()
 ---------------
 ### Overrides/Implements:
-getParameters() from Interface Option
+getParameters() from jdk.javadoc.doclet.Doclet.Option
 
 *No method description provided*
 
@@ -104,7 +104,7 @@ getParameters() from Interface Option
 getKind()
 ---------
 ### Overrides/Implements:
-getKind() from Interface Option
+getKind() from jdk.javadoc.doclet.Doclet.Option
 
 *No method description provided*
 
@@ -112,7 +112,7 @@ getKind() from Interface Option
 getNames()
 ----------
 ### Overrides/Implements:
-getNames() from Interface Option
+getNames() from jdk.javadoc.doclet.Doclet.Option
 
 *No method description provided*
 
@@ -125,7 +125,7 @@ getValue()
 getDescription()
 ----------------
 ### Overrides/Implements:
-getDescription() from Interface Option
+getDescription() from jdk.javadoc.doclet.Doclet.Option
 
 *No method description provided*
 

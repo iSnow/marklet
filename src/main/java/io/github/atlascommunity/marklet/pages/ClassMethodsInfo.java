@@ -89,7 +89,7 @@ public class ClassMethodsInfo implements ClassPageElement {
                 .append(new MethodSignatureElement(overriddenMethod).generate())
                 .append(" from ");
         TypeElement overriddenClass = (TypeElement) overriddenMethod.getEnclosingElement();
-        description.append(new ClassTitle(overriddenClass).generate()).append("\n").append("\n");
+        description.append(overriddenClass.getQualifiedName()).append("\n").append("\n");
       }
     }
     if (null == comments) {

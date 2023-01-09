@@ -69,7 +69,7 @@ Methods
 build(Reporter reporter)
 ------------------------
 ### Overrides/Implements:
-build(Reporter reporter) from Interface DocumentPage
+build(Reporter reporter) from io.github.atlascommunity.marklet.pages.DocumentPage
 
 Creates markdown text file
 

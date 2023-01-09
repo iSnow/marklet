@@ -50,7 +50,7 @@ Methods
 build(Reporter reporter)
 ------------------------
 ### Overrides/Implements:
-build(Reporter reporter) from Interface DocumentPage
+build(Reporter reporter) from io.github.atlascommunity.marklet.pages.DocumentPage
 
 Build document and write it to the selected folder
 
