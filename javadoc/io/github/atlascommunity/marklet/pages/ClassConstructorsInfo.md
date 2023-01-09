@@ -9,10 +9,10 @@ io.github.atlascommunity.marklet.pages.ClassConstructorsInfo Summary
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **public** | ClassConstructorsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,io.github.atlascommunity.marklet.Options) |
 #### Methods
-| Type and modifiers | Method signature                                          | Return type                                     |
-| ------------------ | --------------------------------------------------------- | ----------------------------------------------- |
-| ****               | signatureString (ExecutableElement method) **(Override)** | String                                          |
-| ****               | findElements  **(Override)**                              | Set<javax.lang.model.element.ExecutableElement> |
+| Type and modifiers | Method signature                                         | Return type                                     |
+| ------------------ | -------------------------------------------------------- | ----------------------------------------------- |
+| ****               | signatureString(ExecutableElement method) **(Override)** | String                                          |
+| ****               | findElements() **(Override)**                            | Set<javax.lang.model.element.ExecutableElement> |
 
 Constructors
 ============
@@ -24,13 +24,19 @@ ClassConstructorsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.D
 
 Methods
 =======
-signatureString (ExecutableElement method) **(Override)**
----------------------------------------------------------
+signatureString(ExecutableElement method)
+-----------------------------------------
+### Overrides/Implements:
+signatureString(ExecutableElement method) from Class ClassMethodsInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
+
 *No method description provided*
 
 
-findElements  **(Override)**
-----------------------------
+findElements()
+--------------
+### Overrides/Implements:
+findElements() from Class ClassMethodsInfo implements io.github.atlascommunity.marklet.pages.ClassPageElement
+
 *No method description provided*
 
 

@@ -11,12 +11,12 @@ io.github.atlascommunity.marklet.pages.ClassFieldsInfo Summary
 #### Fields
 | Type and modifiers                                     | Field name   |
 | ------------------------------------------------------ | ------------ |
-| **private final com.sun.source.util.DocTrees**         | treeUtils    |
 | **private final javax.lang.model.element.TypeElement** | classElement |
+| **private final com.sun.source.util.DocTrees**         | treeUtils    |
 #### Methods
-| Type and modifiers | Method signature         | Return type |
-| ------------------ | ------------------------ | ----------- |
-| **public**         | generate  **(Override)** | String      |
+| Type and modifiers | Method signature          | Return type |
+| ------------------ | ------------------------- | ----------- |
+| **public**         | generate() **(Override)** | String      |
 
 Constructors
 ============
@@ -28,21 +28,24 @@ ClassFieldsInfo()
 
 Fields
 ======
-com.sun.source.util.DocTrees treeUtils
---------------------------------------
-*No description provided*
-
-
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
 Class information
 
 
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
+*No description provided*
+
+
 
 Methods
 =======
-generate  **(Override)**
-------------------------
+generate()
+----------
+### Overrides/Implements:
+generate() from Interface ClassPageElement
+
 
 
 ### Returns

@@ -29,7 +29,7 @@ public class MethodSignature {
 
     String methodName = methodInfo.getSimpleName().toString();
     List<? extends VariableElement> parameters = methodInfo.getParameters();
-    return String.format("%s %s", methodName, methodParams(parameters));
+    return String.format("%s%s", methodName, methodParams(parameters));
   }
 
   /**
@@ -42,7 +42,7 @@ public class MethodSignature {
 
     List<String> parametersFormed = new ArrayList<>();
     if (parameters.isEmpty()) {
-      return "";
+      return "()";
     }
     parameters.forEach(p -> {
       TypeMirror mirror = p.asType();

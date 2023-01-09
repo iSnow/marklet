@@ -7,12 +7,12 @@ io.github.atlascommunity.marklet.pages.ClassPageElement Summary
 #### Methods
 | Type and modifiers  | Method signature | Return type |
 | ------------------- | ---------------- | ----------- |
-| **public abstract** | generate         | String      |
+| **public abstract** | generate()       | String      |
 
 Methods
 =======
-generate 
----------
+generate()
+----------
 
 
 ### Returns

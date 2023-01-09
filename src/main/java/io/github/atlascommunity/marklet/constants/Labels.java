@@ -62,5 +62,8 @@ public final class Labels {
 
   public static final String DEPRECATED = "Deprecated";
 
+  /** Label for Override. * */
+  public static final String OVERRIDES = "Overrides/Implements:";
+
   public static final String OVERRIDE_MARK = "(Override)";
 }

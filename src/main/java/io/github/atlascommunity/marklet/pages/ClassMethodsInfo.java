@@ -79,6 +79,19 @@ public class ClassMethodsInfo implements ClassPageElement {
     StringBuilder description =
             new StringBuilder().append(heading).append("\n");
     DocCommentTree comments = treeUtils.getDocCommentTree(doc);
+    ExecutableElement overriddenMethod = null;
+    if (null != typeUtils) {
+      overriddenMethod = findOverriddenMethod(doc, typeUtils);
+      if (null != overriddenMethod) {
+        Heading overrideHeading = new Heading(OVERRIDES, 3);
+        description
+                .append(overrideHeading).append("\n")
+                .append(new MethodSignatureElement(overriddenMethod).generate())
+                .append(" from ");
+        TypeElement overriddenClass = (TypeElement) overriddenMethod.getEnclosingElement();
+        description.append(new ClassTitle(overriddenClass).generate()).append("\n").append("\n");
+      }
+    }
     if (null == comments) {
       description.append("*No method description provided*").append("\n").append("\n");
     } else {
@@ -155,7 +168,6 @@ public class ClassMethodsInfo implements ClassPageElement {
   }
 
   String signatureString(ExecutableElement method) {
-    ExecutableElement overriddenMethod = findOverriddenMethod(method, typeUtils);
-    return new MethodSignatureElement(method, overriddenMethod).generate();
+    return new MethodSignatureElement(method).generate();
   }
 }

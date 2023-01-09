@@ -111,7 +111,6 @@ public class MarkletTypeUtils {
     public static ExecutableElement findOverriddenMethod(ExecutableElement methodElement, Types typeUtils) {
 
         String methodSig = new MethodSignature(methodElement).toString();
-        List<ExecutableElement> methods = new ArrayList<>();
         TypeElement typeElement = (TypeElement) methodElement.getEnclosingElement();
         for (TypeMirror t : typeUtils.directSupertypes(typeElement.asType())) {
             TypeElement te = (TypeElement) typeUtils.asElement(t);

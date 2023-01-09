@@ -67,7 +67,7 @@ public class ClassSummary implements ClassPageElement {
                         ExecutableElement overriddenMethod = findOverriddenMethod(m, typeUtils);
                         tableEntries.addRow(
                                 new BoldText(modifiers),
-                                new MethodSignatureElement(m, overriddenMethod).generate(),
+                                new OverriddenMethodSignatureElement(m, overriddenMethod).generate(),
                                 Sanitizers.sanitizePackageNames(mirror.toString()));
                       });
 

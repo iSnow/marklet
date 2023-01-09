@@ -11,19 +11,19 @@ io.github.atlascommunity.marklet.pages.ClassMethodsInfo Summary
 #### Fields
 | Type and modifiers                                 | Field name          |
 | -------------------------------------------------- | ------------------- |
+| **String**                                         | key                 |
+| **private static final String**                    | DESCRIPTION_PATTERN |
 | **final com.sun.source.util.DocTrees**             | treeUtils           |
 | **final javax.lang.model.util.Types**              | typeUtils           |
-| **private static final String**                    | DESCRIPTION_PATTERN |
 | **final javax.lang.model.element.TypeElement**     | classElement        |
-| **String**                                         | key                 |
 | **final io.github.atlascommunity.marklet.Options** | options             |
 #### Methods
-| Type and modifiers | Method signature                           | Return type                                     |
-| ------------------ | ------------------------------------------ | ----------------------------------------------- |
-| ****               | signatureString (ExecutableElement method) | String                                          |
-| **public**         | generate  **(Override)**                   | String                                          |
-| **private**        | methodDescription (ExecutableElement doc)  | String                                          |
-| ****               | findElements                               | Set<javax.lang.model.element.ExecutableElement> |
+| Type and modifiers | Method signature                          | Return type                                     |
+| ------------------ | ----------------------------------------- | ----------------------------------------------- |
+| **private**        | methodDescription(ExecutableElement doc)  | String                                          |
+| ****               | findElements()                            | Set<javax.lang.model.element.ExecutableElement> |
+| **public**         | generate() **(Override)**                 | String                                          |
+| ****               | signatureString(ExecutableElement method) | String                                          |
 
 Constructors
 ============
@@ -35,6 +35,16 @@ ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTre
 
 Fields
 ======
+String key
+--------------------
+*No description provided*
+
+
+String DESCRIPTION_PATTERN
+------------------------------------
+Pattern for colon separated description
+
+
 com.sun.source.util.DocTrees treeUtils
 --------------------------------------
 *No description provided*
@@ -45,19 +55,9 @@ javax.lang.model.util.Types typeUtils
 *No description provided*
 
 
-String DESCRIPTION_PATTERN
-------------------------------------
-Pattern for colon separated description
-
-
 javax.lang.model.element.TypeElement classElement
 -------------------------------------------------
 Class information
-
-
-String key
---------------------
-*No description provided*
 
 
 io.github.atlascommunity.marklet.Options options
@@ -68,22 +68,8 @@ Doclet options
 
 Methods
 =======
-signatureString (ExecutableElement method)
-------------------------------------------
-*No method description provided*
-
-
-generate  **(Override)**
-------------------------
-
-
-### Returns
-
-markdown string representation of document part
-
-
-methodDescription (ExecutableElement doc)
------------------------------------------
+methodDescription(ExecutableElement doc)
+----------------------------------------
 
 
 ### Parameters
@@ -95,8 +81,25 @@ doc: method representation
 markdown string
 
 
-findElements 
--------------
+findElements()
+--------------
+*No method description provided*
+
+
+generate()
+----------
+### Overrides/Implements:
+generate() from Interface ClassPageElement
+
+
+
+### Returns
+
+markdown string representation of document part
+
+
+signatureString(ExecutableElement method)
+-----------------------------------------
 *No method description provided*
 
 
