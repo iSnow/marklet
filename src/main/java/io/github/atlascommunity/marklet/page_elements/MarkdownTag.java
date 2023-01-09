@@ -50,7 +50,9 @@ public class MarkdownTag {
       }
     } else if(tag.getKind().equals(TEXT)) {
         TextTree txt = (TextTree) tag;
-        content = Sanitizers.sanitizeHtmlTags(txt.getBody());
+        content = txt.getBody();
+    } else {
+      content = tag.toString();
     }
     /*if (("@link").equals(tag.name())) {
       SeeTag seeTag = (SeeTag) tag;
@@ -63,6 +65,6 @@ public class MarkdownTag {
 
     }}*/
 
-    return content;
+    return Sanitizers.sanitizeHtmlTags(content);
   }
 }
