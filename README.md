@@ -1,6 +1,6 @@
 # Marklet
 
-Marklet is a Doclet that plugs into `javadoc`. The purpose of Marklet is to generate Javadoc in markdown format. 
+Marklet is a Doclet that plugs into `javadoc`. The purpose of Marklet is to generate Javadoc in Markdown format. 
 This version requires Java 14, but can document all lower source code versions.
 
 Currently working on the migration from `com.sun.javadoc` to the newer `jdk.javadoc.doclet` 
@@ -14,7 +14,7 @@ you can't just use it in your projects.
 ## How to use
 
 You can run Marklet on the command line to generate one-shot documentation or add it to your `pom.xml` 
-so markdown docs are created on Maven build.
+so Markdown docs are created on Maven build.
 
 The most important caveat is that you have to specify the Java packages (option `-subpackage`) you want to document
 and their location in the file system (option `-sourcepath`) correctly, otherwise no output will be generated
@@ -83,7 +83,7 @@ in your project ``POM`` :
 </profiles>
 ```
 
-This profile is not active by default, so the markdown documentation would not get re-created with each Maven run,
+This profile is not active by default, so the Markdown documentation would not get re-created with each Maven run,
 but if you type `mvn clean package -P generate-markdown`, it gets run. If you want to have it permanently active,
 set `activeByDefault` to `true`: 
 
@@ -110,7 +110,7 @@ on how to use alternate doclets like Marklet in addition to the default HTML-gen
 ## Java 8 doclint issues.
 
 If you are using Java 8 you may have some issues with doclint validation especially when using
-markdown blockquotes syntax. To deal with it, just add the following directive to your ``pom.xml``
+Markdown blockquotes syntax. To deal with it, just add the following directive to your ``pom.xml``
 file to deactivate doclint :
 
 ```xml
@@ -128,14 +128,11 @@ file to deactivate doclint :
 
 ## Developing Marklet
 
-Marklet requires Apache Maven. In order to build, run
+To hack on Marklet and improve it, look at `Marklet.java` and use the `main()` method to get it to run
+in any IDE. The provided options allow you to run Marklet on its own source tree.
 
-```
-$ mvn install
 
-```
-
-In order to generate Markdown documentation for Marklet itself, run
+In order to generate Markdown documentation for Marklet itself via Maven, run
 
 ```
 $ mvn -P generate-markdown javadoc:javadoc

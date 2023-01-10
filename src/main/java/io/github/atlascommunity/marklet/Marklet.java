@@ -40,6 +40,9 @@ import static io.github.atlascommunity.marklet.Options.OUTPUT_DIRECTORY_OPTION;
  */
 @NoArgsConstructor()
 public final class Marklet implements Doclet {
+  /**
+   * Doclet enviroment logger
+   */
   Reporter reporter;
 
   /** Command line options that have been parsed. * */
@@ -48,21 +51,18 @@ public final class Marklet implements Doclet {
   /** Documentation root provided by the doclet API. * */
   private DocletEnvironment root;
 
-  //private final Map<String, String> classPackageMapping = new HashMap<>();
+
 
 
   /**
-   * Builds and retrieves the path for the directory associated to the package with the given
-   * <tt>name</tt>.
+   * Generates Readme file
    *
-   * @param packageName Name of the package to get directory for.
-   * @return Built path.
+   * @param modules project modules list
+   * @param packages project packages list
+   * @throws IOException If any error occurs during generation process.
    */
-  private Path getPackageDirectory(final String packageName) {
-
-    final String directory = packageName.replace('.', '/');
-
-    return Paths.get(options.getOutputDirectory(), directory);
+  private void generateReadmePage(List<ModuleElement> modules, List<PackageElement> packages) throws IOException {
+    new ReadmePage(modules, packages, options, reporter).write();
   }
 
   /**
@@ -71,7 +71,7 @@ public final class Marklet implements Doclet {
    * @param packageElement Package to generate documentation for.
    * @throws IOException If any error occurs while creating file or directories.
    */
-  private void generatePackage(final PackageElement packageElement) throws IOException {
+  private void generatePackagePage(final PackageElement packageElement) throws IOException {
 
     final String name = packageElement.getQualifiedName().toString();
     //log.info("Generates package documentation for " + name);
@@ -136,31 +136,30 @@ public final class Marklet implements Doclet {
     }
   }
 
+
   /**
-       * Generates Readme file
-       *
-       * @param modules project modules list
-       * @param packages project packages list
-       * @throws IOException If any error occurs during generation process.
-       */
-  private void generateReadme(List<ModuleElement> modules, List<PackageElement> packages) throws IOException {
-
-    new ReadmePage(modules, packages, options, reporter).write();
-  }
-
-
-
+   * Returns the name of this Doclet
+   *
+   * @return returns `Marklet`
+   */
   @Override
   public String getName() {
     return getClass().getSimpleName();
   }
 
+  /**
+   * Returns the options this Doclet supports
+   *
+   * @return Set of supported options
+   */
   @Override
   public Set<? extends Option> getSupportedOptions() {
     return Options.getSupportedOptions();
   }
 
-  /** @return LanguageVersion supported. */
+  /** Report the highest Java version supported.
+   *
+   * @return LanguageVersion supported. */
   @Override
   public SourceVersion getSupportedSourceVersion() {
     return SourceVersion.latest();
@@ -168,7 +167,7 @@ public final class Marklet implements Doclet {
 
   /**
    * Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)}, the
-   * doclet entry point
+   * doclet entry point. We don't do a lot here
    *
    * @param locale the locale to be used
    * @param reporter the reporter to be used
@@ -179,7 +178,7 @@ public final class Marklet implements Doclet {
   }
 
   /**
-   * **Doclet** worker point. Parses user provided options and starts a **Marklet** execution.
+   * Main **Doclet** worker entry point.
    *
    * @param environment DocletEnvironment.
    * @return ``true`` if the generation went well, ``false`` otherwise.
@@ -201,7 +200,11 @@ public final class Marklet implements Doclet {
   }
 
 
-  /** @return <tt>true</tt> if markdown generation was successful, <tt>false</tt> otherwise. */
+  /**
+   * Does the actual work of setting up paths and generating markdown files.
+   * Hands back to {@link #run(DocletEnvironment)}
+   *
+   * @return <tt>true</tt> if markdown generation was successful, <tt>false</tt> otherwise. */
   private boolean doWork() {
 
     try {
@@ -217,9 +220,9 @@ public final class Marklet implements Doclet {
       List<PackageElement> packages = buildPackages();
       reporter.print(Diagnostic.Kind.NOTE, "packages: " + packages);
 
-      generateReadme(modules, packages);
+      generateReadmePage(modules, packages);
       for (PackageElement p : packages) {
-        generatePackage(p);
+        generatePackagePage(p);
       }
       buildClasses();
     } catch (final IOException e) {
@@ -229,20 +232,50 @@ public final class Marklet implements Doclet {
     return true;
   }
 
+
+  /**
+   * Builds and retrieves the path for the directory associated to the package with the given
+   * <tt>name</tt>.
+   *
+   * @param packageName Name of the package to get directory for.
+   * @return Built path.
+   */
+  private Path getPackageDirectory(final String packageName) {
+
+    final String directory = packageName.replace('.', '/');
+
+    return Paths.get(options.getOutputDirectory(), directory);
+  }
+
+
+  /**
+   * Useful to run the Doclet in an IDE like IntelliJ. This can be used to create a run configuration
+   * as if this was a regular Java application instead of a Doclet intended to be used via ´javadoc´. This
+   * way, you can step through it in the debugger.
+   *
+   * This starts up ´javadoc´ programmatically (called `DocumentationTool`) and tells it to run our
+   * Doclet with the given options.
+   *
+   * Currently, this is in the unnamed module b/c using modules here proved to be difficult. If you want
+   *  to have a try, first uncomment the "--module-path", create a file `modulepath.txt` and add classpath
+   *  entries for all dependencies. Then get rid of the need to explicitly list the jars...
+   *
+   * @param args command-line arguments, disregarded
+   */
   @SneakyThrows
   public static void main(String[] args) {
     String docletName = Marklet.class.getName();
     String packageName = Marklet.class.getPackageName();
     File f = new File ("modulepath.txt");
-    String modulePath = Files.readString(f.toPath());
+    if (f.exists()) {
+      String modulePath = Files.readString(f.toPath());
+    }
     String[] docletArgs = new String[]{
             "-doclet", docletName,
             "-docletpath", "target/classes/",
             "-sourcepath", "src/main/java/",
-            //"-d", "javadoc",
-            "--module-path", modulePath,
+            //"--module-path", modulePath,
             "-subpackages", "io.github.atlascommunity",
-            "-b",
             packageName
     };
     DocumentationTool docTool = ToolProvider.getSystemDocumentationTool();
