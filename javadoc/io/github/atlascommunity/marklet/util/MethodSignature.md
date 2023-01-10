@@ -9,15 +9,15 @@ io.github.atlascommunity.marklet.util.MethodSignature Summary
 | ---------- | ----------------- |
 | public     | MethodSignature() |
 #### Fields
-| Modifiers | Field name | Type                                       |
-| --------- | ---------- | ------------------------------------------ |
-| **final** | methodInfo | javax.lang.model.element.ExecutableElement |
+| Modifiers | Field name                                                                                                        | Type                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| **final** | [final javax.lang.model.element.ExecutableElement methodInfo](#javaxlangmodelelementexecutableelement-methodinfo) | javax.lang.model.element.ExecutableElement |
 #### Methods
-| Modifiers   | Method signature                                                                                                                                                | Return type |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **public**  | [toString()](#tostring)                                                                                                                                         | String      |
-| **public**  | [toLinkTarget()](#tolinktarget)                                                                                                                                 | String      |
-| **private** | [methodParams(List<? extends javax.lang.model.element.VariableElement> parameters)](#methodparamslist?-extends-javaxlangmodelelementvariableelement-parameters) | String      |
+| Modifiers          | Method signature                                                                                                                                                | Return type |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **public**         | [toString()](#tostring)                                                                                                                                         | String      |
+| **public**         | [toLinkTarget()](#tolinktarget)                                                                                                                                 | String      |
+| **private static** | [methodParams(List<? extends javax.lang.model.element.VariableElement> parameters)](#methodparamslist?-extends-javaxlangmodelelementvariableelement-parameters) | String      |
 
 Constructors
 ============

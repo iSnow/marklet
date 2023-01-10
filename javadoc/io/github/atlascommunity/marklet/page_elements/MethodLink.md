@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.page_elements.MethodLink Summary
 | ---------- | ------------ |
 | public     | MethodLink() |
 #### Fields
-| Modifiers         | Field name | Type                                                  |
-| ----------------- | ---------- | ----------------------------------------------------- |
-| **private final** | signature  | io.github.atlascommunity.marklet.util.MethodSignature |
+| Modifiers         | Field name                                                                                                                                   | Type                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| **private final** | [private final io.github.atlascommunity.marklet.util.MethodSignature signature](#iogithubatlascommunitymarkletutilmethodsignature-signature) | io.github.atlascommunity.marklet.util.MethodSignature |
 #### Methods
 | Modifiers  | Method signature        | Return type |
 | ---------- | ----------------------- | ----------- |

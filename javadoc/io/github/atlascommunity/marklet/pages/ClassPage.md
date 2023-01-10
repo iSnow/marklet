@@ -9,15 +9,15 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 | ---------- | ----------- |
 | public     | ClassPage() |
 #### Fields
-| Modifiers         | Field name   | Type                                     |
-| ----------------- | ------------ | ---------------------------------------- |
-| **private final** | classElement | javax.lang.model.element.TypeElement     |
-| **private final** | treeUtils    | com.sun.source.util.DocTrees             |
-| **private final** | comments     | com.sun.source.doctree.DocCommentTree    |
-| **private final** | environment  | jdk.javadoc.doclet.DocletEnvironment     |
-| **private final** | options      | io.github.atlascommunity.marklet.Options |
-| **private final** | packageName  | String                                   |
-| **private final** | reporter     | jdk.javadoc.doclet.Reporter              |
+| Modifiers         | Field name                                                                                                        | Type                                     |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| **private final** | [private final javax.lang.model.element.TypeElement classElement](#javaxlangmodelelementtypeelement-classelement) | javax.lang.model.element.TypeElement     |
+| **private final** | [private final com.sun.source.util.DocTrees treeUtils](#comsunsourceutildoctrees-treeutils)                       | com.sun.source.util.DocTrees             |
+| **private final** | [private final com.sun.source.doctree.DocCommentTree comments](#comsunsourcedoctreedoccommenttree-comments)       | com.sun.source.doctree.DocCommentTree    |
+| **private final** | [private final jdk.javadoc.doclet.DocletEnvironment environment](#jdkjavadocdocletdocletenvironment-environment)  | jdk.javadoc.doclet.DocletEnvironment     |
+| **private final** | [private final io.github.atlascommunity.marklet.Options options](#iogithubatlascommunitymarkletoptions-options)   | io.github.atlascommunity.marklet.Options |
+| **private final** | [private final java.lang.String packageName](#javalangstring-packagename)                                         | String                                   |
+| **private final** | [private final jdk.javadoc.doclet.Reporter reporter](#jdkjavadocdocletreporter-reporter)                          | jdk.javadoc.doclet.Reporter              |
 #### Methods
 | Modifiers  | Method signature  | Return type |
 | ---------- | ----------------- | ----------- |

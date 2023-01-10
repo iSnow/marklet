@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.constants.Links Summary
 | ---------- | --------- |
 | public     | Links()   |
 #### Fields
-| Modifiers               | Field name | Type   |
-| ----------------------- | ---------- | ------ |
-| **public static final** | BADGE      | String |
+| Modifiers               | Field name                                                          | Type   |
+| ----------------------- | ------------------------------------------------------------------- | ------ |
+| **public static final** | [public static final java.lang.String BADGE](#javalangstring-badge) | String |
 
 Constructors
 ============

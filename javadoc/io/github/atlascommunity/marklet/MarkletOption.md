@@ -9,15 +9,15 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 | ---------- | --------------- |
 | public     | MarkletOption() |
 #### Fields
-| Modifiers         | Field name    | Type                                  |
-| ----------------- | ------------- | ------------------------------------- |
-| **private final** | names         | List<String>                          |
-| **private final** | kind          | jdk.javadoc.doclet.Doclet.Option.Kind |
-| **private final** | parameters    | String                                |
-| **private final** | argumentCount | int                                   |
-| **private final** | description   | String                                |
-| **private**       | value         | String                                |
-| **private final** | defaultValue  | String                                |
+| Modifiers         | Field name                                                                                         | Type                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **private final** | [private final java.util.List<java.lang.String> names](#javautillistjavalangstring-names)          | List<String>                          |
+| **private final** | [private final jdk.javadoc.doclet.Doclet.Option.Kind kind](#jdkjavadocdocletdocletoptionkind-kind) | jdk.javadoc.doclet.Doclet.Option.Kind |
+| **private final** | [private final java.lang.String parameters](#javalangstring-parameters)                            | String                                |
+| **private final** | [private final int argumentCount](#int-argumentcount)                                              | int                                   |
+| **private final** | [private final java.lang.String description](#javalangstring-description)                          | String                                |
+| **private**       | [private java.lang.String value](#javalangstring-value)                                            | String                                |
+| **private final** | [private final java.lang.String defaultValue](#javalangstring-defaultvalue)                        | String                                |
 #### Methods
 | Modifiers  | Method signature                                                                             | Return type                           |
 | ---------- | -------------------------------------------------------------------------------------------- | ------------------------------------- |

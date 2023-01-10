@@ -9,14 +9,14 @@ io.github.atlascommunity.marklet.page_elements.ClassMethodsInfo Summary
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | public     | ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,javax.lang.model.util.Types,io.github.atlascommunity.marklet.Options) |
 #### Fields
-| Modifiers                | Field name          | Type                                     |
-| ------------------------ | ------------------- | ---------------------------------------- |
-| **final**                | classElement        | javax.lang.model.element.TypeElement     |
-| **final**                | treeUtils           | com.sun.source.util.DocTrees             |
-| **final**                | typeUtils           | javax.lang.model.util.Types              |
-| **final**                | options             | io.github.atlascommunity.marklet.Options |
-|                          | key                 | String                                   |
-| **private static final** | DESCRIPTION_PATTERN | String                                   |
+| Modifiers                | Field name                                                                                                | Type                                     |
+| ------------------------ | --------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| **final**                | [final javax.lang.model.element.TypeElement classElement](#javaxlangmodelelementtypeelement-classelement) | javax.lang.model.element.TypeElement     |
+| **final**                | [final com.sun.source.util.DocTrees treeUtils](#comsunsourceutildoctrees-treeutils)                       | com.sun.source.util.DocTrees             |
+| **final**                | [final javax.lang.model.util.Types typeUtils](#javaxlangmodelutiltypes-typeutils)                         | javax.lang.model.util.Types              |
+| **final**                | [final io.github.atlascommunity.marklet.Options options](#iogithubatlascommunitymarkletoptions-options)   | io.github.atlascommunity.marklet.Options |
+|                          | [ java.lang.String key](#javalangstring-key)                                                              | String                                   |
+| **private static final** | [private static final java.lang.String DESCRIPTION_PATTERN](#javalangstring-description_pattern)          | String                                   |
 #### Methods
 | Modifiers   | Method signature                                                                      | Return type                                     |
 | ----------- | ------------------------------------------------------------------------------------- | ----------------------------------------------- |

@@ -9,11 +9,11 @@ io.github.atlascommunity.marklet.page_elements.MarkdownTag Summary
 | ---------- | ------------- |
 | public     | MarkdownTag() |
 #### Fields
-| Modifiers         | Field name | Type                           |
-| ----------------- | ---------- | ------------------------------ |
-| **private final** | tag        | com.sun.source.doctree.DocTree |
-| **private final** | className  | String                         |
-| **private final** | fileEnding | String                         |
+| Modifiers         | Field name                                                                          | Type                           |
+| ----------------- | ----------------------------------------------------------------------------------- | ------------------------------ |
+| **private final** | [private final com.sun.source.doctree.DocTree tag](#comsunsourcedoctreedoctree-tag) | com.sun.source.doctree.DocTree |
+| **private final** | [private final java.lang.String className](#javalangstring-classname)               | String                         |
+| **private final** | [private final java.lang.String fileEnding](#javalangstring-fileending)             | String                         |
 #### Methods
 | Modifiers  | Method signature    | Return type |
 | ---------- | ------------------- | ----------- |

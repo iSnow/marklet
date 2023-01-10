@@ -10,11 +10,11 @@ io.github.atlascommunity.marklet.Marklet Summary
 | ---------- | --------- |
 | public     | Marklet() |
 #### Fields
-| Modifiers         | Field name | Type                                     |
-| ----------------- | ---------- | ---------------------------------------- |
-|                   | reporter   | jdk.javadoc.doclet.Reporter              |
-| **private final** | options    | io.github.atlascommunity.marklet.Options |
-| **private**       | root       | jdk.javadoc.doclet.DocletEnvironment     |
+| Modifiers         | Field name                                                                                                      | Type                                     |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+|                   | [ jdk.javadoc.doclet.Reporter reporter](#jdkjavadocdocletreporter-reporter)                                     | jdk.javadoc.doclet.Reporter              |
+| **private final** | [private final io.github.atlascommunity.marklet.Options options](#iogithubatlascommunitymarkletoptions-options) | io.github.atlascommunity.marklet.Options |
+| **private**       | [private jdk.javadoc.doclet.DocletEnvironment root](#jdkjavadocdocletdocletenvironment-root)                    | jdk.javadoc.doclet.DocletEnvironment     |
 #### Methods
 | Modifiers         | Method signature                                                                                                                                                                                                                               | Return type                                     |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -30,7 +30,7 @@ io.github.atlascommunity.marklet.Marklet Summary
 | **public**        | [init(Locale locale, Reporter reporter)](#initlocale-locale-reporter-reporter)                                                                                                                                                                 | void                                            |
 | **public**        | [run(DocletEnvironment environment)](#rundocletenvironment-environment)                                                                                                                                                                        | boolean                                         |
 | **private**       | [doWork()](#dowork)                                                                                                                                                                                                                            | boolean                                         |
-| **public static** | [main(String[] args)](#mainstring[]-args)                                                                                                                                                                                                      | void                                            |
+| **public static** | [main(String[] args)](#mainstring-args)                                                                                                                                                                                                        | void                                            |
 
 Constructors
 ============

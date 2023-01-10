@@ -1,5 +1,6 @@
 package io.github.atlascommunity.marklet.page_elements;
 
+import io.github.atlascommunity.marklet.util.FieldSignature;
 import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import io.github.atlascommunity.marklet.util.OverriddenMethodSignature;
 import io.github.atlascommunity.marklet.util.Sanitizers;
@@ -94,16 +95,11 @@ public class ClassSummary implements ClassPageElement {
                       .addRow(MODIFIERS_COLUMN, "Field name", TYPE_COLUMN);
 
       for (VariableElement f : fields) {
-        String modifiers = f
-                .getModifiers()
-                .stream()
-                .map(Modifier::toString)
-                .collect(Collectors.joining(" "));
+        FieldSignature signature = new FieldSignature(f);
+        String modifiers = signature.modifiersToString();
         TypeMirror typeMirror = f.asType();
-        //String rawModifiersAndType = String.format("%s %s", modifiers, typeMirror).trim();
-        //String modifiersAndType = Sanitizers.sanitizePackageNames(rawModifiersAndType);
         String sanitizedType = Sanitizers.sanitizePackageNames(typeMirror.toString());
-        tableEntries.addRow(modifiers.isEmpty()? "" : new BoldText(modifiers), f.getSimpleName(), sanitizedType);
+        tableEntries.addRow(modifiers.isEmpty()? "" : new BoldText(modifiers), new FieldLink(signature).generate(), sanitizedType);
       }
       fieldsTable.append(tableEntries.build());
       summary.append(fieldsTable).append("\n");

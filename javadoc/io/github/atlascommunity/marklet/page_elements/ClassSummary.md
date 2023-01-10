@@ -9,10 +9,10 @@ io.github.atlascommunity.marklet.page_elements.ClassSummary Summary
 | ---------- | -------------- |
 | public     | ClassSummary() |
 #### Fields
-| Modifiers         | Field name   | Type                                 |
-| ----------------- | ------------ | ------------------------------------ |
-| **private final** | classElement | javax.lang.model.element.TypeElement |
-| **private final** | typeUtils    | javax.lang.model.util.Types          |
+| Modifiers         | Field name                                                                                                        | Type                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| **private final** | [private final javax.lang.model.element.TypeElement classElement](#javaxlangmodelelementtypeelement-classelement) | javax.lang.model.element.TypeElement |
+| **private final** | [private final javax.lang.model.util.Types typeUtils](#javaxlangmodelutiltypes-typeutils)                         | javax.lang.model.util.Types          |
 #### Methods
 | Modifiers          | Method signature                                                                                                                   | Return type |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------- |

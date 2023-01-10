@@ -44,7 +44,7 @@ public class MethodSignature {
    * @param parameters method params information
    * @return formed string
    */
-  private String methodParams(List<? extends VariableElement> parameters) {
+  private static String methodParams(List<? extends VariableElement> parameters) {
 
     List<String> parametersFormed = new ArrayList<>();
     if (parameters.isEmpty()) {

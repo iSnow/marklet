@@ -42,6 +42,7 @@ public class Sanitizers {
         String output = methodInfo
                 .replaceAll("[, ]+", "-")
                 .replaceAll("[().<>]+", "")
+                .replaceAll("\\[]", "")
                 .toLowerCase();
         return output;
     }

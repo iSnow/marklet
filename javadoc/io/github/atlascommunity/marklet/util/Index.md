@@ -4,6 +4,7 @@ Classes
 =======
 | Name                                                      |
 | --------------------------------------------------------- |
+| [FieldSignature](FieldSignature.md)                       |
 | [MarkletTypeUtils](MarkletTypeUtils.md)                   |
 | [MethodSignature](MethodSignature.md)                     |
 | [OverriddenMethodSignature](OverriddenMethodSignature.md) |

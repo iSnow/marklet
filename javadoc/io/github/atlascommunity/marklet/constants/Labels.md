@@ -9,34 +9,34 @@ io.github.atlascommunity.marklet.constants.Labels Summary
 | ---------- | --------- |
 | public     | Labels()  |
 #### Fields
-| Modifiers               | Field name                | Type   |
-| ----------------------- | ------------------------- | ------ |
-| **public static final** | PACKAGE                   | String |
-| **public static final** | INTERFACE                 | String |
-| **public static final** | RECORD                    | String |
-| **public static final** | CLASS                     | String |
-| **public static final** | ANNOTATION                | String |
-| **public static final** | ENUMERATION               | String |
-| **public static final** | INTERFACES                | String |
-| **public static final** | CLASSES                   | String |
-| **public static final** | ANNOTATIONS               | String |
-| **public static final** | ENUMERATIONS              | String |
-| **public static final** | CONSTRUCTORS              | String |
-| **public static final** | METHODS                   | String |
-| **public static final** | FIELDS                    | String |
-| **public static final** | THROWS                    | String |
-| **public static final** | RETURNS                   | String |
-| **public static final** | PARAMETERS                | String |
-| **public static final** | SUMMARY                   | String |
-| **public static final** | UNKNOWN                   | String |
-| **public static final** | DEPRECATED                | String |
-| **public static final** | OVERRIDES                 | String |
-| **public static final** | OVERRIDE_MARK             | String |
-| **public static final** | TABLE_PACKAGE_HEADER      | String |
-| **public static final** | TABLE_MODULE_HEADER       | String |
-| **public static final** | MODIFIERS_COLUMN          | String |
-| **public static final** | TYPE_AND_MODIFIERS_COLUMN | String |
-| **public static final** | TYPE_COLUMN               | String |
+| Modifiers               | Field name                                                                                                  | Type   |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------- | ------ |
+| **public static final** | [public static final java.lang.String PACKAGE](#javalangstring-package)                                     | String |
+| **public static final** | [public static final java.lang.String INTERFACE](#javalangstring-interface)                                 | String |
+| **public static final** | [public static final java.lang.String RECORD](#javalangstring-record)                                       | String |
+| **public static final** | [public static final java.lang.String CLASS](#javalangstring-class)                                         | String |
+| **public static final** | [public static final java.lang.String ANNOTATION](#javalangstring-annotation)                               | String |
+| **public static final** | [public static final java.lang.String ENUMERATION](#javalangstring-enumeration)                             | String |
+| **public static final** | [public static final java.lang.String INTERFACES](#javalangstring-interfaces)                               | String |
+| **public static final** | [public static final java.lang.String CLASSES](#javalangstring-classes)                                     | String |
+| **public static final** | [public static final java.lang.String ANNOTATIONS](#javalangstring-annotations)                             | String |
+| **public static final** | [public static final java.lang.String ENUMERATIONS](#javalangstring-enumerations)                           | String |
+| **public static final** | [public static final java.lang.String CONSTRUCTORS](#javalangstring-constructors)                           | String |
+| **public static final** | [public static final java.lang.String METHODS](#javalangstring-methods)                                     | String |
+| **public static final** | [public static final java.lang.String FIELDS](#javalangstring-fields)                                       | String |
+| **public static final** | [public static final java.lang.String THROWS](#javalangstring-throws)                                       | String |
+| **public static final** | [public static final java.lang.String RETURNS](#javalangstring-returns)                                     | String |
+| **public static final** | [public static final java.lang.String PARAMETERS](#javalangstring-parameters)                               | String |
+| **public static final** | [public static final java.lang.String SUMMARY](#javalangstring-summary)                                     | String |
+| **public static final** | [public static final java.lang.String UNKNOWN](#javalangstring-unknown)                                     | String |
+| **public static final** | [public static final java.lang.String DEPRECATED](#javalangstring-deprecated)                               | String |
+| **public static final** | [public static final java.lang.String OVERRIDES](#javalangstring-overrides)                                 | String |
+| **public static final** | [public static final java.lang.String OVERRIDE_MARK](#javalangstring-override_mark)                         | String |
+| **public static final** | [public static final java.lang.String TABLE_PACKAGE_HEADER](#javalangstring-table_package_header)           | String |
+| **public static final** | [public static final java.lang.String TABLE_MODULE_HEADER](#javalangstring-table_module_header)             | String |
+| **public static final** | [public static final java.lang.String MODIFIERS_COLUMN](#javalangstring-modifiers_column)                   | String |
+| **public static final** | [public static final java.lang.String TYPE_AND_MODIFIERS_COLUMN](#javalangstring-type_and_modifiers_column) | String |
+| **public static final** | [public static final java.lang.String TYPE_COLUMN](#javalangstring-type_column)                             | String |
 
 Constructors
 ============
