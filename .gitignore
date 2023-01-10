@@ -6,3 +6,6 @@
 /marklet.iml
 
 settings.xml
+
+dependency-reduced-pom.xml
+modulepath.txt
