@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.page_elements.ClassTitle Summary
 | ---------- | ------------ |
 | public     | ClassTitle() |
 #### Fields
-| Type and modifiers                                     | Field name   |
-| ------------------------------------------------------ | ------------ |
-| **private final javax.lang.model.element.TypeElement** | classElement |
+| Modifiers         | Field name   | Type                                 |
+| ----------------- | ------------ | ------------------------------------ |
+| **private final** | classElement | javax.lang.model.element.TypeElement |
 #### Methods
 | Modifiers  | Method signature          | Return type |
 | ---------- | ------------------------- | ----------- |

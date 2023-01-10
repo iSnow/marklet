@@ -9,15 +9,15 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 | ---------- | ----------- |
 | public     | ClassPage() |
 #### Fields
-| Type and modifiers                                         | Field name   |
-| ---------------------------------------------------------- | ------------ |
-| **private final javax.lang.model.element.TypeElement**     | classElement |
-| **private final com.sun.source.util.DocTrees**             | treeUtils    |
-| **private final com.sun.source.doctree.DocCommentTree**    | comments     |
-| **private final jdk.javadoc.doclet.DocletEnvironment**     | environment  |
-| **private final io.github.atlascommunity.marklet.Options** | options      |
-| **private final String**                                   | packageName  |
-| **private final jdk.javadoc.doclet.Reporter**              | reporter     |
+| Modifiers         | Field name   | Type                                     |
+| ----------------- | ------------ | ---------------------------------------- |
+| **private final** | classElement | javax.lang.model.element.TypeElement     |
+| **private final** | treeUtils    | com.sun.source.util.DocTrees             |
+| **private final** | comments     | com.sun.source.doctree.DocCommentTree    |
+| **private final** | environment  | jdk.javadoc.doclet.DocletEnvironment     |
+| **private final** | options      | io.github.atlascommunity.marklet.Options |
+| **private final** | packageName  | String                                   |
+| **private final** | reporter     | jdk.javadoc.doclet.Reporter              |
 #### Methods
 | Modifiers  | Method signature | Return type |
 | ---------- | ---------------- | ----------- |

@@ -89,7 +89,7 @@ public class ClassSummary implements ClassPageElement {
               new Table.Builder()
                       .withAlignments(Table.ALIGN_LEFT)
                       .withRowLimit(numberOfFields + 1)
-                      .addRow(TYPE_AND_MODIFIERS_COLUMN, "Field name");
+                      .addRow(MODIFIERS_COLUMN, "Field name", TYPE_COLUMN);
 
       for (VariableElement f : fields) {
         String modifiers = f
@@ -98,9 +98,10 @@ public class ClassSummary implements ClassPageElement {
                 .map(Modifier::toString)
                 .collect(Collectors.joining(" "));
         TypeMirror typeMirror = f.asType();
-        String rawModifiersAndType = String.format("%s %s", modifiers, typeMirror).trim();
-        String modifiersAndType = Sanitizers.sanitizePackageNames(rawModifiersAndType);
-        tableEntries.addRow(modifiersAndType.isEmpty()? "" : new BoldText(modifiersAndType), f.getSimpleName());
+        //String rawModifiersAndType = String.format("%s %s", modifiers, typeMirror).trim();
+        //String modifiersAndType = Sanitizers.sanitizePackageNames(rawModifiersAndType);
+        String sanitizedType = Sanitizers.sanitizePackageNames(typeMirror.toString());
+        tableEntries.addRow(modifiers.isEmpty()? "" : new BoldText(modifiers), f.getSimpleName(), sanitizedType);
       }
       fieldsTable.append(tableEntries.build());
       summary.append(fieldsTable).append("\n");

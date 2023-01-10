@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.page_elements.OverriddenMethodSignatureElement 
 | ---------- | ----------------------------------------------------------------------------------------------------------------------- |
 | public     | OverriddenMethodSignatureElement(javax.lang.model.element.ExecutableElement,javax.lang.model.element.ExecutableElement) |
 #### Fields
-| Type and modifiers                                           | Field name           |
-| ------------------------------------------------------------ | -------------------- |
-| **private final javax.lang.model.element.ExecutableElement** | superClassMethodInfo |
+| Modifiers         | Field name           | Type                                       |
+| ----------------- | -------------------- | ------------------------------------------ |
+| **private final** | superClassMethodInfo | javax.lang.model.element.ExecutableElement |
 #### Methods
 | Modifiers  | Method signature          | Return type |
 | ---------- | ------------------------- | ----------- |

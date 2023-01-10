@@ -9,11 +9,11 @@ io.github.atlascommunity.marklet.page_elements.ParameterBlock Summary
 | ---------- | ---------------- |
 | public     | ParameterBlock() |
 #### Fields
-| Type and modifiers                                                        | Field name |
-| ------------------------------------------------------------------------- | ---------- |
-| **private final com.sun.source.doctree.DocCommentTree**                   | comments   |
-| **private static final com.sun.source.doctree.DocTree.Kind[]**            | tags       |
-| **private static final Map<com.sun.source.doctree.DocTree.Kind,Integer>** | ordering   |
+| Modifiers                | Field name | Type                                             |
+| ------------------------ | ---------- | ------------------------------------------------ |
+| **private final**        | comments   | com.sun.source.doctree.DocCommentTree            |
+| **private static final** | tags       | com.sun.source.doctree.DocTree.Kind[]            |
+| **private static final** | ordering   | Map<com.sun.source.doctree.DocTree.Kind,Integer> |
 #### Methods
 | Modifiers   | Method signature                                            | Return type |
 | ----------- | ----------------------------------------------------------- | ----------- |

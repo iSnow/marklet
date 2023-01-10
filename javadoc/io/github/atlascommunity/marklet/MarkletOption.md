@@ -9,15 +9,15 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 | ---------- | --------------- |
 | public     | MarkletOption() |
 #### Fields
-| Type and modifiers                                      | Field name    |
-| ------------------------------------------------------- | ------------- |
-| **private final List<String>**                          | names         |
-| **private final jdk.javadoc.doclet.Doclet.Option.Kind** | kind          |
-| **private final String**                                | parameters    |
-| **private final int**                                   | argumentCount |
-| **private final String**                                | description   |
-| **private String**                                      | value         |
-| **private final String**                                | defaultValue  |
+| Modifiers         | Field name    | Type                                  |
+| ----------------- | ------------- | ------------------------------------- |
+| **private final** | names         | List<String>                          |
+| **private final** | kind          | jdk.javadoc.doclet.Doclet.Option.Kind |
+| **private final** | parameters    | String                                |
+| **private final** | argumentCount | int                                   |
+| **private final** | description   | String                                |
+| **private**       | value         | String                                |
+| **private final** | defaultValue  | String                                |
 #### Methods
 | Modifiers  | Method signature                               | Return type                           |
 | ---------- | ---------------------------------------------- | ------------------------------------- |

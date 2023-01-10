@@ -9,14 +9,14 @@ io.github.atlascommunity.marklet.pages.PackagePage Summary
 | ---------- | ------------- |
 | public     | PackagePage() |
 #### Fields
-| Type and modifiers                                         | Field name       |
-| ---------------------------------------------------------- | ---------------- |
-| **private final javax.lang.model.element.PackageElement**  | packageElement   |
-| **private final java.nio.file.Path**                       | packageDirectory |
-| **private final io.github.atlascommunity.marklet.Options** | options          |
-| **private final com.sun.source.util.DocTrees**             | comments         |
-| **private final jdk.javadoc.doclet.DocletEnvironment**     | root             |
-| **private final jdk.javadoc.doclet.Reporter**              | reporter         |
+| Modifiers         | Field name       | Type                                     |
+| ----------------- | ---------------- | ---------------------------------------- |
+| **private final** | packageElement   | javax.lang.model.element.PackageElement  |
+| **private final** | packageDirectory | java.nio.file.Path                       |
+| **private final** | options          | io.github.atlascommunity.marklet.Options |
+| **private final** | comments         | com.sun.source.util.DocTrees             |
+| **private final** | root             | jdk.javadoc.doclet.DocletEnvironment     |
+| **private final** | reporter         | jdk.javadoc.doclet.Reporter              |
 #### Methods
 | Modifiers   | Method signature                                                                                         | Return type                          |
 | ----------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------ |

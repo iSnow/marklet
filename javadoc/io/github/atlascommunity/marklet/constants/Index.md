@@ -1,5 +1,5 @@
-Package constants
-=================
+Package _io.github.atlascommunity.marklet.constants_
+====================================================
 Classes
 =======
 | Name                      |

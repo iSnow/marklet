@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.table.Table;
+import net.steppschuh.markdowngenerator.text.emphasis.ItalicText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.Element;
@@ -56,7 +57,7 @@ public class PackagePage extends DocumentPage {
   @Override
   public String build() throws IOException {
 
-    String packageHeader = String.format("%s %s", PACKAGE, packageElement.getSimpleName().toString());
+    String packageHeader = String.format("%s %s", PACKAGE, new ItalicText(packageElement.getQualifiedName().toString()));
     StringBuilder packagePage = new StringBuilder().append(new Heading(packageHeader)).append("\n");
 
     List<DocTree> bodyList =  getFullBody(packageElement, comments);

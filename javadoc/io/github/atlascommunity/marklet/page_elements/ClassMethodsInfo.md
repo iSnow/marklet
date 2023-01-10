@@ -9,14 +9,14 @@ io.github.atlascommunity.marklet.page_elements.ClassMethodsInfo Summary
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | public     | ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,javax.lang.model.util.Types,io.github.atlascommunity.marklet.Options) |
 #### Fields
-| Type and modifiers                                 | Field name          |
-| -------------------------------------------------- | ------------------- |
-| **final javax.lang.model.element.TypeElement**     | classElement        |
-| **final com.sun.source.util.DocTrees**             | treeUtils           |
-| **final javax.lang.model.util.Types**              | typeUtils           |
-| **final io.github.atlascommunity.marklet.Options** | options             |
-| **String**                                         | key                 |
-| **private static final String**                    | DESCRIPTION_PATTERN |
+| Modifiers                | Field name          | Type                                     |
+| ------------------------ | ------------------- | ---------------------------------------- |
+| **final**                | classElement        | javax.lang.model.element.TypeElement     |
+| **final**                | treeUtils           | com.sun.source.util.DocTrees             |
+| **final**                | typeUtils           | javax.lang.model.util.Types              |
+| **final**                | options             | io.github.atlascommunity.marklet.Options |
+|                          | key                 | String                                   |
+| **private static final** | DESCRIPTION_PATTERN | String                                   |
 #### Methods
 | Modifiers   | Method signature                          | Return type                                     |
 | ----------- | ----------------------------------------- | ----------------------------------------------- |

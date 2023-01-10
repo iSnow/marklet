@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.util.Sanitizers Summary
 | ---------- | ------------ |
 | public     | Sanitizers() |
 #### Fields
-| Type and modifiers              | Field name   |
-| ------------------------------- | ------------ |
-| **private static final String** | UP_DIRECTORY |
+| Modifiers                | Field name   | Type   |
+| ------------------------ | ------------ | ------ |
+| **private static final** | UP_DIRECTORY | String |
 #### Methods
 | Modifiers         | Method signature                                    | Return type |
 | ----------------- | --------------------------------------------------- | ----------- |

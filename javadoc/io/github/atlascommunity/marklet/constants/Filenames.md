@@ -9,10 +9,10 @@ io.github.atlascommunity.marklet.constants.Filenames Summary
 | ---------- | ----------- |
 | public     | Filenames() |
 #### Fields
-| Type and modifiers             | Field name         |
-| ------------------------------ | ------------------ |
-| **public static final String** | PACKAGE_INDEX_FILE |
-| **public static final String** | README_FILE        |
+| Modifiers               | Field name         | Type   |
+| ----------------------- | ------------------ | ------ |
+| **public static final** | PACKAGE_INDEX_FILE | String |
+| **public static final** | README_FILE        | String |
 
 Constructors
 ============

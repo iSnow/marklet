@@ -29,16 +29,16 @@ io.github.atlascommunity.marklet.Options Summary
 | ---------- | --------- |
 | public     | Options() |
 #### Fields
-| Type and modifiers                                                                  | Field name               |
-| ----------------------------------------------------------------------------------- | ------------------------ |
-| **public static final String**                                                      | SOURCE_DIRECTORY_OPTION  |
-| **public static final String**                                                      | OUTPUT_DIRECTORY_OPTION  |
-| **public static final String**                                                      | FILE_ENDING_OPTION       |
-| **public static final String**                                                      | CREATE_BADGE_OPTION      |
-| **private static final String**                                                     | DEFAULT_OUTPUT_DIRECTORY |
-| **private static final String**                                                     | DEFAULT_SOURCE_DIRECTORY |
-| **private static final String**                                                     | DEFAULT_FILE_ENDING      |
-| **private static final Map<String,io.github.atlascommunity.marklet.MarkletOption>** | OPTIONS                  |
+| Modifiers                | Field name               | Type                                                       |
+| ------------------------ | ------------------------ | ---------------------------------------------------------- |
+| **public static final**  | SOURCE_DIRECTORY_OPTION  | String                                                     |
+| **public static final**  | OUTPUT_DIRECTORY_OPTION  | String                                                     |
+| **public static final**  | FILE_ENDING_OPTION       | String                                                     |
+| **public static final**  | CREATE_BADGE_OPTION      | String                                                     |
+| **private static final** | DEFAULT_OUTPUT_DIRECTORY | String                                                     |
+| **private static final** | DEFAULT_SOURCE_DIRECTORY | String                                                     |
+| **private static final** | DEFAULT_FILE_ENDING      | String                                                     |
+| **private static final** | OPTIONS                  | Map<String,io.github.atlascommunity.marklet.MarkletOption> |
 #### Methods
 | Modifiers         | Method signature      | Return type                                    |
 | ----------------- | --------------------- | ---------------------------------------------- |

@@ -9,19 +9,19 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 | ---------- | ------------ |
 | public     | ReadmePage() |
 #### Fields
-| Type and modifiers                                              | Field name |
-| --------------------------------------------------------------- | ---------- |
-| **private final List<javax.lang.model.element.ModuleElement>**  | modules    |
-| **private final List<javax.lang.model.element.PackageElement>** | packages   |
-| **private final io.github.atlascommunity.marklet.Options**      | options    |
-| **private final jdk.javadoc.doclet.Reporter**                   | reporter   |
+| Modifiers         | Field name | Type                                          |
+| ----------------- | ---------- | --------------------------------------------- |
+| **private final** | modules    | List<javax.lang.model.element.ModuleElement>  |
+| **private final** | packages   | List<javax.lang.model.element.PackageElement> |
+| **private final** | options    | io.github.atlascommunity.marklet.Options      |
+| **private final** | reporter   | jdk.javadoc.doclet.Reporter                   |
 #### Methods
-| Modifiers          | Method signature                                                            | Return type |
-| ------------------ | --------------------------------------------------------------------------- | ----------- |
-| **public**         | build()                                                                     | String      |
-| **private static** | generateModuleInfo(List<javax.lang.model.element.ModuleElement> modules)    | String      |
-| **private static** | generatePackageInfo(List<javax.lang.model.element.PackageElement> packages) | String      |
-| **public**         | write()                                                                     | void        |
+| Modifiers          | Method signature                                                                             | Return type |
+| ------------------ | -------------------------------------------------------------------------------------------- | ----------- |
+| **public**         | build()                                                                                      | String      |
+| **private static** | generateModuleInfo(List<javax.lang.model.element.ModuleElement> modules)                     | String      |
+| **private static** | generatePackageInfo(List<javax.lang.model.element.PackageElement> packages, Options options) | String      |
+| **public**         | write()                                                                                      | void        |
 
 Constructors
 ============
@@ -68,8 +68,8 @@ generateModuleInfo(List<javax.lang.model.element.ModuleElement> modules)
 *No method description provided*
 
 
-generatePackageInfo(List<javax.lang.model.element.PackageElement> packages)
----------------------------------------------------------------------------
+generatePackageInfo(List<javax.lang.model.element.PackageElement> packages, Options options)
+--------------------------------------------------------------------------------------------
 *No method description provided*
 
 

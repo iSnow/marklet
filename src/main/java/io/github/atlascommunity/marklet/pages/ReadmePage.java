@@ -48,7 +48,7 @@ public class ReadmePage extends DocumentPage {
       tableOfContents.append(generateModuleInfo(modules));
     }
     if (packages.size() > 0) {
-      tableOfContents.append(generatePackageInfo(packages));
+      tableOfContents.append(generatePackageInfo(packages, options));
     }
     return tableOfContents.toString();
   }
@@ -70,7 +70,7 @@ public class ReadmePage extends DocumentPage {
     return moduleSummary.toString();
   }
 
-  private static String generatePackageInfo(List<PackageElement> packages) {
+  private static String generatePackageInfo(List<PackageElement> packages, Options options) {
 
     StringBuilder packageSummary = new StringBuilder();
     packageSummary.append(new Heading("List of packages", 1)).append("\n");
@@ -119,7 +119,8 @@ public class ReadmePage extends DocumentPage {
         (k,v) -> {
           v.forEach((p)-> {
             String linkName = p.getQualifiedName().toString();
-            String linkUrl = linkName.replace(".", "/") + "/" + PACKAGE_INDEX_FILE;
+            String linkUrl = linkName.replace(".", "/")
+                    + "/" + PACKAGE_INDEX_FILE + "." +options.getFileEnding();
             tableEntries.addRow(new Link(linkName, linkUrl));
           });
         });

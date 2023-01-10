@@ -79,5 +79,8 @@ public final class Labels {
   /** Table column name */
   public static final String TYPE_AND_MODIFIERS_COLUMN = "Type and modifiers";
 
+  /** Table column name */
+  public static final String TYPE_COLUMN = "Type";
+
 
 }

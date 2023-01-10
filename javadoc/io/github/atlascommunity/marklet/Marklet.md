@@ -10,11 +10,11 @@ io.github.atlascommunity.marklet.Marklet Summary
 | ---------- | --------- |
 | public     | Marklet() |
 #### Fields
-| Type and modifiers                                         | Field name |
-| ---------------------------------------------------------- | ---------- |
-| **jdk.javadoc.doclet.Reporter**                            | reporter   |
-| **private final io.github.atlascommunity.marklet.Options** | options    |
-| **private jdk.javadoc.doclet.DocletEnvironment**           | root       |
+| Modifiers         | Field name | Type                                     |
+| ----------------- | ---------- | ---------------------------------------- |
+|                   | reporter   | jdk.javadoc.doclet.Reporter              |
+| **private final** | options    | io.github.atlascommunity.marklet.Options |
+| **private**       | root       | jdk.javadoc.doclet.DocletEnvironment     |
 #### Methods
 | Modifiers         | Method signature                                                                                                             | Return type                                     |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |

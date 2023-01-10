@@ -9,11 +9,11 @@ io.github.atlascommunity.marklet.page_elements.ClassHeaderCommentInfo Summary
 | ---------- | ------------------------ |
 | public     | ClassHeaderCommentInfo() |
 #### Fields
-| Type and modifiers                                         | Field name   |
-| ---------------------------------------------------------- | ------------ |
-| **private final com.sun.source.doctree.DocCommentTree**    | comments     |
-| **private final javax.lang.model.element.TypeElement**     | classElement |
-| **private final io.github.atlascommunity.marklet.Options** | options      |
+| Modifiers         | Field name   | Type                                     |
+| ----------------- | ------------ | ---------------------------------------- |
+| **private final** | comments     | com.sun.source.doctree.DocCommentTree    |
+| **private final** | classElement | javax.lang.model.element.TypeElement     |
+| **private final** | options      | io.github.atlascommunity.marklet.Options |
 #### Methods
 | Modifiers  | Method signature          | Return type |
 | ---------- | ------------------------- | ----------- |

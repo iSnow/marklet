@@ -9,10 +9,10 @@ io.github.atlascommunity.marklet.page_elements.ClassFieldsInfo Summary
 | ---------- | ----------------- |
 | public     | ClassFieldsInfo() |
 #### Fields
-| Type and modifiers                                     | Field name   |
-| ------------------------------------------------------ | ------------ |
-| **private final javax.lang.model.element.TypeElement** | classElement |
-| **private final com.sun.source.util.DocTrees**         | treeUtils    |
+| Modifiers         | Field name   | Type                                 |
+| ----------------- | ------------ | ------------------------------------ |
+| **private final** | classElement | javax.lang.model.element.TypeElement |
+| **private final** | treeUtils    | com.sun.source.util.DocTrees         |
 #### Methods
 | Modifiers  | Method signature          | Return type |
 | ---------- | ------------------------- | ----------- |
