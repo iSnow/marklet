@@ -15,14 +15,14 @@ io.github.atlascommunity.marklet.page_elements.ParameterBlock Summary
 | **private static final** | tags       | com.sun.source.doctree.DocTree.Kind[]            |
 | **private static final** | ordering   | Map<com.sun.source.doctree.DocTree.Kind,Integer> |
 #### Methods
-| Modifiers   | Method signature                                            | Return type |
-| ----------- | ----------------------------------------------------------- | ----------- |
-| **public**  | generate() **(Override)**                                   | String      |
-| **private** | format(List<com.sun.source.doctree.DocTree> dts, Kind kind) | String      |
-| **private** | formatDeprecated(List<com.sun.source.doctree.DocTree> dts)  | String      |
-| **private** | formatThrows(List<com.sun.source.doctree.DocTree> dts)      | String      |
-| **private** | formatReturnValue(List<com.sun.source.doctree.DocTree> dts) | String      |
-| **private** | formatParams(List<com.sun.source.doctree.DocTree> dts)      | String      |
+| Modifiers   | Method signature                                                                                                          | Return type |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **public**  | [generate()](#generate)                                                                                                   | String      |
+| **private** | [format(List<com.sun.source.doctree.DocTree> dts, Kind kind)](#formatlist-com.sun.source.doctree.doctree--dts--kind-kind) | String      |
+| **private** | [formatDeprecated(List<com.sun.source.doctree.DocTree> dts)](#formatdeprecatedlist-com.sun.source.doctree.doctree--dts)   | String      |
+| **private** | [formatThrows(List<com.sun.source.doctree.DocTree> dts)](#formatthrowslist-com.sun.source.doctree.doctree--dts)           | String      |
+| **private** | [formatReturnValue(List<com.sun.source.doctree.DocTree> dts)](#formatreturnvaluelist-com.sun.source.doctree.doctree--dts) | String      |
+| **private** | [formatParams(List<com.sun.source.doctree.DocTree> dts)](#formatparamslist-com.sun.source.doctree.doctree--dts)           | String      |
 
 Constructors
 ============

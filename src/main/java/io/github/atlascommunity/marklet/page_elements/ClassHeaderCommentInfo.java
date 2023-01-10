@@ -3,11 +3,9 @@ package io.github.atlascommunity.marklet.page_elements;
 import com.sun.source.doctree.DocCommentTree;
 import com.sun.source.doctree.DocTree;
 import io.github.atlascommunity.marklet.Options;
-import io.github.atlascommunity.marklet.util.Sanitizers;
 import lombok.RequiredArgsConstructor;
 
 import javax.lang.model.element.TypeElement;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class ClassHeaderCommentInfo  implements ClassPageElement{

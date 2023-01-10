@@ -18,12 +18,12 @@ io.github.atlascommunity.marklet.page_elements.ClassMethodsInfo Summary
 |                          | key                 | String                                   |
 | **private static final** | DESCRIPTION_PATTERN | String                                   |
 #### Methods
-| Modifiers   | Method signature                          | Return type                                     |
-| ----------- | ----------------------------------------- | ----------------------------------------------- |
-| **public**  | generate() **(Override)**                 | String                                          |
-| **private** | methodDescription(ExecutableElement doc)  | String                                          |
-|             | findElements()                            | Set<javax.lang.model.element.ExecutableElement> |
-|             | signatureString(ExecutableElement method) | String                                          |
+| Modifiers   | Method signature                                                                      | Return type                                     |
+| ----------- | ------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| **public**  | [generate()](#generate)                                                               | String                                          |
+| **private** | [methodDescription(ExecutableElement doc)](#methoddescriptionexecutableelement-doc)   | String                                          |
+|             | [findElements()](#findelements)                                                       | Set<javax.lang.model.element.ExecutableElement> |
+|             | [signatureString(ExecutableElement method)](#signaturestringexecutableelement-method) | String                                          |
 
 Constructors
 ============

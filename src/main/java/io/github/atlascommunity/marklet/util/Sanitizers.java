@@ -38,6 +38,14 @@ public class Sanitizers {
         return superclass.toString();
     }
 
+    public static String methodSignatureToLinkTarget(String methodInfo) {
+        String output = methodInfo.replaceAll("\\(", "")
+                .replaceAll("\\)", "")
+                .replaceAll("[, <>]", "-")
+                .toLowerCase();
+        return output;
+    }
+
     /**
      * Static method that builds a shortest URL path, from
      * the given ``source`` package to the ``target`` package.

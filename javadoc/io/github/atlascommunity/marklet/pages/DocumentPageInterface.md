@@ -5,10 +5,10 @@ Common interface for all classes, representing markdown documents
 io.github.atlascommunity.marklet.pages.DocumentPageInterface Summary
 -------
 #### Methods
-| Modifiers           | Method signature | Return type |
-| ------------------- | ---------------- | ----------- |
-| **public abstract** | build()          | String      |
-| **public abstract** | write()          | void        |
+| Modifiers           | Method signature  | Return type |
+| ------------------- | ----------------- | ----------- |
+| **public abstract** | [build()](#build) | String      |
+| **public abstract** | [write()](#write) | void        |
 
 Methods
 =======

@@ -12,7 +12,8 @@ import javax.lang.model.util.Types;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static io.github.atlascommunity.marklet.constants.Labels.*;
+import static io.github.atlascommunity.marklet.constants.Labels.METHODS;
+import static io.github.atlascommunity.marklet.constants.Labels.OVERRIDES;
 import static io.github.atlascommunity.marklet.util.MarkletTypeUtils.findOverriddenMethod;
 
 /** Class methods description */

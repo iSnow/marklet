@@ -1,6 +1,7 @@
 package io.github.atlascommunity.marklet.page_elements;
 
 import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
+import io.github.atlascommunity.marklet.util.OverriddenMethodSignature;
 import io.github.atlascommunity.marklet.util.Sanitizers;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.table.Table;
@@ -8,7 +9,7 @@ import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.*;
-import javax.lang.model.type.*;
+import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Types;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -61,9 +62,10 @@ public class ClassSummary implements ClassPageElement {
           String modifiers = m.getModifiers().stream().map(Modifier::toString).collect(Collectors.joining(" "));
           TypeMirror mirror = m.getReturnType();
           ExecutableElement overriddenMethod = findOverriddenMethod(m, typeUtils);
+          MethodLink link = new MethodLink(new OverriddenMethodSignature(m, overriddenMethod));
           tableEntries.addRow(
                   modifiers.isEmpty()? "" : new BoldText(modifiers),
-                  new OverriddenMethodSignatureElement(m, overriddenMethod).generate(),
+                  link.generate(),
                   Sanitizers.sanitizePackageNames(mirror.toString()));
         });
 

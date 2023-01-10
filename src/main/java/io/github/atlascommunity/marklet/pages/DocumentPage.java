@@ -1,14 +1,11 @@
 package io.github.atlascommunity.marklet.pages;
 
 import io.github.atlascommunity.marklet.Options;
-import jdk.javadoc.doclet.Reporter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
 
 /** Common interface for all classes, representing markdown documents */
 public abstract class DocumentPage implements DocumentPageInterface{

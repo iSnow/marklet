@@ -15,9 +15,9 @@ io.github.atlascommunity.marklet.page_elements.MarkdownTag Summary
 | **private final** | className  | String                         |
 | **private final** | fileEnding | String                         |
 #### Methods
-| Modifiers  | Method signature | Return type |
-| ---------- | ---------------- | ----------- |
-| **public** | create()         | String      |
+| Modifiers  | Method signature    | Return type |
+| ---------- | ------------------- | ----------- |
+| **public** | [create()](#create) | String      |
 
 Constructors
 ============

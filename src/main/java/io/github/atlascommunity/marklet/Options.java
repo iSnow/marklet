@@ -1,13 +1,8 @@
 package io.github.atlascommunity.marklet;
 
 import jdk.javadoc.doclet.Doclet;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.util.*;
-
-
-import static java.lang.Boolean.parseBoolean;
 
 /**
  * Class that reads and stores provided options for javadoc execution. Options that we care about

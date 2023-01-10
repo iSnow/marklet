@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.pages.DocumentPage Summary
 | ---------- | -------------- |
 | public     | DocumentPage() |
 #### Methods
-| Modifiers | Method signature                                                                 | Return type |
-| --------- | -------------------------------------------------------------------------------- | ----------- |
-|           | write(String document, String fileName, Path resolvedOutputDir, Options options) | void        |
+| Modifiers | Method signature                                                                                                                                                    | Return type |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+|           | [write(String document, String fileName, Path resolvedOutputDir, Options options)](#writestring-document--string-filename--path-resolvedoutputdir--options-options) | void        |
 
 Constructors
 ============

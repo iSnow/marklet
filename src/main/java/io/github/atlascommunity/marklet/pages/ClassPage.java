@@ -10,16 +10,10 @@ import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.TypeElement;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
 
 /** Markdown text file with class information */
 @RequiredArgsConstructor

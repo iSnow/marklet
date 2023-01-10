@@ -7,7 +7,6 @@ import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
-
 import java.util.Set;
 
 import static io.github.atlascommunity.marklet.constants.Labels.CONSTRUCTORS;

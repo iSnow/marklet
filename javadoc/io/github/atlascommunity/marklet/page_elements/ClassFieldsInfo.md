@@ -14,9 +14,9 @@ io.github.atlascommunity.marklet.page_elements.ClassFieldsInfo Summary
 | **private final** | classElement | javax.lang.model.element.TypeElement |
 | **private final** | treeUtils    | com.sun.source.util.DocTrees         |
 #### Methods
-| Modifiers  | Method signature          | Return type |
-| ---------- | ------------------------- | ----------- |
-| **public** | generate() **(Override)** | String      |
+| Modifiers  | Method signature        | Return type |
+| ---------- | ----------------------- | ----------- |
+| **public** | [generate()](#generate) | String      |
 
 Constructors
 ============

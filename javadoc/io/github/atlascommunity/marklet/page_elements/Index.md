@@ -18,6 +18,7 @@ Classes
 | [ClassSummary](ClassSummary.md)                                         |
 | [ClassTitle](ClassTitle.md)                                             |
 | [MarkdownTag](MarkdownTag.md)                                           |
+| [MethodLink](MethodLink.md)                                             |
 | [MethodSignatureElement](MethodSignatureElement.md)                     |
 | [OverriddenMethodSignatureElement](OverriddenMethodSignatureElement.md) |
 | [ParameterBlock](ParameterBlock.md)                                     |

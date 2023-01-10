@@ -5,9 +5,9 @@ Common interface for all page elements, representing a part of a class descripti
 io.github.atlascommunity.marklet.page_elements.ClassPageElement Summary
 -------
 #### Methods
-| Modifiers           | Method signature | Return type |
-| ------------------- | ---------------- | ----------- |
-| **public abstract** | generate()       | String      |
+| Modifiers           | Method signature        | Return type |
+| ------------------- | ----------------------- | ----------- |
+| **public abstract** | [generate()](#generate) | String      |
 
 Methods
 =======

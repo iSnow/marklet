@@ -5,12 +5,10 @@ import lombok.RequiredArgsConstructor;
 
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeMirror;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static io.github.atlascommunity.marklet.constants.Labels.*;
-import static io.github.atlascommunity.marklet.constants.Labels.INTERFACE;
 import static io.github.atlascommunity.marklet.util.Sanitizers.sanitizeSuperClass;
 
 /** Class document title */

@@ -13,9 +13,9 @@ io.github.atlascommunity.marklet.page_elements.ClassQualifiedPathInfo Summary
 | ----------------- | ------------ | ------------------------------------ |
 | **private final** | classElement | javax.lang.model.element.TypeElement |
 #### Methods
-| Modifiers  | Method signature          | Return type |
-| ---------- | ------------------------- | ----------- |
-| **public** | generate() **(Override)** | String      |
+| Modifiers  | Method signature        | Return type |
+| ---------- | ----------------------- | ----------- |
+| **public** | [generate()](#generate) | String      |
 
 Constructors
 ============

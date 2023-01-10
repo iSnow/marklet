@@ -19,10 +19,10 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 | **private final** | packageName  | String                                   |
 | **private final** | reporter     | jdk.javadoc.doclet.Reporter              |
 #### Methods
-| Modifiers  | Method signature | Return type |
-| ---------- | ---------------- | ----------- |
-| **public** | build()          | String      |
-| **public** | write()          | void        |
+| Modifiers  | Method signature  | Return type |
+| ---------- | ----------------- | ----------- |
+| **public** | [build()](#build) | String      |
+| **public** | [write()](#write) | void        |
 
 Constructors
 ============

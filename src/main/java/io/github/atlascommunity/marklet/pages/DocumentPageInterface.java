@@ -1,7 +1,5 @@
 package io.github.atlascommunity.marklet.pages;
 
-import jdk.javadoc.doclet.Reporter;
-
 import java.io.IOException;
 
 /** Common interface for all classes, representing markdown documents */

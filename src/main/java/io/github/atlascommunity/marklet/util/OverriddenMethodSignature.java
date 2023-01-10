@@ -1,7 +1,5 @@
 package io.github.atlascommunity.marklet.util;
 
-import lombok.RequiredArgsConstructor;
-
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.VariableElement;
@@ -14,12 +12,15 @@ import java.util.List;
 import static io.github.atlascommunity.marklet.util.Sanitizers.methodSignatureToLinkTarget;
 
 /** Forms readable method signature */
-@RequiredArgsConstructor
-public class MethodSignature {
 
-  /** Method information */
-  final ExecutableElement methodInfo;
+public class OverriddenMethodSignature extends MethodSignature{
 
+  private final ExecutableElement superClassMethodInfo;
+
+  public OverriddenMethodSignature(ExecutableElement methodInfo, ExecutableElement superClassMethodInfo) {
+    super(methodInfo);
+    this.superClassMethodInfo = superClassMethodInfo;
+  }
 
   /**
    * Form description from method information

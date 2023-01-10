@@ -14,12 +14,12 @@ io.github.atlascommunity.marklet.page_elements.ClassSummary Summary
 | **private final** | classElement | javax.lang.model.element.TypeElement |
 | **private final** | typeUtils    | javax.lang.model.util.Types          |
 #### Methods
-| Modifiers          | Method signature                                                 | Return type |
-| ------------------ | ---------------------------------------------------------------- | ----------- |
-| **public**         | generate() **(Override)**                                        | String      |
-| **private static** | generateMethodSummary(TypeElement classElement, Types typeUtils) | String      |
-| **private static** | generateFieldSummary(TypeElement classElement)                   | String      |
-| **private static** | generateConstructorSummary(TypeElement classElement)             | String      |
+| Modifiers          | Method signature                                                                                                                    | Return type |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **public**         | [generate()](#generate)                                                                                                             | String      |
+| **private static** | [generateMethodSummary(TypeElement classElement, Types typeUtils)](#generatemethodsummarytypeelement-classelement--types-typeutils) | String      |
+| **private static** | [generateFieldSummary(TypeElement classElement)](#generatefieldsummarytypeelement-classelement)                                     | String      |
+| **private static** | [generateConstructorSummary(TypeElement classElement)](#generateconstructorsummarytypeelement-classelement)                         | String      |
 
 Constructors
 ============

@@ -13,9 +13,9 @@ io.github.atlascommunity.marklet.page_elements.MethodSignatureElement Summary
 | --------- | ---------- | ------------------------------------------ |
 | **final** | methodInfo | javax.lang.model.element.ExecutableElement |
 #### Methods
-| Modifiers  | Method signature          | Return type |
-| ---------- | ------------------------- | ----------- |
-| **public** | generate() **(Override)** | String      |
+| Modifiers  | Method signature        | Return type |
+| ---------- | ----------------------- | ----------- |
+| **public** | [generate()](#generate) | String      |
 
 Constructors
 ============

@@ -40,13 +40,13 @@ io.github.atlascommunity.marklet.Options Summary
 | **private static final** | DEFAULT_FILE_ENDING      | String                                                     |
 | **private static final** | OPTIONS                  | Map<String,io.github.atlascommunity.marklet.MarkletOption> |
 #### Methods
-| Modifiers         | Method signature      | Return type                                    |
-| ----------------- | --------------------- | ---------------------------------------------- |
-| **public**        | getOutputDirectory()  | String                                         |
-| **public**        | getFileEnding()       | String                                         |
-| **public**        | getHasBadge()         | String                                         |
-| **public static** | getOption(String key) | io.github.atlascommunity.marklet.MarkletOption |
-| **public static** | getSupportedOptions() | Set<jdk.javadoc.doclet.Doclet.Option>          |
+| Modifiers         | Method signature                              | Return type                                    |
+| ----------------- | --------------------------------------------- | ---------------------------------------------- |
+| **public**        | [getOutputDirectory()](#getoutputdirectory)   | String                                         |
+| **public**        | [getFileEnding()](#getfileending)             | String                                         |
+| **public**        | [getHasBadge()](#gethasbadge)                 | String                                         |
+| **public static** | [getOption(String key)](#getoptionstring-key) | io.github.atlascommunity.marklet.MarkletOption |
+| **public static** | [getSupportedOptions()](#getsupportedoptions) | Set<jdk.javadoc.doclet.Doclet.Option>          |
 
 Constructors
 ============

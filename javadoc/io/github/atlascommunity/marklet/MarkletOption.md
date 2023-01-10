@@ -19,16 +19,16 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 | **private**       | value         | String                                |
 | **private final** | defaultValue  | String                                |
 #### Methods
-| Modifiers  | Method signature                               | Return type                           |
-| ---------- | ---------------------------------------------- | ------------------------------------- |
-| **public** | getArgumentCount() **(Override)**              | int                                   |
-| **public** | getDescription() **(Override)**                | String                                |
-| **public** | getKind() **(Override)**                       | jdk.javadoc.doclet.Doclet.Option.Kind |
-| **public** | getNames() **(Override)**                      | List<String>                          |
-| **public** | getParameters() **(Override)**                 | String                                |
-| **public** | getValue()                                     | String                                |
-| **public** | process(String option, List<String> arguments) | boolean                               |
-| **public** | toString() **(Override)**                      | String                                |
+| Modifiers  | Method signature                                                                                | Return type                           |
+| ---------- | ----------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **public** | [getArgumentCount()](#getargumentcount)                                                         | int                                   |
+| **public** | [getDescription()](#getdescription)                                                             | String                                |
+| **public** | [getKind()](#getkind)                                                                           | jdk.javadoc.doclet.Doclet.Option.Kind |
+| **public** | [getNames()](#getnames)                                                                         | List<String>                          |
+| **public** | [getParameters()](#getparameters)                                                               | String                                |
+| **public** | [getValue()](#getvalue)                                                                         | String                                |
+| **public** | [process(String option, List<String> arguments)](#processstring-option--list-string--arguments) | boolean                               |
+| **public** | [toString()](#tostring)                                                                         | String                                |
 
 Constructors
 ============
