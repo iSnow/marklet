@@ -17,12 +17,12 @@ io.github.atlascommunity.marklet.page_elements.ParameterBlock Summary
 #### Methods
 | Modifiers   | Method signature                                            | Return type |
 | ----------- | ----------------------------------------------------------- | ----------- |
-| **private** | format(List<com.sun.source.doctree.DocTree> dts, Kind kind) | String      |
-| **private** | formatThrows(List<com.sun.source.doctree.DocTree> dts)      | String      |
-| **private** | formatParams(List<com.sun.source.doctree.DocTree> dts)      | String      |
 | **public**  | generate() **(Override)**                                   | String      |
-| **private** | formatReturnValue(List<com.sun.source.doctree.DocTree> dts) | String      |
+| **private** | format(List<com.sun.source.doctree.DocTree> dts, Kind kind) | String      |
 | **private** | formatDeprecated(List<com.sun.source.doctree.DocTree> dts)  | String      |
+| **private** | formatThrows(List<com.sun.source.doctree.DocTree> dts)      | String      |
+| **private** | formatReturnValue(List<com.sun.source.doctree.DocTree> dts) | String      |
+| **private** | formatParams(List<com.sun.source.doctree.DocTree> dts)      | String      |
 
 Constructors
 ============
@@ -50,21 +50,6 @@ Map<com.sun.source.doctree.DocTree.Kind,Integer> ordering
 
 Methods
 =======
-format(List<com.sun.source.doctree.DocTree> dts, Kind kind)
------------------------------------------------------------
-*No method description provided*
-
-
-formatThrows(List<com.sun.source.doctree.DocTree> dts)
-------------------------------------------------------
-*No method description provided*
-
-
-formatParams(List<com.sun.source.doctree.DocTree> dts)
-------------------------------------------------------
-*No method description provided*
-
-
 generate()
 ----------
 ### Overrides/Implements:
@@ -73,13 +58,28 @@ generate() from io.github.atlascommunity.marklet.page_elements.ClassPageElement
 *No method description provided*
 
 
-formatReturnValue(List<com.sun.source.doctree.DocTree> dts)
+format(List<com.sun.source.doctree.DocTree> dts, Kind kind)
 -----------------------------------------------------------
 *No method description provided*
 
 
 formatDeprecated(List<com.sun.source.doctree.DocTree> dts)
 ----------------------------------------------------------
+*No method description provided*
+
+
+formatThrows(List<com.sun.source.doctree.DocTree> dts)
+------------------------------------------------------
+*No method description provided*
+
+
+formatReturnValue(List<com.sun.source.doctree.DocTree> dts)
+-----------------------------------------------------------
+*No method description provided*
+
+
+formatParams(List<com.sun.source.doctree.DocTree> dts)
+------------------------------------------------------
 *No method description provided*
 
 

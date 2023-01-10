@@ -6,10 +6,7 @@ import javax.lang.model.element.*;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
 import javax.lang.model.util.Types;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MarkletTypeUtils {
@@ -74,7 +71,7 @@ public class MarkletTypeUtils {
         return findInClass(ElementKind.CONSTRUCTOR, classElement)
                 .stream()
                 .map((e) -> (ExecutableElement)e)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     /**
@@ -86,7 +83,7 @@ public class MarkletTypeUtils {
         return findInClass(ElementKind.FIELD, classElement)
                 .stream()
                 .map((e) -> (VariableElement)e)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     /**
@@ -98,7 +95,7 @@ public class MarkletTypeUtils {
         return findInClass(ElementKind.METHOD, classElement)
                 .stream()
                 .map((e) -> (ExecutableElement)e)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     /**
@@ -110,7 +107,7 @@ public class MarkletTypeUtils {
         return findInClass(ElementKind.ANNOTATION_TYPE, classElement)
                 .stream()
                 .map((e) -> (Element)e)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     private static Set<Element> findInClass(ElementKind kind, TypeElement classElement) {

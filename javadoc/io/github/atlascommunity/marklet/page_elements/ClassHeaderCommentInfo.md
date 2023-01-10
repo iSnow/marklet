@@ -11,8 +11,8 @@ io.github.atlascommunity.marklet.page_elements.ClassHeaderCommentInfo Summary
 #### Fields
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
-| **private final javax.lang.model.element.TypeElement**     | classElement |
 | **private final com.sun.source.doctree.DocCommentTree**    | comments     |
+| **private final javax.lang.model.element.TypeElement**     | classElement |
 | **private final io.github.atlascommunity.marklet.Options** | options      |
 #### Methods
 | Modifiers  | Method signature          | Return type |
@@ -28,13 +28,13 @@ ClassHeaderCommentInfo()
 
 Fields
 ======
-javax.lang.model.element.TypeElement classElement
--------------------------------------------------
+com.sun.source.doctree.DocCommentTree comments
+----------------------------------------------
 *No description provided*
 
 
-com.sun.source.doctree.DocCommentTree comments
-----------------------------------------------
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
 *No description provided*
 
 

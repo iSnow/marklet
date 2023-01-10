@@ -12,12 +12,12 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 | Type and modifiers                                         | Field name   |
 | ---------------------------------------------------------- | ------------ |
 | **private final javax.lang.model.element.TypeElement**     | classElement |
-| **private final io.github.atlascommunity.marklet.Options** | options      |
-| **private final jdk.javadoc.doclet.DocletEnvironment**     | environment  |
 | **private final com.sun.source.util.DocTrees**             | treeUtils    |
 | **private final com.sun.source.doctree.DocCommentTree**    | comments     |
-| **private final jdk.javadoc.doclet.Reporter**              | reporter     |
+| **private final jdk.javadoc.doclet.DocletEnvironment**     | environment  |
+| **private final io.github.atlascommunity.marklet.Options** | options      |
 | **private final String**                                   | packageName  |
+| **private final jdk.javadoc.doclet.Reporter**              | reporter     |
 #### Methods
 | Modifiers  | Method signature | Return type |
 | ---------- | ---------------- | ----------- |
@@ -38,16 +38,6 @@ javax.lang.model.element.TypeElement classElement
 Class information
 
 
-io.github.atlascommunity.marklet.Options options
-------------------------------------------------
-Doclet options
-
-
-jdk.javadoc.doclet.DocletEnvironment environment
-------------------------------------------------
-*No description provided*
-
-
 com.sun.source.util.DocTrees treeUtils
 --------------------------------------
 *No description provided*
@@ -58,13 +48,23 @@ com.sun.source.doctree.DocCommentTree comments
 *No description provided*
 
 
-jdk.javadoc.doclet.Reporter reporter
-------------------------------------
+jdk.javadoc.doclet.DocletEnvironment environment
+------------------------------------------------
 *No description provided*
+
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
+Doclet options
 
 
 String packageName
 ----------------------------
+*No description provided*
+
+
+jdk.javadoc.doclet.Reporter reporter
+------------------------------------
 *No description provided*
 
 

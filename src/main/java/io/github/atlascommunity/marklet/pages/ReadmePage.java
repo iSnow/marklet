@@ -7,16 +7,12 @@ import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.lang.model.element.ModuleElement;
 import javax.lang.model.element.PackageElement;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
-import java.util.List;
+import java.util.*;
 
 import static io.github.atlascommunity.marklet.constants.Filenames.PACKAGE_INDEX_FILE;
 import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
@@ -49,37 +45,87 @@ public class ReadmePage extends DocumentPage {
     StringBuilder tableOfContents = new StringBuilder();
 
     if (modules.size() > 0) {
-      tableOfContents.append(new Heading("List of modules", 1)).append("\n");
-      Table.Builder moduleTable =
-              new Table.Builder()
-                      .withAlignments(Table.ALIGN_LEFT)
-                      .withRowLimit(modules.size() +1)
-                      .addRow(TABLE_MODULE_HEADER);
-      modules.forEach(
-              p -> {
-                moduleTable.addRow(p.getQualifiedName().toString());
-              });
-      tableOfContents.append(moduleTable.build()).append("\n\n");
+      tableOfContents.append(generateModuleInfo(modules));
     }
-    tableOfContents.append(new Heading("List of packages", 1)).append("\n");
+    if (packages.size() > 0) {
+      tableOfContents.append(generatePackageInfo(packages));
+    }
+    return tableOfContents.toString();
+  }
+
+  private static String generateModuleInfo(List<ModuleElement> modules) {
+
+    StringBuilder moduleSummary = new StringBuilder();
+    moduleSummary.append(new Heading("List of modules", 1)).append("\n");
+    Table.Builder moduleTable =
+            new Table.Builder()
+                    .withAlignments(Table.ALIGN_LEFT)
+                    .withRowLimit(modules.size() +1)
+                    .addRow(TABLE_MODULE_HEADER);
+    modules.forEach(
+            p -> {
+              moduleTable.addRow(p.getQualifiedName().toString());
+            });
+    moduleSummary.append(moduleTable.build()).append("\n\n");
+    return moduleSummary.toString();
+  }
+
+  private static String generatePackageInfo(List<PackageElement> packages) {
+
+    StringBuilder packageSummary = new StringBuilder();
+    packageSummary.append(new Heading("List of packages", 1)).append("\n");
 
     int numberOfEntries = packages.size() + 1;
 
     Table.Builder tableEntries =
-        new Table.Builder()
-            .withAlignments(Table.ALIGN_LEFT)
-            .withRowLimit(numberOfEntries)
-            .addRow(TABLE_PACKAGE_HEADER);
+            new Table.Builder()
+                    .withAlignments(Table.ALIGN_LEFT)
+                    .withRowLimit(numberOfEntries)
+                    .addRow(TABLE_PACKAGE_HEADER);
 
-    packages.forEach(
-        p -> {
-          String linkName = p.getQualifiedName().toString();
-          String linkUrl = linkName.replace(".", "/") + "/" + PACKAGE_INDEX_FILE;
-          tableEntries.addRow(new Link(linkName, linkUrl));
+    PackageElement root = null;
+    PackageElement previous = null;
+    for (PackageElement p : packages) {
+      if (null == previous) {
+        previous = p;
+        continue;
+      }
+      final String common = StringUtils.getCommonPrefix(
+              previous.getQualifiedName().toString(),
+              p.getQualifiedName().toString());
+      if (common.equals(p.getQualifiedName().toString())) {
+        root = p;
+      }
+      previous = p;
+    }
+
+    Map<Integer, Set<PackageElement>> sortedPackages = new TreeMap<>();
+    if (null != root) {
+      for (PackageElement p : packages) {
+        final String common = StringUtils.getCommonPrefix(
+                root.getQualifiedName().toString(),
+                p.getQualifiedName().toString());
+        int len = p.getQualifiedName().toString().length() - common.length();
+        Set<PackageElement> distN = sortedPackages.get(len);
+        if (null == distN) {
+          distN = new TreeSet<>(Comparator.comparing(o -> o.getSimpleName().toString()));
+          sortedPackages.put(len, distN);
+        }
+        distN.add(p);
+      }
+    }
+
+    sortedPackages.forEach(
+        (k,v) -> {
+          v.forEach((p)-> {
+            String linkName = p.getQualifiedName().toString();
+            String linkUrl = linkName.replace(".", "/") + "/" + PACKAGE_INDEX_FILE;
+            tableEntries.addRow(new Link(linkName, linkUrl));
+          });
         });
 
-    tableOfContents.append(tableEntries.build());
-    return tableOfContents.toString();
+    packageSummary.append(tableEntries.build());
+    return packageSummary.toString();
   }
 
   @Override
