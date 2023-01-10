@@ -39,6 +39,9 @@ public class FieldSignature {
     return fieldModifiers(fieldInfo.getModifiers());
   }
 
+  public String getName(){
+    return fieldInfo.getSimpleName().toString();
+  }
 
   public String typeToString() {
     return fieldInfo.asType().toString();

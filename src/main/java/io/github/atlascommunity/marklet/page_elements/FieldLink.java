@@ -12,7 +12,7 @@ public class FieldLink implements ClassPageElement{
     @Override
     public String generate() {
         String linkTarget = signature.toLinkTarget();
-        String linkName = signature.toString();
+        String linkName = signature.getName();
         return String.format("[%s](#%s)", linkName, linkTarget);
     }
 }

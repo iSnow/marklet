@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.page_elements.ClassQualifiedPathInfo Summary
 | ---------- | ------------------------ |
 | public     | ClassQualifiedPathInfo() |
 #### Fields
-| Modifiers         | Field name                                                                                                        | Type                                 |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| **private final** | [private final javax.lang.model.element.TypeElement classElement](#javaxlangmodelelementtypeelement-classelement) | javax.lang.model.element.TypeElement |
+| Modifiers         | Field name                                                     | Type                                 |
+| ----------------- | -------------------------------------------------------------- | ------------------------------------ |
+| **private final** | [classElement](#javaxlangmodelelementtypeelement-classelement) | javax.lang.model.element.TypeElement |
 #### Methods
 | Modifiers  | Method signature        | Return type |
 | ---------- | ----------------------- | ----------- |

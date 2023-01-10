@@ -9,14 +9,14 @@ io.github.atlascommunity.marklet.pages.PackagePage Summary
 | ---------- | ------------- |
 | public     | PackagePage() |
 #### Fields
-| Modifiers         | Field name                                                                                                                  | Type                                     |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| **private final** | [private final javax.lang.model.element.PackageElement packageElement](#javaxlangmodelelementpackageelement-packageelement) | javax.lang.model.element.PackageElement  |
-| **private final** | [private final java.nio.file.Path packageDirectory](#javaniofilepath-packagedirectory)                                      | java.nio.file.Path                       |
-| **private final** | [private final io.github.atlascommunity.marklet.Options options](#iogithubatlascommunitymarkletoptions-options)             | io.github.atlascommunity.marklet.Options |
-| **private final** | [private final com.sun.source.util.DocTrees comments](#comsunsourceutildoctrees-comments)                                   | com.sun.source.util.DocTrees             |
-| **private final** | [private final jdk.javadoc.doclet.DocletEnvironment root](#jdkjavadocdocletdocletenvironment-root)                          | jdk.javadoc.doclet.DocletEnvironment     |
-| **private final** | [private final jdk.javadoc.doclet.Reporter reporter](#jdkjavadocdocletreporter-reporter)                                    | jdk.javadoc.doclet.Reporter              |
+| Modifiers         | Field name                                                            | Type                                     |
+| ----------------- | --------------------------------------------------------------------- | ---------------------------------------- |
+| **private final** | [packageElement](#javaxlangmodelelementpackageelement-packageelement) | javax.lang.model.element.PackageElement  |
+| **private final** | [packageDirectory](#javaniofilepath-packagedirectory)                 | java.nio.file.Path                       |
+| **private final** | [options](#iogithubatlascommunitymarkletoptions-options)              | io.github.atlascommunity.marklet.Options |
+| **private final** | [comments](#comsunsourceutildoctrees-comments)                        | com.sun.source.util.DocTrees             |
+| **private final** | [root](#jdkjavadocdocletdocletenvironment-root)                       | jdk.javadoc.doclet.DocletEnvironment     |
+| **private final** | [reporter](#jdkjavadocdocletreporter-reporter)                        | jdk.javadoc.doclet.Reporter              |
 #### Methods
 | Modifiers   | Method signature                                                                                                                                                                                            | Return type                          |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |

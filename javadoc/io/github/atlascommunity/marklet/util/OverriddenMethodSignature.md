@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.util.OverriddenMethodSignature Summary
 | ---------- | ---------------------------------------------------------------------------------------------------------------- |
 | public     | OverriddenMethodSignature(javax.lang.model.element.ExecutableElement,javax.lang.model.element.ExecutableElement) |
 #### Fields
-| Modifiers         | Field name                                                                                                                                    | Type                                       |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| **private final** | [private final javax.lang.model.element.ExecutableElement superClassMethodInfo](#javaxlangmodelelementexecutableelement-superclassmethodinfo) | javax.lang.model.element.ExecutableElement |
+| Modifiers         | Field name                                                                           | Type                                       |
+| ----------------- | ------------------------------------------------------------------------------------ | ------------------------------------------ |
+| **private final** | [superClassMethodInfo](#javaxlangmodelelementexecutableelement-superclassmethodinfo) | javax.lang.model.element.ExecutableElement |
 #### Methods
 | Modifiers   | Method signature                                                                                                                                                | Return type |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |

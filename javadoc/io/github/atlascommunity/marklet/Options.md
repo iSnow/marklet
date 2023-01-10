@@ -29,16 +29,16 @@ io.github.atlascommunity.marklet.Options Summary
 | ---------- | --------- |
 | public     | Options() |
 #### Fields
-| Modifiers                | Field name                                                                                                                                                                                   | Type                                                       |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| **public static final**  | [public static final java.lang.String SOURCE_DIRECTORY_OPTION](#javalangstring-source_directory_option)                                                                                      | String                                                     |
-| **public static final**  | [public static final java.lang.String OUTPUT_DIRECTORY_OPTION](#javalangstring-output_directory_option)                                                                                      | String                                                     |
-| **public static final**  | [public static final java.lang.String FILE_ENDING_OPTION](#javalangstring-file_ending_option)                                                                                                | String                                                     |
-| **public static final**  | [public static final java.lang.String CREATE_BADGE_OPTION](#javalangstring-create_badge_option)                                                                                              | String                                                     |
-| **private static final** | [private static final java.lang.String DEFAULT_OUTPUT_DIRECTORY](#javalangstring-default_output_directory)                                                                                   | String                                                     |
-| **private static final** | [private static final java.lang.String DEFAULT_SOURCE_DIRECTORY](#javalangstring-default_source_directory)                                                                                   | String                                                     |
-| **private static final** | [private static final java.lang.String DEFAULT_FILE_ENDING](#javalangstring-default_file_ending)                                                                                             | String                                                     |
-| **private static final** | [private static final java.util.Map<java.lang.String,io.github.atlascommunity.marklet.MarkletOption> OPTIONS](#javautilmapjavalangstring-iogithubatlascommunitymarkletmarkletoption-options) | Map<String,io.github.atlascommunity.marklet.MarkletOption> |
+| Modifiers                | Field name                                                                               | Type                                                       |
+| ------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **public static final**  | [SOURCE_DIRECTORY_OPTION](#javalangstring-source_directory_option)                       | String                                                     |
+| **public static final**  | [OUTPUT_DIRECTORY_OPTION](#javalangstring-output_directory_option)                       | String                                                     |
+| **public static final**  | [FILE_ENDING_OPTION](#javalangstring-file_ending_option)                                 | String                                                     |
+| **public static final**  | [CREATE_BADGE_OPTION](#javalangstring-create_badge_option)                               | String                                                     |
+| **private static final** | [DEFAULT_OUTPUT_DIRECTORY](#javalangstring-default_output_directory)                     | String                                                     |
+| **private static final** | [DEFAULT_SOURCE_DIRECTORY](#javalangstring-default_source_directory)                     | String                                                     |
+| **private static final** | [DEFAULT_FILE_ENDING](#javalangstring-default_file_ending)                               | String                                                     |
+| **private static final** | [OPTIONS](#javautilmapjavalangstring-iogithubatlascommunitymarkletmarkletoption-options) | Map<String,io.github.atlascommunity.marklet.MarkletOption> |
 #### Methods
 | Modifiers         | Method signature                              | Return type                                    |
 | ----------------- | --------------------------------------------- | ---------------------------------------------- |

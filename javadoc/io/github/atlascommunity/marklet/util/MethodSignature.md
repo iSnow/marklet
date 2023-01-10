@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.util.MethodSignature Summary
 | ---------- | ----------------- |
 | public     | MethodSignature() |
 #### Fields
-| Modifiers | Field name                                                                                                        | Type                                       |
-| --------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| **final** | [final javax.lang.model.element.ExecutableElement methodInfo](#javaxlangmodelelementexecutableelement-methodinfo) | javax.lang.model.element.ExecutableElement |
+| Modifiers | Field name                                                       | Type                                       |
+| --------- | ---------------------------------------------------------------- | ------------------------------------------ |
+| **final** | [methodInfo](#javaxlangmodelelementexecutableelement-methodinfo) | javax.lang.model.element.ExecutableElement |
 #### Methods
 | Modifiers          | Method signature                                                                                                                                                | Return type |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |

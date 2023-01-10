@@ -10,11 +10,11 @@ io.github.atlascommunity.marklet.Marklet Summary
 | ---------- | --------- |
 | public     | Marklet() |
 #### Fields
-| Modifiers         | Field name                                                                                                      | Type                                     |
-| ----------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-|                   | [ jdk.javadoc.doclet.Reporter reporter](#jdkjavadocdocletreporter-reporter)                                     | jdk.javadoc.doclet.Reporter              |
-| **private final** | [private final io.github.atlascommunity.marklet.Options options](#iogithubatlascommunitymarkletoptions-options) | io.github.atlascommunity.marklet.Options |
-| **private**       | [private jdk.javadoc.doclet.DocletEnvironment root](#jdkjavadocdocletdocletenvironment-root)                    | jdk.javadoc.doclet.DocletEnvironment     |
+| Modifiers         | Field name                                               | Type                                     |
+| ----------------- | -------------------------------------------------------- | ---------------------------------------- |
+|                   | [reporter](#jdkjavadocdocletreporter-reporter)           | jdk.javadoc.doclet.Reporter              |
+| **private final** | [options](#iogithubatlascommunitymarkletoptions-options) | io.github.atlascommunity.marklet.Options |
+| **private**       | [root](#jdkjavadocdocletdocletenvironment-root)          | jdk.javadoc.doclet.DocletEnvironment     |
 #### Methods
 | Modifiers         | Method signature                                                                                                                                                                                                                               | Return type                                     |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |

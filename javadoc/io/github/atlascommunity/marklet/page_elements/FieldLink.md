@@ -9,9 +9,9 @@ io.github.atlascommunity.marklet.page_elements.FieldLink Summary
 | ---------- | ----------- |
 | public     | FieldLink() |
 #### Fields
-| Modifiers         | Field name                                                                                                                                 | Type                                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| **private final** | [private final io.github.atlascommunity.marklet.util.FieldSignature signature](#iogithubatlascommunitymarkletutilfieldsignature-signature) | io.github.atlascommunity.marklet.util.FieldSignature |
+| Modifiers         | Field name                                                              | Type                                                 |
+| ----------------- | ----------------------------------------------------------------------- | ---------------------------------------------------- |
+| **private final** | [signature](#iogithubatlascommunitymarkletutilfieldsignature-signature) | io.github.atlascommunity.marklet.util.FieldSignature |
 #### Methods
 | Modifiers  | Method signature        | Return type |
 | ---------- | ----------------------- | ----------- |

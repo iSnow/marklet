@@ -9,12 +9,12 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 | ---------- | ------------ |
 | public     | ReadmePage() |
 #### Fields
-| Modifiers         | Field name                                                                                                                                  | Type                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| **private final** | [private final java.util.List<javax.lang.model.element.ModuleElement> modules](#javautillistjavaxlangmodelelementmoduleelement-modules)     | List<javax.lang.model.element.ModuleElement>  |
-| **private final** | [private final java.util.List<javax.lang.model.element.PackageElement> packages](#javautillistjavaxlangmodelelementpackageelement-packages) | List<javax.lang.model.element.PackageElement> |
-| **private final** | [private final io.github.atlascommunity.marklet.Options options](#iogithubatlascommunitymarkletoptions-options)                             | io.github.atlascommunity.marklet.Options      |
-| **private final** | [private final jdk.javadoc.doclet.Reporter reporter](#jdkjavadocdocletreporter-reporter)                                                    | jdk.javadoc.doclet.Reporter                   |
+| Modifiers         | Field name                                                            | Type                                          |
+| ----------------- | --------------------------------------------------------------------- | --------------------------------------------- |
+| **private final** | [modules](#javautillistjavaxlangmodelelementmoduleelement-modules)    | List<javax.lang.model.element.ModuleElement>  |
+| **private final** | [packages](#javautillistjavaxlangmodelelementpackageelement-packages) | List<javax.lang.model.element.PackageElement> |
+| **private final** | [options](#iogithubatlascommunitymarkletoptions-options)              | io.github.atlascommunity.marklet.Options      |
+| **private final** | [reporter](#jdkjavadocdocletreporter-reporter)                        | jdk.javadoc.doclet.Reporter                   |
 #### Methods
 | Modifiers          | Method signature                                                                                                                                                                     | Return type |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |

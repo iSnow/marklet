@@ -9,15 +9,16 @@ io.github.atlascommunity.marklet.util.FieldSignature Summary
 | ---------- | ---------------- |
 | public     | FieldSignature() |
 #### Fields
-| Modifiers | Field name                                                                                                  | Type                                     |
-| --------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| **final** | [final javax.lang.model.element.VariableElement fieldInfo](#javaxlangmodelelementvariableelement-fieldinfo) | javax.lang.model.element.VariableElement |
+| Modifiers | Field name                                                   | Type                                     |
+| --------- | ------------------------------------------------------------ | ---------------------------------------- |
+| **final** | [fieldInfo](#javaxlangmodelelementvariableelement-fieldinfo) | javax.lang.model.element.VariableElement |
 #### Methods
 | Modifiers          | Method signature                                                                                                                | Return type |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | **public**         | [toString()](#tostring)                                                                                                         | String      |
 | **public**         | [toLinkTarget()](#tolinktarget)                                                                                                 | String      |
 | **public**         | [modifiersToString()](#modifierstostring)                                                                                       | String      |
+| **public**         | [getName()](#getname)                                                                                                           | String      |
 | **public**         | [typeToString()](#typetostring)                                                                                                 | String      |
 | **private static** | [fieldModifiers(Set<javax.lang.model.element.Modifier> parameters)](#fieldmodifierssetjavaxlangmodelelementmodifier-parameters) | String      |
 
@@ -56,6 +57,11 @@ toLinkTarget()
 
 modifiersToString()
 -------------------
+*No method description provided*
+
+
+getName()
+---------
 *No method description provided*
 
 

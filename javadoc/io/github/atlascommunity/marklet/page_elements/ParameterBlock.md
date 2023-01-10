@@ -9,11 +9,11 @@ io.github.atlascommunity.marklet.page_elements.ParameterBlock Summary
 | ---------- | ---------------- |
 | public     | ParameterBlock() |
 #### Fields
-| Modifiers                | Field name                                                                                                                                                                | Type                                             |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| **private final**        | [private final com.sun.source.doctree.DocCommentTree comments](#comsunsourcedoctreedoccommenttree-comments)                                                               | com.sun.source.doctree.DocCommentTree            |
-| **private static final** | [private static final com.sun.source.doctree.DocTree.Kind[] tags](#comsunsourcedoctreedoctreekind-tags)                                                                   | com.sun.source.doctree.DocTree.Kind[]            |
-| **private static final** | [private static final java.util.Map<com.sun.source.doctree.DocTree.Kind,java.lang.Integer> ordering](#javautilmapcomsunsourcedoctreedoctreekind-javalanginteger-ordering) | Map<com.sun.source.doctree.DocTree.Kind,Integer> |
+| Modifiers                | Field name                                                                      | Type                                             |
+| ------------------------ | ------------------------------------------------------------------------------- | ------------------------------------------------ |
+| **private final**        | [comments](#comsunsourcedoctreedoccommenttree-comments)                         | com.sun.source.doctree.DocCommentTree            |
+| **private static final** | [tags](#comsunsourcedoctreedoctreekind-tags)                                    | com.sun.source.doctree.DocTree.Kind[]            |
+| **private static final** | [ordering](#javautilmapcomsunsourcedoctreedoctreekind-javalanginteger-ordering) | Map<com.sun.source.doctree.DocTree.Kind,Integer> |
 #### Methods
 | Modifiers   | Method signature                                                                                                    | Return type |
 | ----------- | ------------------------------------------------------------------------------------------------------------------- | ----------- |
