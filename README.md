@@ -14,6 +14,31 @@ you can't just use it in your projects.
 
 ## How to use
 
+You can run Marklet on the command line to generate one-shot documentation or add it to your pom.xml 
+so markdown docs are always created on build.
+
+The most important caveat is that you have to specify the Java packages (option `-subpackage`) you want to document
+and their location in the file system (option `-sourcepath`) correctly, otherwise no output will be generated
+(specifying `-sourcepath` alone is not sufficient).
+
+
+### Command-line use
+
+Linux/macOS:
+```shell
+javadoc -docletpath ./target/marklet-2.0.0.jar \
+  -doclet io.github.atlascommunity.marklet.Marklet \
+  -cp ./target/marklet-2.0.0.jar \
+  -sourcepath ./src/main/java \
+  -subpackages io.github.atlascommunity.marklet
+```
+
+Windows:
+```shell
+javadoc -docletpath .\target\marklet-2.0.0.jar  -doclet io.github.atlascommunity.marklet.Marklet -cp .\target\marklet-2.0.0.jar -sourcepath .\src\main\java -subpackages io.github.atlascommunity.marklet
+```
+
+### Maven use
 In order to use it with Maven, add the following configuration for the ``maven-javadoc-plugin``
 in your project ``POM`` :
 
@@ -44,9 +69,6 @@ in your project ``POM`` :
     </configuration>
 </plugin>
 ```
-The most important caveat is that you have to specify the Java packages (option `-subpackage`) you want to document 
-and their location in the file system (option `-sourcepath`) correctly, otherwise no output will be generated 
-(specifying `-sourcepath` alone is not sufficient). 
 
 This will generate the javadoc report into the project directory under project subfolder `doc` and use the 
 file extension `md`.
