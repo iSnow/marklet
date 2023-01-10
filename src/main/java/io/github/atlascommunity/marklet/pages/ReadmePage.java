@@ -95,6 +95,8 @@ public class ReadmePage extends DocumentPage {
               p.getQualifiedName().toString());
       if (common.equals(p.getQualifiedName().toString())) {
         root = p;
+      } else if (common.equals(previous.getQualifiedName().toString())) {
+        root = previous;
       }
       previous = p;
     }
