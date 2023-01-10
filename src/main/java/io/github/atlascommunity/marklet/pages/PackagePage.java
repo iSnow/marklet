@@ -15,13 +15,12 @@ import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
-import javax.lang.model.element.*;
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.PackageElement;
+import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.ElementFilter;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -31,7 +30,7 @@ import static io.github.atlascommunity.marklet.constants.Labels.*;
 /** Index of package elements */
 
 @RequiredArgsConstructor
-public class PackagePage implements DocumentPage {
+public class PackagePage extends DocumentPage {
 
   /** Package information */
   private final PackageElement packageElement;
@@ -46,13 +45,16 @@ public class PackagePage implements DocumentPage {
   private final DocTrees comments;
 
   private final DocletEnvironment root;
+
+  private final Reporter reporter;
+
   /**
    * Build document and write it to the selected folder
    *
    * @throws IOException something went wrong during write operation
    */
   @Override
-  public void build(Reporter reporter) throws IOException {
+  public String build() throws IOException {
 
     String packageHeader = String.format("%s %s", PACKAGE, packageElement.getSimpleName().toString());
     StringBuilder packagePage = new StringBuilder().append(new Heading(packageHeader)).append("\n");
@@ -79,7 +81,7 @@ public class PackagePage implements DocumentPage {
               packagePage.append("\n").append(new HorizontalRule()).append("\n");
             });*/
     createPackageIndexes(packagePage);
-    writeFile(packagePage);
+    return packagePage.toString();
   }
 
   private List<DocTree> getFullBody(PackageElement packageElement, DocTrees comments) {
@@ -201,18 +203,9 @@ public class PackagePage implements DocumentPage {
     packagePage.append(table.build()).append("\n");
   }
 
-  /**
-   * Write file to the selected folder
-   *
-   * @param pageContent file content
-   * @throws IOException something went wrong during write operation
-   */
-  private void writeFile(StringBuilder pageContent) throws IOException {
-    FileOutputStream savePath =
-        new FileOutputStream(packageDirectory.resolve(PACKAGE_INDEX_FILE).toString());
 
-    try (Writer readmeFile = new OutputStreamWriter(savePath, StandardCharsets.UTF_8)) {
-      readmeFile.write(pageContent.toString());
-    }
+  @Override
+  public void write() throws IOException {
+    write(build(), PACKAGE_INDEX_FILE, packageDirectory, options);
   }
 }

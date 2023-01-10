@@ -25,7 +25,7 @@ import static io.github.atlascommunity.marklet.constants.Labels.TABLE_PACKAGE_HE
 
 /** Index of project packages */
 @RequiredArgsConstructor
-public class ReadmePage implements DocumentPage {
+public class ReadmePage extends DocumentPage {
 
   /** List of modules in the project */
   private final List<ModuleElement> modules;
@@ -36,13 +36,15 @@ public class ReadmePage implements DocumentPage {
   /** Doclet options */
   private final Options options;
 
+  private final Reporter reporter;
+
   /**
    * Build document and write it to the selected folder
    *
    * @throws IOException something went wrong during write operation
    */
   @Override
-  public void build(Reporter reporter) throws IOException {
+  public String build() throws IOException {
 
     StringBuilder tableOfContents = new StringBuilder();
 
@@ -77,11 +79,11 @@ public class ReadmePage implements DocumentPage {
         });
 
     tableOfContents.append(tableEntries.build());
-    FileOutputStream fileSystem =
-        new FileOutputStream(Paths.get(options.getOutputDirectory(), README_FILE).toString());
+    return tableOfContents.toString();
+  }
 
-    try (Writer readmeFile = new OutputStreamWriter(fileSystem, StandardCharsets.UTF_8)) {
-      readmeFile.write(tableOfContents.toString());
-    }
+  @Override
+  public void write() throws IOException {
+    write(build(), README_FILE, null, options);
   }
 }

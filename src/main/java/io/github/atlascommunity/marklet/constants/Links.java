@@ -9,5 +9,5 @@ import lombok.experimental.UtilityClass;
 public class Links {
   /** Marklet link using dynamic badge. * */
   public static final String BADGE =
-      "[![Marklet](https://img.shields.io/badge/Generated%20by-Marklet-green.svg)](https://github.com/Faylixe/marklet)";
+      "[![Marklet](https://img.shields.io/badge/Generated%20by-Marklet-green.svg)](https://github.com/atlascommunity/marklet)";
 }

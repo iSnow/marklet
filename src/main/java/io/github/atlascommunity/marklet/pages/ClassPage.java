@@ -19,9 +19,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static io.github.atlascommunity.marklet.constants.Filenames.README_FILE;
+
 /** Markdown text file with class information */
 @RequiredArgsConstructor
-public class ClassPage implements DocumentPage {
+public class ClassPage extends DocumentPage {
 
   /** Class information */
   private final TypeElement classElement;
@@ -37,9 +39,11 @@ public class ClassPage implements DocumentPage {
 
   private final String packageName;
 
+  private final Reporter reporter;
+
   /** Creates markdown text file */
   @Override
-  public void build(Reporter reporter) throws IOException {
+  public String build() throws IOException {
 
     StringBuilder classPage =
         new StringBuilder()
@@ -59,28 +63,16 @@ public class ClassPage implements DocumentPage {
     String methodsInfo = new ClassMethodsInfo(classElement, treeUtils, environment.getTypeUtils(), options).generate();
     if (!methodsInfo.isEmpty()) classPage.append(methodsInfo);
 
-    writeFile(classPage);
+    return classPage.toString();
   }
 
-  /**
-   * Writes file to disk
-   *
-   * @param classPage markdown string with class information
-   * @throws IOException If any error occurs during write process.
-   */
-  private void writeFile(StringBuilder classPage) throws IOException {
 
+  @Override
+  public void write() throws IOException {
+    String filename = classElement.getSimpleName().toString();
     String packageLayout = packageName.replace('.', '/');
     Path resolvedOutputDir = Paths.get(options.getOutputDirectory(), packageLayout);
     if (!Files.exists(resolvedOutputDir)) Files.createDirectories(resolvedOutputDir);
-
-    Path filename = Paths.get(classElement.getSimpleName() + "." + options.getFileEnding());
-    Path resolvedFilePath = resolvedOutputDir.resolve(filename);
-
-    FileOutputStream outputStream = new FileOutputStream(resolvedFilePath.toString());
-
-    try (Writer readmeFile = new OutputStreamWriter(outputStream, StandardCharsets.UTF_8)) {
-      readmeFile.write(classPage.toString());
-    }
+    write(build(), filename, resolvedOutputDir, options);
   }
 }

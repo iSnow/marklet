@@ -38,7 +38,7 @@ public final class Marklet implements Doclet {
   Reporter reporter;
 
   /** Command line options that have been parsed. * */
-  private final Options options = new Options(new HashMap<>());
+  private final Options options = new Options();
 
   /** Documentation root provided by the doclet API. * */
   private DocletEnvironment root;
@@ -76,7 +76,7 @@ public final class Marklet implements Doclet {
       if (!Files.exists(directoryPath)) {
         Files.createDirectories(directoryPath);
       }
-      new PackagePage(packageElement, directoryPath, options, root.getDocTrees(), root).build(reporter);
+      new PackagePage(packageElement, directoryPath, options, root.getDocTrees(), root, reporter).write();
     }
   }
 
@@ -90,10 +90,6 @@ public final class Marklet implements Doclet {
     final List<PackageElement> packages = new ArrayList<>();
     for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
       packages.add(t);
-      //log.trace(t.getKind() + ":" + t);
-      /*for (TypeElement e : MarkletTypeUtils.findPackageClasses(t)) {
-          classPackageMapping.put(e.getQualifiedName().toString(), t.getQualifiedName().toString());
-      }*/
     }
 
     return packages;
@@ -109,7 +105,9 @@ public final class Marklet implements Doclet {
   private List<ModuleElement> buildModules() throws IOException {
     final List<ModuleElement> modules = new ArrayList<>();
     for (ModuleElement t : ElementFilter.modulesIn(root.getIncludedElements())) {
-      modules.add(t);
+      if (!t.isUnnamed()) {
+        modules.add(t);
+      }
     }
 
     return modules;
@@ -129,7 +127,7 @@ public final class Marklet implements Doclet {
       reporter.print(Diagnostic.Kind.NOTE, "Generate documentation for " + classElem.getQualifiedName());
       String packageName = enclosingElement.getQualifiedName().toString();
       DocCommentTree comments = treeUtils.getDocCommentTree(classElem);
-      new ClassPage(classElem, treeUtils, comments, root, options, packageName).build(reporter);
+      new ClassPage(classElem, treeUtils, comments, root, options, packageName, reporter).write();
     }
   }
 
@@ -142,7 +140,7 @@ public final class Marklet implements Doclet {
        */
   private void generateReadme(List<ModuleElement> modules, List<PackageElement> packages) throws IOException {
 
-    new ReadmePage(modules, packages, options).build(reporter);
+    new ReadmePage(modules, packages, options, reporter).write();
   }
 
 
@@ -173,13 +171,6 @@ public final class Marklet implements Doclet {
   @Override
   public void init(Locale locale, Reporter reporter) {
     this.reporter = reporter;
-    try {
-      final Path outputDirectory = Paths.get(options.getOutputDirectory());
-      //log.info("Target output directory : " + outputDirectory.toAbsolutePath());
-      if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
-    } catch (final IOException e) {
-      //log.error(e.getMessage());
-    }
   }
 
   /**
@@ -205,11 +196,13 @@ public final class Marklet implements Doclet {
   }
 
 
-  /** @return <tt>true</tt> if generation was successful, <tt>false</tt> otherwise. */
+  /** @return <tt>true</tt> if markdown generation was successful, <tt>false</tt> otherwise. */
   private boolean doWork() {
 
     try {
       final Path outputDirectory = Paths.get(options.getOutputDirectory());
+      if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
+
       reporter.print(Diagnostic.Kind.NOTE, "Target output directory : " + outputDirectory.toAbsolutePath());
       if (!Files.exists(outputDirectory)) Files.createDirectories(outputDirectory);
 
@@ -244,6 +237,7 @@ public final class Marklet implements Doclet {
             //"-d", "javadoc",
             "--module-path", modulePath,
             "-subpackages", "io.github.atlascommunity",
+            "-b",
             packageName
     };
     DocumentationTool docTool = ToolProvider.getSystemDocumentationTool();

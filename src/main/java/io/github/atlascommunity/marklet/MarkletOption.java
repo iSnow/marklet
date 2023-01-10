@@ -20,6 +20,8 @@ public class MarkletOption implements Doclet.Option {
 
     private String value;
 
+    private final String defaultValue;
+
     @Override
     public int getArgumentCount() {
         return argumentCount;
@@ -46,7 +48,7 @@ public class MarkletOption implements Doclet.Option {
     }
 
 
-    public String getValue() {return value;}
+    public String getValue() {return (value != null) ? value : defaultValue;}
 
     @Override
     public boolean process(String option, List<String> arguments) {
