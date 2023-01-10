@@ -10,7 +10,7 @@ you can't just use it in your projects.
 
 **Examples** :
 
-* [Marklet documenting itself!](https://github.com/iSnow/marklet/tree/master/javadoc)
+* [Marklet documenting itself!](tree/master/javadoc/README.md)
 
 ## How to use
 
