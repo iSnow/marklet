@@ -13,13 +13,13 @@ io.github.atlascommunity.marklet.util.Sanitizers Summary
 | ------------------------ | ------------ | ------ |
 | **private static final** | UP_DIRECTORY | String |
 #### Methods
-| Modifiers         | Method signature                                                                                          | Return type |
-| ----------------- | --------------------------------------------------------------------------------------------------------- | ----------- |
-| **public static** | [sanitizeHtmlTags(String input)](#sanitizehtmltagsstring-input)                                           | String      |
-| **public static** | [sanitizePackageNames(String input)](#sanitizepackagenamesstring-input)                                   | String      |
-| **public static** | [sanitizeSuperClass(TypeMirror superclass)](#sanitizesuperclasstypemirror-superclass)                     | String      |
-| **public static** | [methodSignatureToLinkTarget(String methodInfo)](#methodsignaturetolinktargetstring-methodinfo)           | String      |
-| **public static** | [constructShortestPath(String source, String target)](#constructshortestpathstring-source--string-target) | String      |
+| Modifiers         | Method signature                                                                                         | Return type |
+| ----------------- | -------------------------------------------------------------------------------------------------------- | ----------- |
+| **public static** | [sanitizeHtmlTags(String input)](#sanitizehtmltagsstring-input)                                          | String      |
+| **public static** | [sanitizePackageNames(String input)](#sanitizepackagenamesstring-input)                                  | String      |
+| **public static** | [sanitizeSuperClass(TypeMirror superclass)](#sanitizesuperclasstypemirror-superclass)                    | String      |
+| **public static** | [methodSignatureToLinkTarget(String methodInfo)](#methodsignaturetolinktargetstring-methodinfo)          | String      |
+| **public static** | [constructShortestPath(String source, String target)](#constructshortestpathstring-source-string-target) | String      |
 
 Constructors
 ============

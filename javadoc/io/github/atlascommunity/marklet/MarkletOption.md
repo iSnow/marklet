@@ -19,16 +19,16 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 | **private**       | value         | String                                |
 | **private final** | defaultValue  | String                                |
 #### Methods
-| Modifiers  | Method signature                                                                                | Return type                           |
-| ---------- | ----------------------------------------------------------------------------------------------- | ------------------------------------- |
-| **public** | [getArgumentCount()](#getargumentcount)                                                         | int                                   |
-| **public** | [getDescription()](#getdescription)                                                             | String                                |
-| **public** | [getKind()](#getkind)                                                                           | jdk.javadoc.doclet.Doclet.Option.Kind |
-| **public** | [getNames()](#getnames)                                                                         | List<String>                          |
-| **public** | [getParameters()](#getparameters)                                                               | String                                |
-| **public** | [getValue()](#getvalue)                                                                         | String                                |
-| **public** | [process(String option, List<String> arguments)](#processstring-option--list-string--arguments) | boolean                               |
-| **public** | [toString()](#tostring)                                                                         | String                                |
+| Modifiers  | Method signature                                                                             | Return type                           |
+| ---------- | -------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **public** | [getArgumentCount()](#getargumentcount)                                                      | int                                   |
+| **public** | [getDescription()](#getdescription)                                                          | String                                |
+| **public** | [getKind()](#getkind)                                                                        | jdk.javadoc.doclet.Doclet.Option.Kind |
+| **public** | [getNames()](#getnames)                                                                      | List<String>                          |
+| **public** | [getParameters()](#getparameters)                                                            | String                                |
+| **public** | [getValue()](#getvalue)                                                                      | String                                |
+| **public** | [process(String option, List<String> arguments)](#processstring-option-liststring-arguments) | boolean                               |
+| **public** | [toString()](#tostring)                                                                      | String                                |
 
 Constructors
 ============

@@ -13,11 +13,11 @@ io.github.atlascommunity.marklet.util.OverriddenMethodSignature Summary
 | ----------------- | -------------------- | ------------------------------------------ |
 | **private final** | superClassMethodInfo | javax.lang.model.element.ExecutableElement |
 #### Methods
-| Modifiers   | Method signature                                                                                                                                                      | Return type |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **public**  | [toString()](#tostring)                                                                                                                                               | String      |
-| **public**  | [toLinkTarget()](#tolinktarget)                                                                                                                                       | String      |
-| **private** | [methodParams(List<? extends javax.lang.model.element.VariableElement> parameters)](#methodparamslist-?-extends-javax.lang.model.element.variableelement--parameters) | String      |
+| Modifiers   | Method signature                                                                                                                                                | Return type |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **public**  | [toString()](#tostring)                                                                                                                                         | String      |
+| **public**  | [toLinkTarget()](#tolinktarget)                                                                                                                                 | String      |
+| **private** | [methodParams(List<? extends javax.lang.model.element.VariableElement> parameters)](#methodparamslist?-extends-javaxlangmodelelementvariableelement-parameters) | String      |
 
 Constructors
 ============

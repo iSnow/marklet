@@ -39,9 +39,9 @@ public class Sanitizers {
     }
 
     public static String methodSignatureToLinkTarget(String methodInfo) {
-        String output = methodInfo.replaceAll("\\(", "")
-                .replaceAll("\\)", "")
-                .replaceAll("[, <>]", "-")
+        String output = methodInfo
+                .replaceAll("[, ]+", "-")
+                .replaceAll("[().<>]+", "")
                 .toLowerCase();
         return output;
     }

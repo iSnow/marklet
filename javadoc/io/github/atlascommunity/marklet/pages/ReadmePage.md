@@ -16,12 +16,12 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 | **private final** | options    | io.github.atlascommunity.marklet.Options      |
 | **private final** | reporter   | jdk.javadoc.doclet.Reporter                   |
 #### Methods
-| Modifiers          | Method signature                                                                                                                                                                            | Return type |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **public**         | [build()](#build)                                                                                                                                                                           | String      |
-| **private static** | [generateModuleInfo(List<javax.lang.model.element.ModuleElement> modules)](#generatemoduleinfolist-javax.lang.model.element.moduleelement--modules)                                         | String      |
-| **private static** | [generatePackageInfo(List<javax.lang.model.element.PackageElement> packages, Options options)](#generatepackageinfolist-javax.lang.model.element.packageelement--packages--options-options) | String      |
-| **public**         | [write()](#write)                                                                                                                                                                           | void        |
+| Modifiers          | Method signature                                                                                                                                                                     | Return type |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| **public**         | [build()](#build)                                                                                                                                                                    | String      |
+| **private static** | [generateModuleInfo(List<javax.lang.model.element.ModuleElement> modules)](#generatemoduleinfolistjavaxlangmodelelementmoduleelement-modules)                                        | String      |
+| **private static** | [generatePackageInfo(List<javax.lang.model.element.PackageElement> packages, Options options)](#generatepackageinfolistjavaxlangmodelelementpackageelement-packages-options-options) | String      |
+| **public**         | [write()](#write)                                                                                                                                                                    | void        |
 
 Constructors
 ============

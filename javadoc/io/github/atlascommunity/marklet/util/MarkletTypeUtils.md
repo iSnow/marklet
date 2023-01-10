@@ -9,19 +9,19 @@ io.github.atlascommunity.marklet.util.MarkletTypeUtils Summary
 | ---------- | ------------------ |
 | public     | MarkletTypeUtils() |
 #### Methods
-| Modifiers          | Method signature                                                                                                                                | Return type                                      |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| **public static**  | [findPackageClasses(DocletEnvironment root)](#findpackageclassesdocletenvironment-root)                                                         | Set<javax.lang.model.element.TypeElement>        |
-| **public static**  | [findPackageClasses(PackageElement t)](#findpackageclassespackageelement-t)                                                                     | Set<javax.lang.model.element.TypeElement>        |
-| **public static**  | [findPackageInterfaces(PackageElement t)](#findpackageinterfacespackageelement-t)                                                               | Set<javax.lang.model.element.TypeElement>        |
-| **private static** | [findInPackage(ElementKind kind, PackageElement pkg)](#findinpackageelementkind-kind--packageelement-pkg)                                       | Set<javax.lang.model.element.Element>            |
-| **public static**  | [findClassConstructors(TypeElement classElement)](#findclassconstructorstypeelement-classelement)                                               | Set<javax.lang.model.element.ExecutableElement>  |
-| **public static**  | [findClassFields(TypeElement classElement)](#findclassfieldstypeelement-classelement)                                                           | Set<javax.lang.model.element.VariableElement>    |
-| **public static**  | [findClassMethods(TypeElement classElement)](#findclassmethodstypeelement-classelement)                                                         | Set<javax.lang.model.element.ExecutableElement>  |
-| **public static**  | [findClassAnnotations(TypeElement classElement)](#findclassannotationstypeelement-classelement)                                                 | Set<javax.lang.model.element.Element>            |
-| **private static** | [findInClass(ElementKind kind, TypeElement classElement)](#findinclasselementkind-kind--typeelement-classelement)                               | Set<javax.lang.model.element.Element>            |
-| **public static**  | [findImplementedInterfaces(TypeElement classElement)](#findimplementedinterfacestypeelement-classelement)                                       | List<? extends javax.lang.model.type.TypeMirror> |
-| **public static**  | [findOverriddenMethod(ExecutableElement methodElement, Types typeUtils)](#findoverriddenmethodexecutableelement-methodelement--types-typeutils) | javax.lang.model.element.ExecutableElement       |
+| Modifiers          | Method signature                                                                                                                               | Return type                                      |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| **public static**  | [findPackageClasses(DocletEnvironment root)](#findpackageclassesdocletenvironment-root)                                                        | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | [findPackageClasses(PackageElement t)](#findpackageclassespackageelement-t)                                                                    | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | [findPackageInterfaces(PackageElement t)](#findpackageinterfacespackageelement-t)                                                              | Set<javax.lang.model.element.TypeElement>        |
+| **private static** | [findInPackage(ElementKind kind, PackageElement pkg)](#findinpackageelementkind-kind-packageelement-pkg)                                       | Set<javax.lang.model.element.Element>            |
+| **public static**  | [findClassConstructors(TypeElement classElement)](#findclassconstructorstypeelement-classelement)                                              | Set<javax.lang.model.element.ExecutableElement>  |
+| **public static**  | [findClassFields(TypeElement classElement)](#findclassfieldstypeelement-classelement)                                                          | Set<javax.lang.model.element.VariableElement>    |
+| **public static**  | [findClassMethods(TypeElement classElement)](#findclassmethodstypeelement-classelement)                                                        | Set<javax.lang.model.element.ExecutableElement>  |
+| **public static**  | [findClassAnnotations(TypeElement classElement)](#findclassannotationstypeelement-classelement)                                                | Set<javax.lang.model.element.Element>            |
+| **private static** | [findInClass(ElementKind kind, TypeElement classElement)](#findinclasselementkind-kind-typeelement-classelement)                               | Set<javax.lang.model.element.Element>            |
+| **public static**  | [findImplementedInterfaces(TypeElement classElement)](#findimplementedinterfacestypeelement-classelement)                                      | List<? extends javax.lang.model.type.TypeMirror> |
+| **public static**  | [findOverriddenMethod(ExecutableElement methodElement, Types typeUtils)](#findoverriddenmethodexecutableelement-methodelement-types-typeutils) | javax.lang.model.element.ExecutableElement       |
 
 Constructors
 ============
