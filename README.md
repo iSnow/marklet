@@ -153,6 +153,8 @@ The current version is still under development with the following issues:
 
 * Interfaces, inner classes, enumerations, and annotations might have bugs.
 
+* read https://stackoverflow.com/questions/5592703/documented-annotation-in-java
+
 * Many modern (post Java-8) features will not be documented yet.
 
 * Migration from com.sun.javadoc to jdk.javadoc.doclet API (WIP)
