@@ -1,7 +1,7 @@
 # Marklet
 
 Marklet is a Doclet that plugs into `javadoc`. The purpose of Marklet is to generate Javadoc in Markdown format. 
-This version requires Java 14, but can document all lower source code versions.
+This version requires Java 14 or higher, but can document all lower source code versions.
 
 Currently working on the migration from `com.sun.javadoc` to the newer `jdk.javadoc.doclet` 
 API because the  `com.sun.javadoc` classes are no longer supported on Java 12 and up. Still work in progress, so 
