@@ -2,12 +2,14 @@ package io.github.atlascommunity.marklet.page_elements;
 
 import com.sun.source.doctree.*;
 import io.github.atlascommunity.marklet.constants.Labels;
+import io.github.atlascommunity.marklet.util.MethodSignature;
 import lombok.AllArgsConstructor;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.emphasis.ItalicText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+import javax.lang.model.element.VariableElement;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,6 +22,8 @@ import static io.github.atlascommunity.marklet.util.Sanitizers.sanitizeHtmlTags;
 public class CommentBlock implements ClassPageElement{
 
     private final DocCommentTree comments;
+
+    //private final List<? extends VariableElement> parameters;
 
     private static final DocTree.Kind[] tags = {
             THROWS, PARAM, RETURN, DEPRECATED, AUTHOR, SEE, SINCE, VERSION
@@ -61,7 +65,21 @@ public class CommentBlock implements ClassPageElement{
                 description.append(format(dts, dt)).append("\n\n");
             }
 
-        }
+        } /*else if ((null != parameters) && (parameters.size() > 0)) {
+            Table.Builder table =
+                    new Table.Builder()
+                            .withAlignments(Table.ALIGN_LEFT)
+                            .withRowLimit(parameters.size() + 1)
+                            .addRow("Name", "Description");
+            Heading parametersHeading = new Heading(PARAMETERS, 3);
+            StringBuilder sb = new StringBuilder(parametersHeading.toString()).append("\n\n");
+
+            for (VariableElement v : parameters) {
+                table.addRow( v.getSimpleName().toString(), "");
+            }
+            sb.append(table.build());
+            description.append(sb);
+        }*/
         return description.toString();
     }
 

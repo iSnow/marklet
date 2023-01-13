@@ -8,7 +8,9 @@ import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 import javax.lang.model.util.Types;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -70,19 +72,19 @@ public class ClassMethodsInfo implements ClassPageElement {
 */
 
   /**
-   * @param doc method representation
+   * @param methodInfo method representation
    * @return markdown string
    */
-  private String methodDescription(ExecutableElement doc) {
+  private String methodDescription(ExecutableElement methodInfo) {
 
-    String signatureString = signatureString(doc);
+    String signatureString = signatureString(methodInfo);
     Heading heading = new Heading(signatureString, 2);
     StringBuilder description =
             new StringBuilder().append(heading).append("\n");
-    DocCommentTree comments = treeUtils.getDocCommentTree(doc);
+    DocCommentTree comments = treeUtils.getDocCommentTree(methodInfo);
     ExecutableElement overriddenMethod = null;
     if (null != typeUtils) {
-      overriddenMethod = findOverriddenMethod(doc, typeUtils);
+      overriddenMethod = findOverriddenMethod(methodInfo, typeUtils);
       if (null != overriddenMethod) {
         Heading overrideHeading = new Heading(OVERRIDES, 3);
         description
@@ -96,19 +98,20 @@ public class ClassMethodsInfo implements ClassPageElement {
     if (null == comments) {
       description.append("*No method description provided*").append("\n").append("\n");
     } else {
-
-      description.append(comments
-              .getFullBody()
-              .stream().map(Object::toString).collect(Collectors.joining())).append("\n").append("\n");
+    String commentsStr = comments
+            .getFullBody()
+            .stream().map(Object::toString).collect(Collectors.joining());
+      description.append(commentsStr).append("\n").append("\n");
     }
+    //List<? extends VariableElement> parameters = methodInfo.getParameters();
     CommentBlock block = new CommentBlock(comments);
 
     description.append(block.generate());
     /*
     String methodHeader;
-    String name = doc.name();
-    String signature = doc.flatSignature();
-    if (doc.overriddenMethod() != null) {
+    String name = methodInfo.name();
+    String signature = methodInfo.flatSignature();
+    if (methodInfo.overriddenMethod() != null) {
       methodHeader = String.format("%s %s %s", name, signature, new BoldText(OVERRIDE_MARK));
     } else {
       methodHeader = String.format("%s %s", name, signature);
@@ -116,11 +119,11 @@ public class ClassMethodsInfo implements ClassPageElement {
 
     Heading heading = new Heading(methodHeader, 2);
     String methodComment =
-        doc.commentText().isEmpty() ? "No method description provided" : doc.commentText();
+        methodInfo.commentText().isEmpty() ? "No method description provided" : methodInfo.commentText();
     StringBuilder description =
         new StringBuilder().append(heading).append("\n").append(methodComment).append("\n");
 
-    ParamTag[] paramTags = doc.paramTags();
+    ParamTag[] paramTags = methodInfo.paramTags();
     if (paramTags.length > 0) {
       Heading parametersHeading = new Heading(PARAMETERS, 3);
       StringBuilder parametersInfo = new StringBuilder().append(parametersHeading).append("\n");
@@ -140,13 +143,13 @@ public class ClassMethodsInfo implements ClassPageElement {
       description.append(parametersInfo);
     }
 
-    Tag[] returnTags = doc.tags("return");
+    Tag[] returnTags = methodInfo.tags("return");
     if (returnTags.length > 0) {
       String returnInfo = new Heading(RETURNS, 3) + "\n" + returnTags[0].text();
       description.append(returnInfo).append("\n");
     }
 
-    ThrowsTag[] throwsTags = doc.throwsTags();
+    ThrowsTag[] throwsTags = methodInfo.throwsTags();
     if (throwsTags.length > 0) {
       Heading exceptionsHeading = new Heading(THROWS, 3);
       StringBuilder exceptionsInfo = new StringBuilder().append(exceptionsHeading).append("\n");

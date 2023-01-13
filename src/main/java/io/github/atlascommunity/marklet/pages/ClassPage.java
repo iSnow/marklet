@@ -39,6 +39,10 @@ public class ClassPage extends DocumentPage {
   @Override
   public String build() throws IOException {
 
+    if (classElement.getSimpleName().toString().equals("ClassSummary")) {
+      System.out.println("gotcha");
+    }
+
     StringBuilder classPage =
         new StringBuilder()
             .append(new Heading(new ClassTitle(classElement).generate(), 1))

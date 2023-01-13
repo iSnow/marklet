@@ -18,12 +18,12 @@ io.github.atlascommunity.marklet.page_elements.ClassMethodsInfo Summary
 |                          | [key](#javalangstring-key)                                     | String                                   |
 | **private static final** | [DESCRIPTION_PATTERN](#javalangstring-description_pattern)     | String                                   |
 #### Methods
-| Modifiers   | Method signature                                                                      | Return type                                     |
-| ----------- | ------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| **public**  | [generate()](#generate)                                                               | String                                          |
-| **private** | [methodDescription(ExecutableElement doc)](#methoddescriptionexecutableelement-doc)   | String                                          |
-|             | [findElements()](#findelements)                                                       | Set<javax.lang.model.element.ExecutableElement> |
-|             | [signatureString(ExecutableElement method)](#signaturestringexecutableelement-method) | String                                          |
+| Modifiers   | Method signature                                                                                  | Return type                                     |
+| ----------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| **public**  | [generate()](#generate)                                                                           | String                                          |
+| **private** | [methodDescription(ExecutableElement methodInfo)](#methoddescriptionexecutableelement-methodinfo) | String                                          |
+|             | [findElements()](#findelements)                                                                   | Set<javax.lang.model.element.ExecutableElement> |
+|             | [signatureString(ExecutableElement method)](#signaturestringexecutableelement-method)             | String                                          |
 
 Constructors
 ============
@@ -78,15 +78,15 @@ generate() from io.github.atlascommunity.marklet.page_elements.ClassPageElement
 markdown string representation of document part
 
 
-methodDescription(ExecutableElement doc)
-----------------------------------------
+methodDescription(ExecutableElement methodInfo)
+-----------------------------------------------
 
 
 ### Parameters
 
-| Name | Description           |
-| ---- | --------------------- |
-| doc  | method representation |
+| Name       | Description           |
+| ---------- | --------------------- |
+| methodInfo | method representation |
 
 ### Returns
 
