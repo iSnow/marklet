@@ -67,11 +67,22 @@ generateModuleInfo(List<javax.lang.model.element.ModuleElement> modules)
 ------------------------------------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name    | Description               |
+| ------- | ------------------------- |
+| modules | *No description provided* |
 
 generatePackageInfo(List<javax.lang.model.element.PackageElement> packages, Options options)
 --------------------------------------------------------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name     | Description               |
+| -------- | ------------------------- |
+| packages | *No description provided* |
+| options  | *No description provided* |
 
 write()
 -------

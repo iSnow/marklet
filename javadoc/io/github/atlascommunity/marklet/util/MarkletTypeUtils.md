@@ -81,6 +81,12 @@ findInPackage(ElementKind kind, PackageElement pkg)
 ---------------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name | Description               |
+| ---- | ------------------------- |
+| kind | *No description provided* |
+| pkg  | *No description provided* |
 
 findClassConstructors(TypeElement classElement)
 -----------------------------------------------
@@ -130,14 +136,31 @@ findInClass(ElementKind kind, TypeElement classElement)
 -------------------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name         | Description               |
+| ------------ | ------------------------- |
+| kind         | *No description provided* |
+| classElement | *No description provided* |
 
 findImplementedInterfaces(TypeElement classElement)
 ---------------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name         | Description               |
+| ------------ | ------------------------- |
+| classElement | *No description provided* |
 
 findOverriddenMethod(ExecutableElement methodElement, Types typeUtils)
 ----------------------------------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name          | Description               |
+| ------------- | ------------------------- |
+| methodElement | *No description provided* |
+| typeUtils     | *No description provided* |
 

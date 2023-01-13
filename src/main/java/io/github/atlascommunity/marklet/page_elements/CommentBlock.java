@@ -23,7 +23,7 @@ public class CommentBlock implements ClassPageElement{
 
     private final DocCommentTree comments;
 
-    //private final List<? extends VariableElement> parameters;
+    private final List<? extends VariableElement> parameters;
 
     private static final DocTree.Kind[] tags = {
             THROWS, PARAM, RETURN, DEPRECATED, AUTHOR, SEE, SINCE, VERSION
@@ -60,27 +60,40 @@ public class CommentBlock implements ClassPageElement{
                 return i1.compareTo(i2);
             });
             sortedKeys.addAll(dictionary.keySet());
+            boolean foundParamBlock = false;
             for (DocTree.Kind dt : sortedKeys){
                 List<DocTree> dts = dictionary.get(dt);
+                if (dt.equals(PARAM)) {
+                    foundParamBlock = true;
+                }
                 description.append(format(dts, dt)).append("\n\n");
             }
-
-        } /*else if ((null != parameters) && (parameters.size() > 0)) {
-            Table.Builder table =
-                    new Table.Builder()
-                            .withAlignments(Table.ALIGN_LEFT)
-                            .withRowLimit(parameters.size() + 1)
-                            .addRow("Name", "Description");
-            Heading parametersHeading = new Heading(PARAMETERS, 3);
-            StringBuilder sb = new StringBuilder(parametersHeading.toString()).append("\n\n");
-
-            for (VariableElement v : parameters) {
-                table.addRow( v.getSimpleName().toString(), "");
+            if ((null != parameters) && (parameters.size() > 0)) {
+                if (!foundParamBlock) {
+                    description.append(generateFallbackParameterBlock()).append("\n");
+                }
             }
-            sb.append(table.build());
-            description.append(sb);
-        }*/
+
+        } else if ((null != parameters) && (parameters.size() > 0)) {
+            description.append(generateFallbackParameterBlock()).append("\n");
+        }
         return description.toString();
+    }
+
+    private String generateFallbackParameterBlock() {
+        Table.Builder table =
+                new Table.Builder()
+                        .withAlignments(Table.ALIGN_LEFT)
+                        .withRowLimit(parameters.size() + 1)
+                        .addRow("Name", "Description");
+        Heading parametersHeading = new Heading(PARAMETERS, 3);
+        StringBuilder sb = new StringBuilder(parametersHeading.toString()).append("\n\n");
+
+        for (VariableElement v : parameters) {
+            table.addRow( v.getSimpleName().toString(), "*No description provided*");
+        }
+        sb.append(table.build());
+        return sb.toString();
     }
 
     private String format(List<DocTree> dts, DocTree.Kind kind) {

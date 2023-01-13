@@ -125,6 +125,12 @@ process(String option, List<String> arguments)
 ----------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name      | Description               |
+| --------- | ------------------------- |
+| option    | *No description provided* |
+| arguments | *No description provided* |
 
 toString()
 ----------

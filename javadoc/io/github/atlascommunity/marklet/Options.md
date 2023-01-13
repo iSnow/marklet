@@ -118,6 +118,11 @@ getOption(String key)
 ---------------------
 *No method description provided*
 
+### Parameters
+
+| Name | Description               |
+| ---- | ------------------------- |
+| key  | *No description provided* |
 
 getSupportedOptions()
 ---------------------

@@ -41,21 +41,41 @@ sanitizeHtmlTags(String input)
 ------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name  | Description               |
+| ----- | ------------------------- |
+| input | *No description provided* |
 
 sanitizePackageNames(String input)
 ----------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name  | Description               |
+| ----- | ------------------------- |
+| input | *No description provided* |
 
 sanitizeSuperClass(TypeMirror superclass)
 -----------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name       | Description               |
+| ---------- | ------------------------- |
+| superclass | *No description provided* |
 
 methodSignatureToLinkTarget(String methodInfo)
 ----------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name       | Description               |
+| ---------- | ------------------------- |
+| methodInfo | *No description provided* |
 
 constructShortestPath(String source, String target)
 ---------------------------------------------------

@@ -30,4 +30,12 @@ Build document and write it to the selected folder
 
 IOException: something went wrong during write operation
 
+### Parameters
+
+| Name              | Description               |
+| ----------------- | ------------------------- |
+| document          | *No description provided* |
+| fileName          | *No description provided* |
+| resolvedOutputDir | *No description provided* |
+| options           | *No description provided* |
 

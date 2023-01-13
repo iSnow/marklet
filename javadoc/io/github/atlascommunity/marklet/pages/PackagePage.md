@@ -84,6 +84,12 @@ getFullBody(PackageElement packageElement, DocTrees comments)
 -------------------------------------------------------------
 *No method description provided*
 
+### Parameters
+
+| Name           | Description               |
+| -------------- | ------------------------- |
+| packageElement | *No description provided* |
+| comments       | *No description provided* |
 
 createPackageIndexes(StringBuilder packagePage)
 -----------------------------------------------

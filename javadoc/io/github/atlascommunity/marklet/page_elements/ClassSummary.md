@@ -62,6 +62,12 @@ generateMethodSummary(TypeElement classElement, Types typeUtils)
 
 markdown string representation of class methods
 
+### Parameters
+
+| Name         | Description               |
+| ------------ | ------------------------- |
+| classElement | *No description provided* |
+| typeUtils    | *No description provided* |
 
 generateFieldSummary(TypeElement classElement)
 ----------------------------------------------
@@ -71,6 +77,11 @@ generateFieldSummary(TypeElement classElement)
 
 markdown string representation of class fields
 
+### Parameters
+
+| Name         | Description               |
+| ------------ | ------------------------- |
+| classElement | *No description provided* |
 
 generateConstructorSummary(TypeElement classElement)
 ----------------------------------------------------
@@ -80,4 +91,9 @@ generateConstructorSummary(TypeElement classElement)
 
 markdown string representation of class constructors
 
+### Parameters
+
+| Name         | Description               |
+| ------------ | ------------------------- |
+| classElement | *No description provided* |
 

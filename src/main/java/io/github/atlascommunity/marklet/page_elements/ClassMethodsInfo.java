@@ -103,8 +103,8 @@ public class ClassMethodsInfo implements ClassPageElement {
             .stream().map(Object::toString).collect(Collectors.joining());
       description.append(commentsStr).append("\n").append("\n");
     }
-    //List<? extends VariableElement> parameters = methodInfo.getParameters();
-    CommentBlock block = new CommentBlock(comments);
+    List<? extends VariableElement> parameters = methodInfo.getParameters();
+    CommentBlock block = new CommentBlock(comments, parameters);
 
     description.append(block.generate());
     /*
