@@ -26,6 +26,7 @@ io.github.atlascommunity.marklet.constants.Labels Summary
 | **public static final** | [FIELDS](#javalangstring-fields)                                       | String |
 | **public static final** | [THROWS](#javalangstring-throws)                                       | String |
 | **public static final** | [RETURNS](#javalangstring-returns)                                     | String |
+| **public static final** | [SINCE](#javalangstring-since)                                         | String |
 | **public static final** | [PARAMETERS](#javalangstring-parameters)                               | String |
 | **public static final** | [SUMMARY](#javalangstring-summary)                                     | String |
 | **public static final** | [UNKNOWN](#javalangstring-unknown)                                     | String |
@@ -120,6 +121,11 @@ Label for throws. *
 String RETURNS
 ------------------------
 Label for returns. *
+
+
+String SINCE
+----------------------
+Label for since. *
 
 
 String PARAMETERS

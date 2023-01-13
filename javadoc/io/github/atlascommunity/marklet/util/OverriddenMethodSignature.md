@@ -64,7 +64,9 @@ Form doubled bracket params description
 
 ### Parameters
 
-parameters: method params information
+| Name       | Description               |
+| ---------- | ------------------------- |
+| parameters | method params information |
 
 ### Returns
 

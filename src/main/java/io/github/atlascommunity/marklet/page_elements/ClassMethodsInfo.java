@@ -96,9 +96,12 @@ public class ClassMethodsInfo implements ClassPageElement {
     if (null == comments) {
       description.append("*No method description provided*").append("\n").append("\n");
     } else {
-      description.append(comments.getFullBody().stream().map(Object::toString).collect(Collectors.joining())).append("\n").append("\n");
+
+      description.append(comments
+              .getFullBody()
+              .stream().map(Object::toString).collect(Collectors.joining())).append("\n").append("\n");
     }
-    ParameterBlock block = new ParameterBlock(comments);
+    CommentBlock block = new CommentBlock(comments);
 
     description.append(block.generate());
     /*

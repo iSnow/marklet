@@ -104,6 +104,7 @@ public class PackagePage extends DocumentPage {
    * @param packagePage string representation of package page content
    */
   private void createPackageIndexes(StringBuilder packagePage) {
+    createPackageAnnotationIndex(packagePage);
     createPackageEnumIndex(packagePage);
     createPackageInterfaceIndex(packagePage);
     createPackageClassIndex(packagePage);
@@ -131,6 +132,19 @@ public class PackagePage extends DocumentPage {
       generateTable(CLASSES, packageClasses, packagePage);
       packagePage.append("\n");
     }*/
+  }
+
+  /**
+   * Generate index table for package annotations
+   *
+   * @param packagePage StringBuilder collecting package page content
+   */
+  private void createPackageAnnotationIndex(StringBuilder packagePage) {
+    Set<TypeElement> packageAnnotations = MarkletTypeUtils.findPackageAnnotations(packageElement);
+    if (!packageAnnotations.isEmpty()) {
+      generateTable(ANNOTATIONS, packageAnnotations.toArray(new TypeElement[]{}), packagePage);
+      packagePage.append("\n");
+    }
   }
 
 

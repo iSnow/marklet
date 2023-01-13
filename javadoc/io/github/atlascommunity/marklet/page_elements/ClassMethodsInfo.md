@@ -84,7 +84,9 @@ methodDescription(ExecutableElement doc)
 
 ### Parameters
 
-doc: method representation
+| Name | Description           |
+| ---- | --------------------- |
+| doc  | method representation |
 
 ### Returns
 

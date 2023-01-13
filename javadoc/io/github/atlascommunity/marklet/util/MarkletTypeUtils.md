@@ -14,6 +14,7 @@ io.github.atlascommunity.marklet.util.MarkletTypeUtils Summary
 | **public static**  | [findPackageClasses(DocletEnvironment root)](#findpackageclassesdocletenvironment-root)                                                        | Set<javax.lang.model.element.TypeElement>        |
 | **public static**  | [findPackageClasses(PackageElement t)](#findpackageclassespackageelement-t)                                                                    | Set<javax.lang.model.element.TypeElement>        |
 | **public static**  | [findPackageInterfaces(PackageElement t)](#findpackageinterfacespackageelement-t)                                                              | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | [findPackageAnnotations(PackageElement t)](#findpackageannotationspackageelement-t)                                                            | Set<javax.lang.model.element.TypeElement>        |
 | **private static** | [findInPackage(ElementKind kind, PackageElement pkg)](#findinpackageelementkind-kind-packageelement-pkg)                                       | Set<javax.lang.model.element.Element>            |
 | **public static**  | [findClassConstructors(TypeElement classElement)](#findclassconstructorstypeelement-classelement)                                              | Set<javax.lang.model.element.ExecutableElement>  |
 | **public static**  | [findClassFields(TypeElement classElement)](#findclassfieldstypeelement-classelement)                                                          | Set<javax.lang.model.element.VariableElement>    |
@@ -38,7 +39,9 @@ Find all package classes
 
 ### Parameters
 
-root: the DocletEnvironment to scan
+| Name | Description                   |
+| ---- | ----------------------------- |
+| root | the DocletEnvironment to scan |
 
 
 findPackageClasses(PackageElement t)
@@ -47,7 +50,9 @@ Find all package classes
 
 ### Parameters
 
-t: the PackageElement to scan
+| Name | Description                |
+| ---- | -------------------------- |
+| t    | the PackageElement to scan |
 
 
 findPackageInterfaces(PackageElement t)
@@ -56,7 +61,20 @@ Find all package interfaces
 
 ### Parameters
 
-t: the PackageElement to scan
+| Name | Description                |
+| ---- | -------------------------- |
+| t    | the PackageElement to scan |
+
+
+findPackageAnnotations(PackageElement t)
+----------------------------------------
+Find all package annotations
+
+### Parameters
+
+| Name | Description                |
+| ---- | -------------------------- |
+| t    | the PackageElement to scan |
 
 
 findInPackage(ElementKind kind, PackageElement pkg)
@@ -70,7 +88,9 @@ Find all class constructors
 
 ### Parameters
 
-classElement: the class to scan
+| Name         | Description       |
+| ------------ | ----------------- |
+| classElement | the class to scan |
 
 
 findClassFields(TypeElement classElement)
@@ -79,7 +99,9 @@ Find all class fields
 
 ### Parameters
 
-classElement: the class to scan
+| Name         | Description       |
+| ------------ | ----------------- |
+| classElement | the class to scan |
 
 
 findClassMethods(TypeElement classElement)
@@ -88,7 +110,9 @@ Find all class methods
 
 ### Parameters
 
-classElement: the class to scan
+| Name         | Description       |
+| ------------ | ----------------- |
+| classElement | the class to scan |
 
 
 findClassAnnotations(TypeElement classElement)
@@ -97,7 +121,9 @@ Find all class annotations
 
 ### Parameters
 
-classElement: the class to scan
+| Name         | Description       |
+| ------------ | ----------------- |
+| classElement | the class to scan |
 
 
 findInClass(ElementKind kind, TypeElement classElement)

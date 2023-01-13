@@ -68,9 +68,10 @@ Static method that builds a shortest URL path, from
 
 ### Parameters
 
-- source: Source package to build path from.
-- target: Target package to build path to.
-
+| Name   | Description                        |
+| ------ | ---------------------------------- |
+| source | Source package to build path from. |
+| target | Target package to build path to.   |
 
 ### Returns
 

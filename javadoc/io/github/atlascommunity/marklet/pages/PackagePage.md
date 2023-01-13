@@ -23,6 +23,7 @@ io.github.atlascommunity.marklet.pages.PackagePage Summary
 | **public**  | [build()](#build)                                                                                                                                                                                           | String                               |
 | **private** | [getFullBody(PackageElement packageElement, DocTrees comments)](#getfullbodypackageelement-packageelement-doctrees-comments)                                                                                | List<com.sun.source.doctree.DocTree> |
 | **private** | [createPackageIndexes(StringBuilder packagePage)](#createpackageindexesstringbuilder-packagepage)                                                                                                           | void                                 |
+| **private** | [createPackageAnnotationIndex(StringBuilder packagePage)](#createpackageannotationindexstringbuilder-packagepage)                                                                                           | void                                 |
 | **private** | [createPackageEnumIndex(StringBuilder packagePage)](#createpackageenumindexstringbuilder-packagepage)                                                                                                       | void                                 |
 | **private** | [createPackageInterfaceIndex(StringBuilder packagePage)](#createpackageinterfaceindexstringbuilder-packagepage)                                                                                             | void                                 |
 | **private** | [createPackageClassIndex(StringBuilder packagePage)](#createpackageclassindexstringbuilder-packagepage)                                                                                                     | void                                 |
@@ -90,7 +91,20 @@ Generate index tables for package annotations, enums, interfaces and classes
 
 ### Parameters
 
-packagePage: string representation of package page content
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | string representation of package page content |
+
+
+createPackageAnnotationIndex(StringBuilder packagePage)
+-------------------------------------------------------
+Generate index table for package annotations
+
+### Parameters
+
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | StringBuilder collecting package page content |
 
 
 createPackageEnumIndex(StringBuilder packagePage)
@@ -99,7 +113,9 @@ Generate index table for package classes
 
 ### Parameters
 
-packagePage: StringBuilder collecting package page content
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | StringBuilder collecting package page content |
 
 
 createPackageInterfaceIndex(StringBuilder packagePage)
@@ -108,7 +124,9 @@ Generate index table for package interfaces
 
 ### Parameters
 
-packagePage: StringBuilder collecting package page content
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | StringBuilder collecting package page content |
 
 
 createPackageClassIndex(StringBuilder packagePage)
@@ -117,7 +135,9 @@ Generate index table for package classes
 
 ### Parameters
 
-packagePage: StringBuilder collecting package page content
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | StringBuilder collecting package page content |
 
 
 generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage)
@@ -126,10 +146,11 @@ Generate index table
 
 ### Parameters
 
-- tableLabel: table name
-- docs: elements to work with
-- packagePage: string representation of package page content
-
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| tableLabel  | table name                                    |
+| docs        | elements to work with                         |
+| packagePage | string representation of package page content |
 
 
 write()

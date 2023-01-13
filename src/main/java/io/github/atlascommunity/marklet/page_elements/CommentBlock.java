@@ -3,7 +3,9 @@ package io.github.atlascommunity.marklet.page_elements;
 import com.sun.source.doctree.*;
 import io.github.atlascommunity.marklet.constants.Labels;
 import lombok.AllArgsConstructor;
+import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
+import net.steppschuh.markdowngenerator.text.emphasis.ItalicText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import java.util.*;
@@ -15,7 +17,7 @@ import static io.github.atlascommunity.marklet.constants.Labels.RETURNS;
 import static io.github.atlascommunity.marklet.util.Sanitizers.sanitizeHtmlTags;
 
 @AllArgsConstructor
-public class ParameterBlock implements ClassPageElement{
+public class CommentBlock implements ClassPageElement{
 
     private final DocCommentTree comments;
 
@@ -77,10 +79,19 @@ public class ParameterBlock implements ClassPageElement{
             case DEPRECATED -> {
                 return formatDeprecated(dts);
             }
+            case SINCE -> {
+                return formatSince(dts);
+            }
             default -> {return dts.stream().map(Object::toString).collect(Collectors.joining("\n\n"));}
         }
     }
 
+    private String formatSince(List<DocTree> dts) {
+        StringBuilder sb = new StringBuilder(Labels.SINCE).append(" ");
+        SinceTree dt = (SinceTree)dts.get(0);
+        sb.append(dt.getBody().stream().map(Object::toString).collect(Collectors.joining("")));
+        return sanitizeHtmlTags(new ItalicText(sb.toString()).toString());
+    }
     private String formatDeprecated(List<DocTree> dts) {
         StringBuilder sb = new StringBuilder(new BoldText(Labels.DEPRECATED).toString()).append(" ");
         DeprecatedTree dt = (DeprecatedTree)dts.get(0);
@@ -107,7 +118,22 @@ public class ParameterBlock implements ClassPageElement{
     private String formatParams(List<DocTree> dts) {
         Heading parametersHeading = new Heading(PARAMETERS, 3);
         StringBuilder sb = new StringBuilder(parametersHeading.toString()).append("\n\n");
-        if (dts.size() == 1) {
+
+        Table.Builder table =
+                new Table.Builder()
+                        .withAlignments(Table.ALIGN_LEFT)
+                        .withRowLimit(dts.size() + 1)
+                        .addRow("Name", "Description");
+
+        for (DocTree dt : dts) {
+            table.addRow(
+                ((ParamTree)dt).getName().toString(),
+                ((ParamTree)dt).getDescription().stream().map(Object::toString).collect(Collectors.joining(" "))
+            );
+        }
+        sb.append(table.build());
+
+        /*if (dts.size() == 1) {
             sb.append(((ParamTree)dts.get(0)).getName().toString());
             sb.append(": ");
             sb.append(((ParamTree)dts.get(0)).getDescription().stream().map(Object::toString).collect(Collectors.joining("\n")));
@@ -119,7 +145,7 @@ public class ParameterBlock implements ClassPageElement{
                 sb.append(((ParamTree)dt).getDescription().stream().map(Object::toString).collect(Collectors.joining("\n")));
                 sb.append("\n");
             }
-        }
+        }*/
 
         return sanitizeHtmlTags(sb.toString());
     }

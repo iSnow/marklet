@@ -51,6 +51,8 @@ public final class Labels {
   /** Label for returns. * */
   public static final String RETURNS = "Returns";
 
+  /** Label for since. * */
+  public static final String SINCE = "Since";
   /** Label for parameters. * */
   public static final String PARAMETERS = "Parameters";
 

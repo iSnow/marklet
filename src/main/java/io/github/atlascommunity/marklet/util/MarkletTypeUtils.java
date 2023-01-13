@@ -24,6 +24,7 @@ public class MarkletTypeUtils {
         for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
             packageClasses.addAll(findPackageClasses(t));
             packageClasses.addAll(findPackageInterfaces(t));
+            packageClasses.addAll(findPackageAnnotations(t));
         }
         return packageClasses;
     }
@@ -34,13 +35,10 @@ public class MarkletTypeUtils {
      * @param t the PackageElement to scan
      */
     public static Set<TypeElement> findPackageClasses(PackageElement t) {
-        Set<TypeElement> packageClasses = new LinkedHashSet<>();
-        for (Element e : t.getEnclosedElements()) {
-            if ((e.getKind().equals (ElementKind.CLASS))){
-                packageClasses.add((TypeElement) e);
-            }
-        }
-        return packageClasses;
+        return findInPackage(ElementKind.CLASS, t)
+                .stream()
+                .map((e) -> (TypeElement) e)
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
     /**
      * Find all package interfaces
@@ -48,14 +46,25 @@ public class MarkletTypeUtils {
      * @param t the PackageElement to scan
      */
     public static Set<TypeElement> findPackageInterfaces(PackageElement t) {
-        Set<TypeElement> interfaces = new LinkedHashSet<>();
-        for (Element e : t.getEnclosedElements()) {
-            if (e.getKind().equals (ElementKind.INTERFACE)) {
-                interfaces.add((TypeElement) e);
-            }
-        }
-        return interfaces;
+        return findInPackage(ElementKind.INTERFACE, t)
+                .stream()
+                .map((e) -> (TypeElement) e)
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
+
+    /**
+     * Find all package annotations
+     *
+     * @param t the PackageElement to scan
+     */
+    public static Set<TypeElement> findPackageAnnotations(PackageElement t) {
+        return findInPackage(ElementKind.ANNOTATION_TYPE, t)
+                .stream()
+                .map((e) -> (TypeElement) e)
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
+
+
     private static Set<Element> findInPackage(ElementKind kind, PackageElement pkg) {
         Set<Element> elements = new LinkedHashSet<>();
         for (Element e : pkg.getEnclosedElements()) {

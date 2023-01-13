@@ -2,7 +2,7 @@ Class ParameterBlock implements io.github.atlascommunity.marklet.page_elements.C
 ===============================================================================================
 
 
-io.github.atlascommunity.marklet.page_elements.ParameterBlock Summary
+io.github.atlascommunity.marklet.page_elements.CommentBlock Summary
 -------
 #### Constructors
 | Visibility | Signature        |

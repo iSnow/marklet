@@ -68,9 +68,10 @@ IOException: If any error occurs during generation process.
 
 ### Parameters
 
-- modules: project modules list
-- packages: project packages list
-
+| Name     | Description           |
+| -------- | --------------------- |
+| modules  | project modules list  |
+| packages | project packages list |
 
 
 generatePackagePage(PackageElement packageElement)
@@ -83,7 +84,9 @@ IOException: If any error occurs while creating file or directories.
 
 ### Parameters
 
-packageElement: Package to generate documentation for.
+| Name           | Description                            |
+| -------------- | -------------------------------------- |
+| packageElement | Package to generate documentation for. |
 
 
 buildPackages()
@@ -164,9 +167,10 @@ Overriden from {@link jdk.javadoc.doclet.StandardDoclet#init(Locale, Reporter)},
 
 ### Parameters
 
-- locale: the locale to be used
-- reporter: the reporter to be used
-
+| Name     | Description             |
+| -------- | ----------------------- |
+| locale   | the locale to be used   |
+| reporter | the reporter to be used |
 
 
 run(DocletEnvironment environment)
@@ -175,7 +179,9 @@ Main **Doclet** worker entry point.
 
 ### Parameters
 
-environment: DocletEnvironment.
+| Name        | Description        |
+| ----------- | ------------------ |
+| environment | DocletEnvironment. |
 
 ### Returns
 
@@ -199,7 +205,9 @@ Builds and retrieves the path for the directory associated to the package with t
 
 ### Parameters
 
-packageName: Name of the package to get directory for.
+| Name        | Description                               |
+| ----------- | ----------------------------------------- |
+| packageName | Name of the package to get directory for. |
 
 ### Returns
 
@@ -221,6 +229,8 @@ Useful to run the Doclet in an IDE like IntelliJ. This can be used to create a r
 
 ### Parameters
 
-args: command-line arguments, disregarded
+| Name | Description                         |
+| ---- | ----------------------------------- |
+| args | command-line arguments, disregarded |
 
 
