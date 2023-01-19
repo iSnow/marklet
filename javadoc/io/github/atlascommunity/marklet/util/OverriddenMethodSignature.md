@@ -19,19 +19,6 @@ io.github.atlascommunity.marklet.util.OverriddenMethodSignature Summary
 | **public**  | [toLinkTarget()](#tolinktarget)                                                                                                                                 | String      |
 | **private** | [methodParams(List<? extends javax.lang.model.element.VariableElement> parameters)](#methodparamslist?-extends-javaxlangmodelelementvariableelement-parameters) | String      |
 
-Constructors
-============
-OverriddenMethodSignature(javax.lang.model.element.ExecutableElement,javax.lang.model.element.ExecutableElement)
-----------------------------------------------------------------------------------------------------------------
-*No method description provided*
-
-### Parameters
-
-| Name                 | Description               |
-| -------------------- | ------------------------- |
-| methodInfo           | *No description provided* |
-| superClassMethodInfo | *No description provided* |
-
 Fields
 ======
 javax.lang.model.element.ExecutableElement superClassMethodInfo

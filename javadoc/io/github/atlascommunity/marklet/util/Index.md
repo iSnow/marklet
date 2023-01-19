@@ -1,5 +1,11 @@
 Package _io.github.atlascommunity.marklet.util_
 ===============================================
+Enumerations
+============
+| Name                          |
+| ----------------------------- |
+| [Enumeration](Enumeration.md) |
+
 Classes
 =======
 | Name                                                      |

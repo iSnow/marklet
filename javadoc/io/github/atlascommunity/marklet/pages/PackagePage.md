@@ -30,13 +30,6 @@ io.github.atlascommunity.marklet.pages.PackagePage Summary
 | **private** | [generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage)](#generatetablestring-tablelabel-javaxlangmodelelementtypeelement-docs-stringbuilder-packagepage) | void                                 |
 | **public**  | [write()](#write)                                                                                                                                                                                           | void                                 |
 
-Constructors
-============
-PackagePage()
--------------
-*No method description provided*
-
-
 Fields
 ======
 javax.lang.model.element.PackageElement packageElement

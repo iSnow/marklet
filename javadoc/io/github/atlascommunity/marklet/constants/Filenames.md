@@ -14,13 +14,6 @@ io.github.atlascommunity.marklet.constants.Filenames Summary
 | **public static final** | [PACKAGE_INDEX_FILE](#javalangstring-package_index_file) | String |
 | **public static final** | [README_FILE](#javalangstring-readme_file)               | String |
 
-Constructors
-============
-Filenames()
------------
-*No method description provided*
-
-
 Fields
 ======
 String PACKAGE_INDEX_FILE

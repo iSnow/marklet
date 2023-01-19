@@ -1,5 +1,11 @@
 Package _io.github.atlascommunity.marklet.pages_
 ================================================
+Enumerations
+============
+| Name                          |
+| ----------------------------- |
+| [Enumeration](Enumeration.md) |
+
 Interfaces
 ==========
 | Name                                              |

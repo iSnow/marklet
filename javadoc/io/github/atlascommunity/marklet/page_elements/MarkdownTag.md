@@ -19,13 +19,6 @@ io.github.atlascommunity.marklet.page_elements.MarkdownTag Summary
 | ---------- | ------------------- | ----------- |
 | **public** | [create()](#create) | String      |
 
-Constructors
-============
-MarkdownTag()
--------------
-*No method description provided*
-
-
 Fields
 ======
 com.sun.source.doctree.DocTree tag

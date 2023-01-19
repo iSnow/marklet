@@ -48,13 +48,6 @@ io.github.atlascommunity.marklet.Options Summary
 | **public static** | [getOption(String key)](#getoptionstring-key) | io.github.atlascommunity.marklet.MarkletOption |
 | **public static** | [getSupportedOptions()](#getsupportedoptions) | Set<jdk.javadoc.doclet.Doclet.Option>          |
 
-Constructors
-============
-Options()
----------
-Default constructor. Sets options with their default parameters if available.
-
-
 Fields
 ======
 String SOURCE_DIRECTORY_OPTION

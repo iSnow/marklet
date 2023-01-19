@@ -14,20 +14,6 @@ import java.util.stream.Collectors;
 
 public class MarkletTypeUtils {
 
-    /**
-     * Find all package classes
-     *
-     * @param root the DocletEnvironment to scan
-     */
-    public static Set<TypeElement> findPackageClasses(DocletEnvironment root) {
-        Set<TypeElement> packageClasses = new LinkedHashSet<>();
-        for (PackageElement t : ElementFilter.packagesIn(root.getIncludedElements())) {
-            packageClasses.addAll(findPackageClasses(t));
-            packageClasses.addAll(findPackageInterfaces(t));
-            packageClasses.addAll(findPackageAnnotations(t));
-        }
-        return packageClasses;
-    }
 
     /**
      * Find all package classes
@@ -64,6 +50,30 @@ public class MarkletTypeUtils {
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
+
+    /**
+     * Find all package enums
+     *
+     * @param t the PackageElement to scan
+     */
+    public static Set<TypeElement> findPackageEnums(PackageElement t) {
+        return findInPackage(ElementKind.ENUM, t)
+                .stream()
+                .map((e) -> (TypeElement) e)
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
+
+    /**
+     * Find all package records
+     *
+     * @param t the PackageElement to scan
+     */
+    public static Set<TypeElement> findPackageRecords(PackageElement t) {
+        return findInPackage(ElementKind.RECORD, t)
+                .stream()
+                .map((e) -> (TypeElement) e)
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
 
     private static Set<Element> findInPackage(ElementKind kind, PackageElement pkg) {
         Set<Element> elements = new LinkedHashSet<>();
@@ -157,5 +167,14 @@ public class MarkletTypeUtils {
         }
 
         return null;
+    }
+
+    public static List<VariableElement> findEnumConstants(TypeElement enumElement) {
+        return enumElement
+                .getEnclosedElements()
+                .stream()
+                .filter((e)-> e.getKind().equals(ElementKind.ENUM_CONSTANT))
+                .map((e)->(VariableElement)e)
+                .collect(Collectors.toList());
     }
 }

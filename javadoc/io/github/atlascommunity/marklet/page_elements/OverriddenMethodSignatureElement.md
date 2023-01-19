@@ -17,19 +17,6 @@ io.github.atlascommunity.marklet.page_elements.OverriddenMethodSignatureElement 
 | ---------- | ----------------------- | ----------- |
 | **public** | [generate()](#generate) | String      |
 
-Constructors
-============
-OverriddenMethodSignatureElement(javax.lang.model.element.ExecutableElement,javax.lang.model.element.ExecutableElement)
------------------------------------------------------------------------------------------------------------------------
-*No method description provided*
-
-### Parameters
-
-| Name                 | Description               |
-| -------------------- | ------------------------- |
-| methodInfo           | *No description provided* |
-| superClassMethodInfo | *No description provided* |
-
 Fields
 ======
 javax.lang.model.element.ExecutableElement superClassMethodInfo

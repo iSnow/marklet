@@ -18,13 +18,6 @@ io.github.atlascommunity.marklet.page_elements.ClassFieldsInfo Summary
 | ---------- | ----------------------- | ----------- |
 | **public** | [generate()](#generate) | String      |
 
-Constructors
-============
-ClassFieldsInfo()
------------------
-*No method description provided*
-
-
 Fields
 ======
 javax.lang.model.element.TypeElement classElement

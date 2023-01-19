@@ -23,13 +23,6 @@ io.github.atlascommunity.marklet.pages.ReadmePage Summary
 | **private static** | [generatePackageInfo(List<javax.lang.model.element.PackageElement> packages, Options options)](#generatepackageinfolistjavaxlangmodelelementpackageelement-packages-options-options) | String      |
 | **public**         | [write()](#write)                                                                                                                                                                    | void        |
 
-Constructors
-============
-ReadmePage()
-------------
-*No method description provided*
-
-
 Fields
 ======
 List<javax.lang.model.element.ModuleElement> modules

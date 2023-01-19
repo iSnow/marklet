@@ -17,13 +17,6 @@ io.github.atlascommunity.marklet.page_elements.FieldLink Summary
 | ---------- | ----------------------- | ----------- |
 | **public** | [generate()](#generate) | String      |
 
-Constructors
-============
-FieldLink()
------------
-*No method description provided*
-
-
 Fields
 ======
 io.github.atlascommunity.marklet.util.FieldSignature signature

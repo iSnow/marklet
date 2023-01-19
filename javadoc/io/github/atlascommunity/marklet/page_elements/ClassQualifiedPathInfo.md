@@ -17,13 +17,6 @@ io.github.atlascommunity.marklet.page_elements.ClassQualifiedPathInfo Summary
 | ---------- | ----------------------- | ----------- |
 | **public** | [generate()](#generate) | String      |
 
-Constructors
-============
-ClassQualifiedPathInfo()
-------------------------
-*No method description provided*
-
-
 Fields
 ======
 javax.lang.model.element.TypeElement classElement

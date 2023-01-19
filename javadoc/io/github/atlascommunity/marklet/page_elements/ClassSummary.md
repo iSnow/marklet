@@ -13,20 +13,15 @@ io.github.atlascommunity.marklet.page_elements.ClassSummary Summary
 | ----------------- | -------------------------------------------------------------- | ------------------------------------ |
 | **private final** | [classElement](#javaxlangmodelelementtypeelement-classelement) | javax.lang.model.element.TypeElement |
 | **private final** | [typeUtils](#javaxlangmodelutiltypes-typeutils)                | javax.lang.model.util.Types          |
+| **private final** | [treeUtils](#comsunsourceutildoctrees-treeutils)               | com.sun.source.util.DocTrees         |
 #### Methods
 | Modifiers          | Method signature                                                                                                                   | Return type |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | **public**         | [generate()](#generate)                                                                                                            | String      |
+| **private**        | [generateEnumConstantSummary(TypeElement classElement)](#generateenumconstantsummarytypeelement-classelement)                      | String      |
 | **private static** | [generateMethodSummary(TypeElement classElement, Types typeUtils)](#generatemethodsummarytypeelement-classelement-types-typeutils) | String      |
 | **private static** | [generateFieldSummary(TypeElement classElement)](#generatefieldsummarytypeelement-classelement)                                    | String      |
 | **private static** | [generateConstructorSummary(TypeElement classElement)](#generateconstructorsummarytypeelement-classelement)                        | String      |
-
-Constructors
-============
-ClassSummary()
---------------
-*No method description provided*
-
 
 Fields
 ======
@@ -37,6 +32,11 @@ Class information
 
 javax.lang.model.util.Types typeUtils
 -------------------------------------
+*No description provided*
+
+
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
 *No description provided*
 
 
@@ -52,6 +52,21 @@ generate() from io.github.atlascommunity.marklet.page_elements.ClassPageElement
 ### Returns
 
 markdown string representation of document part
+
+
+generateEnumConstantSummary(TypeElement classElement)
+-----------------------------------------------------
+
+
+### Parameters
+
+| Name         | Description |
+| ------------ | ----------- |
+| classElement | the Enum    |
+
+### Returns
+
+markdown string representation of the constants of an Enum
 
 
 generateMethodSummary(TypeElement classElement, Types typeUtils)

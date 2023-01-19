@@ -30,13 +30,6 @@ io.github.atlascommunity.marklet.MarkletOption Summary
 | **public** | [process(String option, List<String> arguments)](#processstring-option-liststring-arguments) | boolean                               |
 | **public** | [toString()](#tostring)                                                                      | String                                |
 
-Constructors
-============
-MarkletOption()
----------------
-*No method description provided*
-
-
 Fields
 ======
 List<String> names

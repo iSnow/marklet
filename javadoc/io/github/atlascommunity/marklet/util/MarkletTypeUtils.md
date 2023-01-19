@@ -11,10 +11,11 @@ io.github.atlascommunity.marklet.util.MarkletTypeUtils Summary
 #### Methods
 | Modifiers          | Method signature                                                                                                                               | Return type                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| **public static**  | [findPackageClasses(DocletEnvironment root)](#findpackageclassesdocletenvironment-root)                                                        | Set<javax.lang.model.element.TypeElement>        |
 | **public static**  | [findPackageClasses(PackageElement t)](#findpackageclassespackageelement-t)                                                                    | Set<javax.lang.model.element.TypeElement>        |
 | **public static**  | [findPackageInterfaces(PackageElement t)](#findpackageinterfacespackageelement-t)                                                              | Set<javax.lang.model.element.TypeElement>        |
 | **public static**  | [findPackageAnnotations(PackageElement t)](#findpackageannotationspackageelement-t)                                                            | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | [findPackageEnums(PackageElement t)](#findpackageenumspackageelement-t)                                                                        | Set<javax.lang.model.element.TypeElement>        |
+| **public static**  | [findPackageRecords(PackageElement t)](#findpackagerecordspackageelement-t)                                                                    | Set<javax.lang.model.element.TypeElement>        |
 | **private static** | [findInPackage(ElementKind kind, PackageElement pkg)](#findinpackageelementkind-kind-packageelement-pkg)                                       | Set<javax.lang.model.element.Element>            |
 | **public static**  | [findClassConstructors(TypeElement classElement)](#findclassconstructorstypeelement-classelement)                                              | Set<javax.lang.model.element.ExecutableElement>  |
 | **public static**  | [findClassFields(TypeElement classElement)](#findclassfieldstypeelement-classelement)                                                          | Set<javax.lang.model.element.VariableElement>    |
@@ -23,27 +24,10 @@ io.github.atlascommunity.marklet.util.MarkletTypeUtils Summary
 | **private static** | [findInClass(ElementKind kind, TypeElement classElement)](#findinclasselementkind-kind-typeelement-classelement)                               | Set<javax.lang.model.element.Element>            |
 | **public static**  | [findImplementedInterfaces(TypeElement classElement)](#findimplementedinterfacestypeelement-classelement)                                      | List<? extends javax.lang.model.type.TypeMirror> |
 | **public static**  | [findOverriddenMethod(ExecutableElement methodElement, Types typeUtils)](#findoverriddenmethodexecutableelement-methodelement-types-typeutils) | javax.lang.model.element.ExecutableElement       |
-
-Constructors
-============
-MarkletTypeUtils()
-------------------
-*No method description provided*
-
+| **public static**  | [findEnumConstants(TypeElement enumElement)](#findenumconstantstypeelement-enumelement)                                                        | List<javax.lang.model.element.VariableElement>   |
 
 Methods
 =======
-findPackageClasses(DocletEnvironment root)
-------------------------------------------
-Find all package classes
-
-### Parameters
-
-| Name | Description                   |
-| ---- | ----------------------------- |
-| root | the DocletEnvironment to scan |
-
-
 findPackageClasses(PackageElement t)
 ------------------------------------
 Find all package classes
@@ -69,6 +53,28 @@ Find all package interfaces
 findPackageAnnotations(PackageElement t)
 ----------------------------------------
 Find all package annotations
+
+### Parameters
+
+| Name | Description                |
+| ---- | -------------------------- |
+| t    | the PackageElement to scan |
+
+
+findPackageEnums(PackageElement t)
+----------------------------------
+Find all package enums
+
+### Parameters
+
+| Name | Description                |
+| ---- | -------------------------- |
+| t    | the PackageElement to scan |
+
+
+findPackageRecords(PackageElement t)
+------------------------------------
+Find all package records
 
 ### Parameters
 
@@ -163,4 +169,14 @@ findOverriddenMethod(ExecutableElement methodElement, Types typeUtils)
 | ------------- | ------------------------- |
 | methodElement | *No description provided* |
 | typeUtils     | *No description provided* |
+
+findEnumConstants(TypeElement enumElement)
+------------------------------------------
+*No method description provided*
+
+### Parameters
+
+| Name        | Description               |
+| ----------- | ------------------------- |
+| enumElement | *No description provided* |
 

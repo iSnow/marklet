@@ -21,13 +21,6 @@ io.github.atlascommunity.marklet.util.Sanitizers Summary
 | **public static** | [methodSignatureToLinkTarget(String methodInfo)](#methodsignaturetolinktargetstring-methodinfo)          | String      |
 | **public static** | [constructShortestPath(String source, String target)](#constructshortestpathstring-source-string-target) | String      |
 
-Constructors
-============
-Sanitizers()
-------------
-*No method description provided*
-
-
 Fields
 ======
 String UP_DIRECTORY

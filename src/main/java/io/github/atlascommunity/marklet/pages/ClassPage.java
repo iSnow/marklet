@@ -9,11 +9,13 @@ import jdk.javadoc.doclet.Reporter;
 import lombok.RequiredArgsConstructor;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
-import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /** Markdown text file with class information */
 @RequiredArgsConstructor
@@ -38,22 +40,22 @@ public class ClassPage extends DocumentPage {
   /** Creates markdown text file */
   @Override
   public String build() throws IOException {
-
-    if (classElement.getSimpleName().toString().equals("ClassSummary")) {
-      System.out.println("gotcha");
-    }
-
     StringBuilder classPage =
         new StringBuilder()
             .append(new Heading(new ClassTitle(classElement).generate(), 1))
             .append("\n");
 
+    boolean generateConstructors = (!classElement.getKind().equals(ElementKind.ENUM))
+            && classElement.getKind().equals(ElementKind.RECORD);
+
     classPage.append(new ClassHeaderCommentInfo(comments, classElement, options).generate()).append("\n\n");
     classPage.append(new ClassQualifiedPathInfo(classElement).generate()).append(" ");
-    classPage.append(new ClassSummary(classElement, environment.getTypeUtils()).generate()).append("\n");
+    classPage.append(new ClassSummary(classElement, environment.getTypeUtils(), treeUtils).generate()).append("\n");
 
-    String constructorsInfo = new ClassConstructorsInfo(classElement, treeUtils, options).generate();
-    if (!constructorsInfo.isEmpty()) classPage.append(constructorsInfo);
+    if (generateConstructors) {
+      String constructorsInfo = new ClassConstructorsInfo(classElement, treeUtils, options).generate();
+      if (!constructorsInfo.isEmpty()) classPage.append(constructorsInfo);
+    }
 
     String fieldsInfo = new ClassFieldsInfo(classElement, treeUtils).generate();
     if (!fieldsInfo.isEmpty()) classPage.append(fieldsInfo);

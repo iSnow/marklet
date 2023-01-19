@@ -25,21 +25,6 @@ io.github.atlascommunity.marklet.page_elements.ClassMethodsInfo Summary
 |             | [findElements()](#findelements)                                                                   | Set<javax.lang.model.element.ExecutableElement> |
 |             | [signatureString(ExecutableElement method)](#signaturestringexecutableelement-method)             | String                                          |
 
-Constructors
-============
-ClassMethodsInfo(javax.lang.model.element.TypeElement,com.sun.source.util.DocTrees,javax.lang.model.util.Types,io.github.atlascommunity.marklet.Options)
---------------------------------------------------------------------------------------------------------------------------------------------------------
-*No method description provided*
-
-### Parameters
-
-| Name         | Description               |
-| ------------ | ------------------------- |
-| classElement | *No description provided* |
-| treeUtils    | *No description provided* |
-| typeUtils    | *No description provided* |
-| options      | *No description provided* |
-
 Fields
 ======
 javax.lang.model.element.TypeElement classElement

@@ -79,10 +79,12 @@ public final class Labels {
   public static final String MODIFIERS_COLUMN = "Modifiers";
 
   /** Table column name */
-  public static final String TYPE_AND_MODIFIERS_COLUMN = "Type and modifiers";
-
-  /** Table column name */
   public static final String TYPE_COLUMN = "Type";
 
+  public static final String ENUM_CONSTANTS = "Enum Constants";
+
+  public static final String ENUM_CONSTANT = "Enum Constant";
+
+  public static final String DESCRIPTION = "Description";
 
 }

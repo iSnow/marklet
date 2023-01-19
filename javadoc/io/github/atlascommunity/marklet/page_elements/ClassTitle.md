@@ -17,13 +17,6 @@ io.github.atlascommunity.marklet.page_elements.ClassTitle Summary
 | ---------- | ----------------------- | ----------- |
 | **public** | [generate()](#generate) | String      |
 
-Constructors
-============
-ClassTitle()
-------------
-*No method description provided*
-
-
 Fields
 ======
 javax.lang.model.element.TypeElement classElement

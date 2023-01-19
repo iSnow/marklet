@@ -24,13 +24,6 @@ io.github.atlascommunity.marklet.pages.ClassPage Summary
 | **public** | [build()](#build) | String      |
 | **public** | [write()](#write) | void        |
 
-Constructors
-============
-ClassPage()
------------
-*No method description provided*
-
-
 Fields
 ======
 javax.lang.model.element.TypeElement classElement

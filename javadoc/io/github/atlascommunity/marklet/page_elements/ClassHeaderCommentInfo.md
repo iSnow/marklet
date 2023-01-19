@@ -19,13 +19,6 @@ io.github.atlascommunity.marklet.page_elements.ClassHeaderCommentInfo Summary
 | ---------- | ----------------------- | ----------- |
 | **public** | [generate()](#generate) | String      |
 
-Constructors
-============
-ClassHeaderCommentInfo()
-------------------------
-*No method description provided*
-
-
 Fields
 ======
 com.sun.source.doctree.DocCommentTree comments

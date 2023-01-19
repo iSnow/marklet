@@ -13,13 +13,6 @@ io.github.atlascommunity.marklet.constants.Links Summary
 | ----------------------- | ------------------------------ | ------ |
 | **public static final** | [BADGE](#javalangstring-badge) | String |
 
-Constructors
-============
-Links()
--------
-*No method description provided*
-
-
 Fields
 ======
 String BADGE

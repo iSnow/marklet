@@ -74,13 +74,6 @@ public class PackagePage extends DocumentPage {
         }
       };
     }
-    /*Arrays.stream(packageElement.inlineTags())
-        .forEach(
-            tag -> {
-              String formattedTag = new MarkdownTag(tag, options.getFileEnding()).create();
-              packagePage.append(formattedTag);
-              packagePage.append("\n").append(new HorizontalRule()).append("\n");
-            });*/
     createPackageIndexes(packagePage);
     return packagePage.toString();
   }

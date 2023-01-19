@@ -22,7 +22,7 @@ io.github.atlascommunity.marklet.Marklet Summary
 | **private**       | [generatePackagePage(PackageElement packageElement)](#generatepackagepagepackageelement-packageelement)                                                                                                                                                | void                                            |
 | **private**       | [buildPackages()](#buildpackages)                                                                                                                                                                                                                      | List<javax.lang.model.element.PackageElement>   |
 | **private**       | [buildModules()](#buildmodules)                                                                                                                                                                                                                        | List<javax.lang.model.element.ModuleElement>    |
-| **private**       | [buildClasses()](#buildclasses)                                                                                                                                                                                                                        | void                                            |
+| **private**       | [collectPackageElements(PackageElement packageElement)](#collectpackageelementspackageelement-packageelement)                                                                                                                                          | void                                            |
 | **public**        | [getName()](#getname)                                                                                                                                                                                                                                  | String                                          |
 | **public**        | [getSupportedOptions()](#getsupportedoptions)                                                                                                                                                                                                          | Set<? extends jdk.javadoc.doclet.Doclet.Option> |
 | **public**        | [getSupportedSourceVersion()](#getsupportedsourceversion)                                                                                                                                                                                              | javax.lang.model.SourceVersion                  |
@@ -31,13 +31,6 @@ io.github.atlascommunity.marklet.Marklet Summary
 | **private**       | [doWork()](#dowork)                                                                                                                                                                                                                                    | boolean                                         |
 | **private**       | [getPackageDirectory(String packageName)](#getpackagedirectorystring-packagename)                                                                                                                                                                      | java.nio.file.Path                              |
 | **public static** | [main(String[] args)](#mainstring-args)                                                                                                                                                                                                                | void                                            |
-
-Constructors
-============
-Marklet()
----------
-*No method description provided*
-
 
 Fields
 ======
@@ -115,13 +108,19 @@ IOException: If any error occurs during generation process.
 list of modules
 
 
-buildClasses()
---------------
-Generates documentation file for classes, enumerations, interfaces, or annotations.
+collectPackageElements(PackageElement packageElement)
+-----------------------------------------------------
+Generates documentation file for classes, records, enumerations, interfaces, or annotations.
 
 ### Throws
 
 IOException: If any error occurs during generation process.
+
+### Parameters
+
+| Name           | Description                     |
+| -------------- | ------------------------------- |
+| packageElement | the package to scan for classes |
 
 
 getName()

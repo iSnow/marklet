@@ -22,7 +22,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>14</java.version>
+        <java.version>16</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <!--Dependencies versions -->
@@ -221,15 +221,6 @@
     </profiles>
 -->
     <dependencies>
-<!--
-        <dependency>
-            <groupId>io.github.atlascommunity</groupId>
-            <artifactId>marklet</artifactId>
-            <version>2.0.0</version>
-            <systemPath>C:/Users/JanderJ1/workspace/markletIsnow/target/marklet-2.0.0.jar</systemPath>
-            <scope>system</scope>
-        </dependency>
--->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

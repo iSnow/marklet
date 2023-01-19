@@ -13,13 +13,6 @@ io.github.atlascommunity.marklet.pages.DocumentPage Summary
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 |           | [write(String document, String fileName, Path resolvedOutputDir, Options options)](#writestring-document-string-filename-path-resolvedoutputdir-options-options) | void        |
 
-Constructors
-============
-DocumentPage()
---------------
-*No method description provided*
-
-
 Methods
 =======
 write(String document, String fileName, Path resolvedOutputDir, Options options)

@@ -17,13 +17,6 @@ io.github.atlascommunity.marklet.page_elements.MethodLink Summary
 | ---------- | ----------------------- | ----------- |
 | **public** | [generate()](#generate) | String      |
 
-Constructors
-============
-MethodLink()
-------------
-*No method description provided*
-
-
 Fields
 ======
 io.github.atlascommunity.marklet.util.MethodSignature signature

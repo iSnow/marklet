@@ -118,19 +118,25 @@ public final class Marklet implements Doclet {
     return modules;
   }
 
+
   /**
-   * Generates documentation file for classes, enumerations, interfaces, or annotations.
+   * Generates documentation file for classes, records, enumerations, interfaces, or annotations.
+   *
+   * @param packageElement the package to scan for classes
    *
    * @throws IOException If any error occurs during generation process.
    */
-  private void buildClasses() throws IOException {
-    Set<TypeElement> packageClasses = MarkletTypeUtils.findPackageClasses(root);
+  private void collectPackageElements(PackageElement packageElement) throws IOException {
+    Set<TypeElement> childElements = MarkletTypeUtils.findPackageClasses(packageElement);
+    childElements.addAll(MarkletTypeUtils.findPackageEnums(packageElement));
+    childElements.addAll(MarkletTypeUtils.findPackageInterfaces(packageElement));
+    childElements.addAll(MarkletTypeUtils.findPackageAnnotations(packageElement));
+    childElements.addAll(MarkletTypeUtils.findPackageRecords(packageElement));
 
     DocTrees treeUtils = root.getDocTrees();
-    for (final TypeElement classElem : packageClasses) {
-      PackageElement enclosingElement = (PackageElement)classElem.getEnclosingElement();
+    for (final TypeElement classElem : childElements) {
       reporter.print(Diagnostic.Kind.NOTE, "Generate documentation for " + classElem.getQualifiedName());
-      String packageName = enclosingElement.getQualifiedName().toString();
+      String packageName = packageElement.getQualifiedName().toString();
       DocCommentTree comments = treeUtils.getDocCommentTree(classElem);
       new ClassPage(classElem, treeUtils, comments, root, options, packageName, reporter).write();
     }
@@ -223,8 +229,8 @@ public final class Marklet implements Doclet {
       generateReadmePage(modules, packages);
       for (PackageElement p : packages) {
         generatePackagePage(p);
+        collectPackageElements(p);
       }
-      buildClasses();
     } catch (final IOException e) {
       reporter.print(Diagnostic.Kind.ERROR, e.getMessage());
       return false;

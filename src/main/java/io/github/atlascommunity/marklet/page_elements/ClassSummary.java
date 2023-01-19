@@ -1,5 +1,7 @@
 package io.github.atlascommunity.marklet.page_elements;
 
+import com.sun.source.doctree.DocCommentTree;
+import com.sun.source.util.DocTrees;
 import io.github.atlascommunity.marklet.util.FieldSignature;
 import io.github.atlascommunity.marklet.util.MarkletTypeUtils;
 import io.github.atlascommunity.marklet.util.OverriddenMethodSignature;
@@ -12,6 +14,7 @@ import net.steppschuh.markdowngenerator.text.heading.Heading;
 import javax.lang.model.element.*;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Types;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -27,6 +30,8 @@ public class ClassSummary implements ClassPageElement {
 
   private final Types typeUtils;
 
+  private  final DocTrees treeUtils;
+
 
   /** @return markdown string representation of document part */
   @Override
@@ -34,10 +39,52 @@ public class ClassSummary implements ClassPageElement {
 
     StringBuilder summary = new StringBuilder().append(new Heading(SUMMARY, 2)).append("\n");
 
-    summary.append(generateConstructorSummary(classElement));
-    summary.append(generateFieldSummary(classElement));
+    boolean generateConstructors = (!classElement.getKind().equals(ElementKind.ENUM))
+            && (!classElement.getKind().equals(ElementKind.RECORD));
+    if (generateConstructors) {
+      summary.append(generateConstructorSummary(classElement));
+    }
+    if (classElement.getKind().equals(ElementKind.ENUM)) {
+      summary.append(generateEnumConstantSummary(classElement));
+    } else {
+      summary.append(generateFieldSummary(classElement));
+    }
     summary.append(generateMethodSummary(classElement, typeUtils));
 
+    return summary.toString();
+  }
+
+  /**
+   * @param classElement the Enum
+   * @return markdown string representation of the constants of an Enum */
+  private String generateEnumConstantSummary(TypeElement classElement) {
+    StringBuilder summary = new StringBuilder();
+    List<VariableElement> enumConstants = MarkletTypeUtils.findEnumConstants(classElement);
+
+    if (!enumConstants.isEmpty()) {
+      Heading tableHeading = new Heading(ENUM_CONSTANTS, 4);
+      StringBuilder enumConstantsTable = new StringBuilder().append(tableHeading).append("\n");
+      Table.Builder tableEntries =
+              new Table.Builder()
+                      .withAlignments(Table.ALIGN_LEFT)
+                      .withRowLimit(enumConstants.size() + 1)
+                      .addRow(ENUM_CONSTANT, DESCRIPTION);
+      enumConstants.forEach(
+              c -> {
+                StringBuilder fieldDescription = new StringBuilder();
+                DocCommentTree comments = treeUtils.getDocCommentTree(c);
+                if (null == comments) {
+                  fieldDescription.append("*No description provided*");
+                } else {
+                  fieldDescription.append(comments.getFullBody().stream().map(Object::toString).collect(Collectors.joining()));
+                }
+                tableEntries.addRow(
+                        c.getSimpleName(),
+                        fieldDescription.toString());
+              });
+      enumConstantsTable.append(tableEntries.build());
+      summary.append(enumConstantsTable).append("\n");
+    }
     return summary.toString();
   }
 

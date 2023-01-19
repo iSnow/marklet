@@ -35,6 +35,9 @@ public class Sanitizers {
         if (superclass.toString().equals("java.lang.Object")) {
             return "";
         }
+        if (superclass.toString().equals("java.lang.Record")) {
+            return "";
+        }
         return superclass.toString();
     }
 
