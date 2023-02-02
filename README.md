@@ -1,11 +1,11 @@
 # Marklet
 
-Marklet is a Doclet that plugs into `javadoc`. The purpose of Marklet is to generate Javadoc in Markdown format. 
-This version requires Java 14 or higher, but can document all lower source code versions.
+Marklet is a Doclet that plugs into `javadoc`. The purpose of Marklet is to generate Javadoc in Markdown format instead of
+the usual HtML that `javadoc` creates. 
+This version requires Java 14 or higher to run, but can document all lower source code versions.
 
 Currently working on the migration from `com.sun.javadoc` to the newer `jdk.javadoc.doclet` 
-API because the  `com.sun.javadoc` classes are no longer supported on Java 12 and up. Still work in progress, so 
-you can't just use it in your projects.
+API because the  `com.sun.javadoc` classes are no longer supported on Java 12 and up. Still work in progress.
 
 **Examples** :
 
@@ -14,7 +14,8 @@ you can't just use it in your projects.
 ## How to use
 
 You can run Marklet on the command line to generate one-shot documentation or add it to your `pom.xml` 
-so Markdown docs are created on Maven build.
+so Markdown docs are created on Maven build. You probably can use it from Gradle, but since I am a Maven guy, I 
+don't know the syntax.
 
 The most important caveat is that you have to specify the Java packages (option `-subpackage`) you want to document
 and their location in the file system (option `-sourcepath`) correctly, otherwise no output will be generated
@@ -38,8 +39,8 @@ Windows:
 javadoc -docletpath .\target\marklet-2.0.0.jar  -doclet io.github.atlascommunity.marklet.Marklet -cp .\target\marklet-2.0.0.jar -sourcepath .\src\main\java -subpackages io.github.atlascommunity.marklet
 ```
 
-On both platforms, be sure to set `subpackages` to
-your project packages qualified name and `sourcepath` pointing to your sources.
+On both platforms, be sure to set `subpackages` toyour project packages qualified name and 
+`sourcepath` pointing to your sources.
 
 ### Maven use
 In order to use it with Maven, add the following configuration for the ``maven-javadoc-plugin``
