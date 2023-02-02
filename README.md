@@ -1,11 +1,11 @@
 # Marklet
 
 Marklet is a Doclet that plugs into `javadoc`. The purpose of Marklet is to generate Javadoc in Markdown format instead of
-the usual HtML that `javadoc` creates. 
+the usual HTML that `javadoc` creates. 
 This version requires Java 14 or higher to run, but can document all lower source code versions.
 
 Currently working on the migration from `com.sun.javadoc` to the newer `jdk.javadoc.doclet` 
-API because the  `com.sun.javadoc` classes are no longer supported on Java 12 and up. Still work in progress.
+API because the older classes are no longer supported on Java 12 and up. Still work in progress.
 
 **Examples** :
 
@@ -17,7 +17,7 @@ You can run Marklet on the command line to generate one-shot documentation or ad
 so Markdown docs are created on Maven build. You probably can use it from Gradle, but since I am a Maven guy, I 
 don't know the syntax.
 
-The most important caveat is that you have to specify the Java packages (option `-subpackage`) you want to document
+The most important caveat is that you **have to** specify the Java packages (option `-subpackage`) you want to document
 and their location in the file system (option `-sourcepath`) correctly, otherwise no output will be generated
 (specifying `-sourcepath` alone is not sufficient).
 
@@ -97,7 +97,8 @@ set `activeByDefault` to `true`:
 Running from Maven, you may omit the `sourcepath` option, but be sure to set `subpackages` to
 your project packages qualified name. You may usually omit `reportOutputDirectory`, but not `destDir`.
 
-If you set `show` to `public`, no internals will be documented, and your api-docs will be the public API.
+If you set `show` to `public`, no internals (protected/private objects) will be documented, and 
+your api-docs will be the public API.
 
 `useStandardDocletOptions` interferes with the working of Marklet, it must be set to `false`.
 
@@ -123,9 +124,11 @@ file to deactivate doclint :
 
 ## Available doclet options
 
-| Option | What it does                           | By default |
-|--------|----------------------------------------|------------|
-| -e     | set files extension                    | .md        |
+| Option | LongOpt  | What it does                             | By default |
+|--------|-----------------------------------------------------|------------|
+| -e     |          | set files extension                      | .md        |
+| -i     |          | location of the source directory         |            |
+| -d     | -destDir | location of the target output directory  |            |
 
 ## Developing Marklet
 
