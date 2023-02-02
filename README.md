@@ -128,7 +128,7 @@ file to deactivate doclint :
 |--------|----------|------------------------------------------|------------|
 | -e     |          | set files extension                      | .md        |
 | -i     |          | location of the source directory         |            |
-| -d     | -destDir | location of the target output directory  |            |
+| -d     | -destDir | location of the target output directory  | .javadoc/  |
 
 ## Developing Marklet
 
