@@ -125,8 +125,10 @@ file to deactivate doclint :
 ## Available doclet options
 
 | Option | LongOpt  | What it does                             | By default |
-|--------|-----------------------------------------------------|------------|
+|--------|----------|------------------------------------------|------------|
 | -e     |          | set files extension                      | .md        |
+| -i     |          | location of the source directory         |            |
+| -d     | -destDir | location of the target output directory  |            |
 
 ## Developing Marklet
 
