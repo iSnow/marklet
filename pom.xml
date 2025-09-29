@@ -40,7 +40,7 @@
         <markdowngenerator.version>1.3.1.1</markdowngenerator.version>
         <junit.version>5.9.2</junit.version>
         <mockito.version>5.3.1</mockito.version>
-        <dependency-check-maven.version>8.0.1</dependency-check-maven.version>
+        <dependency-check-maven.version>12.1.6</dependency-check-maven.version>
     </properties>
 
     <developers>
